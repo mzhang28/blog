@@ -45,8 +45,10 @@ code {
     padding: 10px;
 }
 
-code {
-    color: #e83e8c;
+pre:not(.highlight) {
+    code {
+        color: #e83e8c;
+    }
 }
 
 pre {
