@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<h1 style="text-align: center;">michael's blog</h1>
+
+<table style="width: 100%;">
+    {% for post in site.posts %}
+        <tr>
+            <td>
+                <h3 style="margin-bottom: 0;">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h3>
+            </td>
+            <td style="text-align: right;">
+                <small>
+                    <strong>{{ post.date | date: "%B %e, %Y" }}</strong>
+                </small>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
