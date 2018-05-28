@@ -2,4 +2,5 @@ markdown: kramdown
 
 kramdown:
   input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]
   syntax_highlighter: rouge
