@@ -22,8 +22,12 @@ small {
     font-weight: 200;
 }
 
+.content a {
+    @include colored-link(1px, $brand);
+}
+
 .colorlink:not(.nocolorlink) {
-    @include colored-link(1px, black);
+    @include colored-link(1px, #000);
 }
 
 h1,
