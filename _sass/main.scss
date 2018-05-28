@@ -1,7 +1,9 @@
+@import "colors.scss";
 @import "fonts.scss";
 @import "simple-grid.scss";
 @import "syntax.scss";
 body {
+    border-top: 10px solid $brand;
     background-color: #f0f0f0;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
@@ -25,7 +27,7 @@ h6 {
 }
 
 *::selection {
-    background-color: #444444;
+    background-color: $brand;
     color: #f0f0f0;
 }
 
