@@ -5,7 +5,7 @@
 @import "simple-grid.scss";
 @import "syntax.scss";
 body {
-    background-color: #f0f0f0;
+    background-color: #f8f8f8;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
 }
@@ -59,11 +59,13 @@ pre {
 }
 
 header {
-    padding-bottom: 25px;
+    padding-bottom: 32px;
     padding-top: 30px;
     border-top: 10px solid $brand;
     list-style-type: none;
     font-size: 1.3em;
+    background: #e8e8e8;
+    background: linear-gradient(#e8e8e8 0%, #f8f8f8 100%);
     @include media-breakpoint-down(sm) {
         padding-bottom: 0;
     }
