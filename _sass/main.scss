@@ -22,6 +22,10 @@ small {
     font-weight: 200;
 }
 
+.colorlink:not(.nocolorlink) {
+    @include colored-link(1px, black);
+}
+
 h1,
 h2,
 h3,
