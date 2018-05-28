@@ -33,7 +33,9 @@ h6 {
 
 pre,
 code {
-    font-family: "RobotoMono", monospace;
-    font-weight: 300;
+    * {
+        font-family: "RobotoMono", monospace;
+        font-weight: 300;
+    }
     padding: 10px;
 }
