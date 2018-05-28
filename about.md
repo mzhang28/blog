@@ -19,5 +19,5 @@ Here's some of the languages I like, in approximate order of my skill/confidence
 If you want my resume, contact me through one of these means:
 
 ## Contact
-Discord: **michael#8440** (this is usually the best place to find me)
-Email: (I sign all my Git commits with this email)
+- Discord: **michael#8440** (this is usually the best place to find me)
+- Email: (I sign all my Git commits with this email)
