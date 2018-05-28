@@ -1,9 +1,10 @@
+@import "breakpoints.scss";
 @import "colors.scss";
 @import "fonts.scss";
+@import "mixins.scss";
 @import "simple-grid.scss";
 @import "syntax.scss";
 body {
-    border-top: 10px solid $brand;
     background-color: #f0f0f0;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
@@ -40,7 +41,54 @@ code {
     padding: 10px;
 }
 
+code {
+    color: #e83e8c;
+}
+
+pre {
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
 #navbar .link {
-    font-size: 1.4em;
     margin-right: 20px;
+}
+
+header {
+    padding-bottom: 25px;
+    padding-top: 30px;
+    border-top: 10px solid $brand;
+    list-style-type: none;
+    font-size: 1.3em;
+    @include media-breakpoint-down(sm) {
+        padding-bottom: 0;
+    }
+    a.title {
+        @include media-breakpoint-down(sm) {
+            display: block;
+            text-align: center;
+            margin-right: 0;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        margin-right: 30px;
+        color: $brand;
+        font-size: 1.2em;
+        font-weight: 300;
+    }
+    div#nav {
+        display: inline;
+    }
+    @include media-breakpoint-down(sm) {
+        div#nav {
+            text-align: center;
+            display: block;
+            margin: auto;
+        }
+    }
+    a.link {
+        @include colored-link(1px, black);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
