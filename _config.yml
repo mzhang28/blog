@@ -4,3 +4,10 @@ kramdown:
   input: GFM
   smart_quotes: ["apos", "apos", "quot", "quot"]
   syntax_highlighter: rouge
+
+jekyll-minifier:
+  exclude: "feed.xml"
+
+plugins:
+  - jekyll-feed
+  - jekyll-minifier

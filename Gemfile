@@ -2,6 +2,8 @@
 
 source "https://rubygems.org" do
 	gem "kramdown"
+	gem "jekyll-feed"
+	gem "jekyll-minifier"
 	gem "jekyll-watch"
 	gem "mathematical"
 	gem "rouge"
