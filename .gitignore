@@ -1,6 +1,1 @@
-_site
-.sass-cache
-Gemfile.lock
-
-/_posts/*
-!/_posts/.gitkeep
+public

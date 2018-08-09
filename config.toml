@@ -1,0 +1,12 @@
+title = "michael zhang"
+base_url = "https://mzhang.me"
+
+compile_sass = true
+highlight_code = true
+generate_rss = true
+
+[extra]
+nav_links = [
+    { url = "/pages/about", text = "about" },
+    { url = "https://nobs.mzhang.me", text = "projects" },
+]

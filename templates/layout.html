@@ -1,0 +1,26 @@
+{% import "macros/layout.html" as layout %}
+
+<html>
+
+<head>
+	<title>michael's blog</title>
+	<link rel="stylesheet" href="/main.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<header>
+		{{ layout::navbar(config=config) }}
+	</header>
+
+	<div class="container" style="padding: 5px 30px;">
+		{% block content %}{% endblock %}
+	</div>
+
+	<div style="text-align: center; font-weight: 200; margin-bottom: 40px;">
+	    written by Michael Zhang.
+	    <a href="https://git.mzhang.me/michael/blog" class="colorlink" target="_blank">source</a>
+	</div>
+</body>
+
+</html>

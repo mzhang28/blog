@@ -4,6 +4,7 @@
 @import "mixins.scss";
 @import "simple-grid.scss";
 @import "syntax.scss";
+
 body {
     background-color: #f8f8f8;
     font-family: "Roboto", sans-serif;
@@ -15,6 +16,7 @@ body {
 }
 
 a {
+    color: $brand;
     text-decoration: none;
 }
 
@@ -23,6 +25,10 @@ small {
 }
 
 .content a {
+    @include colored-link(1px, $brand);
+}
+
+.brand-colorlink:not(.nocolorlink) {
     @include colored-link(1px, $brand);
 }
 
@@ -46,11 +52,18 @@ h6 {
 
 pre,
 code {
+    font-weight: 400;
     * {
         font-family: "RobotoMono", monospace;
-        font-weight: 300;
     }
-    padding: 10px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+code {
+    background-color: #f9f2f4;
+    color: #c7254e;
 }
 
 pre:not(.highlight) {
