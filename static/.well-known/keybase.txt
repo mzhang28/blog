@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/michaelz
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://mzhang.me
+  * I am michaelz (https://keybase.io/michaelz) on keybase.
+  * I have a public key ASCEhMaJMl3DkJKGSXc8q1Nr5FIMVapUMwtEbQkCH7vIQAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01208484c689325dc390928649773cab536be4520c55aa54330b446d09021fbbc8400a",
+      "host": "keybase.io",
+      "kid": "01208484c689325dc390928649773cab536be4520c55aa54330b446d09021fbbc8400a",
+      "uid": "601f28af1374f456f494088799b48f19",
+      "username": "michaelz"
+    },
+    "merkle_root": {
+      "ctime": 1534063641,
+      "hash": "3d90ca7aa9d1224c4001d3d74c6eece550b1d573997ad1195747524aed8ca8c78e906659279835411ff6318f32e5cc3473bcb17d59e805bc4c09c894a85b2133",
+      "hash_meta": "4b048995ed39d76081818e6a3e1e5ecbf2a0f162dd919ce85c9fbbd8950f623c",
+      "seqno": 3444517
+    },
+    "service": {
+      "entropy": "BOxM8Iu2jNXojZrry8ZRRLQD",
+      "hostname": "mzhang.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.6.0"
+  },
+  "ctime": 1534063667,
+  "expire_in": 504576000,
+  "prev": "df6a6156d48e0f9046ef4affcc78b05f4c82da914d659e02341b8e8d3c217989",
+  "seqno": 7,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEghITGiTJdw5CShkl3PKtTa+RSDFWqVDMLRG0JAh+7yEAKp3BheWxvYWTESpcCB8Qg32phVtSOD5BG70r/zHiwX0yC2pFNZZ4CNBuOjTwheYnEIAOx/LG+C3XhAyJjoChBG6x3Az4Vvzi1M7EpYutmnJGRAgHCo3NpZ8RAKgWmEL7VKAfgctrw08z1aKv5GSK8mLetN4P5QOiLwcWPE0NE1Hos/pWu+xwNVwIKl2s/KRnh+juroUz0cMsEBKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJ/cZqfnA/IYJK7f2DgwLiQwXt88D1c/bhjdD5Lzt9HHo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/michaelz
+
+==================================================================
