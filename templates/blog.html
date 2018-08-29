@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 {% import "macros/blog.html" as blog %}
 
+{% block title %}
+    {% if section.title %}{{ section.title }} - {% endif %}
+    {{ config.title }}
+{% endblock %}
+
 {% block content %}
     {{ blog::postlisting(posts=section.pages) }}
 {% endblock %}

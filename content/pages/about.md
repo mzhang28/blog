@@ -14,7 +14,7 @@ Here's some of the languages I like, in approximate order of my skill/confidence
 - **Python** One of my favorite languages by far. Aside from its weakness in performance, I love how the language looks. I do have several bones to pick, especially towards its dependency ecosystem.
 - **JavaScript** Although I'm trying to step away from JavaScript, I find myself using it from time to time simply out of ease of use and plethora of libraries.
 - **C** Largely prefer this over C++ because of much finer control over what's happening.
-- **OCaml** Learned this from a functional programming class, and I still use it from time to time; I kinda see it as the "Python" of function languages.
+- **OCaml** Learned this from a functional programming class, and I still use it from time to time; I kinda see it as the "Python" of functional languages.
 - **C++** Good for when I did competitive programming because of its very comprehensive standard library.
 
 If you want my resume, contact me through one of these means:
