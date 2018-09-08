@@ -7,6 +7,12 @@ Hi there! I'm a Computer Science student at the University of Minnesota, and I'v
 
 In an effort to rely on less services, I started doing a lot of self-hosting and rewriting of software. Check out some of the projects I'm doing over on my public [Git viewer](https://nobs.mzhang.me)!
 
+### Setup
+
+My setup can be found [here](/pages/setup).
+
+### Languages
+
 Here's some of the languages I like, in approximate order of my skill/confidence in using them:
 
 - **Rust** I can't say I'm fluent in Rust, but writing code in Rust just feels right. Most of my recent projects have been done in Rust.
@@ -22,4 +28,4 @@ If you want my resume, contact me through one of these means:
 ## Contact
 - Discord: **michael#8440** (this is usually the best place to find me)
 - Email: (I sign all my Git commits with this email)
-- PGP Key: (coming soon)
+- PGP Key: [hosted on Keybase](https://keybase.io/michaelz/pgp_keys.asc?fingerprint=47b9c811f54651002bc2c104a1b65b603268116b)

@@ -8,26 +8,28 @@ template = "post.html"
 I'm using Arch Linux on my personal machine. Here's a neofetch:
 
 ```
-# michael @ arch in ~ [17:34:32] 
+# michael @ arch in ~ [16:42:51]
 $ neofetch
-                   -`                    michael@arch 
-                  .o+`                   ------------ 
-                 `ooo/                   OS: Arch Linux x86_64 
-                `+oooo:                  Host: K501UX 1.0 
-               `+oooooo:                 Kernel: 4.17.3-1-ARCH 
-               -+oooooo+:                Uptime: 36 mins 
-             `/:-:++oooo+:               Packages: 1063 (pacman) 
-            `/++++/+++++++:              Shell: zsh 5.5.1 
-           `/++++++++++++++:             Resolution: 1920x1080 
-          `/+++ooooooooooooo/`           WM: i3 
-         ./ooosssso++osssssso+`          Theme: Adwaita [GTK2/3] 
-        .oossssso-````/ossssss+`         Icons: Adwaita [GTK2/3] 
-       -osssssso.      :ssssssso.        Terminal: urxvt 
-      :osssssss/        osssso+++.       CPU: Intel i7-6500U (4) @ 3.100GHz 
-     /ossssssss/        +ssssooo/-       GPU: NVIDIA GeForce GTX 950M 
-   `/ossssso+/:-        -:/+osssso+-     GPU: Intel Skylake GT2 [HD Graphics 520
-  `+sso+:-`                 `.-/+oso:    Memory: 3151MiB / 7871MiB 
- `++:.                           `-/+/
+                   -`                    michael@arch
+                  .o+`                   ------------
+                 `ooo/                   OS: Arch Linux x86_64
+                `+oooo:                  Host: K501UX 1.0
+               `+oooooo:                 Kernel: 4.18.5-arch1-1-ARCH
+               -+oooooo+:                Uptime: 1 hour, 47 mins
+             `/:-:++oooo+:               Packages: 1143 (pacman)
+            `/++++/+++++++:              Shell: zsh 5.5.1
+           `/++++++++++++++:             Resolution: 1920x1080
+          `/+++ooooooooooooo/`           WM: i3
+         ./ooosssso++osssssso+`          Theme: Adwaita [GTK2/3]
+        .oossssso-````/ossssss+`         Icons: Adwaita [GTK2/3]
+       -osssssso.      :ssssssso.        Terminal: alacritty
+      :osssssss/        osssso+++.       Terminal Font: Roboto Mono for Powerline
+     /ossssssss/        +ssssooo/-       CPU: Intel i7-6500U (4) @ 3.100GHz
+   `/ossssso+/:-        -:/+osssso+-     GPU: NVIDIA GeForce GTX 950M
+  `+sso+:-`                 `.-/+oso:    GPU: Intel Skylake GT2 [HD Graphics 520]
+ `++:.                           `-/+/   Memory: 6708MiB / 7871MiB
+ .`                                 `/
+
 ```
 
 For my desktop environment, I've got [i3](https://i3wm.org/), a tiling window manager. I like it because it's lightweight and doesn't use much battery. My config can be found [here](https://git.mzhang.me/michael/dotfiles/src/branch/master/.config/i3/config). I tried i3gaps at one point but didn't feel like trying to fix the rendering artifacts so I switched back.
