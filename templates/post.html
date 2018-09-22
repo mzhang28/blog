@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% import "macros/post.html" as post %}
 
 {% block title %}
     {% if page.title %}{{ page.title }} - {% endif %}
@@ -14,6 +15,13 @@
         on {{ page.date }}
     </small>
     {% endif %}
+
+    {% if page.toc.children | length %}
+        <div class="toc">
+            {{ post::render_toc(toc=page.toc) }}
+        </div>
+    {% endif %}
+
     {{ page.content | safe }}
 	{% if page.extra.link %}
 		<p>Visit <a href="{{ page.extra.link }}">here</a> for more info.</p>
