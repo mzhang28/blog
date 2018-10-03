@@ -8,5 +8,5 @@ generate_rss = true
 [extra]
 nav_links = [
     { url = "/pages/about", text = "about" },
-    { url = "https://git.mzhang.me/explore/repos", text = "projects" },
+    { url = "https://git.mzhang.me/", text = "projects" },
 ]
