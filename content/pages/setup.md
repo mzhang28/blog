@@ -32,7 +32,7 @@ $ neofetch
 
 ```
 
-For my desktop environment, I've got [i3](https://i3wm.org/), a tiling window manager. I like it because it's lightweight and doesn't use much battery. My config can be found [here](https://git.mzhang.me/michael/dotfiles/src/branch/master/.config/i3/config). I tried i3gaps at one point but didn't feel like trying to fix the rendering artifacts so I switched back.
+For my desktop environment, I've got [i3](https://i3wm.org/), a tiling window manager. I like it because it's lightweight and doesn't use much battery. My config can be found [here](https://git.mzhang.me/dotfiles.git/tree/.config/i3/config). I tried i3gaps at one point but didn't feel like trying to fix the rendering artifacts so I switched back.
 
 ### Coding
 
@@ -40,7 +40,7 @@ I use the trial version of [Sublime Text 3](http://www.sublimetext.com/) on my p
 
 ### Passwords
 
-For passwords, I'm using [pass](https://www.passwordstore.org/), which is a GPG-encrypted password store. The passwords are checked into a git repository in order to maintain consistency between multiple devices (I'm using [Android Password Store](https://github.com/zeapo/Android-Password-Store) on my phone). Then, I bind `$mod+p` to a [rofi script](https://git.mzhang.me/michael/dotfiles/src/branch/master/.local/scripts/passmenu) so I can access them easily.
+For passwords, I'm using [pass](https://www.passwordstore.org/), which is a GPG-encrypted password store. The passwords are checked into a git repository in order to maintain consistency between multiple devices (I'm using [Android Password Store](https://github.com/zeapo/Android-Password-Store) on my phone). Then, I bind `$mod+p` to a [rofi script](https://git.mzhang.me/dotfiles.git/tree/.local/scripts/passmenu) so I can access them easily.
 
 ### Music
 
@@ -52,15 +52,15 @@ I'm using [Rambox](https://rambox.pro), which is essentially just an Electron ap
 
 ### Screenshot
 
-I'm using a [custom screenshot tool](https://git.mzhang.me/michael/screenshot).
+I'm using a [custom screenshot tool](https://git.mzhang.me/leanshot).
 
 ## This Website
 
 The stack for this website looks like:
 
-- The [source code](https://git.mzhang.me/michael/blog) is written as a set of Gutenberg config files.
+- The [source code](https://git.mzhang.me/blog.git) is written as a set of Gutenberg config files.
 - This is then transpiled into static HTML + resources using [Gutenberg](https://www.getgutenberg.io/), a static site generator.
 - Static files are served from a web root using [nginx](https://nginx.org/en/) through a virtual host.
 - And here it is!
 
-For deployment, I'm using [dip](https://nobs.mzhang.me/dip), a customizable webhook server that I wrote that rebuilds the source code on push.
+For deployment, I'm using [dip](https://git.mzhang.me/dip), a customizable webhook server that I wrote that rebuilds the source code on push.
