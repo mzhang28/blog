@@ -17,14 +17,12 @@
     </small>
     {% endif %}
 
-    {% if page.toc.children | length %}
+    {% if page.extra.toc and page.toc | length %}
         <div class="toc">
+            table of contents
             {{ post::render_toc(toc=page.toc) }}
         </div>
     {% endif %}
 
     {{ page.content | safe }}
-	{% if page.extra.link %}
-		<p>Visit <a href="{{ page.extra.link }}">here</a> for more info.</p>
-	{% endif %}
 {% endblock %}

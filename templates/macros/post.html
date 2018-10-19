@@ -4,7 +4,7 @@
             <li>
                 <a href="{{ item.permalink | safe }}">{{ item.title }}</a>
                 {% if item.children %}
-                    {{ self::render_toc(toc=item.children) }}
+                    {{ post::render_toc(toc=item.children) }}
                 {% endif %}
             </li>
         {% endfor %}
