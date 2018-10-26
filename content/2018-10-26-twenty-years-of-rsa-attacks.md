@@ -1,7 +1,7 @@
 +++
 title = "twenty years of attacks on rsa.. with examples!"
 template = "post.html"
-date = 2018-10-19
+date = 2018-10-26
 
 tags = ["rsa", "cryptography"]
 
@@ -57,7 +57,7 @@ My cryptography professor gave this example as well. Suppose there was a setup i
 
 The problem here is if you have a key pair, and you got someone else's public key, you could easily derive the private key by just factoring the modulus. Let's see how this works with a real example now.
 
-Since this is a big problem if you were to really use this cryptosystem, I'll be using actual keys from an actual crypto library instead of the small numbers like in the first example. The library is called [PyCrypto][4], and if you're planning on doing anything related to crypto with Python, it's a good tool to have with you. For now, I'm going to generate a 2048-bit key (by the way, in practice you probably shouldn't be using 2048-bit keys anymore, I'm just trying to spare my computer here).
+Since this is a big problem if you were to really use this cryptosystem, I'll be using actual keys from an actual crypto library instead of the small numbers like in the first example to show that this works on 2048-bit RSA. The library is called [PyCrypto][4], and if you're planning on doing anything related to crypto with Python, it's a good tool to have with you. For now, I'm going to generate a 2048-bit key (by the way, in practice you probably shouldn't be using 2048-bit keys anymore, I'm just trying to spare my computer here).
 
 ```py
 >>> from Crypto.PublicKey import RSA
