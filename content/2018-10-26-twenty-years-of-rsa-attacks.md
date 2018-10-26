@@ -164,6 +164,7 @@ True
 
 Marvin has now successfully tricked Bob into signing his life away.
 
+This post is a work in progress.. I'll update it as I add more.
 
 [1]: https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf
 [2]: http://factordb.com/
