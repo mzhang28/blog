@@ -3,8 +3,7 @@ title = "twenty years of attacks on rsa.. with examples!"
 template = "post.html"
 date = 2018-10-19
 
-tags = ["rsa"]
-draft = true
+tags = ["rsa", "cryptography"]
 
 [extra]
 toc = true
@@ -12,7 +11,7 @@ toc = true
 
 # 1. introduction
 
-There's [this paper][1] by Dan Boneh from 1998 about the RSA cryptosystem and its weaknesses. I found this paper to be a particularly interesting read (and interestingly enough, it's been 20 years since that paper!), so here I'm going to reiterate some of the points in the paper, but using examples with numbers in them.
+There's [this great paper][1] by Dan Boneh from 1998 about the RSA cryptosystem and its weaknesses. I found this paper to be a particularly interesting read (and interestingly enough, it's been 20 years since that paper!), so here I'm going to reiterate some of the attacks described in the paper, but using examples with numbers in them. (Also please excuse the lack of proper formatting, I've yet to figure out how to get Gutenberg to accept Latex)
 
 That being said, I _am_ going to skip over the primer of how the RSA cryptosystem works, since there's already a great number of resources on how to do that.
 
@@ -68,30 +67,49 @@ Since this is a big problem if you were to really use this cryptosystem, I'll be
 Now, normally when you generate a new key, it'd generate a new modulus. For the sake of this common modulus attack, we'll force the new key to use the same modulus. This also means we'll have to choose an exponent e other than the default choice of 65537 (see [this link][5] for documentation):
 
 ```py
->>> N2 = k1.p * k1.q
+>>> N = k1.p * k1.q
+>>> e = k1.e
+>>> d = k1.d
 >>> e2 = 65539
 >>> d2 = modinv(e2, (k1.p - 1) * (k1.q - 1))
->>> k2 = RSA.construct((N2, e2, d2))
+>>> k2 = RSA.construct((N, e2, d2))
 ```
 
 Ok, now we have two keys, `k1` and `k2`. Now I'll show how using only the public and private key of `k1` (assuming this is the pair that we got legitimately from the crypto operator), and the public key of `k2`, which is tied to the same modulus, we can find the private key of `k2`.
 
-To do this, we'll use the fact that `ed = 1 mod tot(N)`. But we know the public exponent is `e = 65537`. So now we have the following pieces of information:
+To do this, we'll try to find the roots of the equation `f(x) = x^2 - (p + q)x + pq`. You'll find that for values of `p` and `q`, this will produce `f(p) = p^2 - p^2 - qp + pq`, and `f(q) = q^2 - pq - q^2 + pq`. We know that `N = pq`. How can we find `p + q`? Since `phi(N) = (p - 1)(q - 1) = pq - p - q + 1`, we can find that `phi(N) = N - (p + q) + 1`, so `p + q = N - phi(N) + 1`. Now we need to use `e` and `d` to estimate `phi(N)`. Recall that `ed = 1 mod phi(N)`. This is equivalent to saying `ed = 1 + k*phi(N)`. Then `(ed - 1) / phi(N) = k`.
 
-- `pq = N`
-- `(p - 1)(q - 1) = p*q - p - q + 1 = tot(N)`
-- `ed - 1 | tot(N)`
+It turns out that `k` is extremely close to `ed/N`: `ed/N = (1 + k*phi(N)) / N = 1/N + k*phi(N)/N`. `1/N` is basically 0, and `phi(N)` is very close to `N`, so it shouldn't change the value of `k` by very much. We now use `ed/N` to estimate `k`: `phi(N) = (ed - 1) / (ed / N)`.
 
-Additionally, it follows that:
+```py
+>>> from decimal import Decimal, getcontext
+>>> getcontext().prec = 1000
+>>> k = round(Decimal(e) * Decimal(d) / Decimal(N))
+>>> phi = (Decimal(e) * Decimal(d) - 1) / Decimal(k)
+1
+```
 
-- `tot(N) = N - p - q + 1`
-- `ed - 1 = k * tot(N)`
+Then we can get `p + q` through the formula mentioend above:
 
-// TODO
+```py
+>>> B = Decimal(N) - phi + 1
+>>> C = Decimal(N)
+```
+
+Check to make sure B and C are integers. If they're not, try using a higher precision in `getcontext().prec`. Now solve the quadratic equation:
+
+```py
+>>> p = (B + (B * B - 4 * C).sqrt()) / Decimal(2)
+>>> q = (B - (B * B - 4 * C).sqrt()) / Decimal(2)
+>>> p * q == N
+True
+```
+
+We've successfully recovered `p` and `q` from just `N`, `e`, and `d`!
 
 ## 2.2 blinding
 
-This attack is actually about RSA _signatures_, and shows how you can compute the signature of a message M using the signature of a derived message M'.
+This attack is actually about RSA _signatures_ (which uses the opposite keys as encryption: private for signing and public for verifying), and shows how you can compute the signature of a message M using the signature of a derived message M'.
 
 Suppose Marvin wants Bob to sign the following message: `"I (Bob) owes Marvin $100,000 USD"`. Marvin hands this to Bob saying something like, "I'll just need you to sign this with your private key." Let's generate Bob's private key:
 
@@ -135,9 +153,6 @@ True
 ```
 
 Marvin has now successfully tricked Bob into signing his life away.
-
-# 3. low private exponent
-
 
 
 [1]: https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf
