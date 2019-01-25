@@ -8,7 +8,7 @@ tags = ["technology", "irc"]
 
 I've just recently discovered that weechat has a "relay" mode, which means it can act as a relay server to other clients (for example, my phone). If I leave an instance of weechat running on, say, my server that's always running, it can act as a bouncer and my phone can receive notifications for highlights as well.
 
-The android app I'm using is called [Weechat-Android][2].
+The android app I'm using is called [Weechat-Android][2]. On my laptop I'm using [Glowing Bear][5].
 
 ## step 1: tmux
 
@@ -84,3 +84,4 @@ That's it! If you're also using the android app to connect, just type in your ho
 [2]: https://github.com/ubergeek42/weechat-android
 [3]: https://www.weechat.org/files/doc/stable/weechat_user.en.html#relay_commands
 [4]: https://letsencrypt.org/
+[5]: https://www.glowing-bear.org/
