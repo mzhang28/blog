@@ -1,6 +1,5 @@
 +++
 title = "fixing tmux colors"
-template = "post.html"
 date = 2018-04-23
 
 tags = ["technology", "shell"]

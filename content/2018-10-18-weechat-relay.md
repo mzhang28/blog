@@ -1,6 +1,5 @@
 +++
 title = "setting up irc with weechat"
-template = "post.html"
 date = 2018-10-18
 
 tags = ["technology", "irc"]

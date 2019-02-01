@@ -1,6 +1,5 @@
 +++
 title = "my new life stack"
-template = "post.html"
 date = 2018-02-01
 
 tags = ["life", "technology"]

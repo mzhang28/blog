@@ -1,6 +1,5 @@
 +++
 title = "twenty years of attacks on rsa.. with examples!"
-template = "post.html"
 date = 2018-10-26
 
 tags = ["rsa", "cryptography"]

@@ -1,6 +1,5 @@
 +++
 title = "cleaning up your shell"
-template = "post.html"
 date = 2018-02-25
 
 tags = ["technology", "shell"]
