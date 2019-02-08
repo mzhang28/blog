@@ -1,0 +1,5 @@
+pipeline:
+  build:
+    image: j1mc/docker-zola
+    commands:
+      - zola build
