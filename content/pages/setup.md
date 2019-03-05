@@ -1,6 +1,5 @@
 +++
 title = "my setup"
-template = "post.html"
 +++
 
 ## desktop

@@ -1,6 +1,5 @@
 +++
 title = "about me"
-template = "post.html"
 +++
 
 Hi there! I'm a Computer Science student at the University of Minnesota, and I've got a wide variety of interests under this field. I've been doing web development for a long time and now I'm looking into security, programming language development, and software development!
