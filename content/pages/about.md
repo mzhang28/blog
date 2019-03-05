@@ -7,11 +7,11 @@ Hi there! I'm a Computer Science student at the University of Minnesota, and I'v
 
 In an effort to rely on less services, I started doing a lot of self-hosting and rewriting of software. Check out some of the projects I'm doing over on my public [Git viewer](https://nobs.mzhang.me)!
 
-### Setup
+### setup
 
 My setup can be found [here](/pages/setup).
 
-### Languages
+### languages
 
 Here's some of the languages I like, in approximate order of my skill/confidence in using them:
 
@@ -25,7 +25,7 @@ Here's some of the languages I like, in approximate order of my skill/confidence
 
 If you want my resume, contact me through one of these means:
 
-## Contact
+## contact
 - Discord: **iptq#8440** (this is usually the best place to find me)
 - Email: (I sign all my Git commits with this email)
 - PGP Key: [hosted on Keybase](https://keybase.io/michaelz/pgp_keys.asc?fingerprint=2a323c176e16b8c25ade02d447033f6c0a02f24a)

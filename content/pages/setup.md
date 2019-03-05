@@ -3,7 +3,7 @@ title = "my setup"
 template = "post.html"
 +++
 
-## Desktop
+## desktop
 
 I'm using Arch Linux on my personal machine. Here's a neofetch:
 
@@ -34,27 +34,23 @@ $ neofetch
 
 For my desktop environment, I've got [i3](https://i3wm.org/), a tiling window manager. I like it because it's lightweight and doesn't use much battery. My config can be found [here](https://git.mzhang.me/michael/dotfiles/src/branch/master/.config/i3/config). I tried i3gaps at one point but didn't feel like trying to fix the rendering artifacts so I switched back.
 
-### Coding
+### coding
 
 I use the trial version of [Sublime Text 3](http://www.sublimetext.com/) on my personal computer, and [neovim](https://neovim.io/) in the terminal. I use the default theme with the [VSCode Dark](https://github.com/nikeee/visual-studio-dark) theme.
 
-### Passwords
+### passwords
 
 For passwords, I'm using [pass](https://www.passwordstore.org/), which is a GPG-encrypted password store. The passwords are checked into a git repository in order to maintain consistency between multiple devices (I'm using [Android Password Store](https://github.com/zeapo/Android-Password-Store) on my phone). Then, I bind `$mod+p` to a [rofi script](https://git.mzhang.me/michael/dotfiles/src/branch/master/.local/scripts/passmenu) so I can access them easily.
 
-### Music
+### music
 
 On my personal computer, I'm using [mpd](https://www.musicpd.org/), the music player daemon along with [sonata](https://www.nongnu.org/sonata/), which is a GTK frontend. I like using mpd because this also allows me to display my current playing song in my i3 bar.
 
-### Social Media
-
-I'm using [Rambox](https://rambox.pro), which is essentially just an Electron app that combines multiple services into a single view.
-
-### Screenshot
+### screenshot
 
 I'm using a [custom screenshot tool](https://git.mzhang.me/michael/leanshot).
 
-## This Website
+## this website
 
 The stack for this website looks like:
 
