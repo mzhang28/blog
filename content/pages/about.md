@@ -25,6 +25,7 @@ Here's some of the languages I like, in approximate order of my skill/confidence
 If you want my resume, contact me through one of these means:
 
 ## contact
-- Discord: **iptq#8440** (this is usually the best place to find me)
+- Matrix: [@michael:iptq.io](https://matrix.to/#/@michael:iptq.io)
+- Discord: **iptq#8440**
 - Email: (I sign all my Git commits with this email)
 - PGP Key: [hosted on Keybase](https://keybase.io/michaelz/pgp_keys.asc?fingerprint=2a323c176e16b8c25ade02d447033f6c0a02f24a)
