@@ -2,7 +2,8 @@
 title = "twenty years of attacks on rsa.. with examples!"
 date = 2018-10-26
 
-tags = ["rsa", "cryptography"]
+[taxonomies]
+tags = ["rsa", "math", "crypto", "python"]
 
 [extra]
 toc = true

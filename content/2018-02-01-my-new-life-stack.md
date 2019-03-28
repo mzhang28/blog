@@ -2,7 +2,8 @@
 title = "my new life stack"
 date = 2018-02-01
 
-tags = ["life", "technology"]
+[taxonomies]
+tags = ["arch", "linux", "life"]
 +++
 
 This is my first post on my new blog! I used to put a CTF challenge writeup here but decided to change it up a bit. Recently, I've been changing a lot of the technology that I use day to day. Here's some of the changes that I've made!
@@ -12,11 +13,11 @@ This is my first post on my new blog! I used to put a CTF challenge writeup here
 I've ran regular Ubuntu on my laptop for a while, then switched to Elementary OS, which I found a lot more pleasing to use. After using Elementary OS for about 6 months, some of the software on my computer started behaving strangely, and I decided it was time for some change.
 
 ```
-# michael @ arch in ~ [3:20:09] 
+# michael @ arch in ~ [3:20:09]
 $ screenfetch
-                   -`                 
+                   -`
                   .o+`                 michael@arch
-                 `ooo/                 OS: Arch Linux 
+                 `ooo/                 OS: Arch Linux
                 `+oooo:                Kernel: x86_64 Linux 4.14.15-1-ARCH
                `+oooooo:               Uptime: 6h 3m
                -+oooooo+:              Packages: 546
@@ -26,11 +27,11 @@ $ screenfetch
           `/+++ooooooooooooo/`         CPU: Intel Core i7-6500U @ 4x 3.1GHz [37.0Â°C]
          ./ooosssso++osssssso+`        GPU: intel
         .oossssso-````/ossssss+`       RAM: 2963MiB / 7872MiB
-       -osssssso.      :ssssssso.     
-      :osssssss/        osssso+++.    
-     /ossssssss/        +ssssooo/-    
-   `/ossssso+/:-        -:/+osssso+-  
-  `+sso+:-`                 `.-/+oso: 
+       -osssssso.      :ssssssso.
+      :osssssss/        osssso+++.
+     /ossssssss/        +ssssooo/-
+   `/ossssso+/:-        -:/+osssso+-
+  `+sso+:-`                 `.-/+oso:
  `++:.                           `-/+/
  .`                                 `/
 

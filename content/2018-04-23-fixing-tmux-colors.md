@@ -2,7 +2,8 @@
 title = "fixing tmux colors"
 date = 2018-04-23
 
-tags = ["technology", "shell"]
+[taxonomies]
+tags = ["tmux", "terminal"]
 +++
 
 Put this in your `~/.tmux.conf`.

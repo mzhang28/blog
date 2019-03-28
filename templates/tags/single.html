@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% import "macros/blog.html" as blog %}
+
+{% block title %}
+	articles under {{ term.name }} - {{ config.title }}
+{% endblock %}
+
+{% block content %}
+    <a href="../">&laquo; back to tags</a>
+	<h1 style="margin: 0;">articles under <code>{{ term.name }}</code></h1>
+	<p></p>
+    {{ blog::postlisting(posts=term.pages) }}
+{% endblock %}

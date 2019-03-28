@@ -2,7 +2,8 @@
 title = "setting up irc with weechat"
 date = 2018-10-18
 
-tags = ["technology", "irc"]
+[taxonomies]
+tags = ["irc", "life"]
 +++
 
 I've just recently discovered that weechat has a "relay" mode, which means it can act as a relay server to other clients (for example, my phone). If I leave an instance of weechat running on, say, my server that's always running, it can act as a bouncer and my phone can receive notifications for highlights as well.

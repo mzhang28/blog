@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	tags - {{ config.title }}
+{% endblock %}
+
+{% block content %}
+	<h1 style="margin: 0;">tags</h1>
+	<p>
+		{% for term in terms %}
+			<a href="{{ term.permalink }}" style="margin: auto 10px;">{{ term.name }}</a>
+		{% endfor %}
+	</p>
+{% endblock %}

@@ -5,6 +5,10 @@ compile_sass = true
 highlight_code = true
 generate_rss = true
 
+taxonomies = [
+	{ name = "tags", rss = true }
+]
+
 [extra]
 nav_links = [
     { url = "/pages/about", text = "about" },

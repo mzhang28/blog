@@ -2,7 +2,8 @@
 title = "cleaning up your shell"
 date = 2018-02-25
 
-tags = ["technology", "shell"]
+[taxonomies]
+tags = ["bash", "zsh", "oh-my-zsh"]
 +++
 
 Is your shell loading slower than it used to? Maybe you've been sticking a bit more into your `.bashrc`/`.zshrc` than you thought.
