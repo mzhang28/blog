@@ -10,4 +10,8 @@
 	<h1 style="margin: 0;">articles under <code>{{ term.name }}</code></h1>
 	<p></p>
     {{ blog::postlisting(posts=term.pages) }}
+
+    <p style="text-align: center;">
+        <small><a href="{{ term.permalink }}rss.xml">click here for RSS feed</a></small>
+    </p>
 {% endblock %}
