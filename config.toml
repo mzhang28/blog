@@ -1,5 +1,5 @@
 title = "michael's blog"
-base_url = "https://mzhang.me"
+base_url = "https://iptq.io"
 
 compile_sass = true
 highlight_code = true
@@ -13,5 +13,5 @@ taxonomies = [
 nav_links = [
     { url = "/pages/about", text = "about" },
     { url = "/pages", text = "all pages" },
-    { url = "https://git.mzhang.me/michael", text = "projects" },
+    { url = "https://git.iptq.io/michael", text = "projects" },
 ]

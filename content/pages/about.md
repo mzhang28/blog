@@ -4,7 +4,7 @@ title = "about me"
 
 Hi there! I'm a Computer Science student at the University of Minnesota, and I've got a wide variety of interests under this field. I've been doing web development for a long time and now I'm looking into security, programming language development, and software development!
 
-In an effort to rely on less services, I started doing a lot of self-hosting and rewriting of software. Check out some of the projects I'm doing over on my public [Gitea](https://git.mzhang.me)!
+In an effort to rely on less services, I started doing a lot of self-hosting and rewriting of software. Check out some of the projects I'm doing over on my public [Gitea](https://git.iptq.io)!
 
 ### setup
 

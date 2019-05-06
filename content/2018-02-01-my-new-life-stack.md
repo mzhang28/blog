@@ -55,4 +55,4 @@ I used to use Chromium, and ..I still do. I've tried several alternatives, like 
 
 ## Personal Server
 
-I got a droplet off DigitalOcean for hosting things that I regularly depend on. In fact, this blog (running Ghost) is hosted there now! I'm also hosting a Git server over at [https://git.mzhang.me](https://git.mzhang.me). It's running Gitea, a Go-based GitHub alternative. This doesn't mean I'm completely ditching GitHub, I just have things that I _really_ want to keep private, private.
+I got a droplet off DigitalOcean for hosting things that I regularly depend on. In fact, this blog (running Ghost) is hosted there now! I'm also hosting a Git server over at [https://git.iptq.io](https://git.iptq.io). It's running Gitea, a Go-based GitHub alternative. This doesn't mean I'm completely ditching GitHub, I just have things that I _really_ want to keep private, private.
