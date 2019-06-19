@@ -11,6 +11,7 @@ taxonomies = [
 
 [extra]
 nav_links = [
+    { url = "/", text = "home" },
     { url = "/pages/about", text = "about" },
     { url = "/pages", text = "all pages" },
     { url = "https://git.iptq.io/michael", text = "projects" },
