@@ -1,5 +1,7 @@
 @import "syntax.scss";
 
+$monofont: "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas", monospace;
+
 html {
 	background-color: lightskyblue;
 }
@@ -36,9 +38,19 @@ a {
 	&:hover {
 		text-decoration: underline;
 	}
+
+    &.permalink {
+        color: lighten(royalblue, 25%);
+        font-size: 0.65em;
+    }
+}
+
+#content {
+    line-height: 1.25em;
 }
 
 pre {
 	padding: 5px;
 	overflow-x: auto;
+    font-family: $monofont;
 }

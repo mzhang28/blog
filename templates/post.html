@@ -18,10 +18,10 @@
     </small>
     {% endif %}
 
-    {% if page.extra.toc and page.toc | length %}
+    {% if page.extra.toc and toc | length %}
         <div class="toc">
             table of contents
-            {{ post::render_toc(toc=page.toc) }}
+            {{ post::render_toc(toc=toc) }}
         </div>
     {% endif %}
 
