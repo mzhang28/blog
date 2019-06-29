@@ -37,7 +37,7 @@ My desktop environment is [i3](https://i3wm.org) on X11. I like it because it's 
 
 ### email
 
-
+Currently using [ProtonMail](https://protonmail.com/).
 
 ### coding
 
