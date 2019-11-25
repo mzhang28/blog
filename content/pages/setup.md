@@ -78,7 +78,7 @@ And a slew of other non-free apps that have pretty specific uses, though I think
 
 The stack for this website looks like:
 
-- The [source code](https://git.iptq.io/michael/blog) is written as a set of Gutenberg config files.
+- The [source code](https://iptq.io/projects/blog) is written as a set of Gutenberg config files.
 - This is then transpiled into static HTML + resources using [Zola](https://getzola.org/), a static site generator written with Rust.
 - Changes are deployed using Git hooks.
 - Static files are served from a web root using [nginx](https://nginx.org/en/) through a virtual host.

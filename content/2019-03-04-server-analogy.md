@@ -1,10 +1,12 @@
 +++
-title = "interesting cs analogies"
+title = "accept server analogy"
+date = 2019-03-04
+
+[taxonomies]
+tags = []
 +++
 
-stupid analogies i think of in my free time
-
-## socket server + multiple clients analogy
+This is just something stupid I thought of recently, but decided to write about it anyway.
 
 If you think about it, a server waiting for clients is kind of like the host at the front of a restaurant leading guests to tables. They don't actually take orders or serve food, they just stand at the front and wait for new guests to arrive. Then there's another waiter that's specifically assigned to take that table's orders.
 
