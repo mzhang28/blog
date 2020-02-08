@@ -14,5 +14,5 @@ nav_links = [
     { url = "/", text = "home" },
     { url = "/pages/about", text = "about" },
     { url = "/pages", text = "all pages" },
-    { url = "/projects", text = "projects &raquo;" },
+    { url = "https://git.iptq.io", text = "projects &raquo;" },
 ]
