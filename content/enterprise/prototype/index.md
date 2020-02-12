@@ -17,7 +17,7 @@ This past weekend, while on my trip to Minneapolis, I completed a very early pro
 
 ## Prototype
 
-The prototype for experimenting is a simple "Hello, world" application. If you've looked at any web framework before, this is probably one of the simplest examples of bindings: type something into a box and watch as the text magically populates with whatever you wrote in the box. If you're using a WASM-compatible browser with JavaScript enabled, you should be able to try out the demo in real-time:
+The prototype for experimenting is a simple "Hello, world" application. If you've looked at any web framework before, this is probably one of the simplest examples of bindings: type something into a box and watch as the text magically populates with whatever you wrote in the box. If you're using a WASM-compatible browser with JavaScript enabled, you should be able to try out the demo right here:
 
 <div id="app"></div>
 <script type="text/javascript" src="helloworld.js"></script>
