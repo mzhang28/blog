@@ -1,0 +1,54 @@
+body {
+    max-width: 850px;
+    margin: auto;
+    min-height: 100%;
+    padding-bottom: 20px;
+    font-family: $sansfont;
+
+    background-color: $background-color;
+    color: $text-color;
+}
+
+header {
+    margin: auto 12px;
+
+    #header {
+        border-bottom: 2px solid $link-color;
+        box-sizing: border-box;
+        padding: 20px;
+        margin-bottom: 12px;
+
+        #title {
+            font-size: 2em;
+            color: $text-color;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &.permalink {
+        color: lighten($link-color, 25%);
+        font-size: 0.65em;
+    }
+}
+
+#content {
+    line-height: 1.25em;
+}
+
+pre {
+    padding: 5px;
+    overflow-x: auto;
+    font-family: $monofont;
+}

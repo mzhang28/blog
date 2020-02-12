@@ -1,56 +1,20 @@
-@import "syntax.scss";
+@import "syntax";
 
+$sansfont: "Helvetica", "Arial", "Liberation Sans", sans-serif;
 $monofont: "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas", monospace;
 
-html {
-	background-color: lightskyblue;
+// colors
+
+@media (prefers-color-scheme: light) {
+    $background-color: #EADFD4;
+    $text-color: #15202B;
+    $link-color: royalblue;
+    @import "content";
 }
 
-body {
-	max-width: 850px;
-	margin: auto;
-	background-color: white;
-	min-height: 100%;
-	padding-bottom: 20px;
-    font-family: sans-serif;
-}
-
-#header {
-	border-bottom: 4px solid lightskyblue;
-	box-sizing: border-box;
-	padding: 20px;
-	margin-bottom: 12px;
-
-	#title {
-		font-size: 2em;
-		color: black;
-
-		&:hover {
-			text-decoration: none;
-		}
-	}
-}
-
-a {
-	color: royalblue;
-	text-decoration: none;
-
-	&:hover {
-		text-decoration: underline;
-	}
-
-    &.permalink {
-        color: lighten(royalblue, 25%);
-        font-size: 0.65em;
-    }
-}
-
-#content {
-    line-height: 1.25em;
-}
-
-pre {
-	padding: 5px;
-	overflow-x: auto;
-    font-family: $monofont;
+@media (prefers-color-scheme: dark) {
+    $background-color: #15202B;
+    $text-color: #EADFD4;
+    $link-color: lightskyblue;
+    @import "content";
 }
