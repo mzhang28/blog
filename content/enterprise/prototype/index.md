@@ -8,9 +8,7 @@ template = "post.html"
 tags = []
 +++
 
-NB: It's been a while since I wrote a post here. Since I began working at Epic, I've found it hard to motivate myself to even work on projects, let alone writing, after work hours. Hopefully I can pick it back up.
-
-This past weekend, while on my trip to Minneapolis, I completed a very early prototype of "enterprise", a new UI framework I've been kind of envisioning over the past couple of weeks. While the UI framework is mainly targeted at web apps, the hope is that with a bit more effort, native UIs can be produced with almost no changes to existing applications. Before I begin to describe how it works, I'd like to acknowledge [Nathan Ringo][1] for his massively helpful feedback in both the ideation and the implementation process.
+This past weekend, while on my trip to Minneapolis, I completed a very early prototype of "enterprise", a new UI framework I've been kind of envisioning over the past couple of weeks. While the UI framework is mainly targeted at web apps, the hope is that with a bit more effort, native UIs can be produced with almost no changes to existing applications. Before I begin to describe how it works, I'd like to acknowledge [Nathan Ringo][1] for his massively helpful feedback in both the brainstorming- and the implementation process.
 
 ## Goals of the project
 
