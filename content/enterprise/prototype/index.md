@@ -1,21 +1,27 @@
 +++
 title = "enterprise: a new ui framework"
 date = 2020-02-11
-draft = true
 template = "post.html"
 
 [taxonomies]
 tags = []
+
+[extra]
+toc = true
 +++
 
 This past weekend, while on my trip to Minneapolis, I completed a very early prototype of "enterprise", a new UI framework I've been kind of envisioning over the past couple of weeks. While the UI framework is mainly targeted at web apps, the hope is that with a bit more effort, native UIs can be produced with almost no changes to existing applications. Before I begin to describe how it works, I'd like to acknowledge [Nathan Ringo][1] for his massively helpful feedback in both the brainstorming and the implementation process.
 
 ## Goals of the project
 
+This project was born out of many frustrations with existing web frameworks. This is kind of the combination of several projects I wanted to tackle; since it's such a long-term thing I'm going to document a bit of what I want to achieve so I can stay on track. The high-level goals of the project are:
+
 * **Complete separation of business logic from UI.** Theoretically, one could completely retarget the application to a completely different platform (mobile, web, native, something new that will pop up in 5 years), without changing any of the core logic. It does this by introducing [declarative][4]-style [DSL][2]s that are completely architecture-independent.
 * **Maximally static component relationships.** Like [Svelte][3], I'm aiming to resolve as many relationships between elements as possible during compile-time, to avoid having to maintain a full virtual DOM at runtime.
 
-## Prototype
+With that, let's dive into the code!
+
+## Demo: Initial Prototype
 
 The prototype for experimenting is a simple "Hello, world" application. If you've looked at any web framework before, this is probably one of the simplest examples of bindings: type something into a box and watch as the text magically populates with whatever you wrote in the box. If you're using a WASM-compatible browser with JavaScript enabled, you should be able to try out the demo right here:
 
@@ -87,7 +93,7 @@ Obviously not everyone's application is as simple as a linear dependency graph o
 * I hardcoded the actual specification for the app myself since the DSL doesn't have a real syntax yet.
 * All data are string types.
 
-I'll be working on this some more in the coming weeks, so I'll try to keep updates posted here a bit more frequently. Until then, thanks for reading!
+I'll be working on this some more in the coming weeks, so I'll try to keep updates posted here a bit more frequently. Next time, I'll be looking into implementing the TodoMVC example.
 
 [1]: https://remexre.xyz
 [2]: https://en.wikipedia.org/wiki/Domain-specific_language
