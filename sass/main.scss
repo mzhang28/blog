@@ -11,6 +11,7 @@ $monofont: "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas"
     $small-text-color: lighten($text-color, 10%);
     $link-color: royalblue;
     @import "content";
+    @import "graph";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,4 +20,5 @@ $monofont: "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas"
     $small-text-color: darken($text-color, 10%);
     $link-color: lightskyblue;
     @import "content";
+    @import "graph";
 }

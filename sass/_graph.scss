@@ -1,0 +1,15 @@
+.graphviz {
+    .graph.default-coloring {
+        ellipse, path, polygon {
+            stroke: $text-color;
+        }
+
+        text {
+            fill: $text-color;
+        }
+
+        * {
+            font-family: $sansfont;
+        }
+    }
+}
