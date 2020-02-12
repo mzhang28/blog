@@ -36,7 +36,7 @@ inputEl.addEventListener("change", () => {
 });
 ```
 
-Surely, this works, but it doesn't scale. If you try to write a page full of these kind of bindings directly using JavaScript, you're either going to start running into bugs or building up a pile of unmaintainable spaghetti code. How does enterprise represent this? Well, the enterprise DSL has no concrete syntax yet, but if it did, it would look something like this:
+Sure, this works, but it doesn't scale. If you try to write a page full of these kind of bindings directly using JavaScript, you're either going to start running into bugs or building up a pile of unmaintainable spaghetti code. How does enterprise represent this? Well, the enterprise DSL has no concrete syntax yet, but if it did, it would look something like this:
 
 ```
 model {
