@@ -1,15 +1,20 @@
 .graphviz {
-    .graph.default-coloring {
-        ellipse, path, polygon {
-            stroke: $text-color;
-        }
+    svg {
+        max-width: 100%;
+        width: 100%;
 
-        text {
-            fill: $text-color;
-        }
+        .graph.default-coloring {
+            ellipse, path, polygon {
+                stroke: $text-color;
+            }
 
-        * {
-            font-family: $sansfont;
+            text {
+                fill: $text-color;
+            }
+
+            * {
+                font-family: $sansfont;
+            }
         }
     }
 }
