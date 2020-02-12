@@ -93,7 +93,7 @@ Obviously not everyone's application is as simple as a linear dependency graph o
 * I hardcoded the actual specification for the app myself since the DSL doesn't have a real syntax yet.
 * All data are string types.
 
-I'll be working on this some more in the coming weeks, so I'll try to keep updates posted here a bit more frequently. Next time, I'll be looking into implementing the TodoMVC example.
+I'll be working on this some more in the coming weeks, so I'll try to keep updates posted here a bit more frequently. Next time, I'll be looking into implementing the TodoMVC example. Until then, thanks for reading!
 
 [1]: https://remexre.xyz
 [2]: https://en.wikipedia.org/wiki/Domain-specific_language
