@@ -29,6 +29,10 @@ header {
     }
 }
 
+small {
+    color: $small-text-color;
+}
+
 a {
     color: $link-color;
     text-decoration: none;
@@ -41,6 +45,10 @@ a {
         color: lighten($link-color, 25%);
         font-size: 0.65em;
     }
+}
+
+.postlisting-row td {
+    padding-bottom: 12px;
 }
 
 #content {

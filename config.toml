@@ -9,6 +9,9 @@ taxonomies = [
 	{ name = "tags", rss = true }
 ]
 
+[external_renderers]
+dot = "set -e; echo -n '<p class=\"graphviz\">'; dot -Tsvg | tail -n +4; echo '</p>'"
+
 [extra]
 nav_links = [
     { url = "/", text = "home" },

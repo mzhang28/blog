@@ -8,6 +8,7 @@ $monofont: "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas"
 @media (prefers-color-scheme: light) {
     $background-color: #EADFD4;
     $text-color: #15202B;
+    $small-text-color: lighten($text-color, 10%);
     $link-color: royalblue;
     @import "content";
 }
@@ -15,6 +16,7 @@ $monofont: "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas"
 @media (prefers-color-scheme: dark) {
     $background-color: #15202B;
     $text-color: #EADFD4;
+    $small-text-color: darken($text-color, 10%);
     $link-color: lightskyblue;
     @import "content";
 }

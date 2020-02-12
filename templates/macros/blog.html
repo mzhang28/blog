@@ -2,7 +2,7 @@
     <table style="width: 100%;">
     {% for post in posts %}
 		{% if not post.draft %}
-        	<tr>
+        	<tr class="postlisting-row">
             	<td>
                 	<span style="font-size: 1.2em;">
                     	<a href="{{ post.permalink }}" class="brand-colorlink">{{ post.title }}</a>
