@@ -42,7 +42,7 @@ a {
     }
 
     &.permalink {
-        color: lighten($link-color, 25%);
+        color: $link-color;
         font-size: 0.65em;
     }
 }
