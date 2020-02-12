@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-    {{ blog::postlisting(posts=section.pages) }}
+    {{ blog::sectionlisting(section=section) }}
 
     <p style="text-align: center;">
         <small><a href="/rss.xml">click here for RSS feed</a></small>
