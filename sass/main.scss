@@ -6,7 +6,7 @@ $monofont: "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas"
 // colors
 
 @media (prefers-color-scheme: light) {
-    $background-color: #EADFD4;
+    $background-color: white;
     $text-color: #15202B;
     $small-text-color: lighten($text-color, 10%);
     $link-color: royalblue;
