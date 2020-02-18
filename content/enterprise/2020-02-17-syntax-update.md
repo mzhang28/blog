@@ -7,7 +7,11 @@ template = "post.html"
 tags = ["enterprise", "web", "ui", "syntax"]
 +++
 
-[Enterprise][1]'s frontend DSL just got a syntax! Although the major functionality hasn't really changed, I threw out the ugly verbose AST-construction syntax for a hand-rolled recursive-descent-ish parser. The rehashed "Hello, world" example looks a bit like this:
+[Enterprise][1]'s frontend DSL just got a syntax! Although the major functionality hasn't really changed, I threw out the ugly verbose AST-construction syntax for a hand-rolled recursive-descent-ish parser.
+
+<!-- more -->
+
+The rehashed "Hello, world" example looks a bit like this:
 
 ```
 component HelloWorld {
