@@ -45,7 +45,7 @@ I use the trial version of [Sublime Text 3](http://www.sublimetext.com/) on my p
 
 ### passwords
 
-For passwords, I'm using [pass](https://www.passwordstore.org/), which is a GPG-encrypted password store. The passwords are checked into a git repository in order to maintain consistency between multiple devices (I'm using [Android Password Store](https://github.com/zeapo/Android-Password-Store) on my phone). Then, I bind `$mod+p` to a [rofi script](https://git.iptq.io/michael/dotfiles/src/branch/master/.local/scripts/passmenu) so I can access them easily.
+For passwords, I'm using [pass](https://www.passwordstore.org/), which is a GPG-encrypted password store. The passwords are checked into a git repository in order to maintain consistency between multiple devices (I'm using [Android Password Store](https://github.com/zeapo/Android-Password-Store) on my phone). Then, I bind `$mod+p` to a [rofi script][#] so I can access them easily.
 
 ### music
 
@@ -53,7 +53,7 @@ On my personal computer, I'm using [mpd](https://www.musicpd.org/), the music pl
 
 ### screenshot
 
-I'm using a [custom screenshot tool](https://git.iptq.io/michael/leanshot), written by myself using Rust. The advantage of this over something like scrot or maim would be the ability to first freeze the screen before selecting a region.
+I'm using a [custom screenshot tool][2], written by myself using Rust. The advantage of this over something like scrot or maim would be the ability to first freeze the screen before selecting a region.
 
 ## my phone
 
@@ -78,8 +78,11 @@ And a slew of other non-free apps that have pretty specific uses, though I think
 
 The stack for this website looks like:
 
-- The [source code](https://iptq.io/projects/blog) is written as a set of Gutenberg config files.
+- The [source code][1] is written as a set of Gutenberg config files.
 - This is then transpiled into static HTML + resources using [Zola](https://getzola.org/), a static site generator written with Rust.
 - Changes are deployed using Git hooks.
 - Static files are served from a web root using [nginx](https://nginx.org/en/) through a virtual host.
 - And here it is!
+
+[1]: https://git.iptq.io/michael/blog
+[2]: https://github.com/iptq/leanshot

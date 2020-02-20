@@ -9,11 +9,12 @@ In an effort to rely on less services, I started doing a lot of self-hosting and
 If you want my resume, contact me through one of these means:
 
 ## contact
-- Matrix: [@michael:iptq.io](https://matrix.to/#/@michael:iptq.io)
 - Discord: **iptq#8440**
 - Email: (I sign all my Git commits with this email)
-- PGP Key: [hosted on Keybase](https://keybase.io/michaelz/pgp_keys.asc?fingerprint=2a323c176e16b8c25ade02d447033f6c0a02f24a)
+- PGP Key: [hosted on Keybase][1]
 
 ## setup
 
 My setup can be found [here](/pages/setup).
+
+[1]: https://keybase.io/michaelz/pgp_keys.asc?fingerprint=925ecc02890d5cdae26180d4bda47a31a3c8ee6b
