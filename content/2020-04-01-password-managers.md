@@ -8,6 +8,8 @@ tags = ["tech", "things-that-are-good", "privacy"]
 
 Password managers are programs that store passwords for you. With the number of accounts you keep on the web, you generally don't want to store all of them in your head. If you want to see articles on why you should use a password manager NOW, search "reasons to use a password manager" online and any of the articles you find should explain it. Here I'll add some more commentary on top of the traditional arguments.
 
+<!-- more -->
+
 Don't tick the "Remember master password box" no matter what
 ---
 
