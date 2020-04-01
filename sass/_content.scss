@@ -40,10 +40,17 @@ a {
     &:hover {
         text-decoration: underline;
     }
+}
 
-    &.permalink {
+.permalink-container {
+    position: relative;
+    vertical-align: top;
+
+    .permalink {
         color: $link-color;
         font-size: 0.65em;
+        position: absolute;
+        left: -30px;
     }
 }
 
@@ -58,7 +65,8 @@ blockquote {
 }
 
 #content {
-    line-height: 1.25em;
+    font-size: 1.05em;
+    line-height: 1.5em;
 }
 
 pre {
