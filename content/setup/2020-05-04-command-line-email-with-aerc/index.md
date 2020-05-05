@@ -2,6 +2,7 @@
 title = "command line email with aerc"
 date = 2020-05-04
 insert_anchor_links = "left"
+draft = true
 
 [taxonomies]
 tags = ["setup", "email", "protonmail"]
