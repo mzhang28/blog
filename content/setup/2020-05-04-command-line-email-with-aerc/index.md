@@ -24,7 +24,7 @@ For my setup, I have proton-bridge running as a systemd service. That means we h
 
 Firstly, we want to build the bridge without support for the GUI. We won't be using it anyway, so this eliminates the Qt dependency.
 
-Secondly, proton-bridge stores keys in an encrypted keyring, like password-store. My regular password-store is encrypted with my passphrase-protected GPG key, so I didn't want to use it since it'll be asking me for the passphrase again every time the timeout expires. We're going to make a separate GPG and password-store setup that will only be used for proton-bridge. Since it's all running locally anyway, we're _not_ to use a passphrase on this GPG key.
+Secondly, proton-bridge stores keys in an encrypted keyring, like [password-store][5]. My regular password-store is encrypted with my passphrase-protected GPG key, so I didn't want to use it since it'll be asking me for the passphrase again every time the timeout expires. We're going to make a separate GPG and password-store setup that will only be used for proton-bridge. Since it's all running locally anyway, we're _not_ to use a passphrase on this GPG key.
 
 Authenticating only happens once, and the local SMTP/IMAP password doesn't change very often, so we won't really care about that. We'll bundle this up into a couple of nice scripts and then have it configured to start on startup!
 
@@ -48,7 +48,9 @@ Then run `make build-nogui` and you should get a binary called `Desktop-Bridge`.
 
 ### isolating the keychain
 
-So for this section, I created two directories: the directory for the new GPG homedir, and the directory for the new password-store. If you're copy-pasting commands out of this post, I'd recommend you add these variables right now:
+proton-bridge needs a keychain to store the keys that it gets from authenticating. The bridge supports [password-store][5] and GNOME keyring, but I'll be setting up password-store here. The goal now is to create a password-store instance that's isolated from the default installation so it doesn't require any interactive prompts.
+
+For this part, I created two directories: the directory for the new GPG homedir, and the directory for the new password-store. If you're copy-pasting commands out of this post, I'd recommend you add these variables right now:
 
 ```bash
 export PASSWORD_STORE_DIR=/path/to/password/store
