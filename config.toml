@@ -16,6 +16,7 @@ dot = "set -e; echo -n '<p class=\"graphviz\">'; dot -Tsvg | tail -n +4; echo '<
 nav_links = [
     { url = "/", text = "home" },
     { url = "/pages/about", text = "about" },
+    { url = "/pages/projects", text = "projects" },
+    { url = "/setup", text = "setup" },
     { url = "/pages", text = "all pages" },
-    { url = "https://git.iptq.io", text = "projects &raquo;" },
 ]

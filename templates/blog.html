@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block content %}
+    {{ section.content | safe }}
+
     {{ blog::sectionlisting(section=section) }}
 
     <p style="text-align: center;">

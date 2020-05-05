@@ -19,12 +19,24 @@
     </small>
     {% endif %}
 
-    {% if page.extra.toc and toc | length %}
+    {% if page.extra.toc and page.toc | length %}
         <div class="toc">
             table of contents
-            {{ post::render_toc(toc=toc) }}
+            {{ post::render_toc(toc=page.toc) }}
         </div>
     {% endif %}
 
     <div id="content">{{ page.content | safe }}</div>
+
+    <hr />
+    <small>
+        End.
+        {% if page.taxonomies.tags %}
+            This post is tagged with:
+            {% for tag in page.taxonomies.tags %}
+                {% if loop.index0 > 0 %}, {% endif %}
+                <a href="/tags/{{ tag }}">{{ tag }}</a>
+            {% endfor %}
+        {% endif %}
+    </small>
 {% endblock %}

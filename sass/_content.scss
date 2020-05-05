@@ -1,5 +1,5 @@
 body {
-    max-width: 850px;
+    max-width: 980px;
     margin: auto;
     min-height: 100%;
     padding-bottom: 20px;
@@ -67,6 +67,10 @@ blockquote {
 #content {
     font-size: 1.05em;
     line-height: 1.5em;
+
+    img {
+        max-width: 100%;
+    }
 }
 
 pre {

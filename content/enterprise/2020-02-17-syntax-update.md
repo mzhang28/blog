@@ -4,7 +4,7 @@ date = 2020-02-17
 template = "post.html"
 
 [taxonomies]
-tags = ["enterprise", "web", "ui", "syntax"]
+tags = ["computers", "web-dev"]
 +++
 
 [Enterprise][1]'s frontend DSL just got a syntax! Although the major functionality hasn't really changed, I threw out the ugly verbose AST-construction syntax for a hand-rolled recursive-descent-ish parser.

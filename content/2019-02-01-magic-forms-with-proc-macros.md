@@ -3,7 +3,7 @@ title = "magic forms with proc macros: ideas"
 date = 2019-02-01
 
 [taxonomies]
-tags = ["rust", "web", "macros"]
+tags = ["computers", "rust", "web-dev", "macros"]
 +++
 
 Procedural macros (proc macros for short) in Rust are incredible because they allow pre-compile source transformation. Many of the greatest abstractions in Rust take advantage of this feature. For example, you can

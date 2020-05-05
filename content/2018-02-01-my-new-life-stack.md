@@ -3,7 +3,7 @@ title = "my new life stack"
 date = 2018-02-01
 
 [taxonomies]
-tags = ["arch", "linux", "life"]
+tags = ["arch", "linux", "setup", "computers"]
 +++
 
 This is my first post on my new blog! I used to put a CTF challenge writeup here but decided to change it up a bit. Recently, I've been changing a lot of the technology that I use day to day. Here's some of the changes that I've made!

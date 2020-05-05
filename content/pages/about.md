@@ -13,8 +13,4 @@ If you want my resume, contact me through one of these means:
 - Email: (I sign all my Git commits with this email)
 - PGP Key: [hosted on Keybase][1]
 
-## setup
-
-My setup can be found [here](/pages/setup).
-
 [1]: https://keybase.io/michaelz/pgp_keys.asc?fingerprint=925ecc02890d5cdae26180d4bda47a31a3c8ee6b

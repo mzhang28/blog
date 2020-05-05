@@ -3,7 +3,7 @@ title = "accept server analogy"
 date = 2019-03-04
 
 [taxonomies]
-tags = []
+tags = ["computers"]
 +++
 
 This is just something stupid I thought of recently, but decided to write about it anyway.
