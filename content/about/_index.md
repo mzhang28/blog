@@ -1,5 +1,6 @@
 +++
 title = "about"
+weight = 2
 
 type = "generic"
 layout = "single"
