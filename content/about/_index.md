@@ -1,5 +1,8 @@
 +++
 title = "about"
+
+type = "generic"
+layout = "single"
 +++
 
 Hi there! I'm a software enthusiast who recently graduated with a Computer
