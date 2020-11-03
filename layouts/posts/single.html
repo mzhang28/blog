@@ -1,0 +1,20 @@
+{{- define "content" -}}
+
+<a href="../">&laquo; back</a>
+<h1 style="margin: 0;">{{ .Title }}</h1>
+
+<small style="display: block; margin-bottom: 20px;">
+    Posted
+    on {{ .Date }}
+    - {{ .ReadingTime }} min read
+</small>
+
+<div id="content">{{ .Content }}</div>
+
+<hr />
+
+<small>
+    End.
+</small>
+
+{{- end -}}

@@ -1,11 +1,8 @@
 +++
-title = "home"
-template = "blog.html"
-page_template = "post.html"
+layout = "home"
 
-insert_anchor_links = "left"
-sort_by = "date"
-
-[extra]
-include_posts = true
+[cascade]
+type = "generic"
 +++
+
+hello

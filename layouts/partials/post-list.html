@@ -1,0 +1,19 @@
+<table style="width: 100%;">
+    {{- range .Pages -}}
+        <tr class="postlisting-row">
+            <td>
+                <span style="font-size: 1.2em;">
+                    <a href="{{ .Permalink }}" class="brand-colorlink">{{ .Title }}</a>
+                </span>
+                <br />
+                <small>
+                    {{ .ReadingTime }} min read -
+
+                    Posted
+
+                    on {{ .Date.Format "Mon Jan 2 2006" }}
+                </small>
+            </td>
+        </tr>
+    {{- end -}}
+</table>

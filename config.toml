@@ -1,22 +1,4 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
 title = "michael's blog"
-base_url = "https://iptq.io"
-
-compile_sass = true
-highlight_code = true
-generate_rss = true
-
-taxonomies = [
-	{ name = "tags", rss = true }
-]
-
-[external_renderers]
-dot = "set -e; echo -n '<p class=\"graphviz\">'; dot -Tsvg | tail -n +4; echo '</p>'"
-
-[extra]
-nav_links = [
-    { url = "/", text = "home" },
-    { url = "/pages/about", text = "about" },
-    { url = "/pages/projects", text = "projects" },
-    { url = "/setup", text = "setup" },
-    { url = "/pages", text = "all pages" },
-]
+enableGitInfo = true

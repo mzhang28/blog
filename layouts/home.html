@@ -1,0 +1,7 @@
+{{- define "content" -}}
+
+{{ $posts := .GetPage "/posts" }}
+
+{{ partial "post-list" $posts }}
+
+{{- end -}}

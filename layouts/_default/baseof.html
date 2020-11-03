@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {{ $style := resources.Get "sass/main.scss" | resources.ToCSS }}
+        <link rel="stylesheet" href="{{ $style.Permalink }}" />
+    </head>
+
+    <body>
+        <header>
+            <div id="header" class="container">
+                <a href="/" id="title" class="title nocolorlink">{{ .Site.Title }}</a>
+
+                <div id="nav">
+                    {{- range $index, $page := .Site.Home.Pages -}}
+                        {{- if ne $index 0 -}}
+                            &nbsp;&middot;&nbsp;
+                        {{- end -}}
+
+                        <a href="{{ .RelPermalink }}" class="link">{{ $page.Title }}</a>
+                    {{- end -}}
+                </div>
+            </div>
+        </header>
+
+        <div class="container" style="padding: 5px 40px;">
+            {{ block "content" . }}{{ end }}
+        </div>
+
+        <div style="text-align: center; font-weight: 200; margin-bottom: 40px;">
+            <p style="margin: 0;">
+                <a href="/tags" class="colorlink">tags</a> &middot;
+                <a href="/pages" class="colorlink">all pages</a>
+            </p>
+            <p style="margin: 0;">
+                written by michael zhang.
+                <a href="https://git.iptq.io/michael/blog" class="colorlink" target="_blank">source</a>
+            </p>
+        </div>
+    </body>
+</html>
