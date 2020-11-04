@@ -6,10 +6,10 @@ type = "generic"
 layout = "single"
 +++
 
-Hi there! I'm a software enthusiast who recently graduated with a Computer
-Science degree from the University of Minnesota.  I've been doing web
-development for a long time and now I'm looking into security, programming
-language development, and software development!
+Hi there! I'm a recent CS grad from the University of Minnesota, currently
+working as an associate researcher at SIFT. I've been doing web development for
+a long time and now I'm looking into security, programming language
+development, and software development!
 
 In an effort to rely on less services, I started doing a lot of self-hosting
 and rewriting of software. Check out some of the projects I'm doing over on my
