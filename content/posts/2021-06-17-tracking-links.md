@@ -37,8 +37,6 @@ connection to your friend is traced by the website owner.
 > If this creeps you out, consider using a browser extension like
 > [ClearURLs][6], which recognizes these URL parameters that do nothing but
 > feed information to the website owners and removes it for you.
->
-> TODO: talk about `Referer`?
 
 But email tracking links are even worse: they abuse redirects to obfuscate the
 original URL entirely. For instance, you'd get links in your email that look
@@ -97,8 +95,6 @@ than the protection of their customers.
 > feedback (or even go back to the incentive surveys), and if people aren't
 > giving feedback, then that itself is a reflection of the state of your
 > readers.
-
-Thanks for reading.
 
 [1]: https://www.wired.com/story/how-email-open-tracking-quietly-took-over-the-web/
 [3]: https://en.wikipedia.org/wiki/Web_beacon
