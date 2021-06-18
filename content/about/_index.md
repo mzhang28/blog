@@ -2,6 +2,7 @@
 title = "about"
 weight = 2
 
+[cascade]
 type = "generic"
 layout = "single"
 +++
