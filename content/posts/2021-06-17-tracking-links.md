@@ -1,7 +1,6 @@
 +++
 title = "email tracking links"
 date = 2021-06-17
-draft = true
 
 [taxonomies]
 tags = ["email", "computers", "things-that-are-bad", "privacy"]
