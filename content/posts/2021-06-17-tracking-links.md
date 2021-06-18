@@ -17,16 +17,16 @@ Arguably, if you are someone who runs a business off of writing periodic
 newsletters that are distributed via email, you might want some statistics on
 how your newsletter is doing. Traditionally, this is achieved **actively**
 through some kind of survey with some kind of incentive, like "tell us how
-we're doing for a chance to win a water bottle" or something of the likes.
+we're doing for a chance to win a water bottle".
 
 Now emails are typically imbued with **passive** trackers either in the form of
 [tracking pixels][3] (which informs the sender when the receipient opens the
 email) and [tracking links][4] (which informs the sender when AND what links
 receipients click). Tracking pixels are usually less relevant these days since
 many web-based email clients will ask before loading images, and clients run by
-mail servers with large amounts of users like Gmail ([and soon iOS][5]) may
-proxy the pixels ahead of time so the senders only see the IPs and metadata of
-the server.
+mail servers with an enormous number of users like Gmail ([and soon iOS][5])
+may proxy the pixels ahead of time so the senders only see the IPs and metadata
+of the server.
 
 Tracking links, on the other hand, have become much more invasive, to the point
 where it's impossible to avoid being tracked. You see it all over the web:
@@ -50,9 +50,9 @@ https://some.mail.host/lWOrjb9FXYgMDS0DADOsxAZEFPB99gHzmRQTe6OHBws=
 ```
 
 Where does it go? Wikipedia? Piratebay? There's only one way to find out: by
-making a request to that server, thereby giving up information about the time,
-place, client, OS, and all sorts of other information that greedy data
-collection companies are waiting to snatch up.
+making a request to that server, giving up information about the time, place,
+client, OS, and all sorts of other information that greedy data collection
+companies are waiting to snatch up.
 
 Of course, regular users notice nothing: these links are usually hidden behind
 buttons, text, or even the original URL itself. Once they click it, the website
@@ -68,8 +68,8 @@ whatever they want, and many of these companies advertise it as a feature to
 get more "insight" into how your emails are doing.
 
 Even worse, the original senders aren't the only ones getting the info, either.
-These middlemen companies could hold on to the data and there's no saying they
-can't use it for other purposes or sell it.
+These middlemen could hold on to the data and there's no saying they can't use
+it for other purposes or sell it.
 
 Unfortunately, sending email isn't really going to get any easier, partly
 because of the way email fundamentally works: without all of the security
@@ -77,18 +77,20 @@ infrastructure in place, running your own email server could easily lead to
 abuse. Most people (justifiably) would not go through all that effort
 themselves.
 
-Another possible avenue of thinking is to do what companies did for tracking
-pixels, where they would proxy the links, open them when they receive it, and
-transparently replace the unfiltered link back into the email. But this raises
-its own issues: for example, what if the act of opening the original link
-performs some kind of action (e.g. click to subscribe, click to register,
-etc.)? Also, this solution only works for email that is not end-to-end
-encrypted. For end-to-end encrypted mail providers, there is no way to do this.
+Another possible avenue of thinking is to do what large mail companies did to
+oppose tracking pixels, where they would act as a mass-proxy for the links,
+opening them when they receive it, and transparently replace the unfiltered
+link back into the email so the user's device and location aren't revealed. But
+this raises its own issues: for example, what if the act of opening the
+original link performs some kind of action (e.g. click to subscribe, click to
+register, etc.)? Also, this solution only works for email that is not
+end-to-end encrypted. For end-to-end encrypted mail providers, there is no way
+to do this.
 
 The only real solution here is regulation via either advancement in
-privacy-related open standards, or legislative bills. It's clear that without
-any kind of regulation, companies will continue to act in the interests of
-profit rather than the protection of their customers.
+privacy-related open standards or legislature. It's clear that without any kind
+of regulation, companies will continue to act in the interests of profit rather
+than the protection of their customers.
 
 > Devil's advocate afterthought: should this problem even be solved? Maybe
 > there's a benefit to this whole tracking thing. My opinion on this is if you
