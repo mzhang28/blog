@@ -1,5 +1,5 @@
 +++
-title = "twenty years of attacks on rsa.. with examples!"
+title = "twenty years of attacks on rsa with examples"
 date = 2018-10-26
 
 [taxonomies]
