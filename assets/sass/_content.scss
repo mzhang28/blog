@@ -31,6 +31,8 @@ header {
 }
 
 footer {
+    margin: auto 12px;
+
     margin-top: 24px;
     margin-bottom: 40px;
     text-align: center;
@@ -69,7 +71,21 @@ blockquote {
 }
 
 .postlisting-row td {
-    padding-bottom: 12px;
+    padding-bottom: 20px;
+
+    .title {
+        font-size: 1.5em;
+    }
+
+    .summary {
+        padding-top: 4px;
+        font-size: 0.8em;
+        color: $smaller-text-color;
+
+        p {
+            display: inline;
+        }
+    }
 }
 
 #content {

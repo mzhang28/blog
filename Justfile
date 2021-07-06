@@ -1,2 +1,2 @@
 serve:
-    hugo serve --buildDrafts
+    hugo serve --bind 0.0.0.0 --buildDrafts

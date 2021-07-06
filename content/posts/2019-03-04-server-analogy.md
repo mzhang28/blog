@@ -4,7 +4,7 @@ date = 2019-03-04
 tags = ["computers"]
 +++
 
-This is just something stupid I thought of recently, but decided to write about it anyway.
+This is just a stupid analogy I thought of recently, but decided to write about it anyway.
 
 If you think about it, a server waiting for clients is kind of like the host at the front of a restaurant leading guests to tables. They don't actually take orders or serve food, they just stand at the front and wait for new guests to arrive. Then there's another waiter that's specifically assigned to take that table's orders.
 

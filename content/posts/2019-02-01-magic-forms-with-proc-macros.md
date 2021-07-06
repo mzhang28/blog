@@ -5,7 +5,9 @@ tags = ["computers", "web"]
 languages = ["rust"]
 +++
 
-Procedural macros (proc macros for short) in Rust are incredible because they allow pre-compile source transformation. Many of the greatest abstractions in Rust take advantage of this feature. For example, you can
+Procedural macros (proc macros for short) in Rust are incredible because they allow arbitrary pre-compile source transformation, which leads to endless possibilities (and hazards!). But if we take careful advantage of this feature, we can use it to make clean abstractions for messy boilerplate, especially in the case of web forms. <!--more-->
+
+In fact, proc macros are incredibly pervasive around Rust's ecosystem. For example, using the [`serde`][1] serialization/deserialization crate, you can simply write:
 
 ```rs
 #[derive(Serialize)]
@@ -13,6 +15,8 @@ struct Foo {
     bar: String,
 }
 ```
+
+and code will be generated to serialize and deserialize to a multitude of formats including JSON, YAML, CBOR, etc.
 
 It occurred to me that this feature can also be useful for generating code for rendering and validating forms (as in a place where you fill out info). **wtforms** is one of the nicest Python packages for handling form behavior in web applications, and with the power of proc macros, this functionality can be easily achieved in Rust as well.
 
@@ -82,3 +86,5 @@ then calling something like `instance.verify()` should run all those validators 
 ## conclusion
 
 This project is a work in progress! You can see how far I am [on Github](https://github.com/iptq/wtforms).
+
+[1]: https://docs.rs/serde

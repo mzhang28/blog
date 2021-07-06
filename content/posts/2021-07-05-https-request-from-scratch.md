@@ -9,7 +9,7 @@ languages = ["python"]
 
 The web is [so complicated][4] these days, I began wondering exactly how big of a feat it would be to formally verify everything. At this point I realized all I knew about web protocols were from fiddling around with HTTP 1.0 requests from doing CTFs in the past. You'd pop open a socket to wherever you wanted, stick `GET` and then whatever path you wanted, and then add a version number at the end.
 
-The modern web's changed significantly since those days, so I thought it would be an interesting undertaking to see exactly how much it would take to send an HTTPS request from scratch, just like what the browser does, using as little as I can.
+The modern web's changed significantly since 1.0, so I thought it would be an interesting undertaking to see exactly how much it would take to send an HTTPS request from scratch, just like what the browser does, using as little as I can.
 
 > **Disclaimer:** Don't use this code for any real software.
 

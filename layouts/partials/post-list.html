@@ -2,7 +2,7 @@
     {{- range .Pages -}}
         <tr class="postlisting-row">
             <td>
-                <span style="font-size: 1.2em;">
+                <span class="title">
                     <a href="{{ .RelPermalink }}" class="brand-colorlink">{{ .Title }}</a>
                 </span>
                 <br />
@@ -13,6 +13,14 @@
 
                     on {{ partial "rel-date" .Date }}
                 </small>
+
+                <br />
+                <div class="summary">
+                    {{ .Summary }}
+                    {{ if .Truncated }}
+                        <a href="{{ .RelPermalink }}">read more &raquo;</a>
+                    {{ end }}
+                </div>
             </td>
         </tr>
     {{- end -}}

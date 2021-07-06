@@ -6,9 +6,9 @@ tags = ["email", "rant", "computers", "things-that-are-bad", "privacy"]
 
 You probably get emails every day, and spend a lot of time reading them. And
 whenever someone performs an action or does something in vast quantities, you
-_bet_ the data people have figured out a way to capitalize on it. For many
+_bet_ the data giants have figured out a way to capitalize on it. For many
 years consumer privacy has basically gone unnoticed, and invasive tracking has
-grown [viral][1].
+grown [viral][1]. <!--more-->
 
 Arguably, if you are someone who runs a business off of writing periodic
 newsletters that are distributed via email, you might want some statistics on
