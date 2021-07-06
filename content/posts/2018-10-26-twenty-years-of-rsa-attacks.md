@@ -12,7 +12,7 @@ There's [a great paper][1] I found by Dan Boneh from 1998 highlighting the weakn
 
 That being said, I _am_ going to skip over the primer of how the RSA cryptosystem works, since there's already a great number of resources on how to do that.
 
-### factoring large integers
+## factoring large integers
 
 Obviously this is a pretty bruteforce-ish way to crack the cryptosystem, and probably won't work in time for you to see the result, but can still be considered an attack vector. This trick works by just factoring the modulus, N. With N, finding the private exponent d from the public exponent e is a piece of cake.
 
