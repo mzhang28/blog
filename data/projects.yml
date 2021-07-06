@@ -1,0 +1,56 @@
+- category: Research Projects
+  desc: Projects that I'm using to learn more about some topic in computer science.
+  projects:
+  - name: Ag Test
+    link: https://git.sr.ht/~mzhang/agtest
+    desc: A small toy attribute grammar.
+    status: incomplete
+    langs: ["python"]
+
+  - name: Coq-SSH
+    link: https://git.sr.ht/~mzhang/coq-ssh
+    desc: Attempt at formally verifying SSH protocol through Coq.
+    status: incomplete
+    langs: ["coq", "ocaml"]
+
+- category: Learning Projects
+  desc: Projects that I'm using to learn more about particular technologies.
+  projects:
+  - name: rsld
+    link: https://git.mzhang.io/michael/rsld
+    desc: A parallel rust linker.
+    status: incomplete
+    langs: ["rust"]
+
+  - name: asciinema
+    link: https://git.mzhang.io/michael/asciinema
+    desc: Reimplementation of the terminal recorder asciinema.
+    status: mvp
+    langs: ["rust"]
+
+- category: Utility Projects
+  desc: Projects that I did to solve a particular problem or make something useful for myself.
+  projects:
+  - name: Panorama
+    link: https://github.com/iptq/panorama
+    desc: Mail client.
+    status: incomplete
+    langs: ["rust"]
+
+  - name: Leanshot
+    link: https://git.mzhang.io/michael/leanshot
+    desc: Linux screen capture tool.
+    status: working
+    langs: ["rust"]
+
+  - name: Garbage
+    link: https://git.sr.ht/~iptq/garbage
+    desc: CLI interface to the FreeDesktop Trash Can API.
+    status: working
+    langs: ["rust"]
+
+  - name: Markout
+    link: https://git.mzhang.io/michael/markout
+    desc: Extracts code blocks for a particular language out of Markdown.
+    status: working
+    langs: ["rust"]
