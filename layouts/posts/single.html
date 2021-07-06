@@ -9,6 +9,15 @@
     - {{ .ReadingTime }} min read
 </small>
 
+{{ if .Params.toc }}
+<div class="toc">
+    <details>
+        <summary>Table of Contents</summary>
+        {{ .TableOfContents }}
+    </details>
+</div>
+{{ end }}
+
 <div id="content" class="post-content">{{ .Content }}</div>
 
 <hr />

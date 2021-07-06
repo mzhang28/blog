@@ -2,3 +2,8 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "michael's blog"
 enableGitInfo = true
+
+[markup.tableOfContents]
+endLevel = 4
+ordered = true
+startLevel = 2

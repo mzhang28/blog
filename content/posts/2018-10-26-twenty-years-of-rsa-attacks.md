@@ -1,21 +1,19 @@
 +++
 title = "twenty years of attacks on rsa with examples"
 date = 2018-10-26
+toc = true
 
 [taxonomies]
 tags = ["math", "crypto", "python"]
-
-[extra]
-toc = true
 +++
 
-# 1. introduction
+## 1. introduction
 
 There's [this great paper][1] by Dan Boneh from 1998 about the RSA cryptosystem and its weaknesses. I found this paper to be a particularly interesting read (and interestingly enough, it's been 20 years since that paper!), so here I'm going to reiterate some of the attacks described in the paper, but using examples with numbers in them. (Also please excuse the lack of proper formatting, I've yet to figure out how to get Gutenberg to accept Latex)
 
 That being said, I _am_ going to skip over the primer of how the RSA cryptosystem works, since there's already a great number of resources on how to do that.
 
-## 1.1 factoring large integers
+### 1.1 factoring large integers
 
 Obviously this is a pretty bruteforce-ish way to crack the cryptosystem, and probably won't work in time for you to see the result, but can still be considered an attack vector. This trick works by just factoring the modulus, N. With N, finding the private exponent d from the public exponent e is a piece of cake.
 
@@ -47,11 +45,11 @@ Now all that's left is to discover the private exponent and solve for the origin
 
 And that's it! Now let's look at some more sophisticated attacks...
 
-# 2. elementary attacks
+## 2. elementary attacks
 
 These attacks are related to the _misuse_ of the RSA system. (if you can't tell, I'm mirroring the document structure of the original paper)
 
-## 2.1 common modulus
+### 2.1 common modulus
 
 My cryptography professor gave this example as well. Suppose there was a setup in which the modulus was reused, maybe for convenience (although I suppose with libraries today, it'd actually be more _inconvenient_ to reuse the key). Key pairs would be issued to different users and they would share public keys with each other and keep private keys to themselves.
 
@@ -117,7 +115,7 @@ True
 
 We've successfully recovered `p` and `q` from just `N`, `e`, and `d`!
 
-## 2.2 blinding
+### 2.2 blinding
 
 This attack is actually about RSA _signatures_ (which uses the opposite keys as encryption: private for signing and public for verifying), and shows how you can compute the signature of a message M using the signature of a derived message M'.
 
