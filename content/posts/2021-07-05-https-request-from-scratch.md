@@ -33,12 +33,12 @@ This part is basically just a chore. URLs are defined in [RFC 3986][1], but we'l
 ```py
 import re
 URL_PAT = re.compile(r"""
-    (?P<scheme>[A-Za-z]+)       # scheme (http, https,...)
-    ://                         # divider
-    (?P<host>[A-Za-z\-\.]+)     # hostname
-    (:(?P<port>[0-9]+))?        # port
-    (/                          # divider
-        (?P<path>[^?]*))?       # path
+  (?P<scheme>[A-Za-z]+)       # scheme (http, https,...)
+  ://                         # divider
+  (?P<host>[A-Za-z\-\.]+)     # hostname
+  (:(?P<port>[0-9]+))?        # port
+  (/                          # divider
+    (?P<path>[^?]*))?       # path
 """, flags = re.VERBOSE)
 ```
 
@@ -46,9 +46,9 @@ We'll say if a string doesn't match this regex, then we won't count it as a URL.
 
 ```py
 def parse_url(s: str):
-    m = URL_PAT.match(s)
-    if m is None: raise Exception("bad url")
-    return m.groupdict()
+  m = URL_PAT.match(s)
+  if m is None: raise Exception("bad url")
+  return m.groupdict()
 u = parse_url("https://en.wikipedia.org")
 # {'scheme': 'https', 'host': 'en.wikipedia.org', 'port': None, 'path': None}
 ```
@@ -70,12 +70,12 @@ Not a big deal, it just means we'll want a helper function to actually send our 
 ```py
 import struct
 def wrap_tls_record(ctype, rdata):
-    data = bytes()
-    data += struct.pack(">B", ctype) # content type encoded as a single byte
-    data += b"\x03\x03" # legacy_record_version, should just be 0x0303
-    data += struct.pack(">H", len(rdata)) # length of the data
-    data += rdata # finally, the record data itself
-    return data
+  data = bytes()
+  data += struct.pack(">B", ctype) # content type encoded as a single byte
+  data += b"\x03\x03" # legacy_record_version, should just be 0x0303
+  data += struct.pack(">H", len(rdata)) # length of the data
+  data += rdata # finally, the record data itself
+  return data
 ```
 
 ### Handshake Layer
@@ -87,11 +87,11 @@ Again, not too much code, just needs to be there. The annoying part of this is t
 ```py
 import struct
 def wrap_handshake(htype, hdata):
-    data = bytes()
-    data += struct.pack(">B", htype) # handshake type encoded as a byte
-    data += struct.pack(">I", len(hdata))[1:] # length, encoded as 3 bytes!
-    data += hdata # and then the handshake data
-    return data
+  data = bytes()
+  data += struct.pack(">B", htype) # handshake type encoded as a byte
+  data += struct.pack(">I", len(hdata))[1:] # length, encoded as 3 bytes!
+  data += hdata # and then the handshake data
+  return data
 ```
 
 ### Client Hello
@@ -127,8 +127,6 @@ The extensions we'll need to support are listed in section 9.2 of the RFC. We'll
 
 - supported_versions (required)
 - signature_algorithms (required)
-- signature_algorithms_cert (required)
-- supported_groups (required)
 - key_share (required)
 - server_name (required)
 - application_layer_protocol_negotiation
@@ -137,67 +135,102 @@ What this means for our implementation is that for each of these we'll have to s
 
 (Before I start, I have to warn you; there are a LOT of length-wrappers. Most of these seem unnecessary since we're using Python, but I expect these were designed with generalization in mind)
 
-```py
-import struct
-def client_hello_extensions(hostname: str):
-    data = bytes()
-    # ...continued below
-```
-
 Supported versions is just what TLS 1.3 replaced the version header with; rather than saying up front that I want TLS 1.2, we have a general TLS framework for specifying extensions and then if I want to let the server know I can speak both TLS 1.2 and TLS 1.3, I'd put both versions into this extension.
 
 ```py
-    # ...continued from above
-    versions = [b"\x03\x04"] # code number for TLS 1.3
-    versions = b"".join(map(lambda p: struct.pack(">B", len(p)) + p, versions))
-    data += struct.pack(">H", 43) # code number for supported_versions
-    data += struct.pack(">H", len(versions)) + versions
-    # ...continued below
+def ext_supported_versions():
+  versions = [b"\x03\x04"] # code number for TLS 1.3
+  versions = b"".join(map(lambda p: struct.pack(">B", len(p)) + p, versions))
+  return (struct.pack(">H", 43) # code number for supported_versions
+    + struct.pack(">H", len(versions))
+    + versions)
 ```
 
 In TLS, clients have a pre-defined set of root authorities that it trusts, distributed by some trusted party like the OS or browser developers. These root authorities can then sign certificates for individual sites to prove to clients that they hold ownership over that domain. Clients can verify this proof cryptographically, using one of the signature algorithms we're going to to negotiate.
 
-For this I looked at some of the ciphers my browser supports, and just picked one that seems to have wide support: rsa_pkcs1_sha256.
+For this I looked at some of the ciphers my browser supports, and just picked one that seems to have wide support: `ecdsa_secp256r1_sha256`.
 
 ```py
-    # ...continued from above
-    algos = [b"\x04\x01"] # rsa_pkcs1_sha256
-    sig_algos = b"".join(algos)
-    data += struct.pack(">H", 13) # code number for signature_algorithms
-    ext = struct.pack(">H", len(sig_algos)) + sig_algos
-    data += struct.pack(">H", len(ext)) + ext # yeah...
-    # ...continued below
+def ext_signature_algorithms():
+  algos = [b"\x04\x03"] # ecdsa_secp256r1_sha256
+  sig_algos = b"".join(algos)
+  ext = struct.pack(">H", len(sig_algos)) + sig_algos # yeah...
+  return (struct.pack(">H", 13) # code number for signature_algorithms
+    + struct.pack(">H", len(ext))
+    + ext)
+```
+
+Key negotiation is an important step, letting us establish a shared secret between the client and server without explicitly sending it over the network. Typically for this step, a form of Diffie-Hellman Exchange is performed, but pre-sharing a symmetric key is also used.
+
+Here we'll need to step a bit into the crypto. I'm going to choose elliptical-curve Diffie-Hellman ephemeral (ECDHE), which uses the elliptical curve operation to obscure keys as opposed to the original Diffie-Hellman which uses modular exponentiation. Cloudflare's blog has a [good introduction to elliptical curves][6].
+
+What this means for us is we need to pick parameters for initiating this exchange. First we'll pick a named group in the `supported_groups` extension, then we'll have to send the parameters for that particular group in the `key_share` extension. I'm going to pick secp256r1, the same algorithm as the one above, so I only need to implement one algorithm.
+
+supported_groups:
+
+```py
+def ext_supported_groups():
+  groups = [23] # secp256r1
+  groups = b"".join(map(lambda g: struct.pack(">H", g), groups))
+  ext = struct.pack(">H", len(groups)) + groups # yeah...
+  return (struct.pack(">H", 10) # code number for alpn
+    + struct.pack(">H", len(ext))
+    + ext)
+```
+
+key_share:
+
+```py
+def ext_key_share():
+  # hardcoding a fixed value here for now, we'll generate it later!
+  import binascii
+  x = b"\xf5\xddoi\xc8\x8c/#\x99\x8a\xaef\x8aWx\xacW,\xbad\x8d\x04\xac\x10\x05\xc2\x8f\x9bJ\x18\xf8."
+  y = b"\xfc}\x7f\xe0\x89\xb2YF\x0b\xc6\xb7\x00@\x04\xf6\x17Vl)V+\x18\xae\x157:o\xcc\x91\xf9\xaa#"
+  kex = b"\x04" + x + y
+  key_share = struct.pack(">H", 23) + struct.pack(">H", len(kex)) + kex
+  ext = struct.pack(">H", len(key_share)) + key_share
+  return (struct.pack(">H", 51) # code number for alpn
+    + struct.pack(">H", len(ext))
+    + ext)
 ```
 
 Server name just lets the client tell the server what hostname it's expecting to connect to. The actual struct definitions here seem a bit over-the-top, but it's all in the name of future-proofing, right...?
 
 ```py
-    # ...continued from above
-    sname = b"\x00" # code for hostname
-    sname += struct.pack(">H", len(hostname)) # length of hostname
-    sname += hostname.encode("utf-8")
-    data += struct.pack(">H", 0) # code number for server_name
-    ext = struct.pack(">H", len(sname)) + sname
-    data += struct.pack(">H", len(ext)) + ext # yeah...
-    # ...continued below
+def ext_server_name(hostname: str):
+  sname = b"\x00" # code for hostname
+  sname += struct.pack(">H", len(hostname)) # length of hostname
+  sname += hostname.encode("utf-8")
+  ext = struct.pack(">H", len(sname)) + sname # yeah...
+  return (struct.pack(">H", 0) # code number for server_name
+    + struct.pack(">H", len(ext))
+    + ext)
 ```
 
 Application layer protocol negotiation (ALPN) isn't technically required, but we'll put it there to force the server to send us HTTP2. The extension contents are just the list of names concatenated together.
 
 ```py
-    # ...continued from above
-    protocols = [b"h2"] # http2, could also add http/1.1
-    alpn = b"".join(map(lambda p: struct.pack(">B", len(p)) + p, protocols))
-    data += struct.pack(">H", 16) # code number for alpn
-    ext = struct.pack(">H", len(alpn)) + alpn
-    data += struct.pack(">H", len(ext)) + ext # yeah...
-    # ...continued below
+def ext_alpn():
+  protocols = [b"h2"] # http2, could also add http/1.1
+  alpn = b"".join(map(lambda p: struct.pack(">B", len(p)) + p, protocols))
+  ext = struct.pack(">H", len(alpn)) + alpn # yeah...
+  return (struct.pack(">H", 16) # code number for alpn
+    + struct.pack(">H", len(ext))
+    + ext)
 ```
 
-Finally, finish off the function from above (remember, this is a code document that can run!).
+Finally, let's combine all the functions above.
 
 ```py
-    return data # end of client_hello_extensions
+def client_hello_extensions(hostname: str):
+  return b"".join([
+    ext_supported_versions(),
+    ext_signature_algorithms(),
+    ext_supported_groups(),
+    ext_key_share(),
+    ext_server_name(hostname),
+    ext_alpn(),
+  ])
 ```
 
 Extensions is the last piece of information we need to create the entire `ClientHello` message. Soon we'll be able to get the server to respond to us!
@@ -207,18 +240,18 @@ Extensions is the last piece of information we need to create the entire `Client
 ```py
 import os
 def client_hello(hostname: str):
-    data = bytes()
-    data += struct.pack(">H", 0x0303) # legacy version
-    data += os.urandom(32) # 32 bytes nonce generated from /dev/urandom
-    data += b"\x00" # won't be using legacy_session_id, so send a zero
-    data += (b"\x00\x02" # we are sending 2 cipher suites
-            + b"\x13\x02") # the number for TLS_AES_256_GCM_SHA384
-    data += b"\x01\x00" # legacy_compression_methods
+  data = bytes()
+  data += struct.pack(">H", 0x0303) # legacy version
+  data += os.urandom(32) # 32 bytes nonce generated from /dev/urandom
+  data += b"\x00" # won't be using legacy_session_id, so send a zero
+  data += (b"\x00\x02" # we are sending 2 cipher suites
+      + b"\x13\x02") # the number for TLS_AES_256_GCM_SHA384
+  data += b"\x01\x00" # legacy_compression_methods
 
-    ext = client_hello_extensions(hostname)
-    data += struct.pack(">H", len(ext))
-    data += ext
-    return data
+  ext = client_hello_extensions(hostname)
+  data += struct.pack(">H", len(ext))
+  data += ext
+  return data
 ```
 
 Let's send something to a server and see if that's what we want!
@@ -226,24 +259,107 @@ Let's send something to a server and see if that's what we want!
 ```py
 import socket
 def test_client_hello():
-    hostname = "caniuse.com"
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((hostname, 443))
+  hostname = "en.wikipedia.org"
+  s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  s.connect((hostname, 443))
 
-    # send client hello
-    ch = wrap_tls_record(22, wrap_handshake(1, client_hello(hostname)))
-    s.send(ch)
-    print(s.recv(1024))
-test_client_hello()
+  # send client hello
+  ch = wrap_tls_record(22, wrap_handshake(1, client_hello(hostname)))
+  s.send(ch)
+  return s.recv(1024)
+server_response = test_client_hello()
+# b'\x16\x03\x03...'
+assert server_response[0] == 0x16
 ```
 
 If all went well, you should've received something with `\x16` as the first byte. That means the server sent a record with the content type `handshake(22)`. If you got `\x15`, it means you got an alert. In the next section we'll see how to interpret the server's response.
 
 ### Server Hello
 
-### Key Exchange
+The server hello is the response, where it tells us which ciphers and algorithms it chose, out of the ones we suggested. The code will look backwards from what we did above; instead of encoding a bunch of values, we'll read from what the server gives to us and interpret it instead.
 
-### Done
+#### Change Cipher Spec
+
+Along with the Server Hello we'll also get a Change Cipher Spec record. According to the RFC, this is only in there for compatibility purposes, so we can safely ignore the one sent to us, but we'll also have to send a dummy Change Cipher Spec record as well.
+
+```py
+def change_cipher_spec():
+  return (b"\x14" # code number for change cipher spec
+    + b"\x03\x03" # legacy protocol version
+    + struct.pack(">H", 1) # length of change cipher spec message
+    + b"\x01")
+```
+
+Piece of cake.
+
+### Crypto
+
+> This is the deep-dive into the cryptographic portions of the protocol. If you're not too interested by this part, just continue on to the HTTP section.
+
+Let's walk through each of the ciphers and algorithms we're going to need one more time:
+
+- `ecdsa_secp256r1_sha256`
+  + ECDSA is the elliptical-curve signature algorithm; basically it can sign some information using the elliptical-curve private key, and anyone can verify using the corresponding public key that the person who owns the key has created that signature.
+  + secp256r1 just gives the name of a set of established parameters for a curve.
+  + SHA256 is a hashing algorithm, which creates a unique fingerprint of a piece of information that can't be reversed back to the original. Python's `hashlib` library provides this function for us, so we don't have to implement it ourselves.
+
+#### Naive Elliptical Curve Implementation
+
+Since many of these algorithms deal with elliptic curves, I'm going to start with some math utilities that we'll need later on. Honestly wish Python had a standardized Point class but here we go:
+
+```py
+class Point:
+  def __init__(self, x, y): self.x, self.y = x, y
+```
+
+#### ECDSA
+
+```py
+class secp256r1:
+  pass
+```
+
+```py
+def ecdsa_sign():
+  pass
+
+def ecdsa_verify():
+  pass
+```
+
+#### X25519
+
+X25519 is the key exchange protocol built on top of Curve25519, which is a curve with the equation `b * y^2 = x^3 + a * x^2 + x`. This curve was designed for its high-performance computation. First, we need to define the elliptic curve operations (add, multiply) for Curve25519:
+
+```py
+curve25519_p = 2 ** 255 - 19
+curve25519_a = 486662
+curve25519_b = 1
+
+def curve25519_add(p, a, b, x1, y1, x2, y2):
+  x3 = (b * pow(y2 - y1, 2, p) * pow(x2 - x1, -2, p) - a - x1 - x2) % p
+  y3 = ((2 * x1 + x2 + a) * (y2 - y1) * pow(x2 - x1, -1, p) - b * pow(y2 - y1, 3, p) * pow(x2 - x1, -3, p) - y1) % p
+  return (x3, y3)
+
+x3, y3 = curve25519_add(curve25519_p, curve25519_a, curve25519_b, 9, 14781619447589544791020593568409986887264606134616475288964881837755586237401, 14847277145635483483963372537557091634710985132825781088887140890597596352251, 48981431527428949880507557032295310859754924433568441600873610210018059225738)
+print(x3 == 12697861248284385512127539163427099897745340918349830473877503196793995869202, x3)
+print(y3 == 18782504731206017997790968374142055202547214238579664877619644464800823583275, y3)
+```
+
+```py
+import random
+def gen_x25519_keys():
+  p = 2 ** 255 - 19
+  a = 486662
+  # b =
+  g_x, g_y = (9, 14781619447589544791020593568409986887264606134616475288964881837755586237401)
+  skey = random.randint(1, p - 1)
+  Q = ec_mul(p, a, b, g_x, g_y, skey)
+```
+
+### Encrypted tunnel
+
+Now we should be ready to communicate with the server through our encrypted tunnel. But we forgot to keep around our key negotiation parameters! How will we encrypt our communication? Let's go back and update these functions to let us keep the parameters, and then we can move on to implementing some of these crypto algorithms.
 
 ## HTTP 2
 
@@ -260,3 +376,5 @@ What did we learn? Don't do this shit yourself, it's not worth it. We'll probabl
 [3]: https://git.mzhang.io/michael/markout
 [4]: https://drewdevault.com/2020/03/18/Reckless-limitless-scope.html
 [5]: https://docs.python.org/3/library/struct.html
+[6]: https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/
+[7]: https://datatracker.ietf.org/doc/html/rfc7748
