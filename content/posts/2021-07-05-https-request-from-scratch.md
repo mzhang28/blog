@@ -310,51 +310,86 @@ Since many of these algorithms deal with elliptic curves, I'm going to start wit
 ```py
 class Point:
   def __init__(self, x, y): self.x, self.y = x, y
+  def __str__(self): return f"({self.x}, {self.y})"
 ```
 
-#### ECDSA
+#### secp256r1
+
+The curve is defined using the equation `y^2 = x^3 + ax + b mod p`.
 
 ```py
 class secp256r1:
-  pass
+  p = (2 ** 224) * (2 ** 32 - 1) + 2 ** 192+ 2 ** 96 - 1
+  a = 0xFFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC
+  b = 0x5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B
+  gx = 0x6B17D1F2E12C4247F8BCE6E563A440F277037D812DEB33A0F4A13945D898C296
+  gy = 0x4FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE33576B315ECECBB6406837BF51F5
+  G = Point(gx, gy)
+  n = 0xFFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551
+  def __init__(self): pass
+  def add(a, b):
+    if a == b: return secp256r1.double(a)
+    l = (b.y - a.y) * pow(b.x - a.x, -1, secp256r1.p)
+    x = (pow(l, 2, secp256r1.p) - a.x - b.x) % secp256r1.p
+    y = (l * (a.x - x) - a.y) % secp256r1.p
+    return Point(x, y)
+  def double(p):
+    l = (3 * p.x * p.x + secp256r1.a) * pow(2 * p.y, -1, secp256r1.p)
+    x = (pow(l, 2, secp256r1.p) - 2 * p.x) % secp256r1.p
+    y = (l * (p.x - x) - p.y) % secp256r1.p
+    return Point(x, y)
+  def mul(p, s):
+    t = None
+    while s:
+      b = s & 1
+      if b: t = p if t is None else secp256r1.add(t, p)
+      s >>= 1
+    return t
 ```
 
 ```py
-def ecdsa_sign():
-  pass
+import secrets
 
-def ecdsa_verify():
-  pass
-```
+def ecdsa_keypair():
+  d = secrets.randbits(32)
+  Q = secp256r1.mul(secp256r1.G, d)
+  return (d, Q)
 
-#### X25519
+(d1, Q1) = ecdsa_keypair()
+print("gen", d1, Q1)
 
-X25519 is the key exchange protocol built on top of Curve25519, which is a curve with the equation `b * y^2 = x^3 + a * x^2 + x`. This curve was designed for its high-performance computation. First, we need to define the elliptic curve operations (add, multiply) for Curve25519:
+def ecdsa_sign(d, z):
+  while True:
+    # generate a number k between 1 and n-1
+    k = secrets.randbelow(secp256r1.n - 1)
+    if k == 0: continue
 
-```py
-curve25519_p = 2 ** 255 - 19
-curve25519_a = 486662
-curve25519_b = 1
+    p = secp256r1.mul(secp256r1.G, k)
+    r = p.x % secp256r1.n
+    if r == 0: continue
 
-def curve25519_add(p, a, b, x1, y1, x2, y2):
-  x3 = (b * pow(y2 - y1, 2, p) * pow(x2 - x1, -2, p) - a - x1 - x2) % p
-  y3 = ((2 * x1 + x2 + a) * (y2 - y1) * pow(x2 - x1, -1, p) - b * pow(y2 - y1, 3, p) * pow(x2 - x1, -3, p) - y1) % p
-  return (x3, y3)
+    s = (pow(k, -1, secp256r1.n) * (z + r * d)) % secp256r1.n
+    if s == 0: continue
+    break
+  return (r, s)
 
-x3, y3 = curve25519_add(curve25519_p, curve25519_a, curve25519_b, 9, 14781619447589544791020593568409986887264606134616475288964881837755586237401, 14847277145635483483963372537557091634710985132825781088887140890597596352251, 48981431527428949880507557032295310859754924433568441600873610210018059225738)
-print(x3 == 12697861248284385512127539163427099897745340918349830473877503196793995869202, x3)
-print(y3 == 18782504731206017997790968374142055202547214238579664877619644464800823583275, y3)
-```
+(r1, s1) = ecdsa_sign(d1, 12345)
+print("sign", r1, s1)
 
-```py
-import random
-def gen_x25519_keys():
-  p = 2 ** 255 - 19
-  a = 486662
-  # b =
-  g_x, g_y = (9, 14781619447589544791020593568409986887264606134616475288964881837755586237401)
-  skey = random.randint(1, p - 1)
-  Q = ec_mul(p, a, b, g_x, g_y, skey)
+def ecdsa_verify(r, s, Q, z):
+  if not (r >= 1 and r < secp256r1.n and s >= 1 and s < secp256r1.n):
+    return False
+  sinv = pow(s, -1, secp256r1.n)
+  u1 = (z * sinv) % secp256r1.n
+  u2 = (r * sinv) % secp256r1.n
+  p = secp256r1.add(secp256r1.mul(secp256r1.G, u1), secp256r1.mul(Q, u2))
+  print(r)
+  print(p.x % secp256r1.n)
+  if r != p.x % secp256r1.n: return False
+  return True
+
+res = ecdsa_verify(r1, s1, Q1, 12345)
+print("res", res)
 ```
 
 ### Encrypted tunnel
