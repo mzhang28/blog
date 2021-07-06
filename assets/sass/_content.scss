@@ -4,6 +4,7 @@ body {
     min-height: 100%;
     padding-bottom: 20px;
     font-family: $sansfont;
+    font-weight: normal;
 
     background-color: $background-color;
     color: $text-color;
@@ -19,7 +20,7 @@ header {
         margin-bottom: 12px;
 
         #title {
-            font-size: 2em;
+            font-size: 2.5em;
             color: $text-color;
 
             &:hover {
@@ -27,6 +28,12 @@ header {
             }
         }
     }
+}
+
+footer {
+    margin-top: 24px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 small {
