@@ -40,17 +40,17 @@
   - name: Leanshot
     link: https://git.mzhang.io/michael/leanshot
     desc: Linux screen capture tool.
-    status: working
+    status: works
     langs: ["rust"]
 
   - name: Garbage
     link: https://git.sr.ht/~iptq/garbage
     desc: CLI interface to the FreeDesktop Trash Can API.
-    status: working
+    status: works
     langs: ["rust"]
 
   - name: Markout
     link: https://git.mzhang.io/michael/markout
     desc: Extracts code blocks for a particular language out of Markdown.
-    status: working
+    status: works
     langs: ["rust"]
