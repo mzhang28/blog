@@ -3,9 +3,8 @@ title = "sending https requests from scratch"
 date = 2021-07-05
 draft = true
 toc = true
-
-[taxonomies]
-tags = ["computers", "web", "python"]
+tags = ["computers", "web", "crypto"]
+languages = ["python"]
 +++
 
 The web is [so complicated][4] these days, I began wondering exactly how big of a feat it would be to formally verify everything. At this point I realized all I knew about web protocols were from fiddling around with HTTP 1.0 requests from doing CTFs in the past. You'd pop open a socket to wherever you wanted, stick `GET` and then whatever path you wanted, and then add a version number at the end.
@@ -394,7 +393,35 @@ print("res", res)
 
 ### Encrypted tunnel
 
-Now we should be ready to communicate with the server through our encrypted tunnel. But we forgot to keep around our key negotiation parameters! How will we encrypt our communication? Let's go back and update these functions to let us keep the parameters, and then we can move on to implementing some of these crypto algorithms.
+Now we should be ready to communicate with the server through our encrypted tunnel. But we forgot to keep around our key negotiation parameters! How will we encrypt our communication? Let's go back and update these functions to let us keep the parameters, using the crypto functions we just defined.
+
+The key sharing function:
+
+```py
+def ext_key_share(Q):
+  kex = b"\x04" + Q.x + Q.y
+  key_share = struct.pack(">H", 23) + struct.pack(">H", len(kex)) + kex
+  ext = struct.pack(">H", len(key_share)) + key_share
+  return (struct.pack(">H", 51) # code number for alpn
+    + struct.pack(">H", len(ext))
+    + ext)
+```
+
+Finally, the new `client_hello_extensions`:
+
+```py
+def client_hello_extensions(hostname: str):
+  d, Q = ecdsa_keypair()
+  data = b"".join([
+    ext_supported_versions(),
+    ext_signature_algorithms(),
+    ext_supported_groups(),
+    ext_key_share(Q),
+    ext_server_name(hostname),
+    ext_alpn(),
+  ])
+  return (data, d, Q)
+```
 
 ## HTTP 2
 

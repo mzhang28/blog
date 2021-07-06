@@ -1,8 +1,6 @@
 +++
 title = "accept server analogy"
 date = 2019-03-04
-
-[taxonomies]
 tags = ["computers"]
 +++
 

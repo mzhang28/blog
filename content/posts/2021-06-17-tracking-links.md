@@ -1,9 +1,7 @@
 +++
 title = "email tracking links"
 date = 2021-06-17
-
-[taxonomies]
-tags = ["email", "computers", "things-that-are-bad", "privacy"]
+tags = ["email", "rant", "computers", "things-that-are-bad", "privacy"]
 +++
 
 You probably get emails every day, and spend a lot of time reading them. And

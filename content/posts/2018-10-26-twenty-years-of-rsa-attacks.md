@@ -2,9 +2,8 @@
 title = "twenty years of attacks on rsa with examples"
 date = 2018-10-26
 toc = true
-
-[taxonomies]
-tags = ["math", "crypto", "python"]
+tags = ["crypto"]
+languages = ["python"]
 +++
 
 ## 1. introduction

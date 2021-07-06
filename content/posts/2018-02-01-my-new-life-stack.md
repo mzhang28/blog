@@ -1,8 +1,6 @@
 +++
 title = "my new life stack"
 date = 2018-02-01
-
-[taxonomies]
 tags = ["arch", "linux", "setup", "computers"]
 +++
 

@@ -3,6 +3,10 @@ languageCode = "en-us"
 title = "michael's blog"
 enableGitInfo = true
 
+[taxonomies]
+tag = "tags"
+language = "languages"
+
 [markup.tableOfContents]
 endLevel = 4
 ordered = true

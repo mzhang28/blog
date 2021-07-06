@@ -1,0 +1,21 @@
+{{- define "content" -}}
+
+<h1>{{ .Name }}</h1>
+
+<ul>
+{{- range $name, $value := sort .Data.Pages "Title" -}}
+    <li style="margin-bottom: 15px;">
+        <a href="{{ $value.RelPermalink }}">{{ $value.Title }}</a>
+        ({{ len $value.Pages }})
+        <br />
+        <small>
+        {{- range $index, $page := $value.Pages -}}
+            {{ if $index }},{{ end }}
+            <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+        {{- end -}}
+        </small>
+    </li>
+{{- end -}}
+</ul>
+
+{{- end -}}

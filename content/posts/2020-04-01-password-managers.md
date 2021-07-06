@@ -1,8 +1,6 @@
 +++
 title = "password managers"
 date = 2020-04-01
-
-[taxonomies]
 tags = ["computers", "things-that-are-good", "privacy"]
 +++
 
