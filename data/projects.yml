@@ -35,7 +35,7 @@
     langs: ["rust"]
 
 - category: Utility Projects
-  desc: Software that I developed to cater to a specific scenario or make something useful for myself.
+  desc: Software that I developed to solve a very specific problem or to make something useful for myself.
   projects:
   - name: Panorama
     link: https://git.mzhang.io/michael/panorama
