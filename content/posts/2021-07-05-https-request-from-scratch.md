@@ -7,18 +7,19 @@ tags = ["computers", "web", "crypto"]
 languages = ["python"]
 +++
 
-The web is [so complicated][4] these days, I began wondering exactly how big of a feat it would be to formally verify everything. At this point I realized all I knew about web protocols were from fiddling around with HTTP 1.0 requests from doing CTFs in the past. You'd pop open a socket to wherever you wanted, stick `GET` and then whatever path you wanted, and then add a version number at the end.
+Every now and then, I return to this age-old question of _exactly_ how hard would it be to write a web browser from scratch? I hear some interviewers ask their candidates to describe the process your browser takes to actually put a webpage on your screen, but no doubt that's a simplification of a process from 20 years ago. <!--more-->
 
-The modern web's changed significantly since 1.0, so I thought it would be an interesting undertaking to see exactly how much it would take to send an HTTPS request from scratch, just like what the browser does, using as little as I can.
+Today, the specifications describing your browser's behavior [far exceeds 100 million words][4], and there's no sign of slowing. We are no longer just opening TCP sockets and sending `GET /path HTTP/1.0` anymore. That's why I decided to take some time and do some digging to see exactly how much it would take to send an HTTPS request from scratch, just like what the browser does, using as little existing tooling as I can.
 
-> **Disclaimer:** Don't use this code for any real software.
+> **Disclaimer:** This is a experiment for demonstration purposes. Do **NOT** use this code for any real software.
 
 I'll be using Python for this since it's just for fun, the code will be pretty concise, and I don't have to write boilerplate outside of this post in order to make the code in it work. I'll try to stick to only using the Python 3 standard library as well, so not bringing in any external cryptography algorithms (the standard library provides `hashlib` tho). The downside here is the struct serialization and deserialization (using the [Python struct library][5]) gets a bit messy if you don't know how it works, but that information is all in the RFC anyway.
 
-**This is a literate document.** I wrote a [small utility][3] to extract the code blocks out of markdown files, and it should produce working example for this file. If you have the utility, then running the following should get you a copy of all the Python code extracted from this blog post:
+**&#x1f4a1; This is a literate document.** I wrote a [small utility][3] to extract the code blocks out of markdown files, and it should produce working example for this file. If you have the utility, then running the following should get you a copy of all the Python code extracted from this blog post:
 
 ```bash
-markout -l py <(curl -s https://git.mzhang.io/michael/blog/raw/branch/master/content/posts/2021-07-05-https-request-from-scratch.md)
+curl -o https.md -s {{< docUrl >}}
+markout -l py https.md > https.py
 ```
 
 Otherwise, you can follow along and extract the code yourself as you read.
