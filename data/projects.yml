@@ -13,6 +13,12 @@
     status: incomplete
     langs: ["coq", "ocaml"]
 
+  - name: Enterprise
+    link: https://git.mzhang.io/michael/enterprise
+    desc: Statically-compiled interactive programs like Svelte.
+    status: prototype
+    langs: ["rust"]
+
 - category: Learning Projects
   desc: Projects that I'm using to learn more about particular technologies.
   projects:

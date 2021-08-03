@@ -304,46 +304,13 @@ Let's walk through each of the ciphers and algorithms we're going to need one mo
 
 #### Naive Elliptical Curve Implementation
 
-Since many of these algorithms deal with elliptic curves, I'm going to start with some math utilities that we'll need later on. Honestly wish Python had a standardized Point class but here we go:
-
-```py
-class Point:
-  def __init__(self, x, y): self.x, self.y = x, y
-  def __str__(self): return f"({self.x}, {self.y})"
-```
-
 #### secp256r1
 
 The curve is defined using the equation `y^2 = x^3 + ax + b mod p`.
 
 ```py
-class secp256r1:
-  p = (2 ** 224) * (2 ** 32 - 1) + 2 ** 192+ 2 ** 96 - 1
-  a = 0xFFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC
-  b = 0x5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B
-  gx = 0x6B17D1F2E12C4247F8BCE6E563A440F277037D812DEB33A0F4A13945D898C296
-  gy = 0x4FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE33576B315ECECBB6406837BF51F5
-  G = Point(gx, gy)
-  n = 0xFFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551
-  def __init__(self): pass
-  def add(a, b):
-    if a == b: return secp256r1.double(a)
-    l = (b.y - a.y) * pow(b.x - a.x, -1, secp256r1.p)
-    x = (pow(l, 2, secp256r1.p) - a.x - b.x) % secp256r1.p
-    y = (l * (a.x - x) - a.y) % secp256r1.p
-    return Point(x, y)
-  def double(p):
-    l = (3 * p.x * p.x + secp256r1.a) * pow(2 * p.y, -1, secp256r1.p)
-    x = (pow(l, 2, secp256r1.p) - 2 * p.x) % secp256r1.p
-    y = (l * (p.x - x) - p.y) % secp256r1.p
-    return Point(x, y)
-  def mul(p, s):
-    t = None
-    while s:
-      b = s & 1
-      if b: t = p if t is None else secp256r1.add(t, p)
-      s >>= 1
-    return t
+# https://hyperelliptic.org/EFD/g1p/auto-shortw.html
+
 ```
 
 ```py
