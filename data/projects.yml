@@ -61,6 +61,15 @@
     status: works
     langs: ["rust"]
 
+- category: Miscellaneous
+  desc: Projects that I did for fun or don't really fit in one of the categories above.
+  projects:
+  - name: Cryptopals
+    link: https://git.mzhang.io/michael/cryptopals
+    desc: My solutions to the cryptopals solution, for learning Common Lisp
+    status: incomplete
+    langs: ["common-lisp"]
+
 - category: Old Projects
   desc: Software I wrote in the past and won't be updating.
   projects:
