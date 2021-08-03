@@ -1,5 +1,5 @@
 - category: Research Projects
-  desc: Projects that I'm using to learn more about some topic in computer science.
+  desc: Projects that have a large research component compared to software development.
   projects:
   - name: Ag Test
     link: https://git.mzhang.io/proglangs/agtest
@@ -20,7 +20,7 @@
     langs: ["rust"]
 
 - category: Learning Projects
-  desc: Projects that I'm using to learn more about particular technologies.
+  desc: Software development projects used to gain more experience with a particular set of existing technologies.
   projects:
   - name: rsld
     link: https://git.mzhang.io/michael/rsld
@@ -35,7 +35,7 @@
     langs: ["rust"]
 
 - category: Utility Projects
-  desc: Projects that I did to solve a particular problem or make something useful for myself.
+  desc: Software that I developed to cater to a specific scenario or make something useful for myself.
   projects:
   - name: Panorama
     link: https://git.mzhang.io/michael/panorama
@@ -60,3 +60,12 @@
     desc: Extracts code blocks for a particular language out of Markdown.
     status: works
     langs: ["rust"]
+
+- category: Old Projects
+  desc: Software I wrote in the past and won't be updating.
+  projects:
+  - name: EasyCTF IV Platform
+    link: https://git.mzhang.io/easyctf/easyctf-iv-platform
+    desc: CTF platform for EasyCTF.
+    status: graveyarded
+    langs: ["python"]
