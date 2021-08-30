@@ -23,7 +23,10 @@
 <hr />
 
 <small>
-    End.
+    Thanks for reading!
+    {{ if .Params.mastodon }}
+        Have comments? Discuss this post on <a href="{{ .Params.mastodon }}" target="_blank">Mastodon</a>.
+    {{ end }}
 </small>
 
 {{- end -}}
