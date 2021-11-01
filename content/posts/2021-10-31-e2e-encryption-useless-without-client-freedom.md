@@ -7,8 +7,8 @@ tags = ["computers", "privacy"]
 Today, many companies claim to provide "end-to-end encryption" of user data,
 whether it be text messages, saved pictures, or important documents. But what
 does this actually mean for your data? I'll explain what "non-end-to-end"
-encryption is, and why end-to-end encryption is important, and also why it's
-also absolutely meaningless to have in some circumstances.<!--more-->
+encryption is, why end-to-end encryption is important, and also when it might
+be absolutely meaningless.<!--more-->
 
 > If you just want to read about end-to-end encryption, click [here][1].
 > Otherwise, I'll start the story all the way back to how computers talk to
