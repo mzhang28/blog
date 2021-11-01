@@ -47,7 +47,8 @@ So the way encryption's being used here is known as _transport_ encryption,
 since I'm _sending_ a message somewhere. Transport encryption is standard
 practice now through a technology called **transport-layer security**, or TLS,
 which is used by almost everything that talks to the internet, your browser,
-your email client, your phone. If it's not using TLS, it's considered insecure.
+your email client, your phone. If it's not using TLS, it should be considered
+insecure.
 
 If you're thinking ahead, you'll know that the other place encryption can be
 used is **encryption at rest**. This is for documents and pictures that need to
@@ -173,18 +174,6 @@ email, but also has the benefits of multi-party encryption. There are multiple
 apps and servers, and servers can federate with each other using an open
 protocol. I would strongly recommend people who are interested in privacy to
 consider it.
-
-### scuttlebutt
-
-[Scuttlebutt][scuttlebutt] takes the decentralization idea further and
-introduces a _distributed_ protocol. Each device has an identifier and can
-communicate with other devices by reaching their identifier. Rather than a
-centralized server that holds data and rebroadcasts it, there are _pubs_ which
-are simply servers that connect multiple devices together. However, due to its
-novelty, there are still some wrinkles that need to be ironed out, for example
-support for multiple devices. I certainly like the idea of this more than
-federated services where data is still centralized, but the implementation isn't
-mature enough in my opinion.
 
 conclusion
 ---
