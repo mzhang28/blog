@@ -12,7 +12,7 @@ Hi there! I'm a recently-graduated CS bachelor from the University of Minnesota,
 - [**Leanshot**][6], a Linux screen capture tool.
 - [**Garbage**][7], a CLI interface to the trash can API.
 
-More can be found on my public [Gitea][2].
+More can be found on [this page][12] or my public [Gitea][2].
 
 I've also started making an increased effort at using and supporting [FOSS][8], and other software that're not predatory towards users. As a part of this effort, I'm also self-hosting and rewriting some of the services and software that I use regularly. Find out what I'm using [here][9].
 
@@ -35,3 +35,4 @@ I'm also an avid rhythm game player and beatmap creator, mostly involved with th
 [9]: setup
 [10]: pgp.txt
 [11]: https://www.sift.net/
+[12]: ../projects

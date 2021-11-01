@@ -9,13 +9,13 @@ List of software and services I use and endorse, mostly FOSS.
 ## desktop
 
 - [**Arch Linux**](https://archlinux.org/) OS with rolling releases.
-- [**chezmoi**](https://www.chezmoi.io/) Dotfile manager that allows for variables across machines.
+- [**Home manager**](https://github.com/nix-community/home-manager) Dotfile manager.
 - [**Firefox**](https://www.mozilla.org/firefox) Browser.
 - [**Evolution**](https://wiki.gnome.org/Apps/Evolution) Email + calendar client.
 
 ## development
 
-- [**Sublime Text**](https://www.sublimetext.com/) Text editor.
+- [**Neovim**](https://neovim.io/) Text editor.
 
 ## server
 
@@ -35,6 +35,7 @@ List of software and services I use and endorse, mostly FOSS.
 
 - [**ProtonMail**](https://protonmail.com/) Encrypted email.
 - [**Signal**](https://signal.org/) Encrypted chat.
+- [**Element**](https://element.io/) Federated chat provider.
 
 ## games
 
