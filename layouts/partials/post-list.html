@@ -15,12 +15,6 @@
                 </small>
 
                 <br />
-                <div class="summary">
-                    {{ .Summary }}
-                    {{ if .Truncated }}
-                        <a href="{{ .RelPermalink }}">read more &raquo;</a>
-                    {{ end }}
-                </div>
             </td>
         </tr>
     {{- end -}}
