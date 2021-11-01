@@ -50,11 +50,11 @@ which is used by almost everything that talks to the internet, your browser,
 your email client, your phone. If it's not using TLS, it should be considered
 insecure.
 
-If you're thinking ahead, you'll know that the other place encryption can be
-used is **encryption at rest**. This is for documents and pictures that need to
-sit somewhere in storage for a while but shouldn't be visible to everyone. Most
-business computers use _full-disk_ encryption, so their employees' data don't
-get compromised.
+If you're thinking ahead, you might be thinking that the other place encryption
+can be used is **encryption at rest**. This is for documents and pictures that
+need to sit somewhere in storage for a while but shouldn't be visible to
+everyone. Many businesses require that their employees' laptops use _full-disk_
+encryption, so their data doesn't get compromised.
 
 When you put these together, your data is actually pretty safe from prying
 hands. If I put some tax documents on Google Drive, it'll use _transport_
