@@ -153,13 +153,11 @@ you don't trust a particular service to have an app that doesn't encrypt its
 data properly, you can just choose to use a different one by someone who you
 trust more.
 
-### email
-
-Email is a famous case of this: if I sign up for an email account with Outlook,
-I don't have to use a proprietary Outlook client. I _could_ if I wanted, and I
-imagine that there may be some features that Microsoft has added specifically
-to the Outlook website and apps, but since they claim to conform to the _open_
-email specifications, I can just choose to use a different one.
+**Email** is a famous case of this: if I sign up for an email account with
+Outlook, I don't have to use a proprietary Outlook client. I _could_ if I
+wanted, and I imagine that there may be some features that Microsoft has added
+specifically to the Outlook website and apps, but since they claim to conform to
+the _open_ email specifications, I can just choose to use a different one.
 
 On top of that, email is _federated_, which means that if I didn't like
 Outlook's services, I could switch to a different provider and _still_ be able
@@ -167,13 +165,11 @@ to chat with people on Outlook, unlike many of today's siloed services where I
 can't just message people on Facebook if I only have an account on Twitter,
 since they don't talk to each other using the same protocol.
 
-### matrix
-
-[Matrix][matrix] is a new chat network that also follows in the same spirit as
-email, but also has the benefits of multi-party encryption. There are multiple
-apps and servers, and servers can federate with each other using an open
-protocol. I would strongly recommend people who are interested in privacy to
-consider it.
+[**Matrix**][matrix] is a new chat network that also follows in the same spirit
+as email, but also has the benefits of multi-party encryption. There are
+multiple apps and servers, and servers can federate with each other using an
+open protocol. I would strongly recommend people who are interested in privacy
+to consider it.
 
 conclusion
 ---
