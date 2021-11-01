@@ -1,0 +1,16 @@
+{
+  "subject": "acct:blogger@mzhang.io",
+  "aliases": [],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://mzhang.io"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://mzhang.io/mastodon/user.json"
+    }
+  ]
+}

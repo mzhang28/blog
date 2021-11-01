@@ -1,0 +1,17 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams"
+  ],
+  "id": "https://mzhang.io/mastodon/user.json",
+  "type": "Person",
+  "outbox": "https://mzhang.io/posts/activitypub.json",
+  "name": "Michael Zhang",
+  "url": "https://mzhang.io",
+  "attachment": [
+    {
+      "type": "PropertyValue",
+      "name": "hellosu",
+      "value": "https://osu.ppy.sh/u/2688103"
+    }
+  ]
+}

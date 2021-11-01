@@ -11,3 +11,15 @@ language = "languages"
 endLevel = 4
 ordered = true
 startLevel = 2
+
+[mediaTypes."application/activitypub"]
+suffixes = ["json"]
+
+[outputs]
+section = ["HTML", "ActivityPub"]
+
+[outputFormats.ActivityPub]
+baseName = "ActivityPub"
+mediaType = "application/activitypub"
+isPlainText = true
+
