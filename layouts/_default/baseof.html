@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>michael's blog</title>
 
+        {{ block "headExtra" . }}{{ end }}
+
         {{ $style := resources.Get "sass/main.scss" | resources.ToCSS }}
         <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
     </head>
