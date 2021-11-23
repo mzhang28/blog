@@ -9,6 +9,6 @@ sources:
 tasks:
   - build: |
       cd blog
-      hugo
+      hugo --baseURL https://mzhang.io
   - upload: |
-      scp -r public sourcehutBuilds@mzhang.io:/mnt/storage/svcdata/blog-public
+      rsync -azP public/ sourcehutBuilds@mzhang.io:/mnt/storage/svcdata/blog-public
