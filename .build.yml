@@ -1,0 +1,10 @@
+image: archlinux
+packages:
+  - hugo
+  - rsync
+sources:
+  - https://git.sr.ht/~mzhang/blog
+tasks:
+  - build: |
+      cd blog
+      hugo
