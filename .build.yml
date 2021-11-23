@@ -11,5 +11,5 @@ tasks:
       cd blog
       hugo --baseURL https://mzhang.io
   - upload: |
-      echo "happysky.mzhang.io ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzBZ+QmM4EO3Fwc1ZcvWV2IY9VF04T0H9brorGj9Udp" >> ~/.ssh/known_hosts
+      echo "mzhang.io ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzBZ+QmM4EO3Fwc1ZcvWV2IY9VF04T0H9brorGj9Udp" >> ~/.ssh/known_hosts
       rsync -azvrP public/ sourcehutBuilds@mzhang.io:/mnt/storage/svcdata/blog-public
