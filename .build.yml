@@ -2,9 +2,13 @@ image: archlinux
 packages:
   - hugo
   - rsync
+secrets:
+  - 0b26b413-7901-41c3-a4e2-3c752228ffcb
 sources:
   - https://git.sr.ht/~mzhang/blog
 tasks:
   - build: |
       cd blog
       hugo
+  - upload: |
+      scp -r public sourcehutBuilds@mzhang.io:/mnt/storage/svcdata/blog-public
