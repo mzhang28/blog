@@ -1,3 +1,5 @@
 /public
 /old
 /resources
+
+.hugo_build.lock

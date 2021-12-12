@@ -1,7 +1,13 @@
 @import "syntax";
+@import "agda";
+
+@font-face {
+  font-family: 'PragmataPro Mono Liga';
+  src: url('/fonts/PragmataPro_Mono_R_liga_0829.woff2') format('woff2');
+}
 
 $sansfont: "Helvetica", "Arial", "Liberation Sans", sans-serif;
-$monofont: "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas", monospace;
+$monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas", monospace;
 
 // colors
 

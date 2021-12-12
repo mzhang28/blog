@@ -11,3 +11,6 @@ language = "languages"
 endLevel = 4
 ordered = true
 startLevel = 2
+
+[markup.goldmark.renderer]
+unsafe = true
