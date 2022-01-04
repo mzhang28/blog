@@ -50,7 +50,7 @@
     langs: ["rust"]
 
   - name: Garbage
-    link: https://git.sr.ht/~iptq/garbage
+    link: https://git.sr.ht/~mzhang/garbage
     desc: CLI interface to the FreeDesktop Trash Can API.
     status: works
     langs: ["rust"]
