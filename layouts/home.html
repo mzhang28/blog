@@ -1,17 +1,26 @@
-{{- define "content" -}}
+{{- define "body" -}}
 
-{{ $posts := .GetPage "/posts" }}
+<div id="homepageContainer">
+    <div id="homepage">
+        <h1 id="title">michael zhang</h1>
 
-{{ partial "post-list" $posts }}
+        <div id="about">{{ .Content }}</div>
 
-<hr />
-
-<small>
-    List of posts by:
-    <a href="/languages">[languages]</a> &middot;
-    <a href="/tags">[tags]</a> &middot;
-    as:
-    <a href="/index.xml">[rss]</a>
-</small>
+        <h2 id="blog-posts-title"><a href="/posts">recent blog posts &raquo;</a></h2>
+        <div id="blog-posts">
+            {{ $posts := .GetPage "/posts" }}
+            {{- range first 3 $posts.Pages -}}
+            <a href="{{ .RelPermalink }}" class="blog-post-link">
+                <span class="blog-post">
+                    <span class="title">{{ .Title }}</span>
+                    <small class="details">
+                        {{ .Date.Format "Mon Jan 02, 2006" }}
+                    </small>
+                </span>
+            </a>
+            {{- end -}}
+        </div>
+    </div>
+</div>
 
 {{- end -}}

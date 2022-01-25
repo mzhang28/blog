@@ -12,6 +12,7 @@
     </head>
 
     <body>
+        {{ block "body" . }}
         <header>
             <div id="header" class="container">
                 <a href="/" id="title" class="title nocolorlink">{{ .Site.Title }}</a>
@@ -42,5 +43,6 @@
                 <a rel="me" href="https://social.mzhang.io/@michael">[mastodon]</a>.
             </p>
         </footer>
+        {{ end }}
     </body>
 </html>

@@ -1,5 +1,6 @@
-@import "syntax";
 @import "agda";
+@import "mixins";
+@import "syntax";
 
 @font-face {
   font-family: 'PragmataPro Mono Liga';
@@ -13,22 +14,26 @@ $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", 
 
 @media (prefers-color-scheme: light) {
     $background-color: white;
+    $faded-background-color: darken($background-color, 10%);
     $heading-color: #15202B;
     $text-color: #15202B;
     $small-text-color: lighten($text-color, 10%);
-    $smaller-text-color: lighten($text-color, 18%);
+    $smaller-text-color: lighten($text-color, 20%);
     $faded: lightgray;
     $link-color: royalblue;
+    $code-color: firebrick;
     @import "content";
 }
 
 @media (prefers-color-scheme: dark) {
     $background-color: #15202B;
+    $faded-background-color: lighten($background-color, 10%);
     $heading-color: #E4E4E4;
     $text-color: #BCBCBC;
     $small-text-color: darken($text-color, 8%);
     $smaller-text-color: darken($text-color, 12%);
     $faded: #666;
     $link-color: lightskyblue;
+    $code-color: lighten(firebrick, 25%);
     @import "content";
 }
