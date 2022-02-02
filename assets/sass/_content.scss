@@ -124,6 +124,7 @@ a code {
 }
 
 pre > code {
+    color: $text-color;
     display: block;
     padding: 5px;
     overflow-x: auto;
@@ -156,7 +157,56 @@ table.table {
     }
 }
 
-.post-content {
+.post-container {
+    display: flex;
+
+    @media screen and (max-width: 520px) {
+        flex-direction: column;
+        .toc-drawer { display: block; }
+        .toc-list { display: none; }
+    }
+
+    @media screen and (min-width: 520px) {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 12px;
+
+        .toc-drawer { display: none; }
+        .toc-list {
+            top: 0;
+            display: block;
+            position: sticky;
+            min-width: 160px;
+        }
+    }
+
+    .post-content {
+        min-width: 1px;
+    }
+
+    .toc-draw #TableOfContents, .toc-list #TableOfContents {
+        ul {
+            list-style-type: "\22A2 ";
+            padding-left: 1rem;
+
+            li {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        li ul {
+            margin-top: 0.5rem;
+        }
+    }
+}
+
+.division .post-content, .post-content {
+    .heading {
+        a {
+            color: $heading-color;
+        }
+    }
+
     > p {
         line-height: 1.5;
     }

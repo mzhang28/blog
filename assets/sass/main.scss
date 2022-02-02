@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: 'PragmataPro Mono Liga';
-  src: url('/fonts/PragmataPro_Mono_R_liga_0829.woff2') format('woff2');
+  src: url("/fonts/PragmataPro_Mono_R_liga_0829.woff2") format("woff2"),
+    url(https://mzhang.io/fonts/PragmataPro_Mono_R_liga_0829.woff2) format("woff2");
 }
 
 $sansfont: "Helvetica", "Arial", "Liberation Sans", sans-serif;
@@ -26,7 +27,7 @@ $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", 
 }
 
 @media (prefers-color-scheme: dark) {
-    $background-color: #15202B;
+    $background-color: #151520;
     $faded-background-color: lighten($background-color, 10%);
     $heading-color: #E4E4E4;
     $text-color: #BCBCBC;

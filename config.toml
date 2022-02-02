@@ -9,7 +9,7 @@ language = "languages"
 
 [markup.tableOfContents]
 endLevel = 4
-ordered = true
+ordered = false
 startLevel = 2
 
 [markup.goldmark.renderer]
