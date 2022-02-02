@@ -18,8 +18,8 @@ $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", 
     $faded-background-color: darken($background-color, 10%);
     $heading-color: #15202B;
     $text-color: #15202B;
-    $small-text-color: lighten($text-color, 10%);
-    $smaller-text-color: lighten($text-color, 20%);
+    $small-text-color: #6e707f;
+    $smaller-text-color: lighten($text-color, 30%);
     $faded: lightgray;
     $link-color: royalblue;
     $code-color: firebrick;
