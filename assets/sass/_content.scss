@@ -158,6 +158,12 @@ table.table {
     }
 }
 
+.post-title {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
 .post-container {
     display: flex;
 
@@ -203,6 +209,8 @@ table.table {
 
 .division .post-content, .post-content {
     .heading {
+        font-weight: 500;
+
         a {
             color: $heading-color;
         }

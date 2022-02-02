@@ -16,7 +16,7 @@ $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", 
 @media (prefers-color-scheme: light) {
     $background-color: white;
     $faded-background-color: darken($background-color, 10%);
-    $heading-color: #15202B;
+    $heading-color: darken(royalblue, 10%);
     $text-color: #15202B;
     $small-text-color: #6e707f;
     $smaller-text-color: lighten($text-color, 30%);
@@ -27,9 +27,9 @@ $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", 
 }
 
 @media (prefers-color-scheme: dark) {
-    $background-color: #151520;
+    $background-color: #202030;
     $faded-background-color: lighten($background-color, 10%);
-    $heading-color: #E4E4E4;
+    $heading-color: lighten(lightskyblue, 20%);
     $text-color: #BCBCBC;
     $small-text-color: darken($text-color, 8%);
     $smaller-text-color: darken($text-color, 12%);
