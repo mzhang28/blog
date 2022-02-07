@@ -2,21 +2,30 @@
 title = "twenty years of attacks on rsa with examples"
 date = 2018-10-26
 toc = true
-tags = ["crypto"]
+tags = ["ctf", "crypto"]
 languages = ["python"]
+math = true
 +++
 
-There's [a great paper][1] I found by Dan Boneh from 1998 highlighting the weaknesses of the RSA cryptosystem. I found this paper to be a particularly enlightening read (and interestingly enough, it's been 20 years since that paper!), so here I'm going to reiterate some of the attacks described in the paper, but using examples with numbers in them. <!--more-->
+There's [a great paper][1] I found by Dan Boneh from 1998 highlighting the
+weaknesses of the RSA cryptosystem. I found this paper to be a particularly
+enlightening read (and interestingly enough, it's been 20 years since that
+paper!), so here I'm going to reiterate some of the attacks described in the
+paper, but using examples with numbers in them. <!--more-->
 
-(Also please excuse the lack of proper formatting, I've yet to figure out how to get Gutenberg to accept Latex)
-
-That being said, I _am_ going to skip over the primer of how the RSA cryptosystem works, since there's already a great number of resources on how to do that.
+That being said, I _am_ going to skip over the primer of how the RSA
+cryptosystem works, since there's already a great number of resources on that.
 
 ## factoring large integers
 
-Obviously this is a pretty bruteforce-ish way to crack the cryptosystem, and probably won't work in time for you to see the result, but can still be considered an attack vector. This trick works by just factoring the modulus, N. With N, finding the private exponent d from the public exponent e is a piece of cake.
+Obviously this is a pretty bruteforce-ish way to crack the cryptosystem, and
+probably won't work in time for you to see the result, but can still be
+considered an attack vector. This trick works by just factoring the modulus,
+$N$. With $N$, finding the private exponent $d$ from the public exponent $e$ is
+a piece of cake.
 
-Let's choose some small numbers to demonstrate this one (you can follow along in a Python REPL if you want):
+Let's choose some small numbers to demonstrate this one (you can follow along in
+a Python REPL if you want):
 
 ```py
 >>> N = 881653369
@@ -24,7 +33,9 @@ Let's choose some small numbers to demonstrate this one (you can follow along in
 >>> c = 875978376
 ```
 
-N is clearly factorable in this case, and we can use resources like [msieve][7] or [factordb][2] to find smaller primes in this case. Since we know now that `N = 20717 * 42557`, we can find the totient of N:
+$N$ is clearly factorable in this case, and we can use resources like
+[msieve][7] or [factordb][2] to find smaller primes in this case. Since we know
+now that $N = 20717 \times 42557$, we can find the totient of $N$:
 
 ```py
 >>> p = 20717
@@ -33,7 +44,8 @@ N is clearly factorable in this case, and we can use resources like [msieve][7] 
 881590096
 ```
 
-Now all that's left is to discover the private exponent and solve for the original message! (you can find the modular inverse function I used [here][3])
+Now all that's left is to discover the private exponent and solve for the
+original message! (you can find the modular inverse function I used [here][3])
 
 ```py
 >>> d = modinv(e, tot)
@@ -46,15 +58,28 @@ And that's it! Now let's look at some more sophisticated attacks...
 
 ## elementary attacks
 
-These attacks are related to the _misuse_ of the RSA system. (if you can't tell, I'm mirroring the document structure of the original paper)
+These attacks are related to the _misuse_ of the RSA system. (if you can't tell,
+I'm mirroring the document structure of the original paper)
 
 ### common modulus
 
-My cryptography professor gave this example as well. Suppose there was a setup in which the modulus was reused, maybe for convenience (although I suppose with libraries today, it'd actually be more _inconvenient_ to reuse the key). Key pairs would be issued to different users and they would share public keys with each other and keep private keys to themselves.
+My cryptography professor gave this example as well. Suppose there was a setup
+in which the modulus was reused, maybe for convenience (although I suppose with
+libraries today, it'd actually be more _inconvenient_ to reuse the key). Key
+pairs would be issued to different users and they would share public keys with
+each other and keep private keys to themselves.
 
-The problem here is if you have a key pair, and you got someone else's public key, you could easily derive the private key by just factoring the modulus. Let's see how this works with a real example now.
+The problem here is if you have a key pair, and you got someone else's public
+key, you could easily derive the private key by just factoring the modulus.
+Let's see how this works with a real example now.
 
-Since this is a big problem if you were to really use this cryptosystem, I'll be using actual keys from an actual crypto library instead of the small numbers like in the first example to show that this works on 2048-bit RSA. The library is called [PyCrypto][4], and if you're planning on doing anything related to crypto with Python, it's a good tool to have with you. For now, I'm going to generate a 2048-bit key (by the way, in practice you probably shouldn't be using 2048-bit keys anymore, I'm just trying to spare my computer here).
+Since this is a big problem if you were to really use this cryptosystem, I'll be
+using actual keys from an actual crypto library instead of the small numbers
+like in the first example to show that this works on 2048-bit RSA. The library
+is called [PyCrypto][4], and if you're planning on doing anything related to
+crypto with Python, it's a good tool to have with you. For now, I'm going to
+generate a 2048-bit key (by the way, in practice you probably shouldn't be using
+2048-bit keys anymore, I'm just trying to spare my computer here).
 
 ```py
 >>> from Crypto.PublicKey import RSA
@@ -62,7 +87,10 @@ Since this is a big problem if you were to really use this cryptosystem, I'll be
 <_RSAobj @0x7f3d3226dfd0 n(2048),e,d,p,q,u,private>
 ```
 
-Now, normally when you generate a new key, it'd generate a new modulus. For the sake of this common modulus attack, we'll force the new key to use the same modulus. This also means we'll have to choose an exponent e other than the default choice of 65537 (see [this link][5] for documentation):
+Now, normally when you generate a new key, it'd generate a new modulus. For the
+sake of this common modulus attack, we'll force the new key to use the same
+modulus. This also means we'll have to choose an exponent $e$ other than the
+default choice of 65537 (see [this link][5] for documentation):
 
 ```py
 >>> N = k1.p * k1.q
@@ -78,11 +106,33 @@ Now, normally when you generate a new key, it'd generate a new modulus. For the 
 <_RSAobj @0x7f3d31c7c5f8 n(2048),e,d,p,q,u,private>
 ```
 
-Ok, now we have two keys, `k1` and `k2`. Now I'll show how using only the public and private key of `k1` (assuming this is the pair that we got legitimately from the crypto operator), and the public key of `k2`, which is tied to the same modulus, we can find the private key of `k2`.
+Ok, now we have two keys, $k_1$ and $k_2$. Now I'll show how using only the public
+and private key of $k_1$ (assuming this is the pair that we got legitimately from
+the crypto operator), and the public key of $k_2$, which is tied to the same
+modulus, we can find the private key of $k_2$.
 
-To do this, we'll try to find the roots of the equation `f(x) = x^2 - (p + q)x + pq`. You'll find that for values of `p` and `q`, this will produce `f(p) = p^2 - p^2 - qp + pq`, and `f(q) = q^2 - pq - q^2 + pq`. We know that `N = pq`. How can we find `p + q`? Since `phi(N) = (p - 1)(q - 1) = pq - p - q + 1`, we can find that `phi(N) = N - (p + q) + 1`, so `p + q = N - phi(N) + 1`. Now we need to use `e` and `d` to estimate `phi(N)`. Recall that `ed = 1 mod phi(N)`. This is equivalent to saying `ed = 1 + k*phi(N)`. Then `(ed - 1) / phi(N) = k`.
+To do this, we'll try to find the roots of the equation:
 
-It turns out that `k` is extremely close to `ed/N`: `ed/N = (1 + k*phi(N)) / N = 1/N + k*phi(N)/N`. `1/N` is basically 0, and `phi(N)` is very close to `N`, so it shouldn't change the value of `k` by very much. We now use `ed/N` to estimate `k`: `phi(N) = (ed - 1) / (ed / N)`.
+$$ f(x) = x^2 - (p + q)x + pq $$
+
+You'll find that for values of $p$ and $q$, this will produce $f(p) = p^2 - p^2
+\- qp + pq$, and $f(q) = q^2 - pq - q^2 + pq$. We know that $N = pq$. How can we
+find $p + q$? Since $\phi(N) = (p - 1)(q - 1) = pq - p - q + 1$, we can find
+that $\phi(N) = N - (p + q) + 1$, so $p + q = N - \phi(N) + 1$.
+
+Now we need to use $e$ and $d$ to estimate $\phi(N)$. Recall that $ed = 1 \mod
+\phi(N)$. This is equivalent to saying $ed = 1 + k\phi(N)$. Then $\frac{ed -
+1}{\phi(N)} = k$.
+
+It turns out that $k$ is extremely close to $\frac{ed}{N}$:
+
+$$ \frac{ed}{N} = \frac{1 + k\phi(N)}{N} = \frac{1}{N} + \frac{k\phi(N)}{N} $$
+
+$\frac{1}{N}$ is basically 0, and $\phi(N)$ is very close to $N$, so it
+shouldn't change the value of $k$ by very much. We now use $\frac{ed}{N}$ to
+estimate $k$:
+
+$$ \phi(N) = \frac{ed - 1}{\frac{ed}{N}} $$
 
 ```py
 >>> from decimal import Decimal, getcontext
@@ -93,7 +143,7 @@ It turns out that `k` is extremely close to `ed/N`: `ed/N = (1 + k*phi(N)) / N =
 Decimal('29977270253913673973269594877868500604696844309480395834898813292056864035968758602074842333119394545818563664205865827843973433118231606201251719390934610989873635763197929136439794366715495587924829697045618064595517091398323127000591150167969423793125376862942962617933168868125721044755585292104012767604575090001864613992237960887242026855773279634028088706121371418922552125986506064146112561599205615974813154971272528592745144988174228621487749404677959591894452249599588096076892574585613962026186332366180174253118634077603697727952204486962202338916762987146793208323561031870496718547544796269555861921652')
 ```
 
-Then we can get `p + q` through the formula mentioend above:
+Then we can get $p + q$ through the formula mentioend above:
 
 ```py
 >>> B = Decimal(N) - phi + 1
@@ -101,7 +151,8 @@ Decimal('34642192582980793929380236893725052051755685627449634068179923908929124
 >>> C = Decimal(N)
 ```
 
-Check to make sure B and C are integers. If they're not, try using a higher precision in `getcontext().prec`. Now solve the quadratic equation:
+Check to make sure $B$ and $C$ are integers. If they're not, try using a higher
+precision in `getcontext().prec`. Now solve the quadratic equation:
 
 ```py
 >>> p = (B + (B * B - 4 * C).sqrt()) / Decimal(2)
@@ -112,13 +163,18 @@ Decimal('16823427526200025299629360726790945249096067335633200400252946099787748
 True
 ```
 
-We've successfully recovered `p` and `q` from just `N`, `e`, and `d`!
+We've successfully recovered $p$ and $q$ from just $N$, $e$, and $d$!
 
 ### blinding
 
-This attack is actually about RSA _signatures_ (which uses the opposite keys as encryption: private for signing and public for verifying), and shows how you can compute the signature of a message M using the signature of a derived message M'.
+This attack is actually about RSA _signatures_ (which uses the opposite keys as
+encryption: private for signing and public for verifying), and shows how you can
+compute the signature of a message $M$ using the signature of a derived message
+$M'$.
 
-Suppose Marvin wants Bob to sign the following message: `"I (Bob) owes Marvin $100,000 USD"`. Marvin hands this to Bob saying something like, "I'll just need you to sign this with your private key." Let's generate Bob's private key:
+Suppose Marvin wants Bob to sign the following message: `"I (Bob) owes Marvin
+$100,000 USD"`. Marvin hands this to Bob saying something like, "I'll just need
+you to sign this with your private key." Let's generate Bob's private key:
 
 ```py
 >>> from Crypto.Util.number import bytes_to_long, long_to_bytes
@@ -128,7 +184,10 @@ Suppose Marvin wants Bob to sign the following message: `"I (Bob) owes Marvin $1
 >>> M = b"I (Bob) owes Marvin $100,000 USD"
 ```
 
-Obviously, Bob, an intellectual, will refuse to sign the message. However, suppose Marvin now transforms his message into a more innocent looking one. He does this by turning M into `M' = (r^e)*M mod N` where r is an integer that's coprime to N:
+Obviously, Bob, an intellectual, will refuse to sign the message. However,
+suppose Marvin now transforms his message into a more innocent looking one. He
+does this by turning $M$ into $M' = r^eM \mod N$ where r is an integer that's
+coprime to $N$:
 
 ```py
 >>> from random import randint
@@ -138,21 +197,32 @@ Obviously, Bob, an intellectual, will refuse to sign the message. However, suppo
 b'7\x90\xbc\xf9%T\xa9\xee\xf4\xe3?>]\x88\xcd\xb4\xd6D#\xfc\xcb\x0fd\xf0\x8e\xbc>\n\x06\xcd\x0f\x89\x0bp\xa7o\xd6\x02\xa6\xa7\x81\xd8\n\xae\xfb\x08\xaa|\xbd.\xc9E\xf1|\x86\xcaZ\xaa\xd4L\xafaA\x0c}\x84\x04\n\xa4\xa5\x80\xecX<\xe0\xb5\xf6\xfb\xe3\xcc\xd5BD7\xdc\xaep\x7f\xe9vi\xabB\xe2\xadE\xa41K\xc6\xb7\xae\x01\xcb\x04C\xaf\x8b\x17\x83\xffX7z\xb1\xbf\xceF\xafN(x\x00\x9f\xe1kV\xee\x0b\xbd\xc3H\r\xee9\x81\x16\xb2\x10hb.\x90\x08\xe42$Q\x92Ew+\xe1@\xf9\x17%\xce/\xbd\x00\xad\xe2\x12\x01\x93\x8b\xc4\x1bx\xe6H?\x15\xdfPE@\xf9j\xe3\xb7\x9e\xa0\x86\xd1\xd3\xb6[\xf7q\xf1\x95N\xd3>/\x06\x80\xc7\xa3\x8a\xcbDy\xc6v\x01P\x14\xa9Be\xf7~p\xc5\xaa\xac\xa0\xaf\xbe#\xe5\x18\xc6\x1d\xd5\x14\xc1\xbbYXD\x0c\x91{\xc0s\xde]\x18Z\x8bSk\x07k\xb6\x9a\xa5`Iqe~'
 ```
 
-Now he asks Bob to sign this more... innocently-looking message. Without questioning, Bob, an intellectual, signs his life away. Let's say he produces a signature `S' = (M'^d) = (r^e * M)^d = r^(ed) * M^d = r * M^d mod N`.
+Now he asks Bob to sign this more... innocently-looking message. Without
+questioning, Bob, an intellectual, signs his life away. Let's say he produces a
+signature
+
+$$\begin{aligned}
+S' &= (M'^d) \\\
+&= (r^e * M)^d \\\
+&= r^{ed} * M^d \\\
+&= r * M^d \mod N
+\end{aligned}$$
 
 ```py
 >>> Sp, = bob.sign(Mp, 0)
 4222298342813922437811434251340999736739055616654488323193778229765071846717137952694561809398626068283668428796351354154566771597532278827070832905206221261994843265685464173739776886856384806238418884247949451413559988796455422271296883338455956330421559319009950760931899199217936823999874162064553735563087382870564193673989865778229832918474778963380170967676966373703157629615331081637805594392084045827925764529711433584853942576464491576212176547485726609891593617931393545058401472883178443786988683045423150809606471425615670582973274971087459634959553685559458456237617436410759134193279063427911112115134
 ```
 
-Now, all Marvin has to do is multiply by the modular inverse of r, to obtain `M^d`, the signature of the original message:
+Now, all Marvin has to do is multiply by the modular inverse of $r$, to obtain
+$M^d$, the signature of the original message:
 
 ```py
 >>> S = (Sp * modinv(r, N)) % N
 6137678992536399703654836416525985142902780822513172949427421060785532284955531529418529725602418902796840570634560123808769013384654624916503940938715718120521434666716675795201896105310462331838807171312705686415521871046533303776516500490921892398440988515777575520183847518597482163414665355222659603386541869176930658730416118799866012276767364050134126722746224706026850062367243018313483359694686773566231956425606553198607719740067340776177716443517567144901614253170719278035838849363127850910135864099535083004590180745762100334268408681888925040382341592080592207557742366581814701422371311084081150092871
 ```
 
-Sure enough, if you try to verify the "original" signature against the original message, it checks out.
+Sure enough, if you try to verify the "original" signature against the original
+message, it checks out.
 
 ```py
 >>> bob.verify(M, (S,))

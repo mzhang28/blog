@@ -6,6 +6,7 @@
         <title>michael's blog</title>
 
         {{ block "headExtra" . }}{{ end }}
+        {{ partial "head" . }}
 
         {{ $style := resources.Get "sass/main.scss" | resources.ToCSS }}
         <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
