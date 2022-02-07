@@ -1,6 +1,6 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "michael's blog"
+title = "Michael's Blog"
 enableGitInfo = true
 
 [taxonomies]

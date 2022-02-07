@@ -1,5 +1,5 @@
 +++
-title = "cleaning up your shell"
+title = "Cleaning up your shell"
 date = 2018-02-25
 tags = ["computers", "linux", "terminal"]
 languages = ["bash"]

@@ -1,5 +1,5 @@
 +++
-title = "twenty years of attacks on rsa with examples"
+title = "Twenty years of attacks on rsa with examples"
 date = 2018-10-26
 toc = true
 tags = ["ctf", "crypto"]
@@ -16,7 +16,7 @@ paper, but using examples with numbers in them. <!--more-->
 That being said, I _am_ going to skip over the primer of how the RSA
 cryptosystem works, since there's already a great number of resources on that.
 
-## factoring large integers
+## Factoring large integers
 
 Obviously this is a pretty bruteforce-ish way to crack the cryptosystem, and
 probably won't work in time for you to see the result, but can still be
@@ -56,12 +56,12 @@ original message! (you can find the modular inverse function I used [here][3])
 
 And that's it! Now let's look at some more sophisticated attacks...
 
-## elementary attacks
+## Elementary attacks
 
 These attacks are related to the _misuse_ of the RSA system. (if you can't tell,
 I'm mirroring the document structure of the original paper)
 
-### common modulus
+### Common modulus
 
 My cryptography professor gave this example as well. Suppose there was a setup
 in which the modulus was reused, maybe for convenience (although I suppose with
@@ -165,7 +165,7 @@ True
 
 We've successfully recovered $p$ and $q$ from just $N$, $e$, and $d$!
 
-### blinding
+### Blinding
 
 This attack is actually about RSA _signatures_ (which uses the opposite keys as
 encryption: private for signing and public for verifying), and shows how you can

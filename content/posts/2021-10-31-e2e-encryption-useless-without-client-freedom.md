@@ -1,5 +1,5 @@
 +++
-title = "end-to-end encryption is useless without client freedom"
+title = "End-to-end encryption is useless without client freedom"
 date = 2021-10-31
 tags = ["computers", "privacy"]
 +++
@@ -14,7 +14,7 @@ be absolutely meaningless.<!--more-->
 > Otherwise, I'll start the story all the way back to how computers talk to
 > each other.
 
-a game of telephone in a noisy room
+A game of telephone in a noisy room
 ---
 
 Computer networks essentially operate like a bunch of people yelling at each
@@ -34,7 +34,7 @@ the first place.  But in order for the middlemen to pass on the message, they'd
 have to hear the message, so now my lunch has become a public gathering known to
 everyone who's heard or passed on the message.
 
-encryption saves the day
+Encryption saves the day
 ---
 
 That's where **encryption** comes in. Encryption lets me change the message to
@@ -62,7 +62,7 @@ encryption to make sure no one steals my identity while I'm sending it, and
 encryption _at rest_ to make sure someone breaking into Google won't be able to
 just pull the hard drive out and read the files off it.
 
-two halves don't equal a whole
+Two halves don't equal a whole
 ---
 
 It turns out just putting together these two types of encryption isn't enough.
@@ -92,7 +92,7 @@ then decrypts it offline. [Signal][signal] famously provides end-to-end
 encrypted chat, so that no one, not even the government[^1], will be able to
 read the messages you send if they're not the intended recipient.
 
-it's still not enough {#not-enough}
+It's still not enough {#not-enough}
 ---
 
 End-to-end encryption seems like it should be the end of the story, but if
@@ -141,7 +141,7 @@ run services is insufficient, it's safe to say that trusting companies to make
 client software that act in the interest of their users is just as useless as
 trusting companies to make services that act in the interest of their users.
 
-what can i do?
+What can i do?
 ---
 
 Although inconvenient, trusting different vendors for different pieces of this
@@ -171,7 +171,7 @@ multiple apps and servers, and servers can federate with each other using an
 open protocol. I would strongly recommend people who are interested in privacy
 to consider it.
 
-conclusion
+Conclusion
 ---
 
 Why care? This might just seem to be some superficial political concern by

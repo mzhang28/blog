@@ -1,5 +1,5 @@
 +++
-title = "accept server analogy"
+title = "Accept server analogy"
 date = 2019-03-04
 tags = ["computers"]
 +++

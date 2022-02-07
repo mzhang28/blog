@@ -1,5 +1,5 @@
 +++
-title = "fixing tmux colors"
+title = "Fixing tmux colors"
 date = 2018-04-23
 tags = ["computers"]
 +++

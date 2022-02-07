@@ -9,7 +9,7 @@ distributed systems.
 
 [SIFT]: https://www.sift.net/
 
-## contact
+## Contact
 
 - Email: `b64d(bWFpbEBtemhhbmcuaW8=)`
 - PGP Key: [`925ECC02890D5CDAE26180D4BDA47A31A3C8EE6B`][PGP]

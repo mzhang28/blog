@@ -1,5 +1,5 @@
 +++
-title = "my new life stack"
+title = "My new life stack"
 date = 2018-02-01
 tags = ["arch", "linux", "setup", "computers"]
 +++

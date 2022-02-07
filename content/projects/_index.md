@@ -1,5 +1,5 @@
 +++
-title = "projects"
+title = "Projects"
 type = "projects"
 layout = "single"
 +++

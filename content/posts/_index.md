@@ -1,5 +1,5 @@
 +++
-title = "home"
+title = "Blog"
 weight = 1
 
 [cascade]

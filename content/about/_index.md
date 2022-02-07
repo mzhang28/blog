@@ -1,5 +1,5 @@
 +++
-title = "about"
+title = "About"
 weight = 2
 
 [cascade]
@@ -26,12 +26,6 @@ that I use regularly. Find out what I'm using [here][9].
 I'm also an avid rhythm game player and beatmap creator, mostly involved with
 the free-to-play game [osu!][3]. Check out some of my beatmaps on my [osu!
 userpage][4].
-
-## contact
-
-- Email: `mail` &commat; [this domain]
-- PGP Key: [`925ECC02890D5CDAE26180D4BDA47A31A3C8EE6B`][10]
-- IRC: `mzh` on [libera.chat][5]
 
 [1]: https://keybase.io/michaelz/pgp_keys.asc?fingerprint=925ecc02890d5cdae26180d4bda47a31a3c8ee6b
 [2]: https://git.mzhang.io/explore

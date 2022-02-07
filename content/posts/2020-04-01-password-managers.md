@@ -1,5 +1,5 @@
 +++
-title = "password managers"
+title = "Password managers"
 date = 2020-04-01
 tags = ["computers", "things-that-are-good", "privacy"]
 +++
