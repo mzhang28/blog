@@ -11,6 +11,14 @@
 
 <h1 class="post-title">{{ .Title }}</h1>
 
+<span class="tags">
+    {{ range .Params.tags }}
+        <a href="/tags/{{ . }}" class="tag">
+            <span class="text">{{ . }}</span>
+        </a>
+    {{ end }}
+</span>
+
 <small style="display: block; margin-bottom: 20px;">
     Posted
     on {{ .Date.Format "Mon Jan 02, 2006" }}

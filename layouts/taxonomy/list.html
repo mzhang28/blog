@@ -4,16 +4,18 @@
 
 <ul>
 {{- range $name, $value := sort .Data.Pages "Title" -}}
-    <li style="margin-bottom: 15px;">
-        <a href="{{ $value.RelPermalink }}">{{ $value.Title }}</a>
-        <br />
-        <small>
-        {{- range $index, $page := $value.Pages -}}
-            {{ if $index }},{{ end }}
-            <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
-        {{- end -}}
-        </small>
-    </li>
+    {{ if not .Draft }}
+        <li style="margin-bottom: 15px;">
+            <a href="{{ $value.RelPermalink }}">{{ $value.Title }}</a>
+            <br />
+            <small>
+            {{- range $index, $page := $value.Pages -}}
+                {{ if $index }},{{ end }}
+                <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+            {{- end -}}
+            </small>
+        </li>
+    {{ end }}
 {{- end -}}
 </ul>
 

@@ -169,6 +169,31 @@ table.table {
     margin-bottom: 0;
 }
 
+.tags {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 6px;
+
+    .tag {
+        font-size: 0.9rem;
+        background-color: darken($link-color, 55%);
+        padding: 2px 7px;
+
+        .text {
+            margin-left: 2px;
+            text-decoration: underline;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &::before {
+            content: "\01F3F7";
+        }
+    }
+}
+
 .post-container {
     display: flex;
 
