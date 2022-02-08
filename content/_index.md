@@ -11,7 +11,7 @@ distributed systems.
 
 ## Contact
 
-- Email: `b64d(bWFpbEBtemhhbmcuaW8=)`
+- Email: {{% obfuscate %}}inbox@mzhang.io{{% /obfuscate %}}
 - PGP Key: [`925ECC02890D5CDAE26180D4BDA47A31A3C8EE6B`][PGP]
 - IRC: `mzh` on [libera.chat]
 

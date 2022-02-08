@@ -1,14 +1,9 @@
 @import "agda";
 @import "mixins";
 @import "syntax";
+@import "fonts";
 
-@font-face {
-  font-family: 'PragmataPro Mono Liga';
-  src: url("/fonts/PragmataPro_Mono_R_liga_0829.woff2") format("woff2"),
-    url(https://mzhang.io/fonts/PragmataPro_Mono_R_liga_0829.woff2) format("woff2");
-}
-
-$sansfont: "Helvetica", "Arial", "Liberation Sans", sans-serif;
+$sansfont: "Poppins", "Helvetica", "Arial", "Liberation Sans", sans-serif;
 $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas", monospace;
 
 // colors

@@ -1,3 +1,17 @@
+.obfuscate {
+  user-select: none;
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+.sym-at-sign::before {
+  content: "@";
+}
+
+.sym-dot::before {
+  content: ".";
+}
+
 #homepageContainer {
   width: 100%;
   display: flex;
@@ -39,6 +53,10 @@
 
         li {
           padding-left: .5em;
+
+          p {
+            margin: 0.1rem;
+          }
         }
       }
     }
