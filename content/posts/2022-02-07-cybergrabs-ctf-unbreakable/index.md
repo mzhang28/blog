@@ -32,22 +32,30 @@ first, but there are some important differences to note:
 - We're not given the public keys $e_1$ and $e_2$, but they are related through
     $x$.
 
-[Rabin]: https://en.wikipedia.org/wiki/Rabin_cryptosystem
-
 ## Finding $e_1$ and $e_2$
 
 We know that $e_1$ and $e_2$ are related through $x$, which is some even number
 greater than 2, but we're not given any of their real values. We're also given
 through an oddly-named `functor` function that:
 
-$$
-\begin{aligned}
-  1 + e_1 + e_1^2 + \cdots + e_1^x &= 1 + e_2 + e_2^2 \\\
-  \frac{1 - e_1^x}{1 - e_1} &= 1 + e_2 + e_2^2
-\end{aligned}
-$$
+$$ 1 + e_1 + e_1^2 + \cdots + e_1^x = 1 + e_2 + e_2^2 $$
 
-Interestingly enough, since $e_1$ and $e_2$ are primes, that means
+Taking the entire equation $\mod e_1$ gives us:
+
+$$\begin{aligned}
+1 &\equiv 1 + e_2 + e_2^2 \mod e_1 \\\
+0 &\equiv e_2 + e_2^2 \\\
+0 &\equiv e_2(1 + e_2)
+\end{aligned}$$
+
+This means there are two possibilities: either $e_1 = e_2$ or $e_1$ is even
+(since we know $e_2$ is a prime). The first case isn't possible, because with $x
+\> 2$, the geometric series equation would not be satisfied. So it must be true
+that $\boxed{e_1 = 2}$, the only even prime.
+
+Applying geometric series expansion, $1 + e_2 + e_2^2 = 2^x - 1$.
 
 I'd like to thank @10, @sahuang, and @thebishop in the Project Sekai discord for
-their help throughout this challenge.
+doing a lot of the heavy-lifting to solve this challenge.
+
+[Rabin]: https://en.wikipedia.org/wiki/Rabin_cryptosystem
