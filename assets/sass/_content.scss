@@ -138,6 +138,14 @@ pre > code {
     font-size: 0.9em;
 }
 
+details {
+    font-size: 0.95rem;
+
+    summary {
+        cursor: pointer;
+    }
+}
+
 table.table {
     border: 1px solid $faded;
     border-collapse: collapse;

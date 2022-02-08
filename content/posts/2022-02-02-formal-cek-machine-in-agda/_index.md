@@ -30,11 +30,11 @@ My lambda calculus implemented `call/cc` on top of a CEK machine.
   output. If this were a library function I'd like to tell people who write code
   that uses this function "don't give me an empty list!"
 
-  Unfortunately, just writing this in documentation isn't enough. What we'd
-  really like is for a tool (like a compiler) to tell any developer who is
-  trying to pass an empty list into our maximum function "You can't do that."
-  Unfortunately, most of the popular languages being used today have no way of
-  describing "a list that's not empty."
+  But just writing this in documentation isn't enough. What we'd really like is
+  for a tool (like a compiler) to tell any developer who is trying to pass an
+  empty list into our maximum function "You can't do that." Unfortunately, most
+  of the popular languages being used today have no way of describing "a list
+  that's not empty."
 
   We still have a way to prevent people from running into this problem, though
   it involves pushing the problem to runtime rather than compile time. The
