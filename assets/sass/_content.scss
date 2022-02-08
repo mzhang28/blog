@@ -5,6 +5,11 @@ html {
     margin: 0;
 }
 
+::selection, ::-moz-selection {
+    background-color: $heading-color;
+    color: $background-color;
+}
+
 body {
     max-width: 980px;
     margin: auto;
