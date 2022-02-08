@@ -176,7 +176,7 @@ table.table {
 
     .tag {
         font-size: 0.9rem;
-        background-color: darken($link-color, 55%);
+        background-color: $tag-color;
         padding: 2px 7px;
 
         .text {

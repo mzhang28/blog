@@ -18,6 +18,7 @@ $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", 
     $faded: lightgray;
     $link-color: royalblue;
     $code-color: firebrick;
+    $tag-color: lighten($link-color, 35%);
     @import "content";
 }
 
@@ -31,5 +32,6 @@ $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", 
     $faded: #666;
     $link-color: lightskyblue;
     $code-color: lighten(firebrick, 25%);
+    $tag-color: darken($link-color, 55%);
     @import "content";
 }
