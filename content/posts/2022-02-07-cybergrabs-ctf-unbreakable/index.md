@@ -246,6 +246,7 @@ for sp, sq, sr in product((-1, 1), repeat=3):
   m = long_to_bytes(m)
 
   # Step 4
+  # We know that the real flag starts with `cybergrabs{`...
   if b"cybergrabs" in m: print(m)
 
 # Congratulations, You found the first part of flag cybergrabs{r481n_cryp70sy5t3m_15_1nt3r35t1n6_ ...
