@@ -13,7 +13,7 @@ Crypto challenge Unbr34k4bl3 from the Cyber Grabs CTF.
 
 > No one can break my rsa encryption, prove me wrong !!
 >
-> Flag Format: cybergrabs{}
+> Flag Format: `cybergrabs{}`
 >
 > Author: Mritunjya
 >
