@@ -1,11 +1,11 @@
 +++
 title = "The Cyber Grabs CTF: Unbr34k4bl3 (942)"
-draft = true
 date = 2022-02-02
-tags = ["ctf", "crypto"]
+tags = ["ctf", "crypto", "rsa"]
 languages = ["python"]
 layout = "single"
 math = true
+toc = true
 +++
 
 Crypto challenge Unbr34k4bl3 from the Cyber Grabs CTF.
@@ -25,7 +25,7 @@ Crypto challenge Unbr34k4bl3 from the Cyber Grabs CTF.
 Looking at the source code, this challenge looks like a typical RSA challenge at
 first, but there are some important differences to note:
 
-- $N = pqr$ (line 34). This is a twist but RSA strategies can easily be
+- $n = pqr$ (line 34). This is a twist but RSA strategies can easily be
     extended to 3 prime components.
 - $p, q \equiv 3 \mod 4$ (line 19). This suggests that the cryptosystem is
     actually a [Rabin cryptosystem][Rabin].
@@ -85,7 +85,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 I grouped $p$ and $q$ together here because it's important to note that since we
-have $x$, we know $r$ and thus $pq = \frac{N}{r}$. This means that for purposes
+have $x$, we know $r$ and thus $pq = \frac{n}{r}$. This means that for purposes
 of solving the equation, $pq$ is a constant to us. This actually introduces an
 interesting structure on the right hand side, we can create 2 new variables:
 
@@ -129,16 +129,137 @@ $$\begin{aligned}
 Putting this into Python, looks like:
 
 ```py
->>> k1k2 = ip * iq - 1
->>> alpha_times_beta = k1k2 * pq
->>> alpha_plus_beta = pq * ip * iq - 1 - k1k2 * pq
+from decimal import Decimal
+getcontext().prec = 3000 # To get all digits
 
->>> def quadratic(b, c):
->>>   disc = b ** 2 - 4 * c
->>>   return (-b + sqrt(disc)) / 2, (-b - sqrt(disc)) / 2
+k1k2 = ip * iq - 1
+alpha_times_beta = k1k2 * pq
+alpha_plus_beta = pq * ip * iq - 1 - k1k2 * pq
+
+def quadratic(b, c):
+  b, c = Decimal(b), Decimal(c)
+  disc = b ** 2 - 4 * c
+  return (-b + disc.sqrt()) / 2, (-b - disc.sqrt()) / 2
+
+alpha, beta = quadratic(-alpha_plus_beta, alpha_times_beta)
 ```
 
-I'd like to thank @10, @sahuang, and @thebishop in the Project Sekai discord for
+Now that we have $\alpha$ and $\beta$, we can try GCD'ing them against $pq$ to
+get $p$ and $q$:
+
+```py
+from math import gcd
+
+p = gcd(pq, int(alpha))
+q = gcd(pq, int(beta))
+assert p * q == pq # Success!
+```
+
+### Alternative method
+
+@sahuang used the [sympy] library to do this part instead, resulting in much
+less manual math. It's based on [this] proof from Math StackExchange that $p
+\cdot (p^{-1} \mod q) + q \cdot (q^{-1} \mod p) = pq + 1$.
+
+[sympy]: https://www.sympy.org
+[this]: https://math.stackexchange.com/a/1705450
+
+```py
+from sympy import *
+p,q = symbols("p q")
+eq1 = Eq(ip * p + iq * q - pq - 1, 0)
+eq2 = Eq(p * q, pq)
+sol = solve((eq1, eq2), (p, q))
+```
+
+## Decrypting the ciphertexts
+
+Now that we know $p$ and $q$, it's time to plug them back into the cryptosystem
+and get our plaintexts. $c_2$ is actually easier than $c_1$, because with $e_2 =
+5$ we can just find the modular inverse:
+
+```py
+phi = (p - 1) * (q - 1) * (r - 1)
+d2 = pow(e2, -1, phi)
+m2 = pow(c2, d2, n)
+print(long_to_bytes(m2))
+# ... The last part of the flag is: 8ut_num83r_sy5t3m_15_3v3n_m0r3_1nt3r35t1n6} ...
+```
+
+This trick won't work with $c_1$ however:
+
+```py
+d1 = pow(e1, -1, phi)
+# ValueError: base is not invertible for the given modulus
+```
+
+Because $\phi$ is even (it's the product of one less than 3 primes), there can't
+possibly be a $d_1$ such that $2 \cdot d_1 \equiv 1 \mod \phi$. According to
+[Wikipedia][Rabin], the decryption for a standard two-prime $n$ takes 3 steps:
+
+1. Compute the square root of $c \mod p$ and $c \mod q$:
+    - $m_p = c^{\frac{1}{4}(p + 1)} \mod p$
+    - $m_q = c^{\frac{1}{4}(q + 1)} \mod q$
+2. Use the extended Euclidean algorithm to find $y_p$ and $y_q$ such that $y_p
+   \cdot p + y_q \cdot q = 1$.
+3. Use the Chinese remainder theorem to find the roots of $c$ modulo $n$:
+    - $r_1 = (y_p \cdot p \cdot m_q + y_q \cdot q \cdot m_p) \mod n$
+    - $r_2 = n - r_1$
+    - $r_3 = (y_p \cdot p \cdot m_q - y_q \cdot q \cdot m_p) \mod n$
+    - $r_4 = n - r_3$
+4. The real message could be any $r_i$, but we don't know which.
+
+Converting this to work with $n = pqr$, it looks like:
+
+1. Compute the square root of $c \mod p$, $c \mod q$, and $c \mod r$:
+    - $m_p = c^{\frac{1}{4}(p + 1)} \mod p$
+    - $m_q = c^{\frac{1}{4}(q + 1)} \mod q$
+    - $m_r = c^{\frac{1}{4}(r + 1)} \mod r$
+2. Using the variable names from [AoPS][CRT]'s definition of CRT:
+    - For $k \in \\{ p, q, r \\}, b_k = \frac{n}{k}$.
+    - For $k \in \\{ p, q, r \\}, a_k \cdot b_k \equiv 1 \mod k$.
+3. Let $r = \displaystyle\sum_k^{\\{ p, q, r \\}} \pm (a_k \cdot b_k \cdot m_k) \mod n$.
+4. The real message could be any $r$, but we don't know which.
+
+[CRT]: https://artofproblemsolving.com/wiki/index.php/Chinese_Remainder_Theorem
+
+In code this looks like:
+
+```py
+# Step 1
+mp = pow(c1, (p + 1) // 4, p)
+mq = pow(c1, (q + 1) // 4, q)
+mr = pow(c1, (r + 1) // 4, r)
+
+# Step 2
+bp = n // p
+bq = n // q
+br = n // r
+ap = pow(bp, -1, p)
+aq = pow(bq, -1, q)
+ar = pow(br, -1, r)
+
+# Step 3
+from itertools import product
+for sp, sq, sr in product((-1, 1), repeat=3):
+  m = (sp * ap * bp * mp + sq * aq * bq * mq + sr * ar * br * mr) % n
+  m = long_to_bytes(m)
+
+  # Step 4
+  if b"cybergrabs" in m: print(m)
+
+# Congratulations, You found the first part of flag cybergrabs{r481n_cryp70sy5t3m_15_1nt3r35t1n6_ ...
+```
+
+The final flag, then, is:
+
+```
+cybergrabs{r481n_cryp70sy5t3m_15_1nt3r35t1n6_8ut_num83r_sy5t3m_15_3v3n_m0r3_1nt3r35t1n6}
+```
+
+&#x1f389;
+
+Big thanks to @10, @sahuang, and @thebishop in the Project Sekai discord for
 doing a lot of the heavy-lifting to solve this challenge.
 
 [Rabin]: https://en.wikipedia.org/wiki/Rabin_cryptosystem

@@ -2,7 +2,7 @@
 title = "Twenty years of attacks on rsa with examples"
 date = 2018-10-26
 toc = true
-tags = ["ctf", "crypto"]
+tags = ["ctf", "crypto", "rsa"]
 languages = ["python"]
 math = true
 +++
