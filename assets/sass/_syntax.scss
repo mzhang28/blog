@@ -8,7 +8,6 @@
 }
 
 @media (prefers-color-scheme: light) {
-    /* Background */ .highlight { background-color: #ffffff }
     /* Other */ .highlight .x {  }
     /* Error */ .highlight .err { color: #a61717; background-color: #e3d2d2 }
     /* LineTableTD */ .highlight .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
@@ -93,7 +92,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    /* Background */ .highlight { color: #e5e5e5; background-color: #000000 }
+    /* Background */ .highlight { color: #e5e5e5; }
     /* Other */ .highlight .x {  }
     /* Error */ .highlight .err { color: #ff0000 }
     /* LineTableTD */ .highlight .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
