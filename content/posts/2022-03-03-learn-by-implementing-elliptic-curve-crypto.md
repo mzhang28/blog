@@ -1,6 +1,6 @@
 +++
 title = "Learn by Implementing Elliptic Curve Crypto"
-date = 2022-03-03
+date = 2022-03-04
 tags = ["crypto", "learn-by-implementing"]
 draft = true
 math = true
@@ -12,10 +12,12 @@ Good places to start (in terms of usefulness):
 - [A relatively easy to understand primer on elliptic curve cryptography][2] by Cloudflare
 - [Elliptic-curve cryptography][3] from Practical Cryptography
 - [Elliptic-curve cryptography][1] on Wikipedia
+- [Elliptic Curve Cryptography: a gentle introduction][4] by Andrea Corbellini
 
 [1]: https://en.wikipedia.org/wiki/Elliptic-curve_cryptography
 [2]: https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/
 [3]: https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc
+[4]: https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/
 
 I'm writing this post because there's a lot of good posts out there introducing
 the elliptic curve formula, but not many that continue with getting from there
@@ -57,9 +59,9 @@ those constraints.
 Once we have the curve and a keypair, there's all sorts of different
 cryptographic schemes that we can now build on top of these foundations:
 
-- Encryption
-- Signatures
-- Diffie Hellman
+- [Encryption]({{< ref "#encryption" >}})
+- [Signatures]({{< ref "#signatures" >}})
+- [Key exchange]({{< ref "#key-exchange" >}})
 
 ## Implementation
 
@@ -87,11 +89,17 @@ import (
 ### Math primitives
 
 ```go
-type CurveParams struct {
-  P *big.Int
+type Point struct {
+  x *big.Int
+  y *big.Int
+  inf bool
 }
+```
 
-
+```go
+func (a Point) Add(b Point) Point {
+  return Point{}
+}
 ```
 
 ## Cryptographic applications
