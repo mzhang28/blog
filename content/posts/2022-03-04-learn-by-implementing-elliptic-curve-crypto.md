@@ -35,10 +35,9 @@ production, but it's not great for understanding the algorithm.
 ## Basic Ideas
 
 ECC starts with the idea that starting with an elliptic curve formula like $y^2
-= x^3 + ax + b$ that operates over a finite field $\mathbb{F}_p$, and defining a
-_custom_ addition operation over two points, you can form a cyclic structure
-where adding a point to itself some number of times gets you back where you
-started.
+= x^3 + ax + b$ that operates over a finite field $\mathbb{F}_p$, and defining
+an addition operation over two points, you can form a cyclic structure where
+adding a point to itself some number of times gets you back where you started.
 
 The interesting thing about this cyclic structure is that given the starting
 point $G$, also called the **generator** and some number $n$, you can find the
@@ -80,11 +79,12 @@ import (
 )
 ```
 
-> You can run this blog post using [Markout]:
+> This is a [literate document][literate]. You can run this blog post using [Markout]:
 > ```
-> markout -l go content/posts/2022-03-03-learn-by-implementing-elliptic-curve-crypto.md > /tmp/ecc.go
-> go run /tmp/ecc.go
+> TODO:
 > ```
+
+[literate]: https://en.wikipedia.org/wiki/Literate_programming
 
 ### Math primitives
 
@@ -96,8 +96,18 @@ type Point struct {
 }
 ```
 
+Addition on $P$ and $Q$ is defined by first finding the line $PQ$, determining
+the point $-R$ where it intersects the curve again, and then returning $R$. We
+can find the line $PQ$ by using high school geometry:
+
+$$\begin{aligned}
+  (y - y_0) = m(x - x_0)
+\end{aligned}$$
+
 ```go
-func (a Point) Add(b Point) Point {
+func (A Point) Add(B Point) Point {
+  // Find the slope between points A and B.
+  slope := big.NewRat(A.y - B.y, A.x - B.x)
   return Point{}
 }
 ```
