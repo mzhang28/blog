@@ -149,4 +149,15 @@ Run
 nixos-install --root $MNT --flake flake#attr
 ```
 
-Done!
+Done! Now unmount the file systems:
+
+```
+umount $MNT/boot
+umount $MNT
+```
+
+## References
+
+- https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/
+- https://blog.lazkani.io/posts/nixos-on-encrypted-zfs/
+- https://nixos.wiki/wiki/ZFS
