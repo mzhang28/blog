@@ -20,11 +20,13 @@
 
                 <div id="nav">
                     {{- range $index, $page := .Site.Home.Pages -}}
-                        {{- if ne $index 0 -}}
-                            &nbsp;&middot;&nbsp;
-                        {{- end -}}
+                        {{- if not $page.Params.hidden }}
+                            {{- if ne $index 0 -}}
+                                &nbsp;&middot;&nbsp;
+                            {{- end -}}
 
-                        <a href="{{ .RelPermalink }}" class="link">{{ $page.Title }}</a>
+                            <a href="{{ .RelPermalink }}" class="link">{{ $page.Title }}</a>
+                        {{- end -}}
                     {{- end -}}
                 </div>
             </div>

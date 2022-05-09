@@ -1,0 +1,24 @@
+{{ $posts := .Site.GetPage "/posts" }}
+
+<table style="width: 100%;">
+    {{- range $posts.Pages -}}
+        {{ if .Draft }}
+            <tr class="postlisting-row">
+                <td>
+                    <span class="title">
+                        <a href="{{ .RelPermalink }}" class="brand-colorlink">{{ .Title }}</a>
+                    </span>
+                    <br />
+                    <small>
+                        {{ .ReadingTime }} min read -
+
+                        {{ .Date.Format "Mon Jan 02, 2006" }}
+                    </small>
+
+                    <br />
+                </td>
+            </tr>
+        {{ end }}
+    {{- end -}}
+</table>
+
