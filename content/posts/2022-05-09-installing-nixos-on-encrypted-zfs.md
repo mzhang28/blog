@@ -7,8 +7,8 @@ toc = true
 +++
 
 This is mostly to serve as a reference for how I set up my machine, so I can
-look back on it later. I'll be installing NixOS on my desktop, with the
-following specs:
+look back on it later. <!--more--> I'll be installing NixOS on my desktop, with
+the following specs:
 
 - CPU: AMD Ryzen 7 3700X
 - GPU: NVIDIA GeForce RTX 3080 Ti
