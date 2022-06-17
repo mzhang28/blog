@@ -7,11 +7,11 @@ type = "generic"
 layout = "single"
 +++
 
-Hi there! I'm a recent graduate from the University of Minnesota, currently
-working as an associate researcher at [SIFT][11]. My computing-related interests
-lie in programming language design and analysis, systems security, cryptography,
-and distributed systems. <!-- more --> Some of the projects I've been working on
-in my free time include:
+Hi there! I'm an incoming graduate student at the University of Minnesota. I
+currently work as a Software Developer at [AWS][13] (previously at [SIFT][11]). My
+computing-related interests lie in programming language design and formal
+verification, systems security, cryptography, and distributed systems. <!-- more
+--> Some of the projects I've been working on in my free time include:
 
 - [**Leanshot**][6], a Linux screen capture tool.
 - [**Garbage**][7], a CLI interface to the trash can API.
@@ -39,3 +39,4 @@ userpage][4].
 [10]: pgp.txt
 [11]: https://www.sift.net/
 [12]: ../projects
+[13]: https://aws.amazon.com/
