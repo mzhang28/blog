@@ -2,13 +2,13 @@
 title = "Installing NixOS on ZFS with encryption"
 date = 2022-05-09
 tags = ["nixos", "linux", "setup"]
-draft = true
 toc = true
 +++
 
-This is mostly to serve as a reference for how I set up my machine, so I can
-look back on it later. <!--more--> I'll be installing NixOS on my desktop, with
-the following specs:
+I finally switched over to NixOS for my desktop, and here is my install process.
+<!--more--> Annoyingly enough, the biggest non-declarative part of Nix is this
+initial setup phase, and I made several mistakes during the install process, so
+I'm documenting the process here so I can remember for next time.
 
 - CPU: AMD Ryzen 7 3700X
 - GPU: NVIDIA GeForce RTX 3080 Ti
