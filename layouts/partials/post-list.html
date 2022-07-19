@@ -2,18 +2,13 @@
     {{- range .Pages -}}
         {{ if not .Draft }}
             <tr class="postlisting-row">
+                <td class="info">
+                    {{ .Date.Format "2006 Jan 02" }}
+                </td>
                 <td>
                     <span class="title">
                         <a href="{{ .RelPermalink }}" class="brand-colorlink">{{ .Title }}</a>
                     </span>
-                    <br />
-                    <small>
-                        {{ .ReadingTime }} min read -
-
-                        {{ .Date.Format "Mon Jan 02, 2006" }}
-                    </small>
-
-                    <br />
                 </td>
             </tr>
         {{ end }}

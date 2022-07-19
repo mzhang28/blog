@@ -1,4 +1,4 @@
-@import "home";
+// @import "home";
 
 html {
     min-height: 100vh;
@@ -55,6 +55,86 @@ footer {
     text-align: center;
 }
 
+.flex-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+@media screen and (max-width: 520px) {
+    .flex-wrapper {
+        flex-direction: column;
+        .container { padding: 5px 20px; }
+    }
+
+    .side-nav {
+        .side-nav-content {
+            width: 100%;
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 10px 20px -10px #eee;
+
+            .home-link {
+                display: flex;
+                justify-content: space-evenly;
+            }
+            h1 { display: inline; }
+            .portrait {
+                max-height: 80px;
+            }
+            .bio { display: none; }
+        }
+    }
+}
+
+@media screen and (min-width: 520px) {
+    .flex-wrapper {
+        flex-direction: row;
+        .container { padding: 32px 40px 5px 40px; }
+    }
+
+    .side-nav {
+        position: sticky;
+        height: 100%;
+        left: 0;
+        top: 0;
+        // Capital Min to avoid invoking SCSS min
+        max-width: Min(30%, 240px);
+
+        .side-nav-content {
+            padding-top: 32px;
+            padding-right: 32px;
+            border-right: 1px solid #eee;
+            box-shadow: 10px 0 20px -10px #eee;
+
+            .portrait {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.side-nav {
+
+    .side-nav-content {
+        .home-link {
+            text-decoration: none;
+        }
+
+        .portrait {
+            border-radius: 100%;
+        }
+
+        .bio {
+            font-size: 0.85rem;
+
+            ul {
+                padding-left: 12px;
+                list-style-type: "\25B8\00A0";
+            }
+        }
+    }
+}
+
 small {
     color: $small-text-color;
 }
@@ -89,15 +169,21 @@ blockquote {
 }
 
 .postlisting-row td {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    line-height: 1.0;
 
     .title {
-        font-size: 1.5em;
+        font-size: 1.1em;
+    }
+
+    &.info {
+        color: $smaller-text-color;
+        font-size: 0.75em;
     }
 
     .summary {
         padding-top: 4px;
-        font-size: 0.8em;
+        font-size: 0.64em;
         color: $smaller-text-color;
 
         p {
@@ -172,7 +258,7 @@ table.table {
 }
 
 .post-title {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-bottom: 0;
 }
@@ -183,7 +269,7 @@ table.table {
     margin-bottom: 6px;
 
     .tag {
-        font-size: 0.9rem;
+        font-size: 0.75rem;
         background-color: $tag-color;
         padding: 2px 7px;
 
@@ -205,6 +291,16 @@ table.table {
 .post-container {
     display: flex;
 
+    flex-direction: column;
+    .toc-drawer {
+        display: block;
+        summary {
+            font-weight: bold;
+        }
+    }
+    .toc-list { display: none; }
+
+    /*
     @media screen and (max-width: 520px) {
         flex-direction: column;
         .toc-drawer { display: block; }
@@ -224,6 +320,7 @@ table.table {
             min-width: 160px;
         }
     }
+    */
 
     .post-content {
         min-width: 1px;
