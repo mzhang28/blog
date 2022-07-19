@@ -156,6 +156,31 @@ umount $MNT/boot
 umount $MNT
 ```
 
+## Neofetch
+
+```
+          ▗▄▄▄       ▗▄▄▄▄    ▄▄▄▖            michael@nucleus
+          ▜███▙       ▜███▙  ▟███▛            ---------------
+           ▜███▙       ▜███▙▟███▛             OS: NixOS 22.11 (Raccoon) x86_64
+            ▜███▙       ▜██████▛              Host: ASUSTeK COMPUTER INC. TUF GAMING X570-PLUS (WI-FI)
+     ▟█████████████████▙ ▜████▛     ▟▙        Kernel: 5.15.53
+    ▟███████████████████▙ ▜███▙    ▟██▙       Uptime: 1 day, 3 hours, 12 mins
+           ▄▄▄▄▖           ▜███▙  ▟███▛       Packages: 1406 (nix-system), 816 (nix-user)
+          ▟███▛             ▜██▛ ▟███▛        Shell: zsh 5.9
+         ▟███▛               ▜▛ ▟███▛         Resolution: 3840x2160, 1080x1920, 1920x1080
+▟███████████▛                  ▟██████████▙   WM: i3
+▜██████████▛                  ▟███████████▛   Terminal: alacritty
+      ▟███▛ ▟▙               ▟███▛            CPU: AMD Ryzen 7 3700X (16) @ 3.600GHz
+     ▟███▛ ▟██▙             ▟███▛             GPU: NVIDIA GeForce RTX 3080 Ti
+    ▟███▛  ▜███▙           ▝▀▀▀▀              Memory: 51392MiB / 80352MiB
+    ▜██▛    ▜███▙ ▜██████████████████▛
+     ▜▛     ▟████▙ ▜████████████████▛
+           ▟██████▙       ▜███▙
+          ▟███▛▜███▙       ▜███▙
+         ▟███▛  ▜███▙       ▜███▙
+         ▝▀▀▀    ▀▀▀▀▘       ▀▀▀▘
+```
+
 ## References
 
 - https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/
