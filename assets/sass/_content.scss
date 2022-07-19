@@ -70,8 +70,8 @@ footer {
         .side-nav-content {
             width: 100%;
             padding: 18px 0;
-            border-bottom: 1px solid #eee;
-            box-shadow: 0 10px 20px -10px #eee;
+            border-bottom: 1px solid $shadow-color;
+            box-shadow: 0 10px 20px -10px $shadow-color;
 
             .home-link {
                 display: flex;
@@ -103,8 +103,8 @@ footer {
         .side-nav-content {
             padding-top: 32px;
             padding-right: 32px;
-            border-right: 1px solid #eee;
-            box-shadow: 10px 0 20px -10px #eee;
+            border-right: 1px solid $shadow-color;
+            box-shadow: 10px 0 20px -10px $shadow-color;
 
             .portrait {
                 max-width: 100%;
