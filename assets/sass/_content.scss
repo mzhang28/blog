@@ -179,6 +179,7 @@ blockquote {
     &.info {
         color: $smaller-text-color;
         font-size: 0.75em;
+        white-space: nowrap;
     }
 
     .summary {
