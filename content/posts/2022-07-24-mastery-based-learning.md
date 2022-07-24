@@ -1,8 +1,7 @@
 +++
 title = "Mastery-Based Learning"
-date = 2022-07-19
+date = 2022-07-24
 tags = ["education"]
-draft = true
 +++
 
 A thought I've been brewing probably since undergrad is the idea of
@@ -21,6 +20,7 @@ specific purposes:
 
 - **Dependency.** The linked topic needs some percentage of mastery in order
     to best experience the current topic.
+
 - **Spill.** Not really sure what a good term for this would be, but basically
     mastery of the current topic would result in some percentage of "spilled"
     mastery gain for the linked topic.
@@ -72,9 +72,6 @@ indirectly keep topic A's mastery afloat.
 
 Implementation is the toughest part. There's a couple technical hurdles I would
 like to complete before attempting such a system, which are:
-
-- A markup similar to Restructured Text. This should make learning material be
-    produced and overlayed in an intuitive way for readers.
 
 - A bunch of interactive widgets for allowing users to play around with the
     material directly. This is more applicable in math and science curriculums.
