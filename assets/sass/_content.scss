@@ -60,7 +60,7 @@ footer {
     align-items: stretch;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 672px) {
     .flex-wrapper {
         flex-direction: column;
         .container { padding: 5px 20px; }
@@ -86,7 +86,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 520px) {
+@media screen and (min-width: 672px) {
     .flex-wrapper {
         flex-direction: row;
         .container { padding: 32px 40px 5px 40px; }
@@ -103,6 +103,7 @@ footer {
         .side-nav-content {
             padding-top: 32px;
             padding-right: 32px;
+            padding-left: 32px;
             border-right: 1px solid $shadow-color;
             box-shadow: 10px 0 20px -10px $shadow-color;
 
