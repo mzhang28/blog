@@ -357,6 +357,11 @@ table.table {
         line-height: 1.5;
     }
 
+    > p > img {
+        display: block;
+        margin: auto;
+    }
+
     .footnotes {
         font-size: .9em;
         line-height: 1.2;
