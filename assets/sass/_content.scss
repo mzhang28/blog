@@ -98,7 +98,7 @@ footer {
         left: 0;
         top: 0;
         // Capital Min to avoid invoking SCSS min
-        max-width: Min(30%, 240px);
+        max-width: Min(30%, 30em);
 
         .side-nav-content {
             padding-top: 32px;
@@ -110,6 +110,8 @@ footer {
             .portrait {
                 max-width: 100%;
             }
+
+            h1.title { text-align: center; }
         }
     }
 }
