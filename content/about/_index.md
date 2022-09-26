@@ -7,36 +7,62 @@ type = "generic"
 layout = "single"
 +++
 
-Hi there! I'm an incoming graduate student at the University of Minnesota. I
-currently work as a Software Developer at [AWS][13] (previously at [SIFT][11]). My
-computing-related interests lie in programming language design and formal
-verification, systems security, cryptography, and distributed systems. <!-- more
---> Some of the projects I've been working on in my free time include:
+# About Me
 
-- [**Leanshot**][6], a Linux screen capture tool.
-- [**Garbage**][7], a CLI interface to the trash can API.
+Hi there! I'm a first-year master's student at the University of Minnesota. I
+also currently work as a Software Developer at [AWS] (previously at [SIFT]).
+My computing-related interests lie in programming language design and formal
+verification, systems security, cryptography, and distributed
+systems.
+
+<!-- more -->
+
+### Research
+
+Currently, I'm learning about [cubical type theory][cubical]. I'll probably
+write some blog posts as I learn more. My advisor is [Favonia].
+
+### University Involvement
+
+-   **[GopherHack]**. I'm an officer at the GopherHack organization, hoping to
+    grow a CTF community at the University.
+-   **[PL Seminar]**. A group focused on reading and discussing
+    programming-language-related papers
+
+### Open-source Projects
+
+Some of the projects I've been working on in my free time include:
+
+-   **[Leanshot]**. A Linux screen capture tool.
+-   **[Garbage]**. A CLI interface to the trash can API.
 
 More can be found on [this page][12] or my public [Gitea][2].
 
-I've also started making an increased effort at using and supporting [FOSS][8],
+I've also started making an increased effort at using and supporting [FOSS],
 and other software that're not predatory towards users. As a part of this
 effort, I'm also self-hosting and rewriting some of the services and software
 that I use regularly. Find out what I'm using [here][9].
 
-I'm also an avid rhythm game player and beatmap creator, mostly involved with
-the free-to-play game [osu!][3]. Check out some of my beatmaps on my [osu!
-userpage][4].
+### Hobbies
 
-[1]: https://keybase.io/michaelz/pgp_keys.asc?fingerprint=925ecc02890d5cdae26180d4bda47a31a3c8ee6b
+I'm also an avid rhythm game player and beatmap creator, mostly involved with
+the free-to-play game [osu!]. Check out some of my beatmaps on my osu!
+[userpage].
+
+I also enjoy playing badminton &#x1F3F8; at the rec.
+
 [2]: https://git.mzhang.io/explore
-[3]: https://osu.ppy.sh
-[4]: https://osu.ppy.sh/u/2688103
-[5]: https://libera.chat
-[6]: https://git.mzhang.io/michael/leanshot
-[7]: https://git.sr.ht/~iptq/garbage
-[8]: https://en.wikipedia.org/wiki/Free_and_open-source_software
 [9]: setup
 [10]: pgp.txt
-[11]: https://www.sift.net/
 [12]: ../projects
-[13]: https://aws.amazon.com/
+[aws]: https://aws.amazon.com/
+[cubical]: https://ncatlab.org/nlab/show/cubical+type+theory
+[favonia]: https://favonia.org/
+[foss]: https://en.wikipedia.org/wiki/Free_and_open-source_software
+[garbage]: https://git.sr.ht/~mzhang/garbage
+[gopherhack]: https://gopherhack.com
+[leanshot]: https://git.sr.ht/~mzhang/leanshot
+[osu!]: https://osu.ppy.sh
+[pl seminar]: https://umn-plseminar.github.io
+[sift]: https://www.sift.net/
+[userpage]: https://osu.ppy.sh/u/2688103
