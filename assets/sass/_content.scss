@@ -5,7 +5,8 @@ html {
     margin: 0;
 }
 
-::selection, ::-moz-selection {
+::selection,
+::-moz-selection {
     background-color: $heading-color;
     color: $background-color;
 }
@@ -23,7 +24,12 @@ body {
     color: $text-color;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: $heading-color;
 }
 
@@ -63,7 +69,9 @@ footer {
 @media screen and (max-width: 672px) {
     .flex-wrapper {
         flex-direction: column;
-        .container { padding: 5px 20px; }
+        .container {
+            padding: 5px 20px;
+        }
     }
 
     .side-nav {
@@ -77,11 +85,15 @@ footer {
                 display: flex;
                 justify-content: space-evenly;
             }
-            h1 { display: inline; }
+            h1 {
+                display: inline;
+            }
             .portrait {
                 max-height: 80px;
             }
-            .bio { display: none; }
+            .bio {
+                display: none;
+            }
         }
     }
 }
@@ -89,7 +101,9 @@ footer {
 @media screen and (min-width: 672px) {
     .flex-wrapper {
         flex-direction: row;
-        .container { padding: 32px 40px 5px 40px; }
+        .container {
+            padding: 32px 40px 5px 40px;
+        }
     }
 
     .side-nav {
@@ -111,13 +125,14 @@ footer {
                 max-width: 100%;
             }
 
-            h1.title { text-align: center; }
+            h1.title {
+                text-align: center;
+            }
         }
     }
 }
 
 .side-nav {
-
     .side-nav-content {
         .home-link {
             text-decoration: none;
@@ -173,7 +188,7 @@ blockquote {
 
 .postlisting-row td {
     padding-bottom: 10px;
-    line-height: 1.0;
+    line-height: 1;
 
     .title {
         font-size: 1.1em;
@@ -245,7 +260,8 @@ table.table {
         color: $background-color;
     }
 
-    tbody td, thead th {
+    tbody td,
+    thead th {
         border: 1px solid $faded;
         padding: 5px;
     }
@@ -302,7 +318,9 @@ table.table {
             font-weight: bold;
         }
     }
-    .toc-list { display: none; }
+    .toc-list {
+        display: none;
+    }
 
     /*
     @media screen and (max-width: 520px) {
@@ -327,10 +345,28 @@ table.table {
     */
 
     .post-content {
+        ul {
+            padding-left: 1.5rem;
+        }
+
         min-width: 1px;
     }
 
-    .toc-draw #TableOfContents, .toc-list #TableOfContents {
+    &.logseq-post {
+        .post-content {
+            > ul {
+                list-style-type: none;
+                padding: 0;
+
+                > li {
+                    margin-bottom: 1em;
+                }
+            }
+        }
+    }
+
+    .toc-draw #TableOfContents,
+    .toc-list #TableOfContents {
         ul {
             list-style-type: "\25B8\00A0";
             padding-left: 1rem;
@@ -344,9 +380,23 @@ table.table {
             margin-top: 0.5rem;
         }
     }
+
+    table {
+        border-collapse: collapse;
+
+        thead {
+            background-color: black;
+        }
+
+        td,
+        th {
+            padding: 5px 10px;
+        }
+    }
 }
 
-.division .post-content, .post-content {
+.division .post-content,
+.post-content {
     .heading {
         font-weight: 500;
 
@@ -365,7 +415,7 @@ table.table {
     }
 
     .footnotes {
-        font-size: .9em;
+        font-size: 0.9em;
         line-height: 1.2;
     }
 }

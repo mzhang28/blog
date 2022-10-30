@@ -25,7 +25,9 @@
     - {{ .ReadingTime }} min read
 </small>
 
-<div class="post-container">
+<div class="post-container
+    {{ if .Params.logseq }}logseq-post{{ end }}
+    ">
     {{ if .Params.toc }}
         <div class="toc-drawer">
             <details>

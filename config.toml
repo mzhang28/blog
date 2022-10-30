@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "Michael's Blog"
 enableGitInfo = true
 
+ignoreFiles = ["logseq"]
+
 [taxonomies]
 tag = "tags"
 language = "languages"

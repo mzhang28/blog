@@ -1,6 +1,7 @@
 /public
 /old
 /resources
+/content/logseq
 
 .hugo_build.lock
 .direnv
