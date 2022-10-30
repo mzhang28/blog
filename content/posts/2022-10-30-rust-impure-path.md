@@ -1,6 +1,6 @@
 +++
 title = "Rust's Impure Path"
-date = 2022-10-30T04:04:51-05:00
+date = 2022-10-30T12:47:41-05:00
 +++
 
 I work on [garbage], a project that touches the filesystem a lot. Because of
