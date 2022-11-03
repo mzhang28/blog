@@ -29,6 +29,13 @@ write some blog posts as I learn more. My advisor is [Favonia].
 - **[PL Seminar]**. A group focused on reading and discussing
   programming-language-related papers
 
+Previously, I was also involved with:
+
+- **[ACM]**. I was webmaster and wrote the current website, as well as helping
+  out with other events such as CTF.
+- **[SASE]**. I was webmaster and was involved in organizing student group
+  events as well.
+
 ### Open-source Projects
 
 Some of the projects I've been working on in my free time include:
@@ -56,15 +63,16 @@ I also enjoy playing badminton &#x1F3F8; at the rec.
 [9]: setup
 [10]: pgp.txt
 [12]: ../projects
-[aws]: https://aws.amazon.com/
+[aws]: https://aws.amazon.com
 [cubical]: https://ncatlab.org/nlab/show/cubical+type+theory
-[favonia]: https://favonia.org/
+[favonia]: https://favonia.org
 [foss]: https://en.wikipedia.org/wiki/Free_and_open-source_software
 [garbage]: https://git.sr.ht/~mzhang/garbage
 [gopherhack]: https://gopherhack.com
 [leanshot]: https://git.sr.ht/~mzhang/leanshot
 [osu!]: https://osu.ppy.sh
 [pl seminar]: https://umn-plseminar.github.io
-[sift]: https://www.sift.net/
+[sift]: https://www.sift.net
 [userpage]: https://osu.ppy.sh/u/2688103
-[wisesplit]: https://wisesplit.org/
+[wisesplit]: https://wisesplit.org
+[acm]: https://acm.umn.edu
