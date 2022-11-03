@@ -24,17 +24,18 @@ write some blog posts as I learn more. My advisor is [Favonia].
 
 ### University Involvement
 
--   **[GopherHack]**. I'm an officer at the GopherHack organization, hoping to
-    grow a CTF community at the University.
--   **[PL Seminar]**. A group focused on reading and discussing
-    programming-language-related papers
+- **[GopherHack]**. I'm an officer at the GopherHack organization, hoping to
+  grow a CTF community at the University.
+- **[PL Seminar]**. A group focused on reading and discussing
+  programming-language-related papers
 
 ### Open-source Projects
 
 Some of the projects I've been working on in my free time include:
 
--   **[Leanshot]**. A Linux screen capture tool.
--   **[Garbage]**. A CLI interface to the trash can API.
+- **[Wisesplit]**. A tool for easily splitting the bill with friends.
+- **[Garbage]**. A CLI interface to the trash can API.
+- **[Leanshot]**. A Linux screen capture tool.
 
 More can be found on [this page][12] or my public [Gitea][2].
 
@@ -66,3 +67,4 @@ I also enjoy playing badminton &#x1F3F8; at the rec.
 [pl seminar]: https://umn-plseminar.github.io
 [sift]: https://www.sift.net/
 [userpage]: https://osu.ppy.sh/u/2688103
+[wisesplit]: https://wisesplit.org/
