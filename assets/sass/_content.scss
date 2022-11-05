@@ -66,6 +66,31 @@ footer {
     align-items: stretch;
 }
 
+.side-nav .side-nav-content {
+    display: flex;
+    justify-content: space-evenly;
+
+    .me {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+
+        .links {
+            text-align: center;
+            font-size: 1.5rem;
+
+            a {
+                text-decoration: none;
+                color: $text-color;
+
+                &:hover {
+                    color: $link-color;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 672px) {
     .flex-wrapper {
         flex-direction: column;
@@ -85,8 +110,8 @@ footer {
                 display: flex;
                 justify-content: space-evenly;
             }
-            h1 {
-                display: inline;
+            h1.title {
+                margin-bottom: 5px;
             }
             .portrait {
                 max-height: 80px;
@@ -120,6 +145,7 @@ footer {
             padding-left: 32px;
             border-right: 1px solid $shadow-color;
             box-shadow: 10px 0 20px -10px $shadow-color;
+            flex-direction: column;
 
             .portrait {
                 max-width: 100%;
@@ -127,6 +153,10 @@ footer {
 
             h1.title {
                 text-align: center;
+            }
+
+            .links {
+                margin-bottom: 20px;
             }
         }
     }

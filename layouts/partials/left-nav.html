@@ -1,9 +1,18 @@
 <nav class="side-nav">
     <div class="side-nav-content">
-        <a href="/" class="home-link">
+        <a href="/" class="portrait">
             <img class="portrait" src="/self.png" />
-            <h1 class="title">Michael Zhang</h1>
         </a>
+        <div class="me">
+            <h1 class="title">Michael Zhang</h1>
+            <div class="links">
+                {{ range .Site.Data.links }}
+                <a href="{{ .url }}" title="{{ .description }}">
+                    <i class="{{ .icon }}" aria-hidden="true"></i>
+                </a>
+                {{ end }}
+            </div>
+        </div>
         <div class="bio">
             {{ os.ReadFile "layouts/partials/left-nav.md" | .RenderString }}
 

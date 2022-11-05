@@ -1,0 +1,24 @@
+- name: SourceHut
+  url: https://git.sr.ht/~mzhang
+  icon: fa fa-circle-o # Lol
+  description: Check out my public open source projects on SourceHut
+
+- name: Matrix
+  url: https://matrix.to/#/@michael:chat.mzhang.io
+  icon: fa fa-matrix-org
+  description: Come chat with me on Matrix
+
+- name: GitHub
+  url: https://github.com/iptq
+  icon: fa fa-github
+  description: See a history of my old projects on GitHub
+
+- name: Mastodon
+  url: https://fosstodon.org/@mzhang
+  icon: fa fa-mastodon-square
+  description: Follow my ramblings on Mastodon
+
+- name: Keybase
+  url: https://keybase.io/michaelz
+  icon: fa fa-keybase
+  description: Verify my other identities on Keybase

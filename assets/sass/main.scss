@@ -1,3 +1,6 @@
+$fa-font-path: "/fork-awesome";
+@import "./fork-awesome/fork-awesome.scss";
+
 @import "grid";
 @import "agda";
 @import "mixins";

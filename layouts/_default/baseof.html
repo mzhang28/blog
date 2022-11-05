@@ -8,6 +8,10 @@
         {{ block "headExtra" . }}{{ end }}
         {{ partial "head" . }}
 
+        {{ if .IsHome }}
+            <link rel="me" href="https://fosstodon.org/@mzhang" />
+        {{ end }}
+
         {{ $style := resources.Get "sass/main.scss" | resources.ToCSS }}
         <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
     </head>
