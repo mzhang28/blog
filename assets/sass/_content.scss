@@ -331,10 +331,6 @@ table.table {
         &:hover {
             text-decoration: none;
         }
-
-        &::before {
-            content: "\01F3F7";
-        }
     }
 }
 
