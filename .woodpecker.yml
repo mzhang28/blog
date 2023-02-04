@@ -7,7 +7,7 @@ pipeline:
   deploy:
     image: alpine
     commands:
-      - apk add rsync ssh
+      - apk add rsync openssh
       - echo "$SSH_SECRET_KEY" > SSH_SECRET_KEY
       - mkdir -p ~/.ssh
       - echo "mzhang.io ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzBZ+QmM4EO3Fwc1ZcvWV2IY9VF04T0H9brorGj9Udp" >> ~/.ssh/known_hosts
