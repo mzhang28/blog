@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: klakegg/hugo
+    image: klakegg/hugo:ext-pandoc-ci
     commands:
       - ls -al
       - pwd
