@@ -1,5 +1,7 @@
 # Blog
 
+![Build status](https://ci.mzhang.io/api/badges/michael/blog/status.svg)
+
 Powers [mzhang.io][1]. Public replies at [~mzhang/public-inbox][2].
 
 Standard hugo site.
