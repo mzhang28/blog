@@ -20,10 +20,16 @@ write some blog posts as I learn more. My advisor is [Favonia].
 
 ### University Involvement
 
-- **[GopherHack]**. I'm an officer at the GopherHack organization, hoping to
-  grow a CTF community at the University.
-- **[PL Seminar]**. A group focused on reading and discussing
-  programming-language-related papers
+During my time at the University of Minnesota, I like to be actively involved in
+computing related student groups.
+
+- **[GopherHack]**. I'm one of the founding officers at the GopherHack
+    organization, hoping to grow a CTF community at the University. I prepare
+    material for club activities.
+- **[PL Seminar]**. A group focused on reading and discussing programming
+    languages related papers.
+- **[UMN Kernel Object]**. A group dedicated to studying operating system
+    development, created in the aftermath of the UMN Linux kernel controversy.
 
 Previously, I was also involved with:
 
@@ -42,10 +48,10 @@ Some of the projects I've been working on in my free time include:
 
 More can be found on [this page][12] or my public [Gitea][2].
 
-I've also started making an increased effort at using and supporting [FOSS],
-and other software that're not predatory towards users. As a part of this
-effort, I'm also self-hosting and rewriting some of the services and software
-that I use regularly. Find out what I'm using [here][9].
+I've also started making an increased effort at using and supporting [FOSS], and
+other software that're not predatory towards users. As a part of this effort,
+I'm also self-hosting and rewriting some of the services and software that I use
+regularly. Find out what I'm using [here][9].
 
 ### Hobbies
 
@@ -71,3 +77,4 @@ I also enjoy playing badminton &#x1F3F8; at the rec.
 [wisesplit]: https://wisesplit.org
 [acm]: https://acm.umn.edu
 [sase]: https://saseumn.org
+[umn kernel object]: https://github.com/UMN-Kernel-Object
