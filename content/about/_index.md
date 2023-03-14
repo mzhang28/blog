@@ -9,11 +9,7 @@ layout = "single"
 
 # About Me
 
-Hi there! I'm a first-year master's student at the University of Minnesota. I
-also currently work as a Software Developer at [AWS] (previously at [SIFT]).
-My computing-related interests lie in programming language design and formal
-verification, systems security, cryptography, and distributed
-systems.
+{{< left-nav >}}
 
 <!-- more -->
 
@@ -63,7 +59,6 @@ I also enjoy playing badminton &#x1F3F8; at the rec.
 [9]: setup
 [10]: pgp.txt
 [12]: ../projects
-[aws]: https://aws.amazon.com
 [cubical]: https://ncatlab.org/nlab/show/cubical+type+theory
 [favonia]: https://favonia.org
 [foss]: https://en.wikipedia.org/wiki/Free_and_open-source_software
@@ -72,7 +67,6 @@ I also enjoy playing badminton &#x1F3F8; at the rec.
 [leanshot]: https://git.sr.ht/~mzhang/leanshot
 [osu!]: https://osu.ppy.sh
 [pl seminar]: https://umn-plseminar.github.io
-[sift]: https://www.sift.net
 [userpage]: https://osu.ppy.sh/u/2688103
 [wisesplit]: https://wisesplit.org
 [acm]: https://acm.umn.edu
