@@ -10,6 +10,7 @@
 
         {{ if .IsHome }}
             <link rel="me" href="https://fosstodon.org/@mzhang" />
+            <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/index.xml" />
         {{ end }}
 
         {{ $style := resources.Get "sass/main.scss" | resources.ToCSS }}

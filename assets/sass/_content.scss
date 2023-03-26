@@ -1,5 +1,7 @@
 @import "footer";
 
+$breakpoint: 720px;
+
 html {
     min-height: 100vh;
     margin: 0;
@@ -68,7 +70,8 @@ footer {
 
 .side-nav .side-nav-content {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 20px;
 
     .me {
         display: flex;
@@ -91,7 +94,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 672px) {
+@media screen and (max-width: $breakpoint) {
     .flex-wrapper {
         flex-direction: column;
         .container {
@@ -116,6 +119,7 @@ footer {
             .portrait {
                 max-height: 80px;
             }
+
             .bio {
                 display: none;
             }
@@ -123,7 +127,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 672px) {
+@media screen and (min-width: $breakpoint) {
     .flex-wrapper {
         flex-direction: row;
         .container {
@@ -137,7 +141,8 @@ footer {
         left: 0;
         top: 0;
         // Capital Min to avoid invoking SCSS min
-        max-width: Min(30%, 30em);
+        width: 30%;
+        min-width: 300px;
 
         .side-nav-content {
             padding-top: 32px;
