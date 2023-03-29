@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    max-width: 980px;
+    max-width: 1024px;
     margin: auto;
     width: 100%;
     height: 1px;
@@ -262,7 +262,7 @@ code {
     box-sizing: border-box;
     padding: 1px 5px;
     background-color: $faded-background-color;
-    color: $code-color;
+    // color: $code-color;
 }
 
 a code {
@@ -315,7 +315,7 @@ table.table {
 .post-title {
     font-size: 2rem;
     font-weight: 500;
-    margin-bottom: 0;
+    margin-bottom: 12px;
 }
 
 .tags {
@@ -380,6 +380,29 @@ table.table {
         }
 
         min-width: 1px;
+
+        details {
+            border: 1px solid lightgray;
+            padding: 10px 30px;
+            font-size: 0.9rem;
+        }
+
+        hr {
+            border-width: 1px 0 0 0;
+            border-color: $faded-background-color;
+            margin: 32px auto;
+            width: 20%;
+        }
+
+        .highlight {
+            .lntd:first-child {
+                // border-right: 1px solid lightgray;
+                padding-right: 2px;
+            }
+            .lntd:last-child {
+                padding-left: 12px;
+            }
+        }
     }
 
     &.logseq-post {

@@ -29,7 +29,7 @@ $monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", 
 
 @media (prefers-color-scheme: dark) {
     $background-color: #202030;
-    $faded-background-color: lighten($background-color, 10%);
+    $faded-background-color: lighten($background-color, 30%);
     $shadow-color: lighten($background-color, 10%);
     $heading-color: lighten(lightskyblue, 20%);
     $text-color: #CDCDCD;

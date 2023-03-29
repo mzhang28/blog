@@ -2,7 +2,7 @@ pipeline:
   build:
     image: klakegg/hugo:ext-pandoc-ci
     commands:
-      - hugo --minify --baseURL https://mzhang.io
+      - hugo --buildDrafts --minify --baseURL https://mzhang.io
 
   deploy:
     image: alpine
