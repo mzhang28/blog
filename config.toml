@@ -4,6 +4,7 @@ title = "Michael's Blog"
 enableGitInfo = true
 
 ignoreFiles = ["logseq"]
+enableEmoji = true
 
 [taxonomies]
 tag = "tags"

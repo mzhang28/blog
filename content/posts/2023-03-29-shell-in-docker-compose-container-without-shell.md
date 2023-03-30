@@ -4,6 +4,8 @@ date = 2023-03-29
 tags = ["docker", "linux"]
 +++
 
+First (published) blog post of the year! :raising_hands:
+
 Here is a rather dumb way of entering a Docker Compose container that didn't
 have a shell. In this specific case, I was trying to enter a Woodpecker CI
 container without exiting it. Some Docker containers are incredibly stripped
@@ -34,7 +36,7 @@ I grabbed a copy of the busybox tool using:
 $ nix build nixpkgs#pkgsStatic.busybox
 ```
 
-(if you are not using [Nix][3], you may want to grab one of the pre-built
+(if you aren't using [Nix][3], you may want to grab one of the pre-built
 binaries from their website)
 
 [3]: https://nixos.org/
@@ -48,9 +50,10 @@ $ ldd ./result/bin/busybox
 	not a dynamic executable
 ```
 
-If it doesn't say "not a dynamic executable" exactly, you're not using a static
-build. If you're downloading off the website, make sure you look for something
-that says [`musl`][4], which is a static version of libc.
+You should be all good if it comes back with "not a dynamic executable".
+Otherwise, if you're downloading off the website, make sure you look for
+something that indicates you're downloading a version built with [`musl`][4],
+which means it's using a static implementation of libc.
 
 [4]: https://musl.libc.org/
 
