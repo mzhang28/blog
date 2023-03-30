@@ -6,3 +6,5 @@
 .hugo_build.lock
 .direnv
 *.agdai
+
+/result*
