@@ -6,9 +6,12 @@ tags = ["docker", "linux"]
 
 Here is a rather dumb way of entering a Docker Compose container that didn't
 have a shell. In this specific case, I was trying to enter a Woodpecker CI
-container without exiting it. These are my specific steps for running it, please
-replace the paths and container names with the ones relevant to your specific
-use-case.
+container without exiting it. Some Docker containers are incredibly stripped
+down to optimize away bloat (which is good!) but this may make debugging them
+relatively annoying.
+
+> These are my specific steps for running it, please replace the paths and
+> container names with the ones relevant to your specific use-case.
 
 At first, I tried an approach following [this][1] document. But once I got to
 actually running commands within the namespace, I realized that this exposes the
@@ -20,7 +23,8 @@ need to get some shell into the container.
 
 Fortunately, there's a software that contains a lot of handy tools in one
 binary: [busybox][2]. It's a GPL software that contains a small implementation
-of a bunch of typical Unix utilities in a single static binary.
+of some coreutils (the Unix utilities like `ls` and `cp`) in a single static
+binary.
 
 [2]: https://busybox.net/
 
