@@ -27,10 +27,6 @@
 </small>
 
 {{ if .Params.language_switcher_languages }}
-<div class="has-warning">
-    warning! your browser does not support has
-</div>
-
     <div class="language_switcher_choices">
     {{ range $index, $lang := .Page.Params.language_switcher_languages }}
         <input

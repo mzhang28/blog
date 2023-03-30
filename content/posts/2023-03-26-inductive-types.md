@@ -4,6 +4,7 @@ date = 2023-03-26
 tags = ["type-theory"]
 math = true
 draft = true
+toc = true
 
 language_switcher_languages = ["ocaml", "python"]
 +++
@@ -107,7 +108,7 @@ Unit = Literal[None]
 There's only one way to ever construct something of this type, so the
 cardinality of this type would be 1.
 
-## Doing Things with Types
+## Doing things with types
 
 Creating types and making values of those data types is just the first part
 though. It would be completely uninteresting if all we could do is create types.
@@ -160,6 +161,8 @@ def do_something_with(d : Direction) -> str:
 **Note:** the `assert_never` is a static check for exhaustiveness. If we missed
 a single one of the cases, a static type checker like [pyright] could catch it
 and tell us which of the remaining cases there are.
+
+[pyright]: https://github.com/microsoft/pyright
 {{</ language-switcher >}}
 
 This gives me a way to discriminate between the different variants of
@@ -293,4 +296,3 @@ let convert_nat = nat_transformer 0 (fun x -> x + 1)
 TODO: Talk about https://counterexamples.org/currys-paradox.html
 
 [has]: https://developer.mozilla.org/en-US/docs/Web/CSS/:has
-[pyright]: https://github.com/microsoft/pyright
