@@ -14,7 +14,7 @@
         {{ end }}
 
         {{ $style := resources.Get "sass/main.scss" | resources.ToCSS }}
-        <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+        <link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous" />
     </head>
 
     <body>

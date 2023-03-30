@@ -338,6 +338,73 @@ table.table {
     }
 }
 
+// Tabbing
+.language-switcher-choice {
+    display: none;
+}
+
+.tabbed {
+    border: 1px solid #eee;
+
+    ul.tabs {
+        margin-top: 0;
+        margin-bottom: 0;
+        list-style: none;
+        padding-inline-start: 0;
+        border-bottom: 1px solid lightgray;
+
+        .tab {
+            display: inline-block;
+            list-style: none;
+
+            label {
+                display: inline-block;
+                padding: 4px 8px;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .contents {
+        .tab-content {
+            padding: 0 12px;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid gray;
+            }
+        }
+    }
+}
+
+@for $i from 1 through 5 {
+    $colors: [green, red, blue, yellow, purple];
+
+    .language-switcher-choice:nth-of-type(#{$i}):checked {
+        outline: 2px solid nth($colors, $i);
+    }
+
+    body:has(.language-switcher-choice:nth-of-type(#{$i}):checked) .tabbed {
+        .tabs .tab:nth-child(#{$i}) {
+            border-bottom: 3px solid gray;
+        }
+
+        .tabs .tab:not(:nth-child(#{$i})) {
+            border-bottom: 3px solid transparent;
+        }
+
+        .contents .tab-content:nth-child(#{$i}) {
+            border-bottom: none;
+        }
+
+        .contents .tab-content:not(:nth-child(#{$i})) {
+            // text-shadow: 2px 2px nth($colors, $i);
+            display: none;
+        }
+    }
+}
+
+// Post container
+
 .post-container {
     display: flex;
 
@@ -375,7 +442,7 @@ table.table {
     */
 
     .post-content {
-        ul {
+        ul:not(.tabs) {
             padding-left: 1.5rem;
         }
 
@@ -402,6 +469,12 @@ table.table {
             .lntd:last-child {
                 padding-left: 12px;
             }
+        }
+
+        .highlight,
+        details {
+            margin-top: 16px;
+            margin-bottom: 16px;
         }
     }
 
