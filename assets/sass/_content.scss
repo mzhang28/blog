@@ -289,6 +289,9 @@ details {
 
     summary {
         cursor: pointer;
+        position: sticky;
+        top: 0;
+        background-color: $background-color;
     }
 }
 
@@ -333,6 +336,11 @@ table.table {
         font-size: 0.75rem;
         background-color: $tag-color;
         padding: 2px 7px;
+
+        &.draft {
+            background-color: orange;
+            color: black;
+        }
 
         .text {
             text-decoration: none;
@@ -456,8 +464,18 @@ table.table {
 
         details {
             border: 1px solid lightgray;
-            padding: 10px 30px;
+            // padding: 10px 30px;
             font-size: 0.9rem;
+            padding: 0 30px;
+            line-height: 1.5;
+
+            summary {
+                padding: 10px 0;
+            }
+
+            &[open] summary {
+                border-bottom: 1px solid lightgray;
+            }
         }
 
         hr {

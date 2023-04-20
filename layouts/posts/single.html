@@ -16,6 +16,13 @@
 <h1 class="post-title">{{ .Title }}</h1>
 
 <span class="tags">
+    {{ if .Draft }}
+        <a href="/drafts" class="tag draft">
+            <i class="fa fa-warning" aria-hidden="true"></i>
+            <span class="text">draft</span>
+        </a>
+    {{ end }}
+
     {{ range .Params.tags }}
         <a href="/tags/{{ . }}" class="tag">
             <i class="fa fa-tag" aria-hidden="true"></i>
