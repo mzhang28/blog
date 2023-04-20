@@ -119,8 +119,8 @@ the directory the file is in, not just the current one. This way if you `cd`
 somewhere within your project hierarchy, you're not losing all the shell hook
 behavior.
 
-We can use this by moving the dev flake into the parent directory instead. So
-now the project structure should look a bit more like this:
+We can use this by moving the git repo _into_ the dev flake instead. So now the
+project structure should look a bit more like this:
 
 ```
   project-dev-flake
@@ -130,11 +130,12 @@ now the project structure should look a bit more like this:
      flake.nix
 ```
 
-Remember, since you moved the `.envrc` file, you will need to run `direnv allow`
-again. Depending on how you moved it, you might also need to change the path you
-wrote in the `use flake` command. But with this setup, the `project` directory
-can contain a clean clone of upstream and your flake files will create the
-appropriate environment.
+> Remember, since you moved the `.envrc` file, you will need to run `direnv
+> allow` again. Depending on how you moved it, you might also need to change the
+> path you wrote in the `use flake` command.
+
+With this setup, the `project` directory can contain a clean clone of upstream
+and your flake files will create the appropriate environment.
 
 This _does_ create an extra layer of directory nesting, but except for copying
 longer paths, it really doesn't hurt my workflow. I use [autojump], which
