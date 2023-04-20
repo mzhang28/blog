@@ -1,3 +1,7 @@
+{{- define "title" }}
+{{ .Title }} -
+{{- end -}}
+
 {{- define "headExtra" -}}
 <meta name="description" content="{{ .Summary }}" />
 <meta property="og:title" content="{{ .Site.Title }}: {{ .Title }}" />
@@ -58,13 +62,14 @@
     <div id="content" class="post-content">{{ .Content }}</div>
 </div>
 
-<hr />
+<hr class="endline" />
 
 <small>
     Thanks for reading!
 
-    Have comments? Discuss this post by sending me a
-    <a href="mailto:~mzhang/public-inbox@lists.sr.ht?subject=Re: {{ .Title }}">public email</a>.
+    Have comments? Discuss this post by sending an email to my
+    <a href="https://lists.sr.ht/~mzhang/public-inbox">public inbox</a> using this
+    <a href="mailto:~mzhang/public-inbox@lists.sr.ht?subject=Re: {{ .Title }}">email link</a>.
 </small>
 
 {{- end -}}

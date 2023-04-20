@@ -8,3 +8,5 @@
 *.agdai
 
 /result*
+
+/static/fonts/patched/PragmataPro-Mono-Liga-Regular-Nerd-Font-Complete.woff2

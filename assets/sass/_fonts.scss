@@ -1,7 +1,9 @@
 @font-face {
   font-family: 'PragmataPro Mono Liga';
-  src: url("/fonts/PragmataPro_Mono_R_liga_0829.woff2") format("woff2"),
-    url(https://mzhang.io/fonts/PragmataPro_Mono_R_liga_0829.woff2) format("woff2");
+  src: url("/fonts/patched/PragmataPro-Mono-Liga-Regular-Nerd-Font-Complete.woff2") format("woff2"),
+    url("https://mzhang.io/fonts/patched/PragmataPro-Mono-Liga-Regular-Nerd-Font-Complete.woff2") format("woff2");
+  // src: url("/fonts/PragmataPro_Mono_R_liga_0829.woff2") format("woff2"),
+  //  url(https://mzhang.io/fonts/PragmataPro_Mono_R_liga_0829.woff2) format("woff2");
 }
 
 @font-face {
