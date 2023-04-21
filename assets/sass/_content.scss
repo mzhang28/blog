@@ -463,24 +463,31 @@ table.table {
         min-width: 1px;
 
         details {
-            border: 1px solid lightgray;
+            border: 1px solid $hr-color;
             // padding: 10px 30px;
             font-size: 0.9rem;
             padding: 0 30px;
             line-height: 1.5;
 
+            p:nth-of-type(1) {
+                padding-top: 0;
+                margin-top: 0;
+            }
+
             summary {
                 padding: 10px 0;
+                transition: margin 150ms ease-out;
             }
 
             &[open] summary {
-                border-bottom: 1px solid lightgray;
+                border-bottom: 1px solid $hr-color;
+                margin-bottom: 15px;
             }
         }
 
         hr {
             border-width: 1px 0 0 0;
-            border-color: $faded-background-color;
+            border-color: $hr-color;
             margin: 32px auto;
             width: 20%;
         }
@@ -570,8 +577,8 @@ table.table {
     }
 }
 
-.endline {
+hr.endline {
     margin-top: 30px;
     border-width: 1px 0 0 0;
-    border-color: $faded-background-color;
+    border-color: $hr-color;
 }
