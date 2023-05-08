@@ -125,23 +125,46 @@ Let's make sure this isn't broken by trying to apply this to something that's
 actually true:
 
 ```
-2-map : ℕ → Type
-2-map 2 = ⊤
-2-map 2 = ⊥
-2-map else = ⊤
-
--- 2≢2 : 2 ≢ 2
--- 2≢2 p = transport (λ i → 2-map (p i)) tt
+data NotBool : Type where
+  true1 : NotBool
+  true2 : NotBool
+  same : true1 ≡ true2
 ```
 
-I commented the lines out because they don't compile, but if you tried to
-compile it, it would fail with:
+In this data type, we have a path over `true1` and `true2` that is a part of the
+definition of the `NotBool` type. Since this is an intrinsic equality, we can't
+map `true1` and `true2` to divergent types. Let's see what happens:
+
+```
+notbool-map : NotBool → Type
+notbool-map true1 = ⊤
+notbool-map true2 = ⊥
+```
+
+Ok, we've defined the same thing that we did before, but Agda gives us this
+message:
 
 ```text
-⊤ !=< ⊥
-when checking that the expression transport (λ i → 2-map (p i)) tt
-has type ⊥
+Errors:
+Incomplete pattern matching for notbool-map. Missing cases:
+  notbool-map (same i)
+when checking the definition of notbool-map
 ```
 
-That's because with identical terms, you can't simultaneously assign them to
-different values, or else it would not be a proper function.
+Agda helpfully notes that we still have another case in the inductive type to
+pattern match on. Let's just go ahead and give it some value:
+
+```text
+notbool-map (same i) = ⊤
+```
+
+If you give it `⊤`, it will complain that `⊥ != ⊤ of type Type`, but if you give
+it `⊥`, it will also complain! Because pattern matching on higher inductive
+types requires a functor over the path, we must provide a function that
+satisfies the equality `notbool-map true1 ≡ notbool-map true2`, which unless we
+have provided the same type to both, will not be possible.
+
+So in the end, this type `NotBool → Type` is only possible to write if the two
+types we mapped `true1` and `true2` can be proven equivalent. But this also
+means we can't use it to prove `true1 ≢ true2`, which is exactly the property we
+wanted to begin with.
