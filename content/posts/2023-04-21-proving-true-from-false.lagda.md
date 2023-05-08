@@ -71,7 +71,7 @@ compile.
 It looks like it's not obvious to the interpreter that this statement is
 actually true. Why is that
 
----
+## Intuition
 
 Well, in constructive logic / constructive type theory, proving something is
 false is actually a bit different. You see, the definition of the `not`
@@ -119,7 +119,7 @@ true≢false2 : true ≢ false
 true≢false2 p = transport (λ i → bool-map2 (p i)) refl
 ```
 
----
+## Note on proving divergence on equivalent values
 
 Let's make sure this isn't broken by trying to apply this to something that's
 actually true:
