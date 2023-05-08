@@ -9,8 +9,8 @@ html {
 
 ::selection,
 ::-moz-selection {
-    background-color: $heading-color;
-    color: $background-color;
+    background-color: $heading-color !important;
+    color: $background-color !important;
 }
 
 body {
