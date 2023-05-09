@@ -479,7 +479,7 @@ table.table {
             }
 
             &[open] summary {
-                border-bottom: 1px solid $hr-color;
+                border-bottom: 1px dotted $hr-color;
                 margin-bottom: 15px;
             }
         }
