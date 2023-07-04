@@ -5,7 +5,13 @@ tags = ["web", "learn-by-implementing"]
 draft = true
 +++
 
-What the hell does nginx do? Let's replicate it.
+Nginx is a powerful tool but also comes with many knobs, which may make it
+intimidating for lots of newcomers. In this post, let's rewrite its core
+functionality using a few lines of code to understand what it's doing.
+
+<!--more-->
+
+To begin, what's a reverse proxy?
 
 - A proxy usually lets you access a site through some gateway when reaching that
     site when your client is sitting behind some intercepting firewall
