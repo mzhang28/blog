@@ -5,13 +5,17 @@ tags = ["web", "learn-by-implementing"]
 draft = true
 +++
 
-Nginx is a powerful tool but also comes with many knobs, which may make it
+[Nginx] is a powerful tool but also comes with many knobs, which may make it
 intimidating for lots of newcomers. In this post, let's rewrite its core
 functionality using a few lines of code to understand what it's doing.
 
+[nginx]: https://nginx.org/
+
 <!--more-->
 
-To begin, what's a reverse proxy?
+To begin, what's a [reverse-proxy]?
+
+[reverse-proxy]: https://en.wikipedia.org/wiki/Reverse_proxy
 
 - A proxy usually lets you access a site through some gateway when reaching that
     site when your client is sitting behind some intercepting firewall
@@ -28,16 +32,35 @@ details. Which means it can:
 - Apply authentication
 - Serve raw files without a server program
 
-I'm going to implement this using Deno.
+I'm going to implement this using [Deno].
 
-<details>
-  <summary>Imports</summary>
+[deno]: https://deno.land/
 
-  ```ts
-  import { serve } from "https://deno.land/std@0.192.0/http/mod.ts";
-  const PORT = parseInt(Deno.env.get("PORT") || "8314");
-  ```
-</details>
+> **&#x1f4a1; This is a literate document.** I wrote a [small utility][3] to
+> extract the code blocks out of markdown files, and it should produce working
+> example for this file. If you have the utility, then running the following
+> should get you a copy of all the code extracted from this blog post:
+>
+> [3]: https://git.mzhang.io/michael/markout
+>
+> ```
+> markout --lang ts path/to/posts/2023-07-04-learn-by-implementing-nginx.md > program.ts
+> ```
+>
+> It can then be executed with Deno:
+>
+> ```
+> deno run --allow-net program.ts
+> ```
+>
+> <details>
+>   <summary>Imports</summary>
+>
+>   ```ts
+>   import { serve } from "https://deno.land/std@0.192.0/http/mod.ts";
+>   const PORT = 8314;
+>   ```
+> </details>
 
 Deno implements an HTTP server for us. On a really high level, what this means
 is it starts listening for TCP connections, and once it receives one, listens
