@@ -2,6 +2,7 @@
 title = "Learn by implementing Nginx's reverse proxy"
 date = 2023-07-04
 tags = ["web", "learn-by-implementing"]
+draft = true
 +++
 
 What the hell does nginx do? Let's replicate it.
