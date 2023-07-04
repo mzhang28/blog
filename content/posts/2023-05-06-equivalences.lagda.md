@@ -1,11 +1,14 @@
-+++
-title = "Equivalences"
-slug = "equivalences"
-date = 2023-05-06
-tags = ["type-theory", "agda", "hott"]
-math = true
-draft = true
-+++
+---
+title: "Equivalences"
+slug: "equivalences"
+date: 2023-05-06
+tags:
+- type-theory
+- agda
+- hott
+math: true
+draft: true
+---
 
 <details>
   <summary>Imports</summary>
@@ -55,7 +58,6 @@ we can just give $y$ again, and use the `refl` function above for the equality
 proof
 
 ```
-Bool-id-is-equiv .equiv-proof y .fst = y , Bool-id-refl y
 ```
 
 The next step is to prove that it's contractible. Using the same derivation for
@@ -71,26 +73,72 @@ when $i = i0$, and something that equals the fiber $y_1$'s preimage $x_1$ when
 $i = i1$, aka $y \equiv proj_1\ y_1$.
 
 ```
+
+-- 2023-05-13: Favonia's hint is to compute "ap g p", and then concatenate
+-- it with a proof that g is the left-inverse of f
+-- ok i'm pretty sure this should be the g = f^-1
+Bool-id-inv : Bool → Bool
+Bool-id-inv b = (((Bool-id-is-equiv .equiv-proof) b) .fst) .fst
+
+Bool-id-inv-is-inv : (b : Bool) → Bool-id-inv (Bool-id b) ≡ b
+Bool-id-inv-is-inv true =
+    Bool-id-inv (Bool-id true)
+  ≡⟨ refl ⟩
+    Bool-id-inv true
+  ≡⟨ refl ⟩
+    -- This isn't trivially true?
+    (Bool-id-is-equiv .equiv-proof true .fst) .fst
+  ≡⟨ ? ⟩
+    true
+  ∎
+Bool-id-inv-is-inv false = ?
+
+Bool-id-is-equiv .equiv-proof y .fst = y , Bool-id-refl y
+
 Bool-id-is-equiv .equiv-proof y .snd y₁ i .fst =
   let
     eqv = snd y₁
     -- eqv : Bool-id (fst y₁) ≡ y
+    -- this is the second pieece of the other fiber passed in
 
     eqv2 = eqv ∙ sym (Bool-id-refl y)
     -- eqv2 : Bool-id (fst y₁) ≡ Bool-id y
+    -- concat the fiber (Bool-id (fst y₁) ≡ y) with (y ≡ Bool-id y) to get the
+    -- path from (Bool-id (fst y₁) ≡ Bool-id y)
 
     -- Ok, unap doesn't actually exist unless f is known to have an inverse.
     -- Fortunately, because we're proving an equivalence, we know that f has an
-    -- inverse, in particular going from y to x, which in thise case is also y.
+    -- inverse, in particular going from y to x, which in this case is also y.
     eqv3 = unap Bool-id eqv2
 
-    Bool-id-inv : Bool → Bool
-    Bool-id-inv b = (((Bool-id-is-equiv .equiv-proof) b) .fst) .fst
+    -- Then, ap g p should be like:
+    ap-g-p : Bool-id-inv (Bool-id (fst y₁)) ≡ Bool-id-inv (Bool-id y)
+    ap-g-p = cong Bool-id-inv eqv2
+
+    -- OHHHHH now we just need to find that Bool-id-inv (Bool-id y) ≡ y, and
+    -- then we can apply it to both sides to simplify
+    -- So something like this:
+
+    -- left-id : Bool-id-inv ∙ Bool-id ≡ ?
+    -- left-id = ?
 
     eqv3′ = cong Bool-id-inv eqv2
     give-me-info = ?
     -- eqv3 : fst y₁ ≡ y
 
+    -- Use the equational reasoning shitter
+    final : y ≡ fst y₁
+    final =
+        y
+      ≡⟨ ? ⟩
+        fst y₁
+      ∎
+```
+
+Blocked on this issue: https://git.mzhang.io/school/cubical/issues/1
+
+```
+    eqv4′ = ?
     eqv4 = sym eqv3
     -- eqv4 : y ≡ fst y₁
   in
@@ -117,4 +165,14 @@ Bool-id-is-equiv .equiv-proof y .snd y₁ i .snd j =
     c-d = y₁ .snd
   in
   ?
+  ```
+
+Blocked on this issue: https://git.mzhang.io/school/cubical/issues/2
+  ```
 ```
+
+## Other Equivalences
+
+There are 2 other ways we can define equivalences:
+
+TODO: Talk about them being equivalent to each other
