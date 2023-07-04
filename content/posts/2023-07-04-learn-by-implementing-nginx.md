@@ -185,8 +185,13 @@ can serve different content depending on the site that's requested.
 
 ## Conclusion
 
-This is a very bare-bones implementation, and lacks lots of detail. For a
-non-exhaustive list of improvements, consider:
+This is a very bare-bones implementation, and lacks lots of detail. To begin
+with, none of the errors are handled, so if a rogue request comes in it could
+take down the server.
+
+Those improvements would be necessary for a production-ready implementation, but
+not interesting for a blog post. For a non-exhaustive list of bigger
+improvements, consider:
 
 - Can we have the web server remove a prefix from the requested url's path name
     if we want to serve a website from a non-root path?
