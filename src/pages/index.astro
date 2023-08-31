@@ -1,6 +1,9 @@
 ---
 import PostList from "../components/PostList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { join } from "path";
+
+const currentUrl = Astro.url;
 ---
 
 <BaseLayout>
@@ -8,5 +11,5 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <!-- {JSON.stringify(allPosts)} -->
 
-  <PostList />
+  <PostList basePath={join(currentUrl.pathname, "posts")} />
 </BaseLayout>

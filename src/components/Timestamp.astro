@@ -1,0 +1,14 @@
+---
+interface Props {
+  timestamp: Date;
+}
+
+const { timestamp } = Astro.props;
+const datestamp = timestamp.toLocaleDateString(undefined, {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+---
+
+<span title={timestamp.toISOString()}>{datestamp}</span>

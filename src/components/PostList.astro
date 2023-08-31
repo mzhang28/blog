@@ -1,17 +1,31 @@
 ---
-import { getCollection } from "astro:content";
-const allPosts = await getCollection("posts");
+import { getCollection, type CollectionEntry } from "astro:content";
+import Timestamp from "./Timestamp.astro";
+import { sortBy } from "lodash-es";
+
+interface Props {
+  basePath: string;
+  includeDrafts?: boolean;
+}
+
+type Post = CollectionEntry<"posts">;
+const { basePath, includeDrafts } = Astro.props;
+const filter = includeDrafts ? (_: Post) => true : (post: Post) => !post.data.draft;
+const allPosts = await getCollection("posts", filter);
+const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 ---
 
-<table style="width: 100%;">
+<table class="postListing">
   {
-    allPosts.map((post) => {
+    sortedPosts.map((post) => {
       return (
-        <tr class="postlisting-row">
-          <td class="info">{post.data.date}</td>
+        <tr class="row">
+          <td class="info">
+            <Timestamp timestamp={post.data.date} />
+          </td>
           <td>
             <span class="title">
-              <a href="{{ .RelPermalink }}" class="brand-colorlink">
+              <a href={`${basePath}/${post.slug}`} class="brand-colorlink">
                 {post.data.title}
               </a>
             </span>
@@ -21,3 +35,36 @@ const allPosts = await getCollection("posts");
     })
   }
 </table>
+
+<style lang="scss">
+  .postListing {
+    width: 100%;
+    border-spacing: 6px;
+
+    td {
+      // padding-bottom: 10px;
+      // line-height: 1;
+
+      .title {
+        font-size: 1.1em;
+      }
+
+      .summary {
+        padding-top: 4px;
+        font-size: 0.64em;
+        color: var(--smaller-text-color);
+
+        p {
+          display: inline;
+        }
+      }
+    }
+
+    td.info {
+      color: var(--smaller-text-color);
+      font-size: 0.75em;
+      white-space: nowrap;
+      text-align: right;
+    }
+  }
+</style>

@@ -1,18 +1,102 @@
-@media screen and (min-width: var(--breakpoint)) {
-  .flex-wrapper {
-    flex-direction: row;
-    .container {
-      padding: 32px 40px 5px 40px;
+@use "variables";
+
+.side-nav .side-nav-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .me {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    .links {
+      text-align: center;
+      font-size: 0.9rem;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 6px;
+
+      a {
+        text-decoration: none;
+        color: var(--link-color);
+        text-transform: lowercase;
+        border-radius: 4px;
+        padding: 4px;
+
+        &:hover {
+          background-color: var(--link-hover-color);
+        }
+      }
     }
   }
 
+  .home-link {
+    text-decoration: none;
+  }
+
+  .portrait {
+    aspect-ratio: 1;
+  }
+
+  a.portrait {
+    all: unset;
+    cursor: pointer;
+  }
+
+  a.portrait img {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bio {
+    font-size: 0.85rem;
+
+    ul {
+      padding-left: 12px;
+      list-style-type: "\25B8\00A0";
+    }
+  }
+}
+
+@media screen and (max-width: variables.$breakpoint) {
+  .side-nav {
+    .side-nav-content {
+      width: 100%;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--shadow-color);
+      box-shadow: 0 10px 20px -10px var(--shadow-color);
+
+      .home-link {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      h1.title {
+        margin-bottom: 5px;
+      }
+
+      a.portrait img {
+        max-height: 80px;
+      }
+
+      .bio {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: variables.$breakpoint) {
   .side-nav {
     position: sticky;
     height: 100%;
     left: 0;
     top: 0;
     // Capital Min to avoid invoking SCSS min
-    width: 30%;
+    width: 300px;
     min-width: 300px;
 
     .side-nav-content {
@@ -23,7 +107,7 @@
       box-shadow: 10px 0 20px -10px var(--shadow-color);
       flex-direction: column;
 
-      .portrait {
+      a.portrait img {
         max-width: 100%;
       }
 
@@ -32,51 +116,8 @@
       }
 
       .links {
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
       }
-    }
-  }
-}
-
-.side-nav-content {
-  width: 100%;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--shadow-color);
-  box-shadow: 0 10px 20px -10px var(--shadow-color);
-
-  .home-link {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  h1.title {
-    margin-bottom: 5px;
-  }
-
-  .portrait {
-    max-height: 80px;
-  }
-
-  .bio {
-    display: none;
-  }
-}
-
-.side-nav-content {
-  .home-link {
-    text-decoration: none;
-  }
-
-  .portrait {
-    border-radius: 100%;
-  }
-
-  .bio {
-    font-size: 0.85rem;
-
-    ul {
-      padding-left: 12px;
-      list-style-type: "\25B8\00A0";
     }
   }
 }

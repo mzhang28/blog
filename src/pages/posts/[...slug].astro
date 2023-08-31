@@ -1,6 +1,8 @@
 ---
+import "../../styles/post.scss";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
+import Timestamp from "../../components/Timestamp.astro";
 // import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
@@ -14,10 +16,17 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
 <BaseLayout>
+  <h1 class="post-title">{post.data.title}</h1>
+
+  <small class="post-meta">
+    Posted on <Timestamp timestamp={post.data.date} />
+     - {remarkPluginFrontmatter.minutesRead}
+  </small>
+
   <!-- <BlogPost {...post.data}> -->
   <Content />
   <!-- </BlogPost> -->

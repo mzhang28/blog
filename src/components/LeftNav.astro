@@ -1,19 +1,28 @@
 ---
 import "../styles/leftNav.scss";
 import { Content as ShortBio } from "../content/partials/shortBio.md";
+import links from "../data/links";
+import { Image } from "astro:assets";
+import portrait from "../assets/self.png";
 ---
 
 <nav class="side-nav">
   <div class="side-nav-content">
     <a href="/" class="portrait">
-      <img class="portrait" src="/self.png" />
+      <Image src={portrait} alt="portrait" class="portrait" />
     </a>
     <div class="me">
       <h1 class="title">Michael Zhang</h1>
       <div class="links">
-        <a href="{{ .url }}" title="{{ .description }}">
-          <i class="{{ .icon }}" aria-hidden="true"></i>
-        </a>
+        {
+          links.map((link) => {
+            return (
+              <a href={link.url} title={link.description}>
+                {link.name}
+              </a>
+            );
+          })
+        }
       </div>
     </div>
 
