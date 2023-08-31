@@ -3,7 +3,7 @@ import "../../styles/post.scss";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Timestamp from "../../components/Timestamp.astro";
-// import BlogPost from "../../layouts/BlogPost.astro";
+import { getImage } from "astro:assets";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -17,17 +17,33 @@ type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
 const { Content, remarkPluginFrontmatter } = await post.render();
+const { heroImage: heroImagePath, heroAlt } = post.data;
+
+let heroImage;
+if (heroImagePath) {
+  heroImage = await getImage({ src: heroImagePath });
+}
 ---
 
 <BaseLayout>
-  <h1 class="post-title">{post.data.title}</h1>
+  <div class="post-container">
+    <h1 class="post-title">{post.data.title}</h1>
 
-  <small class="post-meta">
-    Posted on <Timestamp timestamp={post.data.date} />
-     - {remarkPluginFrontmatter.minutesRead}
-  </small>
+    <small class="post-meta">
+      Posted on <Timestamp timestamp={post.data.date} />
+       - {remarkPluginFrontmatter.minutesRead}
+    </small>
 
-  <!-- <BlogPost {...post.data}> -->
-  <Content />
+    {
+      heroImage && heroAlt && (
+        <div style={`background-image: url(${heroImage.src});`} title={heroAlt} class="hero" />
+      )
+    }
+
+    <!-- <BlogPost {...post.data}> -->
+    <div class="post-content">
+      <Content />
+    </div>
+  </div>
   <!-- </BlogPost> -->
 </BaseLayout>

@@ -1,7 +1,7 @@
 ---
 import PostList from "../components/PostList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { join } from "path";
+import { join, dirname } from "path";
 
 const currentUrl = Astro.url;
 ---
@@ -9,5 +9,5 @@ const currentUrl = Astro.url;
 <BaseLayout>
   <h2>Blog</h2>
 
-  <PostList basePath={join(currentUrl.pathname, "posts")} drafts="only" />
+  <PostList basePath={join(dirname(currentUrl.pathname), "posts")} drafts="only" />
 </BaseLayout>
