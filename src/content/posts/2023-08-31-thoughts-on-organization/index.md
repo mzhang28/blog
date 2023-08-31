@@ -8,13 +8,13 @@ heroImage: ./calendarHero.png
 heroAlt: pastel colored stationery background with a bunch of calendars and personal organization tools in a crayon drawing style
 ---
 
-After working for quite a bit I like to catch up with some old friends from time
-to time, when I made a surprising discovery -- many of them don't really use a
-calendar of any sort to manage their lives. Tracking something that happens more
-than a week into the future is generally out of the picture.
+I'd occasionally catch up with some old friends every now and then, and over
+time I made a surprising discovery -- many of them don't really use a calendar
+of any sort to manage their lives. Tracking something that happens more than a
+week into the future is generally out of the picture.
 
 But I understand. Putting events into a calendar is kind of a chore. Calendars
-that are [standards-compliant][3] are still primarily use email for the most part
+that are [standards-compliant][3] still primarily use email for the most part
 (sending invites, updating times, etc.) and calendars that aren't
 standards-compliant won't be compatible between different people unless they're
 using the same service.
