@@ -4,7 +4,6 @@ date: 2023-08-31T13:57:29.022Z
 tags:
   - organization
   - logseq
-
 heroImage: ./calendarHero.png
 heroAlt: pastel colored stationery background with a bunch of calendars and personal organization tools in a crayon drawing style
 ---
@@ -102,6 +101,13 @@ the ability to display numerical data using various visualizations by using the
 
 [d3]: https://d3js.org/
 [2]: https://git.mzhang.io/michael/logseq-calendar
+
+> Side note: this isn't sponsored in any way. While this post makes me sound
+> like just a Logseq shill, it's actually quite the opposite; I've been donating
+> to them monthly on [Open Collective] and they've been actively developing
+> really cool features!
+
+[open collective]: https://opencollective.com/logseq
 
 ## Privacy
 
