@@ -1,1 +1,0 @@
-- Investigate why GitInfo (AbbreviatedHash) doesn't work in taxonomy list

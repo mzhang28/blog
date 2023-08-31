@@ -1,3 +1,0 @@
-name: blog
-depend: standard-library cubical
-include: content/posts

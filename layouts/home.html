@@ -1,9 +1,0 @@
-{{- define "content" -}}
-
-<h2>Blog</h2>
-
-{{ with .GetPage "/posts" }}
-    {{ partial "post-list" . }}
-{{ end }}
-
-{{- end -}}
