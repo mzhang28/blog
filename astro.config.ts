@@ -6,7 +6,7 @@ import { remarkReadingTime } from "./plugin/remark-reading-time";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://mzhang.io",
   integrations: [mdx(), sitemap()],
   markdown: {
     syntaxHighlight: false,
