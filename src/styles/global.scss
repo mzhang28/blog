@@ -1,0 +1,59 @@
+@import "fonts";
+
+:root {
+  --sansfont: "Inter", "Helvetica", "Arial", "Liberation Sans", sans-serif;
+  --monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata",
+    "Consolas", monospace;
+  --breakpoint: 720px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: white;
+    --faded-background-color: darken(var(--background-color), 10%);
+    --shadow-color: darken($background-color, 10%);
+    --heading-color: darken(royalblue, 10%);
+    --text-color: #15202b;
+    --small-text-color: #6e707f;
+    --smaller-text-color: lighten($text-color, 30%);
+    --faded: lightgray;
+    --hr-color: lightgray;
+    --link-color: royalblue;
+    --code-color: firebrick;
+    --tag-color: lighten($link-color, 35%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #202030;
+    --faded-background-color: lighten($background-color, 10%);
+    --shadow-color: lighten($background-color, 10%);
+    --heading-color: lighten(lightskyblue, 20%);
+    --text-color: #cdcdcd;
+    --small-text-color: darken($text-color, 8%);
+    --smaller-text-color: darken($text-color, 12%);
+    --faded: #666;
+    --hr-color: gray;
+    --link-color: lightskyblue;
+    --code-color: lighten(firebrick, 25%);
+    --tag-color: darken($link-color, 55%);
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  font-family: var(--sansfont);
+  margin: 0;
+  padding: 0;
+}
+
+// Layout
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}

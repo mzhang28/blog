@@ -1,0 +1,82 @@
+@media screen and (min-width: var(--breakpoint)) {
+  .flex-wrapper {
+    flex-direction: row;
+    .container {
+      padding: 32px 40px 5px 40px;
+    }
+  }
+
+  .side-nav {
+    position: sticky;
+    height: 100%;
+    left: 0;
+    top: 0;
+    // Capital Min to avoid invoking SCSS min
+    width: 30%;
+    min-width: 300px;
+
+    .side-nav-content {
+      padding-top: 32px;
+      padding-right: 32px;
+      padding-left: 32px;
+      border-right: 1px solid var(--shadow-color);
+      box-shadow: 10px 0 20px -10px var(--shadow-color);
+      flex-direction: column;
+
+      .portrait {
+        max-width: 100%;
+      }
+
+      h1.title {
+        text-align: center;
+      }
+
+      .links {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.side-nav-content {
+  width: 100%;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--shadow-color);
+  box-shadow: 0 10px 20px -10px var(--shadow-color);
+
+  .home-link {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  h1.title {
+    margin-bottom: 5px;
+  }
+
+  .portrait {
+    max-height: 80px;
+  }
+
+  .bio {
+    display: none;
+  }
+}
+
+.side-nav-content {
+  .home-link {
+    text-decoration: none;
+  }
+
+  .portrait {
+    border-radius: 100%;
+  }
+
+  .bio {
+    font-size: 0.85rem;
+
+    ul {
+      padding-left: 12px;
+      list-style-type: "\25B8\00A0";
+    }
+  }
+}

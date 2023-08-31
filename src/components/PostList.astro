@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+---
+
+<table style="width: 100%;">
+  {
+    allPosts.map((post) => {
+      return (
+        <tr class="postlisting-row">
+          <td class="info">{post.data.date}</td>
+          <td>
+            <span class="title">
+              <a href="{{ .RelPermalink }}" class="brand-colorlink">
+                {post.data.title}
+              </a>
+            </span>
+          </td>
+        </tr>
+      );
+    })
+  }
+</table>
