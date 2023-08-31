@@ -64,6 +64,14 @@ a code {
   color: var(--link-color);
 }
 
+blockquote {
+  margin-inline: 14px 14px;
+  color: var(--small-text-color);
+  border-left: 4px solid var(--small-text-color);
+  padding-left: 12px;
+  font-size: 0.9rem;
+}
+
 small {
   color: var(--small-text-color);
 }
