@@ -67,38 +67,44 @@ to find previous instances of this or make any kind of history, I would have to
 essentially do a pure text search. However, with structured data this could be
 different.
 
-[Logseq], the app that I've settled on, is backed by a [Datascript] store and
-exposes a lot of this functionality to you as a user. It allows you to query
-directly on properties that you write into your daily journal or any other page,
-for example like this:
+[Logseq], the app that I've settled on, is backed by a real database, and most
+importantly exposes a lot of this functionality to you as a user. It allows you
+to query directly on properties that you write into your daily journal or any
+other page, for example like this:
 
-```
-- ... other content ...
-- minicross:: 34
-- ... other content ...
-```
+![recording some property in logseq](./minicross.png)
 
-I use this on my daily journals to track how long it takes me to do the [NY
-Times daily crossword][minicross]. But Logseq is able to index this property in
-particular and let me query on it later:
+What you're seeing is me using my daily journals to add a todo item for reading
+a paper and tracking how long it takes me to do the [NY Times daily
+crossword][minicross] (which I've shortened to minicross). I just add these to
+my journal as it comes up throughout my day, but Logseq is able to index this
+and serve it back to me in a very structured way:
 
 [datascript]: https://github.com/tonsky/datascript
 [minicross]: https://www.nytimes.com/crosswords/game/mini
 
 ![performing a query in logseq](./logseqQuery.png)
 
+With this, I could go on to construct a graph and see historical data of how I
+did over time. You can see how this could be used for more personal tracking
+things like workout records.
+
 The query tool is very simple and easy to learn, and makes it easy to actually
 _use_ the information you wrote down, instead of just burying it into oblivion.
-
 For example, I can write todo items inline in my journal and find them all at a
-time as well. As an example, here's all of the todo items that I've tagged
-specifically with the tag `#read`:
+time as well. Here's all of the todo items that I've tagged specifically with
+the tag `#read`:
 
 ![reading list in logseq](./readingList.png)
 
-The fact that it truly is a database means I can start piling things in here and
-automatically perform data extraction for a more complete picture of my daily
-life. In the future I'd like to do dumps for my sleep and health data as well
+Notice how the paper I added as a todo helpfully shows up here. No need for a
+separate todo list or planning tool!
+
+The fact that it truly is a database means I can just shove all kinds of
+unrelated information into my journal, do some very trivial labeling and get
+some really powerful uses out of it.
+
+In the future I'd like to do dumps for my sleep and health data as well
 and have Logseq be my ultimate source of truth. I've started developing a
 [calendar plugin for Logseq][2] that will have the ability to display numerical
 data using various visualizations for this purpose.
