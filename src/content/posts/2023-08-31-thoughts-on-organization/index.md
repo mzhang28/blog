@@ -8,20 +8,26 @@ heroImage: ./calendarHero.png
 heroAlt: pastel colored stationery background with a bunch of calendars and personal organization tools in a crayon drawing style
 ---
 
-I'd occasionally catch up with some old friends every now and then, and over
-time I made a surprising discovery -- many of them don't really use a calendar
-of any sort to manage their lives. Tracking something that happens more than a
-week into the future is generally out of the picture.
+Many people don't really use a calendar of any sort to manage their lives.
 
-But I understand. Putting events into a calendar is kind of a chore. Traditional
-calendar apps still primarily use email for the most part (sending invites,
-updating times, etc.) and the new generation of calendar apps suffer from the
-social network problem of having to get everyone on the same app.
+I get it. Putting events into a calendar is kind of a chore. It's a menial relic
+from work and none of us want to even think about creating events during our
+coveted personal hours. We want to live our lives free from the constraints of
+the time boxes on our screens.
 
-The personal management story has always been kind of fragmented. Calendars are
-supposed to manage the entire picture of my personal schedule, yet they only see
-a small slice of your life. The only things calendars can see automatically with
-no intervention on my part are emails that are sent from airlines.
+On top of that, traditional calendar apps still primarily use email for the most
+part (sending invites, updating times, etc.) and the new generation of calendar
+apps suffer from the social network problem of having to get everyone on the
+same app.
+
+But to some extent, it's still valuable to have things down in writing rather
+than juggling it in our minds all the time.
+
+Which is why it's such a shame that the personal management story has always
+been kind of fragmented. Calendars are supposed to manage the entire picture of
+my personal schedule, yet they only see a small slice of your life. The only
+things calendars can see automatically with no intervention on my part are
+emails that are sent from airlines.
 
 > I'm sure Google or Apple could probably ritz up their services to scan text
 > and guess events to put on your calendar, but that's missing the point. The vast
