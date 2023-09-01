@@ -39,6 +39,7 @@ const datestamp = post.data.date.toLocaleDateString(undefined, {
   {heroImage && <meta slot="head" property="og:image" content={heroImage.src} />}
   {heroAlt && <meta slot="head" property="og:image:alt" content={heroAlt} />}
 
+  <meta slot="head" property="keywords" content={post.data.tags.join(", ")} />
   <meta slot="head" property="description" content={remarkPluginFrontmatter.excerpt} />
   <meta slot="head" property="article:published_time" content={datestamp} />
 
