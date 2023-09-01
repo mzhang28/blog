@@ -6,6 +6,7 @@ import { astroImageTools } from "astro-imagetools";
 import { remarkReadingTime } from "./plugin/remark-reading-time";
 import emoji from "remark-emoji";
 import remarkMermaid from "astro-diagram/remark-mermaid";
+import remarkDescription from "astro-remark-description";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,11 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), astroImageTools],
   markdown: {
     syntaxHighlight: false,
-    remarkPlugins: [remarkReadingTime, remarkMermaid, emoji],
+    remarkPlugins: [
+      remarkReadingTime,
+      remarkMermaid,
+      emoji,
+      [remarkDescription, { name: "excerpt" }],
+    ],
   },
 });
