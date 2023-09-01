@@ -1,8 +1,16 @@
 ---
-title: Building a formal CEK machine in agda
+title: Building a formal CEK machine in Agda
 draft: true
 date: 2023-09-01T13:53:23.974Z
-tags: ["computer-science", "programming-languages", "formal-verification", "lambda-calculus"]
+tags:
+  - computer-science
+  - programming-languages
+  - formal-verification
+  - lambda-calculus
+
+heroImage: ./header.jpg
+heroAlt: gears spinning wallpaper
+math: true
 ---
 
 Back in 2022, I took a special topics course, CSCI 8980, on [reasoning about
@@ -58,9 +66,10 @@ several constructors:
 
 [lambda calculus]: https://en.wikipedia.org/wiki/Lambda_calculus
 
-- **Var.** This is just a variable, like `x` or `y`. During evaluation, a
-  variable can resolve to a value in the evaluation environment by name. If
-  the environment says `{ x = 5 }`, then evaluating `x` would result in 5.
+- **Var.** This is just a variable, like `x` or `y`. By itself it holds no
+  meaning, but during evaluation, the evaluation _environment_ holds a mapping
+  from variable names to the values. If the environment says `{ x = 5 }`, then
+  evaluating `x` would result in 5.
 
 - **Abstraction, or lambda (λ).** An _abstraction_ is a term that describes some
   other computation. From an algebraic perspective, it can be thought of as a
@@ -87,7 +96,7 @@ flavorful features of other programming languages can be implemented on top of
 the function call rules in ways that don't disrupt the basic function of the
 evaluation.
 
-In fact, the lambda calculus is Turing-complete, so any computation can
+In fact, the lambda calculus is [Turing-complete][tc], so any computation can
 technically be reduced to those 3 constructs. I used numbers liberally in the
 examples above, but in a lambda calculus without numbers, you could define
 integers using a recursive strategy called [Church numerals]. It looks like this:
@@ -143,12 +152,14 @@ information about our program's behavior.
 
 ### Simply-typed lambda calculus
 
-The simply-typed lambda calculus (STLC) adds types to every term. Types are
+The [simply-typed lambda calculus] (STLC) adds types to every term. Types are
 crucial to any kind of static program analysis. Suppose I was trying to apply
 the term 5 to 6 (in other words, call 5 with the argument 6 as if 5 was a
 function). As humans we can look at that and instantly recognize that the
 evaluation would be invalid, yet under the untyped lambda calculus, it would be
 completely representable.
+
+[simply-typed lambda calculus]: https://en.wikipedia.org/wiki/Simply_typed_lambda_calculus
 
 To solve this in STLC, we would make this term completely unrepresentable at
 all. To say you want to apply 5 to 6 would not be a legal STLC term. We do this
