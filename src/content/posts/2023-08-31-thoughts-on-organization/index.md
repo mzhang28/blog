@@ -15,14 +15,13 @@ week into the future is generally out of the picture.
 
 But I understand. Putting events into a calendar is kind of a chore. Traditional
 calendar apps still primarily use email for the most part (sending invites,
-updating times, etc.) and new-gen calendars suffer from the social network
-problem of having to get everyone on the same service.
+updating times, etc.) and the new generation of calendar apps suffer from the
+social network problem of having to get everyone on the same app.
 
 The personal management story has always been kind of fragmented. Calendars are
 supposed to manage the entire picture of my personal schedule, yet they only see
-a small slice without more information. The only things calendars can see
-automatically with no intervention on my part are emails that are sent from
-airlines.
+a small slice of your life. The only things calendars can see automatically with
+no intervention on my part are emails that are sent from airlines.
 
 > I'm sure Google or Apple could probably ritz up their services to scan text
 > and guess events to put on your calendar, but that's missing the point. The vast
@@ -51,10 +50,10 @@ content, store it, and then never look back at it again)
 [stdnotes]: https://standardnotes.com/
 [bear]: https://bear.app/
 
-The world of journaling apps is vast but undiverse. Most of the apps just have
-the same features others do, minus one or two gimmicks that makes it a ride or
-die. But there's one important feature that I have started looking out for
-recently: the ability to attach arbitrary metadata to journal entries and be
+The world of journaling apps is vast but relatively undiverse. Most of the apps
+just have the same features others do, minus one or two gimmicks that makes it a
+ride or die. But there's one important feature that I have started looking out
+for recently: the ability to attach arbitrary metadata to journal entries and be
 able to query for them.
 
 While new apps have been cropping up from time to time for a while now, I think
@@ -87,7 +86,7 @@ and serve it back to me in a very structured way:
 
 With this, I could go on to construct a graph and see historical data of how I
 did over time. You can see how this could be used for more personal tracking
-things like workout records.
+things like workout records or grocery trackers.
 
 The query tool is very simple and easy to learn, and makes it easy to actually
 _use_ the information you wrote down, instead of just burying it into oblivion.
@@ -125,10 +124,11 @@ crucial that boundaries are clear. Without control, this would be a dream come
 true for any data collection company: rather than having to go out and gather
 the data, users are entering and structuring it all by themselves.
 
-End-to-end encryption is a feature that ensures data is never able to be
-accessed by your storage or synchronization providers. Of course, end-to-end
-encryption is [not possible unless the entire software is able to be scrutinized
-by the user or community][1]. Do careful research before deciding who to trust
-with your data.
+**End-to-end encryption** is a technique that ensures data is never able to be
+accessed by your storage or synchronization providers. If you are in the market
+for some kind of personal tracking app, make sure it talks about end-to-end
+encryption as a feature. While it's [not the end-all-be-all of security][1],
+it's certainly a big first step. Do careful research before deciding who to
+trust with your data.
 
 [1]: /posts/2021-10-31-e2e-encryption-useless-without-client-freedom
