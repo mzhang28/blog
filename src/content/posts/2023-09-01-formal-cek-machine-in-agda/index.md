@@ -11,6 +11,7 @@ tags:
 heroImage: ./header.jpg
 heroAlt: gears spinning wallpaper
 math: true
+toc: true
 ---
 
 Back in 2022, I took a special topics course, CSCI 8980, on [reasoning about

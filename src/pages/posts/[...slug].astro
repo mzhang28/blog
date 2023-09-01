@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Timestamp from "../../components/Timestamp.astro";
 import { getImage } from "astro:assets";
+import TocWrapper from "../../components/TocWrapper.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -16,8 +17,8 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
-const { Content, remarkPluginFrontmatter } = await post.render();
-const { heroImage: heroImagePath, heroAlt } = post.data;
+const { Content, remarkPluginFrontmatter, headings } = await post.render();
+const { toc, heroImage: heroImagePath, heroAlt } = post.data;
 
 let heroImage;
 if (heroImagePath) {
@@ -44,44 +45,44 @@ const datestamp = post.data.date.toLocaleDateString(undefined, {
   <meta slot="head" property="article:published_time" content={datestamp} />
   <meta slot="head" property="article:author" content="Michael Zhang" />
 
-  <div class="post-container">
-    <h1 class="post-title">{post.data.title}</h1>
+  <TocWrapper toc={toc} headings={headings}>
+    <div class="post-container">
+      <h1 class="post-title">{post.data.title}</h1>
 
-    <span class="tags">
+      <span class="tags">
+        {
+          post.data.draft && (
+            <a href="/drafts" class="tag draft">
+              <i class="fa fa-warning" aria-hidden="true" />
+              <span class="text">draft</span>
+            </a>
+          )
+        }
+
+        {
+          post.data.tags.map((tag) => (
+            <a href={`/tags/${tag}`} class="tag">
+              <i class="fa fa-tag" aria-hidden="true" />
+              <span class="text">{tag}</span>
+            </a>
+          ))
+        }
+      </span>
+
+      <small class="post-meta">
+        Posted on <Timestamp timestamp={post.data.date} />
+         - {remarkPluginFrontmatter.minutesRead}
+      </small>
+
       {
-        post.data.draft && (
-          <a href="/drafts" class="tag draft">
-            <i class="fa fa-warning" aria-hidden="true" />
-            <span class="text">draft</span>
-          </a>
+        heroImage && heroAlt && (
+          <div style={`background-image: url(${heroImage.src});`} title={heroAlt} class="hero" />
         )
       }
 
-      {
-        post.data.tags.map((tag) => (
-          <a href={`/tags/${tag}`} class="tag">
-            <i class="fa fa-tag" aria-hidden="true" />
-            <span class="text">{tag}</span>
-          </a>
-        ))
-      }
-    </span>
-
-    <small class="post-meta">
-      Posted on <Timestamp timestamp={post.data.date} />
-       - {remarkPluginFrontmatter.minutesRead}
-    </small>
-
-    {
-      heroImage && heroAlt && (
-        <div style={`background-image: url(${heroImage.src});`} title={heroAlt} class="hero" />
-      )
-    }
-
-    <!-- <BlogPost {...post.data}> -->
-    <div class="post-content">
-      <Content />
+      <div class="post-content">
+        <Content />
+      </div>
     </div>
-  </div>
-  <!-- </BlogPost> -->
+  </TocWrapper>
 </BaseLayout>

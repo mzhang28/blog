@@ -1,0 +1,41 @@
+---
+import type { MarkdownHeading } from "astro";
+import "../styles/toc.scss";
+
+interface Props {
+  toc: boolean;
+  headings: MarkdownHeading[];
+}
+
+const { toc, headings } = Astro.props;
+---
+
+{
+  toc ? (
+    <>
+      <div class="toc-wrapper">
+        <slot />
+        <div class="toc">
+          Table of contents
+          <ul>
+            {headings.map((heading) => {
+              return (
+                <li>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </>
+  ) : (
+    <slot />
+  )
+}
+
+<script type="text/javascript">
+  document.addEventListener("scroll", (doc, evt) => {
+    console.log("SHIET");
+  });
+</script>

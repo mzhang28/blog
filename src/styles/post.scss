@@ -1,3 +1,5 @@
+@use "variables";
+
 .post-title {
   font-size: 2rem;
   font-weight: 600;
@@ -20,7 +22,9 @@
 }
 
 .post-container {
+  max-width: 720px;
   display: flex;
+  padding: 20px;
 
   flex-direction: column;
   .toc-drawer {
@@ -175,6 +179,12 @@
   }
 }
 
+@media screen and (min-width: variables.$breakpoint) {
+  .post-container {
+    padding-left: 30px;
+  }
+}
+
 .division .post-content,
 .post-content {
   .heading {
@@ -210,6 +220,7 @@ hr.endline {
   display: flex;
   gap: 6px;
   margin-bottom: 6px;
+  flex-wrap: wrap;
 
   .tag {
     font-size: 0.75rem;

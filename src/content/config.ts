@@ -27,6 +27,7 @@ const posts = defineCollection({
       tags: z.array(z.string()),
       draft: z.boolean().default(false),
       math: z.boolean().default(false),
+      toc: z.boolean().default(false),
     }),
 });
 

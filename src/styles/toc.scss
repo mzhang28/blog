@@ -1,0 +1,44 @@
+@use "variables";
+$tocWidth: 180px;
+$tocBreakpoint: variables.$breakpoint + $tocWidth;
+
+.toc-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.toc {
+  height: 100vh;
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+
+    li {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: $tocBreakpoint) {
+  .toc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $tocBreakpoint) {
+  .article {
+    flex-grow: 1;
+  }
+
+  .toc {
+    flex: 0 0 $tocWidth;
+    max-width: $tocWidth;
+
+    position: sticky;
+    top: 0;
+    padding: 20px;
+
+    overflow-y: auto;
+  }
+}
