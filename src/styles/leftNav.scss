@@ -91,21 +91,24 @@
 
 @media screen and (min-width: variables.$breakpoint) {
   .side-nav {
-    position: sticky;
-    height: 100%;
-    left: 0;
-    top: 0;
     // Capital Min to avoid invoking SCSS min
     width: 300px;
     min-width: 300px;
 
     .side-nav-content {
+      height: 100vh;
+      position: sticky;
+      left: 0;
+      top: 0;
+
       padding-top: 32px;
       padding-right: 32px;
       padding-left: 32px;
       border-right: 1px solid var(--shadow-color);
       box-shadow: 10px 0 20px -10px var(--shadow-color);
       flex-direction: column;
+
+      justify-content: flex-start;
 
       a.portrait img {
         max-width: 100%;
