@@ -31,7 +31,6 @@ const handleNode =
 
     // A link break after the title is explicitly required by GitHub
     const titleEnd = text.value.indexOf("\n");
-    console.log("Title End", titleEnd);
     if (titleEnd < 0) return;
 
     const textBody = text.value.substring(titleEnd + 1);
@@ -42,7 +41,6 @@ const handleNode =
     if (m && !config.titleKeepTrailingWhitespaces) {
       title = title.substring(0, title.length - m[0].length);
     }
-    console.log("TITLE IS", title);
     if (!nameFilter(config.titleFilter)(title)) return;
     const { displayTitle, checkedTitle } = config.titleTextMap(title);
 
