@@ -160,9 +160,12 @@
 
   table {
     border-collapse: collapse;
+    border: 1px solid var(--hr-color);
+    border-radius: 4px;
 
     thead {
-      background-color: black;
+      background-color: var(--hr-color);
+      // color: var(--background-color);
     }
 
     td,
@@ -239,10 +242,9 @@ hr.endline {
 
   .admonition-title {
     color: var(--color);
-    margin-bottom: 6px;
   }
 
   p {
-    margin: 0;
+    margin: 8px auto;
   }
 }

@@ -66,21 +66,21 @@ several constructors:
 
 [lambda calculus]: https://en.wikipedia.org/wiki/Lambda_calculus
 
-- **Var.** This is just a variable, like `x` or `y`. By itself it holds no
+- **Var.** This is just a variable, like $x$ or $y$. By itself it holds no
   meaning, but during evaluation, the evaluation _environment_ holds a mapping
-  from variable names to the values. If the environment says `{ x = 5 }`, then
-  evaluating `x` would result in 5.
+  from variable names to the values. If the environment says $\{ x = 5 \}$, then
+  evaluating $x$ would result in $5$.
 
-- **Abstraction, or lambda (λ).** An _abstraction_ is a term that describes some
+- **Abstraction, or lambda ($\lambda$).** An _abstraction_ is a term that describes some
   other computation. From an algebraic perspective, it can be thought of as a
-  function with a single argument (i.e f(x) = 2x is an abstraction, although
-  it would be written `(λx.2x)`)
+  function with a single argument (i.e $f(x) = 2x$ is an abstraction, although
+  it would be written using the notation $\lambda x.2x$)
 
 - **Application.** Application is sort of the opposite of abstraction, exposing
   the computation that was abstracted away. From an algebraic perspective,
-  this is just function application (i.e applying `f(x) = 2x` to 3 would
-  result in 2\*3. Note that only a simple substitution has been done and
-  further evaluation is required to reduce 2\*3)
+  this is just function application (i.e applying $f(x) = 2x$ to $3$ would
+  result in $2 \times 3 = 6$. Note that only a simple substitution has been done
+  and further evaluation is required to reduce $2\times 3$)
 
 ### Why?
 
@@ -99,20 +99,24 @@ evaluation.
 In fact, the lambda calculus is [Turing-complete][tc], so any computation can
 technically be reduced to those 3 constructs. I used numbers liberally in the
 examples above, but in a lambda calculus without numbers, you could define
-integers using a recursive strategy called [Church numerals]. It looks like this:
+integers using a recursive strategy called [Church numerals]. It works like this:
 
 [church numerals]: https://en.wikipedia.org/wiki/Church_encoding
 
-- Let `z` represent zero.
-- Let `s` represent a "successor", or increment function. `s(z)` represents 1,
-  `s(s(z))` represents 2, and so on.
+- $z$ represents zero.
+- $s$ represents a "successor", or increment function. So:
+  - $s(z)$ represents 1,
+  - $s(s(z))$ represents 2
+  - and so on.
 
 In lambda calculus terms, this would look like:
 
-- 0 = `λs.(λz.z)`
-- 1 = `λs.(λz.s(z))`
-- 2 = `λs.(λz.s(s(z)))`
-- 3 = `λs.(λz.s(s(s(z))))`
+| number | lambda calculus expression         |
+| ------ | ---------------------------------- |
+| 0      | $\lambda s.(\lambda z.z)$          |
+| 1      | $\lambda s.(\lambda z.s(z))$       |
+| 2      | $\lambda s.(\lambda z.s(s(z)))$    |
+| 3      | $\lambda s.(\lambda z.s(s(s(z))))$ |
 
 In practice, many lambda calculus incorporate higher level constructors such as
 numbers or lists to make it so we can avoid having to represent them using only
@@ -129,21 +133,31 @@ a fixed-point combinator:
 
 [tc]: https://en.wikipedia.org/wiki/Turing_completeness
 
-    Y = λf.(λx.f(x(x)))(λx.f(x(x)))
+$$
+Y = \lambda f.(\lambda x.f(x(x)))(\lambda x.f(x(x)))
+$$
 
-That's quite a mouthful. If you tried calling Y on some term, you will find that
-evaluation will quickly expand infinitely. That makes sense given its purpose:
-to find a _fixed point_ of whatever function you pass in.
+That's quite a mouthful. If you tried calling $Y$ on some term, you will find
+that evaluation will quickly expand infinitely. That makes sense given its
+purpose: to find a _fixed point_ of whatever function you pass in.
 
-> As an example, the fixed-point of the function f(x) = sqrt(x) is 1. That's
-> because f(1) = 1. The Y combinator attempts to find the fixed point by simply
-> applying the function multiple times. In the untyped lambda calculus, this can
-> be used to implement simple (but possibly unbounded) recursion.
+> [!NOTE]
+> As an example, the fixed-point of the function $f(x) = \sqrt{x}$ is $1$.
+> That's because $f(1) = 1$, and applying $f$ to any other number sort of
+> converges in on this value. If you took any number and applied $f$ infinitely
+> many times on it, you would get $1$.
+>
+> In this sense, the Y combinator can be seen as a sort of brute-force approach
+> of finding this fixed point by simply applying the function over and over until
+> the result stops changing. In the untyped lambda calculus, this can be used to
+> implement simple (but possibly unbounded) recursion.
 
 This actually proves disastrous for trying to reason about the logic of a
-program. If we don't even know for sure if something will halt, how can we know
-that it'll produce the correct value? In fact, you can prove false statements
-using infinite recursion as a basis.
+program. If something is able to recurse on itself without limit, we won't be
+able to tell what its result is, and we _definitely_ won't be able to know if
+the result is correct. This is why we typically ban unbounded recursion in
+proof systems. In fact, you can give proofs for false statements using infinite
+recursion.
 
 This is why we actually prefer _not_ to work with Turing-complete languages when
 doing logical reasoning on program evaluation. Instead, we always want to add
@@ -152,26 +166,29 @@ information about our program's behavior.
 
 ### Simply-typed lambda calculus
 
-The [simply-typed lambda calculus] (STLC) adds types to every term. Types are
-crucial to any kind of static program analysis. Suppose I was trying to apply
-the term 5 to 6 (in other words, call 5 with the argument 6 as if 5 was a
-function). As humans we can look at that and instantly recognize that the
+The [simply-typed lambda calculus] (STLC, or the notational variant
+$\lambda^\rightarrow$) adds types to every term. Types are crucial to any kind
+of static program analysis. Suppose I was trying to apply the term $5$ to $6$ (in
+other words, call $5$ with the argument $6$ as if $5$ was a function, like
+$5(6)$). As humans we can look at that and instantly recognize that the
 evaluation would be invalid, yet under the untyped lambda calculus, it would be
 completely representable.
 
 [simply-typed lambda calculus]: https://en.wikipedia.org/wiki/Simply_typed_lambda_calculus
 
 To solve this in STLC, we would make this term completely unrepresentable at
-all. To say you want to apply 5 to 6 would not be a legal STLC term. We do this
-by requiring that all STLC terms are untyped lambda calculus terms accompanied
-by a _type_.
+all. To say you want to apply $5$ to $6$ would not be a legal STLC term. We do
+this by requiring that all STLC terms are untyped lambda calculus terms
+accompanied by a _type_.
 
 This gives us more information about what's allowed before we run the
-evaluation. For example, numbers may have their own type `Nat` (for "natural
-number"), while functions have a special "arrow" type `_ -> _`, where the
-underscores represent other types. A function that takes a number and returns a
-boolean (like isEven) would have the type `Nat -> Bool`, while a function that
-takes a boolean and returns another boolean would be `Bool -> Bool`.
+evaluation. For example, numbers may have their own type $\mathbb{N}$ (read
+"nat", for "natural number") and booleans are $\mathrm{Bool}$, while functions
+have a special "arrow" type $\_\rightarrow\_$, where the underscores represent
+other types. A function that takes a number and returns a boolean (like isEven)
+would have the type $\mathbb{N} \rightarrow \mathrm{Bool}$, while a function
+that takes a boolean and returns another boolean would be $\mathrm{Bool}
+\rightarrow \mathrm{Bool}$.
 
 With this, we have a framework for rejecting terms that would otherwise be legal
 in untyped lambda calculus, but would break when we tried to evaluate them. A
@@ -187,28 +204,33 @@ A semi-formal definition for STLC terms would look something like this:
 - **Var.** Same as before, it's a variable that can be looked up in the
   environment.
 
-- **Abstraction, or lambda (λ).** This is a function that carries three pieces
-  of information: (1) the name of the variable that its input will be substituted
-  for, (2) the _type_ of the input, and (3) the body in which the substitution
-  will happen.
+- **Abstraction, or lambda ($\lambda$).** This is a function that carries three pieces
+  of information:
+
+  1. the name of the variable that its input will be substituted for
+  2. the _type_ of the input, and
+  3. the body in which the substitution will happen.
 
 - **Application.** Same as before.
 
 It doesn't really seem like changing just one term changes the language all that
 much. But as a result of this tiny change, _every_ term now has a type:
 
-- `5 :: Nat`
-- `λ(x:Nat).2x :: Nat -> Nat`
-- `isEven(3) :: (Nat -> Bool) · Nat = Bool`
+- $5 :: \mathbb{N}$
+- $λ(x:\mathbb{N}).2x :: \mathbb{N} \rightarrow \mathbb{N}$
+- $isEven(3) :: (\mathbb{N} \rightarrow \mathrm{Bool}) · \mathbb{N} = \mathrm{Bool}$
 
-Notation: (`x :: T` means `x` has type `T`, and `f · x` means `f` applied to
-`x`)
+> [!NOTE]
+> Some notation:
+>
+> - $x :: T$ means $x$ has type $T$, and
+> - $f · x$ means $f$ applied to $x$
 
 This also means that some values are now unrepresentable:
 
-- `isEven(λx.2x) :: (Nat -> Bool) · (Nat -> Nat)` doesn't work because the type
-  of `λx.2x :: Nat -> Nat` can't be used as an input for `isEven`, which is
-  expecting a `Nat`.
+- $isEven(λx.2x)$ wouldn't work anymore because the type of the inner argument
+  $λx.2x$ would be $\mathbb{N} \rightarrow \mathbb{N}$ can't be used as an input
+  for $isEven$, which is expecting a $\mathbb{N}$.
 
 We have a good foundation for writing programs now, but this by itself can't
 qualify as a system for computation. We need an abstract machine of sorts that

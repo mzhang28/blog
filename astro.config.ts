@@ -8,6 +8,9 @@ import emoji from "remark-emoji";
 import remarkMermaid from "astro-diagram/remark-mermaid";
 import remarkDescription from "astro-remark-description";
 import remarkAdmonitions from "./plugin/remark-admonitions";
+import remarkMath from "remark-math";
+
+import rehypeKatex from "rehype-katex";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,9 +21,11 @@ export default defineConfig({
     remarkPlugins: [
       remarkAdmonitions,
       remarkReadingTime,
+      remarkMath,
       remarkMermaid,
       emoji,
       [remarkDescription, { name: "excerpt" }],
     ],
+    rehypePlugins: [rehypeKatex],
   },
 });
