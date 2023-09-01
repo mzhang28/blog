@@ -6,26 +6,36 @@ import { sortBy } from "lodash-es";
 interface Props {
   basePath: string;
   drafts?: "exclude" | "include" | "only";
+  filteredPosts?: Post[];
 }
 
 type Post = CollectionEntry<"posts">;
-const { basePath, drafts: includeDrafts } = Astro.props;
+const { basePath, drafts: includeDrafts, filteredPosts } = Astro.props;
 
-let filter;
-switch (includeDrafts) {
-  case "exclude":
-  case undefined:
-    filter = (post: Post) => !post.data.draft;
-    break;
-  case "include":
-    filter = (_: Post) => true;
-    break;
-  case "only":
-    filter = (post: Post) => post.data.draft === true;
-    break;
+type FilterFn = (_: Post) => boolean;
+
+function unreachable(): never {
+  throw new Error("unreachable");
 }
 
-const allPosts = await getCollection("posts", filter);
+function getFilter(): FilterFn {
+  switch (includeDrafts) {
+    case "exclude":
+    case undefined:
+      return (post: Post) => !post.data.draft;
+    case "include":
+      return (_: Post) => true;
+    case "only":
+      return (post: Post) => post.data.draft === true;
+  }
+  return unreachable();
+}
+
+const filter = getFilter();
+let allPosts;
+if (filteredPosts) allPosts = filteredPosts.filter(filter);
+else allPosts = await getCollection("posts", filter);
+
 const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 ---
 

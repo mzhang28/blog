@@ -47,6 +47,26 @@ const datestamp = post.data.date.toLocaleDateString(undefined, {
   <div class="post-container">
     <h1 class="post-title">{post.data.title}</h1>
 
+    <span class="tags">
+      {
+        post.data.draft && (
+          <a href="/drafts" class="tag draft">
+            <i class="fa fa-warning" aria-hidden="true" />
+            <span class="text">draft</span>
+          </a>
+        )
+      }
+
+      {
+        post.data.tags.map((tag) => (
+          <a href={`/tags/${tag}`} class="tag">
+            <i class="fa fa-tag" aria-hidden="true" />
+            <span class="text">{tag}</span>
+          </a>
+        ))
+      }
+    </span>
+
     <small class="post-meta">
       Posted on <Timestamp timestamp={post.data.date} />
        - {remarkPluginFrontmatter.minutesRead}

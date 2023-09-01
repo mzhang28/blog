@@ -82,6 +82,7 @@
       font-size: 0.9rem;
       padding: 0 30px;
       line-height: 1.5;
+      position: relative;
 
       p:nth-of-type(1) {
         padding-top: 0;
@@ -89,8 +90,13 @@
       }
 
       summary {
+        cursor: pointer;
         padding: 10px 0;
         transition: margin 150ms ease-out;
+
+        position: sticky;
+        top: 0;
+        background-color: var(--background-color);
       }
 
       &[open] summary {
@@ -195,4 +201,30 @@ hr.endline {
   margin-top: 30px;
   border-width: 1px 0 0 0;
   border-color: var(--hr-color);
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+
+  .tag {
+    font-size: 0.75rem;
+    background-color: var(--tag-color);
+    padding: 2px 7px;
+    border-radius: 4px;
+
+    &.draft {
+      background-color: orange;
+      color: black;
+    }
+
+    .text {
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
