@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import { astroImageTools } from "astro-imagetools";
 
 import { remarkReadingTime } from "./plugin/remark-reading-time";
+import remarkMermaid from "astro-diagram/remark-mermaid";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,6 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), astroImageTools],
   markdown: {
     syntaxHighlight: false,
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkReadingTime, remarkMermaid],
   },
 });

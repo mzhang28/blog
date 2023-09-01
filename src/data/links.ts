@@ -7,16 +7,16 @@ export interface Link {
 
 const links: Link[] = [
   {
-    name: "Forgejo",
-    url: "https://git.mzhang.io",
-    icon: "gitea",
-    description: "Check out my public open source projects on Forgejo",
-  },
-  {
     name: "Matrix",
     url: "https://matrix.to/#/@michael:chat.mzhang.io",
     icon: "matrix-org",
     description: "Come chat with me on Matrix",
+  },
+  {
+    name: "Git",
+    url: "https://git.mzhang.io",
+    icon: "gitea",
+    description: "Check out my public open source projects on Forgejo",
   },
   {
     name: "GitHub",
