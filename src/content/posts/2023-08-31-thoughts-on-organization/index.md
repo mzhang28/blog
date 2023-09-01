@@ -57,12 +57,13 @@ for recently: the ability to attach arbitrary metadata to journal entries and be
 able to query for them.
 
 While new apps have been cropping up from time to time for a while now, I think
-something in common with the new ones these "journals" are really more like
-personal databases, and extracting structured fields is extremely important if
-you want any kind of smart understanding of what is being journaled.
+a common trend that's starting to emerge is that these "journals" are really
+more like personal databases. Extracting structured fields is extremely
+important if you want any kind of smart understanding of what is being
+journaled.
 
-For example, I could write "took the car in for repair today", but if I wanted
-to find previous instances of this or make any kind of history, I would have to
+For example, I could write "weighed in at 135 pounds today", but if I wanted to
+find previous instances of this or make any kind of history, I would have to
 essentially do a pure text search. However, with structured data this could be
 different.
 
