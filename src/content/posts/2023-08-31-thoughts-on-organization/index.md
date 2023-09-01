@@ -29,6 +29,7 @@ my personal schedule, yet they only see a small slice of your life. The only
 things calendars can see automatically with no intervention on my part are
 emails that are sent from airlines.
 
+> [!NOTE]
 > I'm sure Google or Apple could probably ritz up their services to scan text
 > and guess events to put on your calendar, but that's missing the point. The vast
 > majority of people I associate with rarely coordinate events over email in the
@@ -117,10 +118,12 @@ data using various visualizations for this purpose.
 
 [2]: https://git.mzhang.io/michael/logseq-calendar
 
-> Side note: this isn't sponsored in any way. While this post makes me sound
-> like just a Logseq shill, it's actually quite the opposite; I've been donating
-> to them monthly on [Open Collective] and they've been actively developing
-> really cool features!
+> [!NOTE]
+> As an aside, this isn't sponsored in any way. While this post makes me sound
+> like just a Logseq shill, it's actually quite the opposite: they're an
+> open-source project solely funded by donations. I've been donating to them
+> monthly on [Open Collective] and they've been actively developing really cool
+> features!
 
 [open collective]: https://opencollective.com/logseq
 

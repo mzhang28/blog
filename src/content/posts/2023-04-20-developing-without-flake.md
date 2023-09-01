@@ -61,6 +61,7 @@ I shove new config files in their root directory.
      flake.nix ✗
 ```
 
+> [!NOTE]
 > The `✗` indicates that I added the file to the project, and it hasn't been
 > committed to the repo yet.
 
@@ -130,9 +131,10 @@ project structure should look a bit more like this:
      flake.nix
 ```
 
-> Remember, since you moved the `.envrc` file, you will need to run `direnv
-allow` again. Depending on how you moved it, you might also need to change the
-> path you wrote in the `use flake` command.
+> [!NOTE]
+> Remember, since you moved the `.envrc` file, you will need to run `direnv allow`
+> again. Depending on how you moved it, you might also need to change the path you
+> wrote in the `use flake` command.
 
 With this setup, the `project` directory can contain a clean clone of upstream
 and your flake files will create the appropriate environment.

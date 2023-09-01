@@ -228,3 +228,21 @@ hr.endline {
     }
   }
 }
+
+.admonition {
+  // TODO: Figure out how to distinguish admonitions
+  --color: var(--link-color);
+
+  border-left: 4px solid var(--color);
+  padding-left: 8px;
+  font-size: 0.9rem;
+
+  .admonition-title {
+    color: var(--color);
+    margin-bottom: 6px;
+  }
+
+  p {
+    margin: 0;
+  }
+}

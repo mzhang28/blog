@@ -21,12 +21,17 @@
     "lodash-es": "^4.17.21",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
-    "remark-emoji": "^4.0.0"
+    "remark-emoji": "^4.0.0",
+    "remark-github-beta-blockquote-admonitions": "^2.1.0",
+    "remark-parse": "^10.0.2"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.9",
+    "mdast": "^3.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "unified": "^11.0.2",
+    "unist-util-visit": "^5.0.0"
   }
 }

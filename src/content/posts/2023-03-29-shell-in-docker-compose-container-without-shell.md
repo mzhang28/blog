@@ -12,6 +12,7 @@ container without exiting it. Some Docker containers are incredibly stripped
 down to optimize away bloat (which is good!) but this may make debugging them
 relatively annoying.
 
+> [!NOTE]
 > These are my specific steps for running it, please replace the paths and
 > container names with the ones relevant to your specific use-case.
 
