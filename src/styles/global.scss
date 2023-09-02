@@ -99,7 +99,10 @@ pre > code {
 .flex-wrapper > main {
   min-width: 0;
   box-sizing: border-box;
-  // padding: 20px;
+
+  &.pad {
+    padding: 20px;
+  }
 }
 
 @media screen and (max-width: variables.$breakpoint) {
@@ -119,7 +122,7 @@ pre > code {
     }
   }
 
-  .flex-wrapper > main {
-    // padding-left: 30px;
+  .flex-wrapper > main.pad {
+    padding-left: 30px;
   }
 }

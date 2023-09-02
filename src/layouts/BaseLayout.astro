@@ -1,8 +1,16 @@
 ---
 import Footer from "../components/Footer.astro";
 import LeftNav from "../components/LeftNav.astro";
+import classNames from "classnames";
 import "../styles/global.scss";
 import "katex/dist/katex.min.css";
+
+interface Props {
+  pad?: boolean;
+}
+
+const { pad } = Astro.props;
+const shouldPad = pad === undefined ? true : pad;
 ---
 
 <!doctype html>
@@ -20,7 +28,7 @@ import "katex/dist/katex.min.css";
 
       <div class="sep"></div>
 
-      <main>
+      <main class={classNames(shouldPad && "pad")}>
         <slot />
       </main>
     </div>
