@@ -17,12 +17,16 @@ const minDepth = Math.min(...headings.map((heading) => heading.depth));
       <div class="toc-wrapper">
         <slot />
         <div class="toc">
-          Table of contents
+          <h3 class="title">Table of contents</h3>
           <ul>
             {headings.map((heading) => {
               return (
-                <li style={`padding-left: ${(heading.depth - minDepth) * 10}px;`}>
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                <li>
+                  <a href={`#${heading.slug}`} id={`${heading.slug}-link`}>
+                    <span style={`padding-left: ${(heading.depth - minDepth) * 10}px;`}>
+                      {heading.text}
+                    </span>
+                  </a>
                 </li>
               );
             })}
@@ -35,8 +39,86 @@ const minDepth = Math.min(...headings.map((heading) => heading.depth));
   )
 }
 
-<script type="text/javascript">
-  document.addEventListener("scroll", (doc, evt) => {
-    console.log("SHIET");
-  });
+<script define:vars={{ toc, headings }}>
+  if (toc) {
+    const headingTags = new Set(["h1", "h2", "h3", "h4", "h5", "h6"]);
+    const headingsMap = new Map([...headings.map((heading) => [heading.slug, new Set()])]);
+    const reverseHeadingMap = new Map();
+    const linkMap = new Map();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const visibleElements = new Map();
+
+      // Register links
+      for (const heading of headings) {
+        const link = document.getElementById(`${heading.slug}-link`);
+        const el = document.getElementById(heading.slug);
+        if (link && el) {
+          linkMap.set(heading.slug, link);
+          link.addEventListener("click", (e) => {
+            el.scrollIntoView({ behavior: "smooth" });
+            e.preventDefault();
+          });
+        }
+        if (!visibleElements.has(heading.slug)) {
+          visibleElements.set(heading.slug, new Set());
+        }
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          const target = entry.target;
+          const slug = reverseHeadingMap.get(target);
+          const link = linkMap.get(slug);
+          const associatedEls = visibleElements.get(slug);
+
+          if (entry.isIntersecting) {
+            // if it wasn't previously visible
+            // let's make the link active
+            if (associatedEls.size === 0) {
+              console.log("SHIET", link);
+              link.parentNode.classList.add("active");
+            }
+
+            associatedEls.add(target);
+          } else {
+            // if it was previously visible
+            // check if it's the last element
+            if (associatedEls.size > 0) {
+              if (associatedEls.size === 1) link.parentNode.classList.remove("active");
+            }
+
+            if (associatedEls.size > 0) {
+              associatedEls.delete(target);
+            }
+          }
+        }
+      });
+
+      const postContentEl = document.getElementById("post-content");
+      console.log("content", postContentEl);
+
+      let belongsTo;
+      for (const child of postContentEl.children) {
+        if (headingTags.has(child.tagName.toLowerCase())) {
+          belongsTo = child.id;
+        }
+
+        if (belongsTo) {
+          const headingSet = headingsMap.get(belongsTo);
+          headingSet.add(child);
+          reverseHeadingMap.set(child, belongsTo);
+        }
+      }
+
+      console.log("headings map", headingsMap);
+      console.log("reverse", reverseHeadingMap);
+
+      [...headingsMap.values()]
+        .flatMap((x) => [...x])
+        .forEach((x) => {
+          observer.observe(x);
+        });
+    });
+  }
 </script>

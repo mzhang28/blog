@@ -5,6 +5,10 @@ $tocBreakpoint: variables.$breakpoint + $tocWidth;
 .toc-wrapper {
   position: relative;
   display: flex;
+
+  .title {
+    margin-top: 20px;
+  }
 }
 
 .toc {
@@ -16,7 +20,35 @@ $tocBreakpoint: variables.$breakpoint + $tocWidth;
 
     li {
       font-size: 14px;
-      margin: 6px;
+      display: block;
+
+      &:hover {
+        // background-color: var(--link-hover-color);
+      }
+
+      a {
+        display: block;
+        padding: 10px;
+        color: var(--text-color);
+        border-left: 4px solid transparent;
+        border-radius: unset;
+
+        &:hover {
+          background-color: unset;
+          border-left-color: var(--link-color);
+          color: var(--link-color);
+        }
+      }
+
+      &.active {
+        &:first {
+          border: 1px solid orange;
+        }
+
+        a {
+          background-color: var(--link-hover-color);
+        }
+      }
     }
   }
 }
