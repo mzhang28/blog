@@ -1,5 +1,5 @@
 @use "variables";
-$tocWidth: 180px;
+$tocWidth: 240px;
 $tocBreakpoint: variables.$breakpoint + $tocWidth;
 
 .toc-wrapper {
@@ -16,6 +16,7 @@ $tocBreakpoint: variables.$breakpoint + $tocWidth;
 
     li {
       font-size: 14px;
+      margin: 6px;
     }
   }
 }

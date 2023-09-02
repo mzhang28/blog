@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { toc, headings } = Astro.props;
+const minDepth = Math.min(...headings.map((heading) => heading.depth));
 ---
 
 {
@@ -20,7 +21,7 @@ const { toc, headings } = Astro.props;
           <ul>
             {headings.map((heading) => {
               return (
-                <li>
+                <li style={`padding-left: ${(heading.depth - minDepth) * 10}px;`}>
                   <a href={`#${heading.slug}`}>{heading.text}</a>
                 </li>
               );
