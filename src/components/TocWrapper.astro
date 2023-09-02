@@ -76,7 +76,6 @@ const minDepth = Math.min(...headings.map((heading) => heading.depth));
             // if it wasn't previously visible
             // let's make the link active
             if (associatedEls.size === 0) {
-              console.log("SHIET", link);
               link.parentNode.classList.add("active");
             }
 
@@ -96,7 +95,6 @@ const minDepth = Math.min(...headings.map((heading) => heading.depth));
       });
 
       const postContentEl = document.getElementById("post-content");
-      console.log("content", postContentEl);
 
       let belongsTo;
       for (const child of postContentEl.children) {
@@ -110,9 +108,6 @@ const minDepth = Math.min(...headings.map((heading) => heading.depth));
           reverseHeadingMap.set(child, belongsTo);
         }
       }
-
-      console.log("headings map", headingsMap);
-      console.log("reverse", reverseHeadingMap);
 
       [...headingsMap.values()]
         .flatMap((x) => [...x])
