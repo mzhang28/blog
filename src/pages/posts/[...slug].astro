@@ -29,7 +29,7 @@ const datestamp = post.data.date.toLocaleDateString(undefined, {
   month: "short",
   day: "numeric",
 });
-const excerpt = remarkPluginFrontmatter.excerpt.replaceAll("\n", "");
+const excerpt = remarkPluginFrontmatter.excerpt?.replaceAll("\n", "");
 console.log("except", excerpt);
 ---
 
