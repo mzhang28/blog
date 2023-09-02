@@ -31,7 +31,7 @@ const datestamp = post.data.date.toLocaleDateString(undefined, {
 });
 ---
 
-<BaseLayout>
+<BaseLayout pad={false}>
   <meta slot="head" property="og:title" content={post.data.title} />
   <meta slot="head" property="og:url" content={Astro.url} />
   <meta slot="head" property="og:description" content={remarkPluginFrontmatter.excerpt} />
