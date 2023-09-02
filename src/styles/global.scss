@@ -98,12 +98,16 @@ pre > code {
 
 .flex-wrapper > main {
   min-width: 0;
-  max-width: 720px;
+  max-width: variables.$breakpoint;
   flex-grow: 1;
   box-sizing: border-box;
 
   &.pad {
     padding: 20px;
+  }
+
+  &.hasToc {
+    max-width: variables.$tocBreakpoint;
   }
 }
 

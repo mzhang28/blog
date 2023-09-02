@@ -1,6 +1,4 @@
 @use "variables";
-$tocWidth: 240px;
-$tocBreakpoint: variables.$breakpoint + $tocWidth;
 
 .toc-wrapper {
   position: relative;
@@ -13,6 +11,7 @@ $tocBreakpoint: variables.$breakpoint + $tocWidth;
 
 .toc {
   height: 100vh;
+  box-sizing: border-box;
 
   ul {
     list-style-type: none;
@@ -53,20 +52,20 @@ $tocBreakpoint: variables.$breakpoint + $tocWidth;
   }
 }
 
-@media screen and (max-width: $tocBreakpoint) {
+@media screen and (max-width: variables.$tocBreakpoint) {
   .toc {
     display: none;
   }
 }
 
-@media screen and (min-width: $tocBreakpoint) {
+@media screen and (min-width: variables.$tocBreakpoint) {
   .article {
     flex-grow: 1;
   }
 
   .toc {
-    flex: 0 0 $tocWidth;
-    max-width: $tocWidth;
+    flex: 0 0 variables.$tocWidth;
+    max-width: variables.$tocWidth;
 
     position: sticky;
     top: 0;

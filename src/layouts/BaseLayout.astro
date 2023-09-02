@@ -6,11 +6,14 @@ import "../styles/global.scss";
 import "katex/dist/katex.min.css";
 
 interface Props {
+  title?: string;
   pad?: boolean;
+  toc?: boolean;
 }
 
-const { pad } = Astro.props;
+const { title, pad, toc } = Astro.props;
 const shouldPad = pad === undefined ? true : pad;
+const hasToc = toc ?? false;
 ---
 
 <!doctype html>
@@ -18,7 +21,7 @@ const shouldPad = pad === undefined ? true : pad;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Michael Zhang</title>
+    <title>{title && `${title} - `}Michael Zhang</title>
     <slot name="head" />
   </head>
 
@@ -28,7 +31,7 @@ const shouldPad = pad === undefined ? true : pad;
 
       <div class="sep"></div>
 
-      <main class={classNames(shouldPad && "pad")}>
+      <main class={classNames(shouldPad && "pad", hasToc && "hasToc")}>
         <slot />
       </main>
     </div>
