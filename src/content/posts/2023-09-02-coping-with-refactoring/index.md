@@ -6,6 +6,7 @@ tags:
 
 heroImage: ./ruinsHero.png
 heroAlt: ruins
+draft: true
 ---
 
 It is the inevitable nature of code to be refactored.
