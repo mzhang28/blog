@@ -20,10 +20,17 @@ const minDepth = Math.min(...headings.map((heading) => heading.depth));
           <h3 class="title">Table of contents</h3>
           <ul>
             {headings.map((heading) => {
+              const depth = heading.depth - minDepth;
+              const padding = 10 * Math.pow(0.85, depth);
+              const fontSize = 14 * Math.pow(0.9, depth);
               return (
                 <li>
-                  <a href={`#${heading.slug}`} id={`${heading.slug}-link`}>
-                    <span style={`padding-left: ${(heading.depth - minDepth) * 10}px;`}>
+                  <a
+                    href={`#${heading.slug}`}
+                    id={`${heading.slug}-link`}
+                    style={`padding: ${padding}px;`}
+                  >
+                    <span style={`padding-left: ${depth * 10}px; font-size: ${fontSize}px;`}>
                       {heading.text}
                     </span>
                   </a>

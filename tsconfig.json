@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "moduleResolution": "Node",
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "jsx": "react-jsx"
   }
 }

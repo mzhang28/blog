@@ -18,7 +18,7 @@ type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
 const { Content, remarkPluginFrontmatter, headings } = await post.render();
-const { title, toc, heroImage: heroImagePath, heroAlt } = post.data;
+const { title, toc, heroImage: heroImagePath, heroAlt, draft } = post.data;
 
 let heroImage;
 if (heroImagePath) {
@@ -30,7 +30,6 @@ const datestamp = post.data.date.toLocaleDateString(undefined, {
   day: "numeric",
 });
 const excerpt = remarkPluginFrontmatter.excerpt?.replaceAll("\n", "");
-console.log("except", excerpt);
 ---
 
 <BaseLayout title={title} pad={false} toc={toc}>
@@ -87,13 +86,18 @@ console.log("except", excerpt);
 
         <hr />
 
-        <script
-          src="https://utteranc.es/client.js"
-          repo="iptq/blog-comments"
-          issue-term="og:title"
-          theme="github-light"
-          crossorigin="anonymous"
-          async></script>
+        {
+          !draft && (
+            <script
+              src="https://utteranc.es/client.js"
+              repo="iptq/blog-comments"
+              issue-term="og:title"
+              theme="github-light"
+              crossorigin="anonymous"
+              async
+            />
+          )
+        }
       </div>
     </div>
   </TocWrapper>
