@@ -41,6 +41,7 @@
   $backgroundColor: #202030;
   $textColor: #cdcdcd;
   $linkColor: lightskyblue;
+  $linkHoverColor: #202749;
 
   :root {
     --background-color: #{$backgroundColor};
@@ -53,7 +54,7 @@
     --faded: #666;
     --hr-color: gray;
     --link-color: #{$linkColor};
-    --link-hover-color: #{darken($linkColor, 60%)};
+    --link-hover-color: #{$linkHoverColor};
     --code-color: #{lighten(firebrick, 25%)};
     --tag-color: #{darken($linkColor, 55%)};
 
