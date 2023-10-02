@@ -17,7 +17,8 @@ export default defineConfig({
   site: "https://mzhang.io",
   integrations: [mdx(), sitemap(), astroImageTools],
   markdown: {
-    syntaxHighlight: false,
+    syntaxHighlight: "shiki",
+    shikiConfig: { theme: "css-variables" },
     remarkPlugins: [
       remarkAdmonitions,
       remarkReadingTime,
