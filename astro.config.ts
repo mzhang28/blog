@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { astroImageTools } from "astro-imagetools";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 import remarkReadingTime from "./plugin/remark-reading-time";
 import emoji from "remark-emoji";
@@ -27,6 +28,6 @@ export default defineConfig({
       emoji,
       [remarkDescription, { name: "excerpt" }],
     ],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeKatex, rehypeAccessibleEmojis],
   },
 });
