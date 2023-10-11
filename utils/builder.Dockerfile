@@ -1,5 +1,5 @@
 FROM git.mzhang.io/michael/agda:2.6.4-x86_64
 
-FROM node:18
+FROM node:18-alpine
 COPY --from=0 /usr/bin/agda /usr/bin/agda
-COPY --from=0 /root/.cabal/store/ghc-9.6.3/Agda-2.6.4-c592e701b6d172f37cf6e17790bc1993481dac7a9e29753b34c448a31924a9ab/share/lib /root/.cabal/store/ghc-9.6.3/Agda-2.6.4-c592e701b6d172f37cf6e17790bc1993481dac7a9e29753b34c448a31924a9ab/share/lib
+COPY --from=0 /agda/.stack-work/install/x86_64-linux-musl/099dc152e5f5edaf6e084b385953a851d037c26c20471a6eefaa57c4704a9540/9.4.7/share/x86_64-linux-ghc-9.4.7/Agda-2.6.4/lib /agda/.stack-work/install/x86_64-linux-musl/099dc152e5f5edaf6e084b385953a851d037c26c20471a6eefaa57c4704a9540/9.4.7/share/x86_64-linux-ghc-9.4.7/Agda-2.6.4/lib
