@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: node:18
+    image: git.mzhang.io/michael/blog-builder:2.6.4-x86_64
     commands:
       - npm ci
       - npm run build
