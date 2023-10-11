@@ -11,7 +11,7 @@ import remarkAdmonitions from "./plugin/remark-admonitions";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
-import addProofMacros from "./utils/mzproofs";
+// import addProofMacros from "./utils/mzproofs";
 import remarkAgda from "./plugin/remark-agda";
 
 // https://astro.build/config
@@ -34,6 +34,14 @@ export default defineConfig({
       emoji,
       [remarkDescription, { name: "excerpt" }],
     ],
-    rehypePlugins: [[rehypeKatex, { macros: addProofMacros({}) }], rehypeAccessibleEmojis],
+    rehypePlugins: [
+      [
+        rehypeKatex,
+        {
+          // macros: addProofMacros({})
+        },
+      ],
+      rehypeAccessibleEmojis,
+    ],
   },
 });

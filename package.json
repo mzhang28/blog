@@ -33,6 +33,8 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.9",
+    "hast-util-from-html": "^2.0.1",
+    "hast-util-to-html": "^9.0.0",
     "mdast": "^3.0.0",
     "mdast-util-from-markdown": "^2.0.0",
     "prettier": "^3.0.3",
