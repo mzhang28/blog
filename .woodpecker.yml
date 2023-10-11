@@ -2,10 +2,9 @@ pipeline:
   build:
     image: git.mzhang.io/michael/blog-builder:2.6.4-x86_64
     commands:
-      - (cd /tmp/astro; pnpm install)
       - pnpm install
-      - pnpm link /tmp/astro/packages/astro
-      - pnpm link /tmp/astro/packages/markdown/remark
+      - pnpm link --global astro
+      - pnpm link --global @astrojs/mdx
       - pnpm run build
 
   deploy:
