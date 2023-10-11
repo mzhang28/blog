@@ -2,8 +2,8 @@ pipeline:
   build:
     image: git.mzhang.io/michael/blog-builder:2.6.4-x86_64
     commands:
-      - npm ci
-      - npm run build
+      - pnpm install
+      - pnpm run build
 
   deploy:
     image: alpine
