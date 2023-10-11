@@ -3,6 +3,7 @@ pipeline:
     image: git.mzhang.io/michael/blog-builder:2.6.4-x86_64
     commands:
       - cd /tmp
+      - rm -rf astro
       - git clone https://git.mzhang.io/michael/astro --depth 1
       - cd astro
       - pnpm install
