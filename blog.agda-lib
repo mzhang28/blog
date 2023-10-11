@@ -1,0 +1,2 @@
+include: src/content/posts
+depend: standard-library

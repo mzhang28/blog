@@ -52,10 +52,23 @@
     border: 1px solid var(--hr-color);
   }
 
-  pre > code {
+  pre > code,
+  pre.Agda {
     padding: 12px;
     border-radius: 8px;
     border: 1px solid var(--hr-color);
+    // background-color: var(--astro-code-color-background);
+
+    a {
+      background-color: unset;
+
+      &:not([href]):hover {
+      }
+
+      &[href]:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   /*

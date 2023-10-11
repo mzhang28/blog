@@ -46,17 +46,19 @@ code {
   font-family: var(--monofont);
   box-sizing: border-box;
   padding: 1px 5px;
-  background-color: var(--faded-background-color);
+  //   background-color: var(--faded-background-color);
   // color: $code-color;
 }
 
-pre > code {
+pre > code,
+pre.Agda {
   color: var(--text-color);
   display: block;
   padding: 5px;
   overflow-x: auto;
   font-family: var(--monofont);
   line-height: 1.15rem;
+  background-color: var(--faded-background-color);
 }
 
 a code {
