@@ -3,6 +3,7 @@ pipeline:
     image: git.mzhang.io/michael/blog-builder:2.6.4-x86_64
     commands:
       - pnpm install
+      - ls -al node_modules
       - pnpm run build
 
   deploy:
