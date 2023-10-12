@@ -2,16 +2,16 @@ pipeline:
   build:
     image: git.mzhang.io/michael/blog-builder:2.6.4-x86_64
     commands:
-      - cd /tmp
-      - rm -rf astro
-      - git clone https://git.mzhang.io/michael/astro --depth 1
-      - cd astro
+      #   - cd /tmp
+      #   - rm -rf astro
+      #   - git clone https://git.mzhang.io/michael/astro --depth 1
+      #   - cd astro
+      #   - pnpm install
+      #   - pnpm run build
+      #   - cd /woodpecker/src/git.mzhang.io/michael/blog
       - pnpm install
-      - pnpm run build
-      - cd /woodpecker/src/git.mzhang.io/michael/blog
-      - pnpm install
-      - pnpm link /tmp/astro/packages/astro
-      - pnpm link /tmp/astro/packages/markdown/remark
+      #   - pnpm link /tmp/astro/packages/astro
+      #   - pnpm link /tmp/astro/packages/markdown/remark
       - pnpm run build
 
   deploy:
