@@ -1,2 +1,2 @@
-include: src/content/posts
+include: src/content/posts src
 depend: standard-library

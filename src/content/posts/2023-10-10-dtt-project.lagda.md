@@ -119,6 +119,17 @@ data CompleteContext : Set where
     Marker : CompleteContext → String → CompleteContext
 ```
 
+### Well-Formedness
+
+```agda
+type-well-formed : (A : Type) → Set
+type-well-formed Unit = {!   !}
+type-well-formed (Var x) = {!   !}
+type-well-formed (Existential x) = {!   !}
+type-well-formed (Forall x A) = {!   !}
+type-well-formed (Arrow A A₁) = {!   !}
+```
+
 ### Type checking
 
 ```agda

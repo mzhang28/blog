@@ -12,7 +12,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
 // import addProofMacros from "./utils/mzproofs";
-import remarkAgda from "./plugin/remark-agda";
+// import remarkAgda from "./plugin/remark-agda";
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +28,7 @@ export default defineConfig({
     remarkPlugins: [
       remarkAdmonitions,
       remarkReadingTime,
-      remarkAgda,
+      //   remarkAgda,
       [remarkMath, {}],
       remarkMermaid,
       emoji,

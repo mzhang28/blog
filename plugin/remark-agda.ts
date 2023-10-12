@@ -11,16 +11,15 @@ import { join, parse } from "node:path";
 import { visit } from "unist-util-visit";
 
 const remarkAgda: RemarkPlugin = () => {
-  return function (tree, { data }) {
-    const path: string = data.astro.fileURL.pathname;
+  return function (tree, { history }) {
+    // console.log("args", arguments)
+    const path: string = history[history.length - 1];
+    console.log("path", history);
     if (!(path.endsWith(".lagda.md") || path.endsWith(".agda"))) return;
-
-    // console.log("data", data);
 
     const tempDir = mkdtempSync(join(tmpdir(), "agdaRender."));
     const outDir = join(tempDir, "output");
     mkdirSync(outDir, { recursive: true });
-    console.log("work dir", tempDir);
 
     const childOutput = spawnSync(
       "agda",

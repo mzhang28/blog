@@ -1,9 +1,9 @@
 ---
-title : "Formally proving true ≢ false in cubical Agda"
-slug : "proving-true-from-false"
-date : 2023-04-21
-tags : ["type-theory", "agda"]
-math : true
+title: "Formally proving true ≢ false in cubical Agda"
+slug: "proving-true-from-false"
+date: 2023-04-21
+tags: ["type-theory", "agda"]
+math: true
 ---
 
 <details>
@@ -26,6 +26,7 @@ infix 4 _≢_
 _≢_ : ∀ {A : Set} → A → A → Set
 x ≢ y  =  ¬ (x ≡ y)
 ```
+
 </details>
 
 The other day, I was trying to prove `true ≢ false` in Agda. I would write the

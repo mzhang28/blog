@@ -3,9 +3,9 @@ title: "Equivalences"
 slug: "equivalences"
 date: 2023-05-06
 tags:
-- type-theory
-- agda
-- hott
+  - type-theory
+  - agda
+  - hott
 math: true
 draft: true
 ---
@@ -58,6 +58,7 @@ we can just give $y$ again, and use the `refl` function above for the equality
 proof
 
 ```
+
 ```
 
 The next step is to prove that it's contractible. Using the same derivation for
@@ -148,9 +149,9 @@ Blocked on this issue: https://git.mzhang.io/school/cubical/issues/1
 Now we can prove that the path is the same
 
 \begin{CD}
-  A @> > > B \\\
-  @VVV @VVV \\\
-  C @> > > D
+A @> > > B \\\
+ @VVV @VVV \\\
+ C @> > > D
 \end{CD}
 
 - $A \rightarrow B$ is the path of the original fiber that we've specified, which is $f\ x \equiv y$
@@ -165,10 +166,12 @@ Bool-id-is-equiv .equiv-proof y .snd y₁ i .snd j =
     c-d = y₁ .snd
   in
   ?
-  ```
+```
 
 Blocked on this issue: https://git.mzhang.io/school/cubical/issues/2
-  ```
+
+```
+
 ```
 
 ## Other Equivalences
