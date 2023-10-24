@@ -1,5 +1,5 @@
 ---
-title: "Path induction eliminator: a GADT perspective"
+title: "Path induction: a GADT perspective"
 slug: 2023-10-23-path-induction-gadt-perspective
 date: 2023-10-23
 tags: ["type-theory"]
@@ -36,7 +36,7 @@ Like all inductive types, it comes with the typical rules used to introduce type
 - Computation rule
 
 There's something quite peculiar about the elimination rule in particular (commonly known as "path induction", or just $J$).
-Let's take a look at its definition, in Agda-ish syntax:
+Let's take a look at its definition, in Agda syntax:
 
 ```agda
 J : {A : Set}
