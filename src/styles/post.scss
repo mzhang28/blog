@@ -239,33 +239,6 @@ hr.endline {
   border-color: var(--hr-color);
 }
 
-.tags {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 6px;
-  flex-wrap: wrap;
-
-  .tag {
-    font-size: 0.75rem;
-    background-color: var(--tag-color);
-    padding: 2px 7px;
-    border-radius: 4px;
-
-    &.draft {
-      background-color: orange;
-      color: black;
-    }
-
-    .text {
-      text-decoration: none;
-    }
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
 .admonition {
   // TODO: Figure out how to distinguish admonitions
   --admonition-color: var(--note-color);

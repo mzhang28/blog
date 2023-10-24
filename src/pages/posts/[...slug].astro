@@ -5,6 +5,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Timestamp from "../../components/Timestamp.astro";
 import { getImage } from "astro:assets";
 import TocWrapper from "../../components/TocWrapper.astro";
+import TagList from "../../components/TagList.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -60,14 +61,7 @@ const excerpt = remarkPluginFrontmatter.excerpt?.replaceAll("\n", "");
           )
         }
 
-        {
-          post.data.tags.map((tag) => (
-            <a href={`/tags/${tag}`} class="tag">
-              <i class="fa fa-tag" aria-hidden="true" />
-              <span class="text">{tag}</span>
-            </a>
-          ))
-        }
+        <TagList tags={post.data.tags} />
       </span>
 
       <small class="post-meta">

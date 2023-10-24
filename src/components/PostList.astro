@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import Timestamp from "./Timestamp.astro";
 import { sortBy } from "lodash-es";
+import TagList from "./TagList.astro";
 
 interface Props {
   basePath: string;
@@ -43,18 +44,22 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
   {
     sortedPosts.map((post) => {
       return (
-        <tr class="row">
-          <td class="info">
-            <Timestamp timestamp={post.data.date} />
-          </td>
-          <td>
-            <span class="title">
-              <a href={`${basePath}/${post.slug}`} class="brand-colorlink">
-                {post.data.title}
-              </a>
-            </span>
-          </td>
-        </tr>
+        <>
+          <tr class="row">
+            <td class="info">
+              <span class="spacer" />
+              <Timestamp timestamp={post.data.date} />
+            </td>
+            <td>
+              <div class="title">
+                <a href={`${basePath}/${post.slug}`} class="brand-colorlink">
+                  {post.data.title}
+                </a>
+              </div>
+              <TagList tags={post.data.tags} />
+            </td>
+          </tr>
+        </>
       );
     })
   }
@@ -63,14 +68,14 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 <style lang="scss">
   .postListing {
     width: 100%;
-    border-spacing: 6px;
+    border-spacing: 6px 10px;
 
     td {
       // padding-bottom: 10px;
       // line-height: 1;
 
       .title {
-        font-size: 1.1em;
+        font-size: 12pt;
       }
 
       .summary {
@@ -89,6 +94,11 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
       font-size: 0.75em;
       white-space: nowrap;
       text-align: right;
+      vertical-align: baseline;
+
+      .spacer {
+        font-size: 12pt;
+      }
     }
   }
 </style>

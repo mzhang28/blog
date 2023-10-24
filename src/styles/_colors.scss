@@ -16,7 +16,8 @@
     --link-color: #{$linkColor};
     --link-hover-color: #{lighten($linkColor, 35%)};
     --code-color: firebrick;
-    --tag-color: #{lighten($linkColor, 35%)};
+    --tag-color: lavender;
+    --tag-text-color: #{darken(lavender, 20%)};
 
     // Admonition
     --note-color: #{$linkColor};

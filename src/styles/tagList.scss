@@ -1,0 +1,27 @@
+.tags {
+  display: flex;
+  gap: 6px;
+  //   margin-bottom: 6px;
+  flex-wrap: wrap;
+
+  .tag {
+    font-size: 0.75rem;
+    background-color: var(--tag-color);
+    color: var(--tag-text-color);
+    padding: 2px 7px;
+    border-radius: 4px;
+
+    &.draft {
+      background-color: orange;
+      color: black;
+    }
+
+    .text {
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
