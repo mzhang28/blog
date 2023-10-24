@@ -31,11 +31,11 @@ Like all inductive types, it comes with the typical rules used to introduce type
     For more info, see [this][equality] page.
 
 - Formation rule
-- Introduction rule
-- Elimination rule
+- Term introduction rule
+- Term elimination rule
 - Computation rule
 
-There's something quite peculiar about the elimination rule in particular (commonly known as "path induction", or just $J$).
+There's something quite peculiar about the elimination rule for $\mathrm{Id}$ in particular (commonly known as "path induction", or just $J$).
 Let's take a look at its definition, in Agda syntax:
 
 ```agda
@@ -77,8 +77,10 @@ data List (A : Set) : Set where
   Cons : A → List A → List A
 ```
 
-I could write functions with this, but either polymorphically (accepts `A : Set` as a parameter, with no knowledge of what the type is) or monomorphically (as a specific `List Int` or `List Bool` or something).
+I could write functions with this, but either [polymorphically][polymorphism] (accepts `A : Set` as a parameter, with no knowledge of what the type is) or monomorphically (as a specific `List Int` or `List Bool` or something).
 What I couldn't do would be something like this:
+
+[polymorphism]: https://wiki.haskell.org/Polymorphism
 
 ```text
 sum : (A : Set) → List A → A
@@ -104,9 +106,11 @@ data Message : Set → Set₁ where
   F : {T : Set} → (f : String → T) → Message T
 ```
 
-Note that in the definition, I've moved the parameter from the left side to the right.
+Note that in the definition, I've moved the parameter from the left side to an [_index_][index] on the right of the colon.
 This means I'm no longer committing to a fully polymorphic `A`, which is now allowed to be assigned anything freely.
 In particular, it's able to take different values for different constructors.
+
+[index]: https://agda.readthedocs.io/en/v2.6.4/language/data-types.html#indexed-datatypes
 
 This allows me to write functions that are polymorphic over _all_ types, while still having the ability to refer to specific types.
 
