@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: git.mzhang.io/michael/blog-builder:2.6.4-x86_64
+    image: node:20
     commands:
       #   - cd /tmp
       #   - rm -rf astro
