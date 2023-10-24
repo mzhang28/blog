@@ -4,11 +4,12 @@ interface Props {
 }
 
 const { timestamp } = Astro.props;
-const datestamp = timestamp.toLocaleDateString(undefined, {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-});
+import { format } from "date-fns";
+// const datestamp = timestamp.toLocaleDateString(undefined, {
+//   year: "numeric",
+//   month: "short",
+//   day: "numeric",
+// });
 ---
 
-<span title={timestamp.toISOString()}>{datestamp}</span>
+<span title={timestamp.toISOString()}>{format(timestamp, "yyyy MMM d")}</span>
