@@ -11,8 +11,10 @@ draft: true
 
 ```
 open import Relation.Binary.PropositionalEquality
-open import Data.Nat
+open import Data.Integer
 open import Data.Bool
+open import Data.String
+Int = ℤ
 ```
 
 </details>
@@ -96,9 +98,10 @@ With GADTs, this changes.
 The key here is that different constructors of the data type can return different types of the same type family.
 
 ```
-data Wrap : Set → Set where
-  N : ℕ → Wrap ℕ
-  B : Bool → Wrap Bool
+data Message : Set → Set₁ where
+  S : String → Message String
+  I : Int → Message Int
+  F : {T : Set} → (f : String → T) → Message T
 ```
 
 Note that in the definition, I've moved the parameter from the left side to the right.
@@ -108,16 +111,18 @@ In particular, it's able to take different values for different constructors.
 This allows me to write functions that are polymorphic over _all_ types, while still having the ability to refer to specific types.
 
 ```agda
-unwrap : {A : Set} → Wrap A → A
-unwrap (N n) = n
-unwrap (B b) = b
+extract : {A : Set} → Message A → A
+extract (S s) = s
+extract (I i) = i
+extract (F f) = f "hello"
 ```
 
-Note that the type signature of `unwrap` remains fully polymorphic, while each of the cases has full type information.
-This is sound because we know exactly what indexes `Wrap` could take, and the fact that there are no other ways to construct a `Wrap` means we won't ever run into a case where we would be stuck on a case we don't know how to handle.
+Note that the type signature of `extract` remains fully polymorphic, while each of the cases has full type information.
+This is sound because we know exactly what indexes `Message` could take, and the fact that there are no other ways to construct a `Message` means we won't ever run into a case where we would be stuck on a case we don't know how to handle.
 
 In a sense, each of the pattern match "arms" is giving more information about the polymorphic return type.
-In the `N` case, it can _only_ return `Wrap ℕ`, and in the `B` case, it can _only_ return `Wrap Bool`.
+In the `S` case, it can _only_ return `Message String`, and in the `I` case, it can _only_ return `Message Int`.
+We can even have a polymorphic constructor case, as seen in the `F` constructor.
 
 The same thing applies to the $\mathrm{Id}$ type, since $\mathrm{Id}$ is pretty much just a generalized and dependent data type.
 The singular constructor `refl` is only defined on the index `Id A x x`, but the type has a more general `Id A x y`.
