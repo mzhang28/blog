@@ -5,7 +5,7 @@ packages:
   - npm
   - rsync
 environment:
-  site: mzhang.srht.site
+  site: mzhang.io
 secrets:
   - 0b26b413-7901-41c3-a4e2-3c752228ffcb
 sources:

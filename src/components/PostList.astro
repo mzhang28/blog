@@ -5,13 +5,14 @@ import { sortBy } from "lodash-es";
 import TagList from "./TagList.astro";
 
 interface Props {
+  className: string;
   basePath: string;
   drafts?: "exclude" | "include" | "only";
   filteredPosts?: Post[];
 }
 
 type Post = CollectionEntry<"posts">;
-const { basePath, drafts: includeDrafts, filteredPosts } = Astro.props;
+const { className, basePath, drafts: includeDrafts, filteredPosts } = Astro.props;
 
 type FilterFn = (_: Post) => boolean;
 
@@ -40,7 +41,7 @@ else allPosts = await getCollection("posts", filter);
 const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 ---
 
-<table class="postListing">
+<table class={`postListing ${className}`}>
   {
     sortedPosts.map((post) => {
       return (
