@@ -7,8 +7,9 @@ secrets:
 sources:
   - https://git.sr.ht/~mzhang/blog
 tasks:
+  - install: |
+      sudo npm install -g pnpm
   - build: |
-      npm install -g pnpm
       cd blog
       pnpm install
       pnpm run build
