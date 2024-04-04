@@ -5,11 +5,12 @@ import { sortBy } from "lodash-es";
 import TagList from "./TagList.astro";
 
 interface Props {
-  class: string;
   basePath: string;
+  /** Whether or not to include drafts in this list */
   drafts?: "exclude" | "include" | "only";
   filteredPosts?: Post[];
-  timeFormat?: string;
+  class?: string | undefined;
+  timeFormat?: string | undefined;
 }
 
 type Post = CollectionEntry<"posts">;
@@ -54,17 +55,17 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
       return (
         <>
           <tr class="row">
-            <td class="info">
-              <span class="spacer" />
-              <Timestamp timestamp={post.data.date} format={timeFormat} />
-            </td>
             <td>
               <div class="title">
                 <a href={`${basePath}/${post.slug}`} class="brand-colorlink">
                   {post.data.title}
                 </a>
               </div>
-              <TagList tags={post.data.tags} />
+              <div>
+                <Timestamp timestamp={post.data.date} format={timeFormat} />
+                &middot;
+                <TagList tags={post.data.tags} />
+              </div>
             </td>
           </tr>
         </>
@@ -76,11 +77,11 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 <style lang="scss">
   .postListing {
     width: 100%;
-    border-spacing: 6px 10px;
+    border-spacing: 6px 16px;
 
     td {
       // padding-bottom: 10px;
-      // line-height: 1;
+      line-height: 1;
 
       .title {
         font-size: 12pt;

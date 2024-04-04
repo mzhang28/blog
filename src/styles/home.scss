@@ -1,10 +1,13 @@
 .home.postListing {
   .timestamp {
     font-family: var(--monofont);
+    color: var(--smaller-text-color);
+    font-size: 0.75em;
   }
 
   .tags {
     gap: 4px;
+    display: inline-flex;
 
     .tag {
       background-color: inherit;

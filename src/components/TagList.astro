@@ -7,10 +7,10 @@ const { extraFront, tags, extraBack } = Astro.props;
 <div class="tags">
   {extraFront}
   {
-    tags.toSorted().map((tag) => (
+    tags.toSorted().map((tag: string) => (
       <a href={`/tags/${tag}`} class="tag">
         <i class="fa fa-tag" aria-hidden="true" />
-        <span class="text">{tag}</span>
+        <span class="text">#{tag}</span>
       </a>
     ))
   }
