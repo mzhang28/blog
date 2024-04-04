@@ -79,8 +79,23 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
     width: 100%;
     border-spacing: 6px 16px;
 
+    :global(.timestamp) {
+      font-family: var(--monofont);
+      color: var(--smaller-text-color);
+      font-size: 0.75em;
+    }
+
+    :global(.tags) {
+      gap: 4px;
+      display: inline-flex;
+
+      :global(.tag) {
+        background-color: inherit;
+        padding: 0;
+      }
+    }
+
     td {
-      // padding-bottom: 10px;
       line-height: 1;
 
       .title {
