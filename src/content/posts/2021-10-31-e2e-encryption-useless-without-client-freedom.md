@@ -8,7 +8,9 @@ Today, many companies claim to provide "end-to-end encryption" of user data,
 whether it be text messages, saved pictures, or important documents. But what
 does this actually mean for your data? I'll explain what "non-end-to-end"
 encryption is, why end-to-end encryption is important, and also when it might
-be absolutely meaningless.<!--more-->
+be absolutely meaningless.
+
+<!--more-->
 
 > If you just want to read about end-to-end encryption, click [here][1].
 > Otherwise, I'll start the story all the way back to how computers talk to
@@ -89,7 +91,7 @@ then decrypts it offline. [Signal][signal] famously provides end-to-end
 encrypted chat, so that no one, not even the government[^1], will be able to
 read the messages you send if they're not the intended recipient.
 
-## It's still not enough {#not-enough}
+## It's still not enough
 
 End-to-end encryption seems like it should be the end of the story, but if
 there's one thing that can undermine the encryption, it's the program that's
@@ -195,7 +197,7 @@ control.
     [PKI][pki] infrastructure to solve this, which relies on a certificate chain
     that is distributed by browser or operating system vendors.
 
-[1]: {{< ref "#not-enough" >}}
+[1]: #its-still-not-enough
 
 [csam]: https://www.apple.com/child-safety/pdf/CSAM_Detection_Technical_Summary.pdf
 [ferpa]: https://en.wikipedia.org/wiki/Family_Educational_Rights_and_Privacy_Act
