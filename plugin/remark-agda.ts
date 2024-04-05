@@ -1,17 +1,17 @@
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
-import type { Node, Root, Parent, RootContent } from "hast";
+import type { Node, Parent, Root, RootContent } from "hast";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { fromHtml } from "hast-util-from-html";
 import { toHtml } from "hast-util-to-html";
 
 import { spawnSync } from "node:child_process";
-import { mkdtempSync, mkdirSync, readFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, parse } from "node:path";
 import { visit } from "unist-util-visit";
 
 const remarkAgda: RemarkPlugin = () => {
-  return function (tree, { history }) {
+  return (tree, { history }) => {
     // console.log("args", arguments)
     const path: string = history[history.length - 1];
     console.log("path", history);
@@ -23,7 +23,13 @@ const remarkAgda: RemarkPlugin = () => {
 
     const childOutput = spawnSync(
       "agda",
-      ["--html", `--html-dir=${outDir}`, "--highlight-occurrences", "--html-highlight=code", path],
+      [
+        "--html",
+        `--html-dir=${outDir}`,
+        "--highlight-occurrences",
+        "--html-highlight=code",
+        path,
+      ],
       {},
     );
 

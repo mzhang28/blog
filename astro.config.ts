@@ -10,6 +10,7 @@ import remarkDescription from "astro-remark-description";
 import remarkAdmonitions from "./plugin/remark-admonitions";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import remarkTypst from "./plugin/remark-typst";
 
 // import addProofMacros from "./utils/mzproofs";
 // import remarkAgda from "./plugin/remark-agda";
@@ -20,7 +21,6 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap(),
-    //astroImageTools
   ],
   markdown: {
     syntaxHighlight: "shiki",
@@ -28,19 +28,14 @@ export default defineConfig({
     remarkPlugins: [
       remarkAdmonitions,
       remarkReadingTime,
-      //   remarkAgda,
+      remarkTypst,
       [remarkMath, {}],
       remarkMermaid,
       emoji,
       [remarkDescription, { name: "excerpt" }],
     ],
     rehypePlugins: [
-      [
-        rehypeKatex,
-        {
-          // macros: addProofMacros({})
-        },
-      ],
+      [rehypeKatex, {}],
       rehypeAccessibleEmojis,
     ],
   },

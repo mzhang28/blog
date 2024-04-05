@@ -4,6 +4,7 @@ packages:
   - hut
   - npm
   - rsync
+  - typst
 environment:
   site: mzhang.io
 secrets:
