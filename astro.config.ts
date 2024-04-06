@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 import remarkReadingTime from "./plugin/remark-reading-time";
-import emoji from "remark-emoji";
+import remarkEmoji from "remark-emoji";
 import remarkMermaid from "astro-diagram/remark-mermaid";
 import remarkDescription from "astro-remark-description";
 import remarkAdmonitions from "./plugin/remark-admonitions";
@@ -26,12 +26,12 @@ export default defineConfig({
     syntaxHighlight: "shiki",
     shikiConfig: { theme: "css-variables" },
     remarkPlugins: [
+      remarkMath,
       remarkAdmonitions,
       remarkReadingTime,
       remarkTypst,
-      [remarkMath, {}],
       remarkMermaid,
-      emoji,
+      remarkEmoji,
       [remarkDescription, { name: "excerpt" }],
     ],
     rehypePlugins: [

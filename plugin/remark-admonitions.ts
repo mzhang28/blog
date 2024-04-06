@@ -16,13 +16,13 @@ export default remarkAdmonitions;
 
 const handleNode = (config: Config): BuildVisitor => (node) => {
   // Filter required elems
-  if (node.type != "blockquote") return;
+  if (node.type !== "blockquote") return;
   const blockquote = node as Blockquote;
 
-  if (blockquote.children[0]?.type != "paragraph") return;
+  if (blockquote.children[0]?.type !== "paragraph") return;
 
   const paragraph = blockquote.children[0];
-  if (paragraph.children[0]?.type != "text") return;
+  if (paragraph.children[0]?.type !== "text") return;
 
   const text = paragraph.children[0];
 
@@ -139,8 +139,8 @@ type ClassNameMap = ClassNames | ((title: string) => ClassNames);
 
 export function classNameMap(gen: ClassNameMap) {
   return (title: string) => {
-    const classNames = typeof gen == "function" ? gen(title) : gen;
-    return typeof classNames == "object" ? classNames.join(" ") : classNames;
+    const classNames = typeof gen === "function" ? gen(title) : gen;
+    return typeof classNames === "object" ? classNames.join(" ") : classNames;
   };
 }
 
@@ -148,6 +148,8 @@ type NameFilter = ((title: string) => boolean) | string[];
 
 export function nameFilter(filter: NameFilter) {
   return (title: string) => {
-    return typeof filter == "function" ? filter(title) : filter.includes(title);
+    return typeof filter === "function"
+      ? filter(title)
+      : filter.includes(title);
   };
 }
