@@ -97,6 +97,8 @@ const minDepth = Math.min(...headings.map((heading) => heading.depth));
             if (associatedEls.size > 0) {
               associatedEls.delete(target);
             }
+
+            ratioMap.delete(target);
           }
         }
       });
