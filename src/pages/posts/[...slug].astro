@@ -87,7 +87,7 @@ const excerpt = remarkPluginFrontmatter.excerpt?.replaceAll("\n", "");
 
         <hr />
 
-        {
+        <!-- {
           !draft && (
             <script
               src="https://utteranc.es/client.js"
@@ -97,6 +97,17 @@ const excerpt = remarkPluginFrontmatter.excerpt?.replaceAll("\n", "");
               crossorigin="anonymous"
               async
             />
+          )
+        } -->
+
+        {
+          (
+            <>
+              <script data-isso="/isso/" src="https://mzhang.io/isso/js/embed.min.js" />
+              <section id="isso-thread">
+                <noscript>Javascript needs to be activated to view comments.</noscript>
+              </section>
+            </>
           )
         }
       </div>
