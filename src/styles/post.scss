@@ -29,12 +29,15 @@
   box-sizing: border-box;
 
   flex-direction: column;
+
   .toc-drawer {
     display: block;
+
     summary {
       font-weight: bold;
     }
   }
+
   .toc-list {
     display: none;
   }
@@ -44,15 +47,7 @@
     margin-block: 12px;
   }
 
-  p > img {
-    max-width: 75%;
-    height: auto;
-
-    border-radius: 8px;
-    border: 1px solid var(--hr-color);
-  }
-
-  pre > code,
+  pre>code,
   pre.Agda {
     padding: 12px;
     border-radius: 8px;
@@ -62,8 +57,7 @@
     a {
       background-color: unset;
 
-      &:not([href]):hover {
-      }
+      &:not([href]):hover {}
 
       &[href]:hover {
         text-decoration: underline;
@@ -99,6 +93,15 @@
     }
 
     min-width: 1px;
+
+    p>img {
+      margin: auto;
+      max-width: 75%;
+      height: auto;
+
+      border-radius: 8px;
+      border: 1px solid var(--hr-color);
+    }
 
     details {
       border: 1px solid var(--hr-color);
@@ -143,6 +146,7 @@
         // border-right: 1px solid lightgray;
         padding-right: 2px;
       }
+
       .lntd:last-child {
         padding-left: 12px;
       }
@@ -157,11 +161,11 @@
 
   &.logseq-post {
     .post-content {
-      > ul {
+      >ul {
         list-style-type: none;
         padding: 0;
 
-        > li {
+        >li {
           margin-bottom: 1em;
         }
       }
@@ -218,11 +222,11 @@
     }
   }
 
-  > p {
+  >p {
     line-height: 1.25;
   }
 
-  > p > img {
+  >p>img {
     display: block;
     margin: auto;
   }
