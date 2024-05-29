@@ -36,7 +36,7 @@ I'm going to implement this using [Deno].
 
 [deno]: https://deno.land/
 
-> **&#x1f4a1; This is a literate document.** I wrote a [small utility][3] to
+> **:bulb: This is a literate document.** I wrote a [small utility][3] to
 > extract the code blocks out of markdown files, and it should produce working
 > example for this file. If you have the utility, then running the following
 > should get you a copy of all the code extracted from this blog post:

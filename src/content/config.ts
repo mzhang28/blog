@@ -24,7 +24,7 @@ const posts = defineCollection({
       heroImage: image().optional(),
       heroAlt: z.string().optional(),
 
-      tags: z.array(z.string()),
+      tags: z.array(z.string()).default([]),
       draft: z.boolean().default(false),
       math: z.boolean().default(false),
       toc: z.boolean().default(false),

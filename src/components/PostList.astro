@@ -11,6 +11,7 @@ interface Props {
   filteredPosts?: Post[];
   class?: string | undefined;
   timeFormat?: string | undefined;
+  collection?: string;
 }
 
 type Post = CollectionEntry<"posts">;
@@ -20,6 +21,7 @@ const {
   drafts: includeDrafts,
   filteredPosts,
   timeFormat,
+  collection,
 } = Astro.props;
 
 type FilterFn = (_: Post) => boolean;
@@ -44,7 +46,7 @@ function getFilter(): FilterFn {
 const filter = getFilter();
 let allPosts;
 if (filteredPosts) allPosts = filteredPosts.filter(filter);
-else allPosts = await getCollection("posts", filter);
+else allPosts = await getCollection(collection ?? "posts", filter);
 
 const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 ---

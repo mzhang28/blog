@@ -128,7 +128,7 @@
         z-index: 2;
       }
 
-      &[open] summary {
+      &[open]>summary {
         border-bottom: 1px dotted var(--hr-color);
         margin-bottom: 15px;
       }

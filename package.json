@@ -36,6 +36,7 @@
     "remark-parse": "^10.0.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.7.3",
     "@types/lodash-es": "^4.17.9",
     "date-fns": "^2.30.0",
     "hast-util-from-html": "^2.0.1",
