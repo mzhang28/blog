@@ -14,6 +14,8 @@ interface Props {
 const { title, pad, toc } = Astro.props;
 const shouldPad = pad === undefined ? true : pad;
 const hasToc = toc ?? false;
+
+const showLeft = import.meta.env.MODE === "production";
 ---
 
 <!doctype html>
@@ -31,7 +33,7 @@ const hasToc = toc ?? false;
 
   <body>
     <div class="flex-wrapper">
-      <!-- <LeftNav /> -->
+      {showLeft && <LeftNav />}
 
       <div class="sep"></div>
 
