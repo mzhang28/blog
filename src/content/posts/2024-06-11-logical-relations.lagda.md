@@ -1,6 +1,6 @@
 ---
 title: "Logical Relations"
-slug: 2024-06-11-path-induction-gadt-perspective
+slug: 2024-06-11-logical-relations
 date: 2024-06-11
 tags: ["programming-languages", "formal-verification"]
 draft: true
