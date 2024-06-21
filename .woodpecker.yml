@@ -1,15 +1,19 @@
 steps:
   build:
-    # image: node:20
-    image: oven/bun:1
+    image: node:20
     commands:
-    #   - npm install -g pnpm
-    #   - pnpm install
-    #   - pnpm run build
-      - bun install --frozen-lockfile
-      - bun run build
-    when:
-      - event: push
+      - npm install -g pnpm
+      #   - cd /tmp
+      #   - rm -rf astro
+      #   - git clone https://git.mzhang.io/michael/astro --depth 1
+      #   - cd astro
+      #   - pnpm install
+      #   - pnpm run build
+      #   - cd /woodpecker/src/git.mzhang.io/michael/blog
+      - pnpm install
+      #   - pnpm link /tmp/astro/packages/astro
+      #   - pnpm link /tmp/astro/packages/markdown/remark
+      - pnpm run build
 
   deploy:
     image: alpine
@@ -22,5 +26,4 @@ steps:
       - rsync -azrP -e "ssh -i SSH_SECRET_KEY" dist/ blogDeploy@mzhang.io:/home/blogDeploy/public
     secrets: [SSH_SECRET_KEY]
     when:
-      - branch: master
-        event: push
+      branch: master
