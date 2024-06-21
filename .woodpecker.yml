@@ -14,6 +14,8 @@ steps:
       #   - pnpm link /tmp/astro/packages/astro
       #   - pnpm link /tmp/astro/packages/markdown/remark
       - pnpm run build
+    when:
+      - event: push
 
   deploy:
     image: alpine
@@ -26,4 +28,5 @@ steps:
       - rsync -azrP -e "ssh -i SSH_SECRET_KEY" dist/ blogDeploy@mzhang.io:/home/blogDeploy/public
     secrets: [SSH_SECRET_KEY]
     when:
-      branch: master
+      - branch: master
+        event: push
