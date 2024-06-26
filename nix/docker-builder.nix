@@ -1,0 +1,3 @@
+{ dockerTools }:
+
+dockerTools.buildImage { }
