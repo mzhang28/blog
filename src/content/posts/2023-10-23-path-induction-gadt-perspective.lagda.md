@@ -9,7 +9,7 @@ tags: ["type-theory", "programming-languages"]
 <summary>Imports</summary>
 
 ```
-open import Relation.Binary.PropositionalEquality
+open import Relation.Binary.PropositionalEquality hiding (J)
 open import Data.Integer
 open import Data.Bool
 open import Data.String

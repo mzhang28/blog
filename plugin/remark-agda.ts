@@ -1,5 +1,5 @@
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
-import type { Node, Parent, Root, RootContent } from "hast";
+import type { RootContent } from "hast";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { fromHtml } from "hast-util-from-html";
 import { toHtml } from "hast-util-to-html";
@@ -12,10 +12,10 @@ import { visit } from "unist-util-visit";
 
 const remarkAgda: RemarkPlugin = () => {
   return (tree, { history }) => {
-    // console.log("args", arguments)
-    const path: string = history[history.length - 1];
-    console.log("path", history);
+    const path: string = history[history.length - 1]!;
     if (!(path.endsWith(".lagda.md") || path.endsWith(".agda"))) return;
+
+    console.log("AGDA:processing path", path);
 
     const tempDir = mkdtempSync(join(tmpdir(), "agdaRender."));
     const outDir = join(tempDir, "output");
@@ -33,34 +33,25 @@ const remarkAgda: RemarkPlugin = () => {
       {},
     );
 
-    console.log("output", childOutput.output.toString());
     const filename = parse(path).base.replace(/\.lagda.md/, ".md");
     const htmlname = parse(path).base.replace(/\.lagda.md/, ".html");
-    console.log();
-    console.log("filename", filename);
-
     const fullOutputPath = join(outDir, filename);
-    console.log("outDir", fullOutputPath);
-    console.log();
 
     const doc = readFileSync(fullOutputPath);
+
+    // This is the post-processed markdown with HTML code blocks replacing the Agda code blocks
     const tree2 = fromMarkdown(doc);
-    // console.log("tree", tree);
 
     const collectedCodeBlocks: RootContent[] = [];
     visit(tree2, "html", (node) => {
-      //   console.log("node", node);
-      //   collectedCodeBlocks.push
       const html = fromHtml(node.value, { fragment: true });
 
       const firstChild: RootContent = html.children[0]!;
-      console.log("child", firstChild);
 
       visit(html, "element", (node) => {
         if (node.tagName !== "a") return;
 
         if (node.properties.href && node.properties.href.includes(htmlname)) {
-          console.log("a", node.properties);
           node.properties.href = node.properties.href.replace(htmlname, "");
         }
       });
@@ -68,24 +59,19 @@ const remarkAgda: RemarkPlugin = () => {
       if (!firstChild?.properties?.className?.includes("Agda")) return;
 
       const stringContents = toHtml(firstChild);
-      //   console.log("result", stringContents);
       collectedCodeBlocks.push({
         contents: stringContents,
       });
     });
 
-    console.log("collected len", collectedCodeBlocks.length);
-
     let idx = 0;
     visit(tree, "code", (node) => {
-      if (node.lang !== "agda") return;
+      if (!(node.lang === null || node.lang === "agda")) return;
 
-      //   console.log("node", node);
       node.type = "html";
       node.value = collectedCodeBlocks[idx].contents;
       idx += 1;
     });
-    console.log("len", idx);
   };
 };
 

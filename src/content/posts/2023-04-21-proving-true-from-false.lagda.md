@@ -137,6 +137,7 @@ definition of the `NotBool` type. Since this is an intrinsic equality, we can't
 map `true1` and `true2` to divergent types. Let's see what happens:
 
 ```
+{-# NON_COVERING #-}
 notbool-map : NotBool → Type
 notbool-map true1 = ⊤
 notbool-map true2 = ⊥
