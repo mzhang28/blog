@@ -28,3 +28,5 @@ _build
 
 /result
 .pnpm-store
+
+/public/generated

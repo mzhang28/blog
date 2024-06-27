@@ -15,34 +15,42 @@ import rehypeSlug from "rehype-slug";
 import markdoc from "@astrojs/markdoc";
 import remarkAgda from "./plugin/remark-agda";
 
+const outDir = "dist";
+const base = process.env.BASE ?? "/";
+const publicDir = "public";
+
 // https://astro.build/config
 export default defineConfig({
-	site: "https://mzhang.io",
-	integrations: [mdx(), sitemap(), markdoc()],
-	markdown: {
-		syntaxHighlight: "shiki",
-		shikiConfig: {
-			theme: "css-variables",
-		},
-		remarkPlugins: [
-            remarkAgda,
-			remarkMath,
-			remarkAdmonitions,
-			remarkReadingTime,
-			remarkTypst,
-			remarkEmoji,
-			[
-				remarkDescription,
-				{
-					name: "excerpt",
-				},
-			],
-		],
-		rehypePlugins: [
-			[rehypeKatex, {}],
-			rehypeAccessibleEmojis,
-			rehypeSlug,
-			[rehypeLinkHeadings, { behavior: "wrap" }],
-		],
-	},
+  site: "https://mzhang.io",
+  integrations: [mdx(), sitemap(), markdoc()],
+
+  outDir,
+  base,
+  trailingSlash: "always",
+  publicDir,
+
+  markdown: {
+    syntaxHighlight: "shiki",
+    shikiConfig: { theme: "css-variables" },
+    remarkPlugins: [
+      () => remarkAgda({ outDir, base, publicDir }),
+      remarkMath,
+      remarkAdmonitions,
+      remarkReadingTime,
+      remarkTypst,
+      remarkEmoji,
+      [
+        remarkDescription,
+        {
+          name: "excerpt",
+        },
+      ],
+    ],
+    rehypePlugins: [
+      [rehypeKatex, {}],
+      rehypeAccessibleEmojis,
+      rehypeSlug,
+      [rehypeLinkHeadings, { behavior: "wrap" }],
+    ],
+  },
 });

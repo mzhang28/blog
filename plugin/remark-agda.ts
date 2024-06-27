@@ -1,16 +1,32 @@
-import type { RemarkPlugin } from "@astrojs/markdown-remark";
 import type { RootContent } from "hast";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { fromHtml } from "hast-util-from-html";
 import { toHtml } from "hast-util-to-html";
 
 import { spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync } from "node:fs";
+import {
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  readdirSync,
+  copyFileSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join, parse } from "node:path";
 import { visit } from "unist-util-visit";
+import type { RemarkPlugin } from "@astrojs/markdown-remark";
 
-const remarkAgda: RemarkPlugin = () => {
+interface Options {
+  base: string;
+  outDir: string;
+  publicDir: string;
+}
+
+const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
+  const destDir = join(publicDir, "generated", "agda");
+  mkdirSync(destDir, { recursive: true });
+
   return (tree, { history }) => {
     const path: string = history[history.length - 1]!;
     if (!(path.endsWith(".lagda.md") || path.endsWith(".agda"))) return;
@@ -18,14 +34,14 @@ const remarkAgda: RemarkPlugin = () => {
     console.log("AGDA:processing path", path);
 
     const tempDir = mkdtempSync(join(tmpdir(), "agdaRender."));
-    const outDir = join(tempDir, "output");
-    mkdirSync(outDir, { recursive: true });
+    const agdaOutDir = join(tempDir, "output");
+    mkdirSync(agdaOutDir, { recursive: true });
 
     const childOutput = spawnSync(
       "agda",
       [
         "--html",
-        `--html-dir=${outDir}`,
+        `--html-dir=${agdaOutDir}`,
         "--highlight-occurrences",
         "--html-highlight=code",
         path,
@@ -34,17 +50,45 @@ const remarkAgda: RemarkPlugin = () => {
     );
 
     // TODO: Handle child output
-    console.error("--AGDA OUTPUT--")
+    console.error("--AGDA OUTPUT--");
     console.error(childOutput);
     console.error(childOutput.stdout?.toString());
     console.error(childOutput.stderr?.toString());
-    console.error("--AGDA OUTPUT--")
-    // if (childOutput.status !== 0)
-    //     throw new Error("Agda failed", childOutput.stderr)
+    console.error("--AGDA OUTPUT--");
+
+    const referencedFiles = new Set();
+    for (const file of readdirSync(agdaOutDir)) {
+      referencedFiles.add(file);
+
+      const fullPath = join(agdaOutDir, file);
+      const fullDestPath = join(destDir, file);
+
+      if (file.endsWith(".html")) {
+        const src = readFileSync(fullPath);
+        writeFileSync(
+          fullDestPath,
+          `
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <link rel="stylesheet" href="${base}generated/agda/Agda.css" />
+          </head>
+          <body>
+          <pre class="Agda">
+          ${src}
+          </pre>
+          </body>
+          </html>
+        `,
+        );
+      } else {
+        copyFileSync(fullPath, fullDestPath);
+      }
+    }
 
     const filename = parse(path).base.replace(/\.lagda.md/, ".md");
     const htmlname = parse(path).base.replace(/\.lagda.md/, ".html");
-    const fullOutputPath = join(outDir, filename);
+    const fullOutputPath = join(agdaOutDir, filename);
 
     const doc = readFileSync(fullOutputPath);
 
@@ -60,8 +104,17 @@ const remarkAgda: RemarkPlugin = () => {
       visit(html, "element", (node) => {
         if (node.tagName !== "a") return;
 
-        if (node.properties.href && node.properties.href.includes(htmlname)) {
-          node.properties.href = node.properties.href.replace(htmlname, "");
+        if (node.properties.href) {
+          // Trim off end
+          const [href, hash, ...rest] = node.properties.href.split("#");
+          if (rest.length > 0) throw new Error("come look at this");
+
+          if (href === htmlname) node.properties.href = `#${hash}`;
+
+          if (referencedFiles.has(href)) {
+            node.properties.href = `${base}generated/agda/${href}${hash ? `#${hash}` : ""}`;
+            node.properties.target = "_blank";
+          }
         }
       });
 
