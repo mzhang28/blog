@@ -9,4 +9,4 @@ docker image tag "$IMAGE_NAME" "$REMOTE_IMAGE_NAME"
 docker push "$REMOTE_IMAGE_NAME"
 
 set -x
-sed -i -E "s~(.*image: )blog-docker-builder:?.*~\1$REMOTE_IMAGE_NAME~" .woodpecker.yml
+sed -i -E "s~(.*image: ).*blog-docker-builder:?.*~\1$REMOTE_IMAGE_NAME~" .woodpecker.yml

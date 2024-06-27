@@ -1,10 +1,11 @@
 steps:
   build:
-    image: git.mzhang.io/michael/blog-docker-builder:ksi5l9c786i4x6sq2crsjqlmcfidvvza
+    image: git.mzhang.io/michael/blog-docker-builder:n409yvghr9s92rshjfca0niqsq5vnpl7
     environment:
       - ASTRO_TELEMETRY_DISABLED=1
     commands:
       - mkdir /tmp
+      - rm -rf node_modules
       - npm i -g pnpm@9.4.0
       - npx pnpm install --frozen-lockfile
       - npx pnpm run build
@@ -12,7 +13,7 @@ steps:
       - event: push
 
   deploy:
-    image: git.mzhang.io/michael/blog-docker-builder:ksi5l9c786i4x6sq2crsjqlmcfidvvza
+    image: git.mzhang.io/michael/blog-docker-builder:n409yvghr9s92rshjfca0niqsq5vnpl7
     commands:
       - echo "$${SSH_SECRET_KEY}" > SSH_SECRET_KEY
       - chmod 600 SSH_SECRET_KEY

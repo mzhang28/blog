@@ -6,8 +6,8 @@
 , openssh
 , bash
 , coreutils
-, bun
 , nodejs_20
+, gnused
 }:
 
 dockerTools.buildLayeredImage {
@@ -20,8 +20,8 @@ dockerTools.buildLayeredImage {
     openssh
     bash
     coreutils
-    bun
     nodejs_20
+    gnused
     usrBinEnv
     caCertificates
   ];
