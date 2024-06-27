@@ -1,5 +1,4 @@
 { dockerTools
-, buildEnv
 , agda-bin
 , corepack
 , rsync

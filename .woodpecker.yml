@@ -18,8 +18,8 @@ steps:
       - echo "$${SSH_SECRET_KEY}" > SSH_SECRET_KEY
       - chmod 600 SSH_SECRET_KEY
       - mkdir -p ~/.ssh
-      - echo "mzhang.io ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO+RKFYjD8UjqhfOHFHNyijkbGzC4fJEIIhrBwHj+FsQ" >> ~/.ssh/known_hosts
-      - rsync -azrP -e "ssh -i SSH_SECRET_KEY" dist/ blogDeploy@mzhang.io:/home/blogDeploy/public
+      - echo "mzhang.io ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO+RKFYjD8UjqhfOHFHNyijkbGzC4fJEIIhrBwHj+FsQ" >> known_hosts
+      - rsync -azrP -e "ssh -i SSH_SECRET_KEY -o UserKnownHostsFile=known_hosts" dist/ blogDeploy@mzhang.io:/home/blogDeploy/public
     secrets: [SSH_SECRET_KEY]
     when:
       - branch: master
