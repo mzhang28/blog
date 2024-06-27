@@ -1,5 +1,6 @@
 ---
 import "../../styles/post.scss";
+import "../../styles/agda.scss";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Timestamp from "../../components/Timestamp.astro";
@@ -66,8 +67,8 @@ const excerpt = remarkPluginFrontmatter.excerpt?.replaceAll("\n", "");
 
       <small class="post-meta">
         Posted on <Timestamp timestamp={post.data.date} />
-         - {remarkPluginFrontmatter.minutesRead}
-         - <a
+        - {remarkPluginFrontmatter.minutesRead}
+        - <a
           href={`https://git.mzhang.io/michael/blog/commits/branch/master/src/content/posts/${post.id}`}
           target="_blank"
           rel="noopener"

@@ -1,0 +1,159 @@
+:root {
+  --default-text: black;
+  --symbol: #404040;
+  --blue: #5175be;
+  --module: purple;
+  --inductive-constructor: #008b00;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --default-text: white;
+    --symbol: #b0b0b0;
+    --blue: #9999FF;
+    --module: hsl(276, 66%, 69%);
+    --inductive-constructor: #32bb32;
+  }
+}
+
+/* Aspects. */
+.Agda .Comment {
+  color: #B22222
+}
+
+.Agda .Background {}
+
+.Agda .Markup {
+  color: var(--default-text);
+}
+
+.Agda .Keyword {
+  color: #CD6600
+}
+
+.Agda .String {
+  color: #B22222
+}
+
+.Agda .Number {
+  color: var(--module);
+}
+
+.Agda .Symbol {
+  color: var(--symbol);
+}
+
+.Agda .PrimitiveType {
+  color: var(--blue);
+}
+
+.Agda .Pragma {
+  color: var(--default-text);
+}
+
+.Agda .Operator {}
+
+.Agda .Hole {
+  background: #B4EEB4
+}
+
+/* NameKinds. */
+.Agda .Bound {
+  color: var(--default-text);
+}
+
+.Agda .Generalizable {
+  color: var(--default-text);
+}
+
+.Agda .InductiveConstructor {
+  color: var(--inductive-constructor)
+}
+
+.Agda .CoinductiveConstructor {
+  color: #8B7500
+}
+
+.Agda .Datatype {
+  color: var(--blue);
+}
+
+.Agda .Field {
+  color: #EE1289
+}
+
+.Agda .Function {
+  color: var(--blue);
+}
+
+.Agda .Module {
+  color: var(--module)
+}
+
+.Agda .Postulate {
+  color: var(--blue);
+}
+
+.Agda .Primitive {
+  color: var(--blue);
+}
+
+.Agda .Record {
+  color: var(--blue);
+}
+
+/* OtherAspects. */
+.Agda .DottedPattern {}
+
+.Agda .UnsolvedMeta {
+  color: var(--default-text);
+  background: yellow
+}
+
+.Agda .UnsolvedConstraint {
+  color: var(--default-text);
+  background: yellow
+}
+
+.Agda .TerminationProblem {
+  color: var(--default-text);
+  background: #FFA07A
+}
+
+.Agda .IncompletePattern {
+  color: var(--default-text);
+  background: #F5DEB3
+}
+
+.Agda .Error {
+  color: red;
+  text-decoration: underline
+}
+
+.Agda .TypeChecks {
+  color: var(--default-text);
+  background: #ADD8E6
+}
+
+.Agda .Deadcode {
+  color: var(--default-text);
+  background: #808080
+}
+
+.Agda .ShadowingInTelescope {
+  color: var(--default-text);
+  background: #808080
+}
+
+/* Standard attributes. */
+.Agda a {
+  text-decoration: none
+}
+
+.Agda a[href]:hover {
+  background-color: #B4EEB4
+}
+
+.Agda [href].hover-highlight {
+  background-color: #B4EEB4;
+}
