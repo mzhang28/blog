@@ -34,13 +34,6 @@ dockerTools.buildLayeredImage {
   #   groupadd -r builder
   #   useradd -r -g builder builder
   # '';
-
-  config = {
-    Cmd = ''
-
-    '';
-    # User = "builder:builder";
-  };
 }
 
 #   copyToRoot = with dockerTools; buildEnv {

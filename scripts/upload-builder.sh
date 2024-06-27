@@ -10,6 +10,4 @@ docker image tag "$IMAGE_NAME" "$REMOTE_IMAGE_NAME"
 sed -i -E "s~(.*image: ).*blog-docker-builder:?.*~\1$REMOTE_IMAGE_NAME~" .woodpecker.yml
 echo "Created $REMOTE_IMAGE_NAME"
 
-if [ "${1+}" == "push" ]; then
-  docker push "$REMOTE_IMAGE_NAME"
-fi
+docker push -q "$REMOTE_IMAGE_NAME"
