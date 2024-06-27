@@ -5,8 +5,9 @@ steps:
       - ASTRO_TELEMETRY_DISABLED=1
     commands:
       - mkdir /tmp
-      - bun install --frozen-lockfile
-      - bun run build
+      - npm i -g pnpm@9.4.0
+      - npx pnpm install --frozen-lockfile
+      - npx pnpm run build
     when:
       - event: push
 

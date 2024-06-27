@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import remarkReadingTime from "./plugin/remark-reading-time";
 import remarkEmoji from "remark-emoji";
-import remarkMermaid from "astro-diagram/remark-mermaid";
 import remarkDescription from "astro-remark-description";
 import remarkAdmonitions from "./plugin/remark-admonitions";
 import remarkMath from "remark-math";
@@ -31,7 +30,6 @@ export default defineConfig({
 			remarkAdmonitions,
 			remarkReadingTime,
 			remarkTypst,
-			remarkMermaid,
 			remarkEmoji,
 			[
 				remarkDescription,

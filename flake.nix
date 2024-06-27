@@ -19,6 +19,7 @@
           dive
           nix-tree
           vips
+          shellcheck
         ];
       };
     });
