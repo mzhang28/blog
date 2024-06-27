@@ -33,6 +33,15 @@ const remarkAgda: RemarkPlugin = () => {
       {},
     );
 
+    // TODO: Handle child output
+    console.error("--AGDA OUTPUT--")
+    console.error(childOutput);
+    console.error(childOutput.stdout?.toString());
+    console.error(childOutput.stderr?.toString());
+    console.error("--AGDA OUTPUT--")
+    // if (childOutput.status !== 0)
+    //     throw new Error("Agda failed", childOutput.stderr)
+
     const filename = parse(path).base.replace(/\.lagda.md/, ".md");
     const htmlname = parse(path).base.replace(/\.lagda.md/, ".html");
     const fullOutputPath = join(outDir, filename);

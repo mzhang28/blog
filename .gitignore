@@ -24,3 +24,6 @@ PragmataPro-Mono-Liga-Regular-Nerd-Font-Complete.woff2
 *.agdai
 _build
 .direnv
+
+
+/result

@@ -1,26 +1,18 @@
 steps:
   build:
-    image: node:20
+    image: git.mzhang.io/michael/blog-docker-builder:ksi5l9c786i4x6sq2crsjqlmcfidvvza
+    environment:
+      - ASTRO_TELEMETRY_DISABLED=1
     commands:
-      - npm install -g pnpm
-      #   - cd /tmp
-      #   - rm -rf astro
-      #   - git clone https://git.mzhang.io/michael/astro --depth 1
-      #   - cd astro
-      #   - pnpm install
-      #   - pnpm run build
-      #   - cd /woodpecker/src/git.mzhang.io/michael/blog
-      - pnpm install
-      #   - pnpm link /tmp/astro/packages/astro
-      #   - pnpm link /tmp/astro/packages/markdown/remark
-      - pnpm run build
+      - mkdir /tmp
+      - bun install --frozen-lockfile
+      - bun run build
     when:
       - event: push
 
   deploy:
-    image: alpine
+    image: git.mzhang.io/michael/blog-docker-builder:ksi5l9c786i4x6sq2crsjqlmcfidvvza
     commands:
-      - apk add rsync openssh
       - echo "$${SSH_SECRET_KEY}" > SSH_SECRET_KEY
       - chmod 600 SSH_SECRET_KEY
       - mkdir -p ~/.ssh

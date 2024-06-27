@@ -14,6 +14,7 @@ import rehypeLinkHeadings from "@justfork/rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 
 import markdoc from "@astrojs/markdoc";
+import remarkAgda from "./plugin/remark-agda";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +26,7 @@ export default defineConfig({
 			theme: "css-variables",
 		},
 		remarkPlugins: [
+            remarkAgda,
 			remarkMath,
 			remarkAdmonitions,
 			remarkReadingTime,
