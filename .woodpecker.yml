@@ -1,6 +1,6 @@
 steps:
   build:
-    image: git.mzhang.io/michael/blog-docker-builder:n409yvghr9s92rshjfca0niqsq5vnpl7
+    image: git.mzhang.io/michael/blog-docker-builder:qr7whzx27pqqakdxm32c7b958ggyg07z
     environment:
       - ASTRO_TELEMETRY_DISABLED=1
     commands:
@@ -13,7 +13,7 @@ steps:
       - event: push
 
   deploy:
-    image: git.mzhang.io/michael/blog-docker-builder:n409yvghr9s92rshjfca0niqsq5vnpl7
+    image: git.mzhang.io/michael/blog-docker-builder:qr7whzx27pqqakdxm32c7b958ggyg07z
     commands:
       - echo "$${SSH_SECRET_KEY}" > SSH_SECRET_KEY
       - chmod 600 SSH_SECRET_KEY

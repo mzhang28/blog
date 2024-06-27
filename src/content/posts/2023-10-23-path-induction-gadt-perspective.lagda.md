@@ -9,11 +9,15 @@ tags: ["type-theory", "programming-languages"]
 <summary>Imports</summary>
 
 ```
-open import Relation.Binary.PropositionalEquality hiding (J)
-open import Data.Integer
-open import Data.Bool
-open import Data.String
-Int = ℤ
+-- These types aren't actually imported to improve CI performance :(
+-- It doesn't matter what they are, just that they exist
+data Int : Set where
+postulate
+    String : Set
+{-# BUILTIN STRING String #-}
+
+data _≡_ {l} {A : Set l} : (a b : A) → Set l where
+  instance refl : {x : A} → x ≡ x
 ```
 
 </details>

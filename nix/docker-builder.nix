@@ -8,6 +8,7 @@
 , coreutils
 , nodejs_20
 , gnused
+, pkgsLinux
 }:
 
 dockerTools.buildLayeredImage {
@@ -24,7 +25,22 @@ dockerTools.buildLayeredImage {
     gnused
     usrBinEnv
     caCertificates
+    fakeNss
   ];
+
+  # fakeRootCommands = ''
+  #   #!${pkgsLinux.runtimeShell}
+  #   ${pkgsLinux.dockerTools.shadowSetup}
+  #   groupadd -r builder
+  #   useradd -r -g builder builder
+  # '';
+
+  config = {
+    Cmd = ''
+
+    '';
+    # User = "builder:builder";
+  };
 }
 
 #   copyToRoot = with dockerTools; buildEnv {

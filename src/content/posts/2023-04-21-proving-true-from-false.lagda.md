@@ -13,15 +13,8 @@ These are some imports that are required for code on this page to work properly.
 
 ```agda
 {-# OPTIONS --cubical #-}
-
 open import Cubical.Foundations.Prelude
-open import Data.Bool
-open import Data.Unit
-open import Data.Empty
-
-¬_ : Set → Set
-¬ A = A → ⊥
-
+open import Prelude hiding (_≢_; _≡_; refl; transport)
 infix 4 _≢_
 _≢_ : ∀ {A : Set} → A → A → Set
 x ≢ y  =  ¬ (x ≡ y)
@@ -40,7 +33,6 @@ For many "obvious" statements, it suffices to just write `refl` since the two
 sides are trivially true via rewriting. For example:
 
 ```
-open import Data.Nat
 1+2≡3 : 1 + 2 ≡ 3
 1+2≡3 = refl
 ```
