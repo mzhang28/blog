@@ -14,8 +14,6 @@ interface Props {
 const { title, pad, toc } = Astro.props;
 const shouldPad = pad === undefined ? true : pad;
 const hasToc = toc ?? false;
-
-const showLeft = import.meta.env.MODE === "production";
 ---
 
 <!doctype html>
@@ -23,17 +21,17 @@ const showLeft = import.meta.env.MODE === "production";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title && `${title} - `}Michael Zhang</title>
-    <slot name="head" />
+    <title>{title && `${title} - `} Michael Zhang</title>
     <script
       data-goatcounter="https://goatcounter.mzhang.io/count"
       async
       src="//goatcounter.mzhang.io/count.js"></script>
+    <slot name="head" />
   </head>
 
   <body>
     <div class="flex-wrapper">
-      {showLeft && <LeftNav />}
+      <LeftNav />
 
       <div class="sep"></div>
 
