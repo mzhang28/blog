@@ -49,3 +49,26 @@ transport {l₁} {l₂} {A} {x} {y} P refl = id
 infix 4 _≢_
 _≢_ : ∀ {A : Set} → A → A → Set
 x ≢ y  =  ¬ (x ≡ y)
+
+module dependent-product where
+  infixr 4 _,_
+  infixr 2 _×_
+
+  record Σ {l₁ l₂} (A : Set l₁) (B : A → Set l₂) : Set (l₁ ⊔ l₂) where
+    constructor _,_
+    field
+      fst : A
+      snd : B fst
+  open Σ
+  {-# BUILTIN SIGMA Σ #-}
+  syntax Σ A (λ x → B) = Σ[ x ∈ A ] B
+
+  _×_ : {l : Level} (A B : Set l) → Set l
+  _×_ A B = Σ A (λ _ → B)
+open dependent-product public
+
+_∘_ : {A B C : Set} (g : B → C) → (f : A → B) → A → C
+(g ∘ f) a = g (f a)
+
+_∼_ : {A B : Set} (f g : A → B) → Set
+_∼_ {A} f g = (x : A) → f x ≡ g x

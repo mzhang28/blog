@@ -44,6 +44,7 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
         `--html-dir=${agdaOutDir}`,
         "--highlight-occurrences",
         "--html-highlight=code",
+        "--allow-unsolved-metas",
         path,
       ],
       {},
