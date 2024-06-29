@@ -22,6 +22,8 @@
     // Admonition
     --note-color: #{$linkColor};
     --note-background-color: var(--link-hover-color);
+    --warning-color: rgb(208, 126, 25);
+    --warning-bg-color: rgb(255, 250, 202);
 
     // Syntax Highlighting
     --astro-code-color-text: #24292e;
@@ -62,6 +64,8 @@
     // Admonition
     --note-color: #{$linkColor};
     --note-background-color: var(--link-hover-color);
+    --warning-color: rgb(211, 185, 107);
+    --warning-bg-color: rgb(121, 81, 21);
 
     // Syntax Highlighting
     --astro-code-color-text: #e1e4e8;

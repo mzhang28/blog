@@ -55,7 +55,7 @@ boat load of files to hide your potential complexity into, consider whether the
 cost of adding that abstraction is worth the pain it will take to change it
 later.
 
-> [!NOTE]
+> [!admonition: NOTE]
 > As a bonus, if your language has a good enough type system, you probably don't
 > need the strategy pattern at all. Just create a function signature and pass
 functions as values!

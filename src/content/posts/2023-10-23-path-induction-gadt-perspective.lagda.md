@@ -22,7 +22,7 @@ data _≡_ {l} {A : Set l} : (a b : A) → Set l where
 
 </details>
 
-> [!NOTE]
+> [!admonition: NOTE]
 > This content is a writeup from a weekend discussion session for the fall 2023 special-topics course CSCI 8980 at the University of Minnesota taught by [Favonia], who provided the examples.
 > This post is primarily a summary of the concepts discussed.
 

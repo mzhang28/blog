@@ -70,7 +70,7 @@ data Type where
 
 Monotypes (usually denoted $\tau$) are types that aren't universally quantified.
 
-> [!NOTE]
+> [!admonition: NOTE]
 > In the declarative version of this algorithm, monotypes don't have existential quantifiers either,
 > but the algorithmic type system includes it.
 > TODO: Explain why

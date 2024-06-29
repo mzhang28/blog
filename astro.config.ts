@@ -5,7 +5,7 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import remarkReadingTime from "./plugin/remark-reading-time";
 import remarkEmoji from "remark-emoji";
 import remarkDescription from "astro-remark-description";
-import remarkAdmonitions from "./plugin/remark-admonitions";
+import remarkAdmonitions, { mkdocsConfig } from "./plugin/remark-admonitions";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import remarkTypst from "./plugin/remark-typst";
@@ -35,7 +35,7 @@ export default defineConfig({
     remarkPlugins: [
       () => remarkAgda({ outDir, base, publicDir }),
       remarkMath,
-      remarkAdmonitions,
+      [remarkAdmonitions, mkdocsConfig],
       remarkReadingTime,
       remarkTypst,
       remarkEmoji,

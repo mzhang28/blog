@@ -245,10 +245,10 @@ hr.endline {
 }
 
 .admonition {
-  // TODO: Figure out how to distinguish admonitions
   --admonition-color: var(--note-color);
+  --admonition-bg-color: var(--note-background-color);
 
-  background-color: var(--note-background-color);
+  background-color: var(--admonition-bg-color);
   border-left: 4px solid var(--admonition-color);
   padding: 8px;
   font-size: 0.9rem;
@@ -268,5 +268,10 @@ hr.endline {
 
   :last-child {
     margin-bottom: 0;
+  }
+
+  &.WARNING {
+    --admonition-color: var(--warning-color);
+    --admonition-bg-color: var(--warning-bg-color);
   }
 }

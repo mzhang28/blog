@@ -142,7 +142,7 @@ That's quite a mouthful. If you tried calling $Y$ on some term, you will find
 that evaluation will quickly expand infinitely. That makes sense given its
 purpose: to find a _fixed point_ of whatever function you pass in.
 
-> [!NOTE]
+> [!admonition: NOTE]
 > As an example, the fixed-point of the function $f(x) = \sqrt{x}$ is $1$.
 > That's because $f(1) = 1$, and applying $f$ to any other number sort of
 > converges in on this value. If you took any number and applied $f$ infinitely
@@ -221,7 +221,7 @@ much. But as a result of this tiny change, _every_ term now has a type:
 - $λ(x:\mathbb{N}).2x :: \mathbb{N} \rightarrow \mathbb{N}$
 - $isEven(3) :: (\mathbb{N} \rightarrow \mathrm{Bool}) · \mathbb{N} = \mathrm{Bool}$
 
-> [!NOTE]
+> [!admonition: NOTE]
 > Some notation:
 >
 > - $x :: T$ means $x$ has type $T$, and

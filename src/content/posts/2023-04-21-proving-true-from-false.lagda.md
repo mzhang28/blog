@@ -108,7 +108,7 @@ true≢false2 p = transport bool-map2 p refl
 
 ## Note on proving divergence on equivalent values
 
-> [!NOTE]
+> [!admonition: NOTE]
 > Update: some of these have been commented out since regular Agda doesn't support higher inductive types
 
 Let's make sure this isn't broken by trying to apply this to something that's
