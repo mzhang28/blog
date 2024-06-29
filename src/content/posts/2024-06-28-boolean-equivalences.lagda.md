@@ -3,7 +3,6 @@ title: "Boolean equivalences in HoTT"
 slug: 2024-06-28-boolean-equivalences
 date: 2024-06-28T21:37:04.299Z
 tags: ["agda", "type-theory", "hott"]
-draft: true
 ---
 
 This post is about a problem I recently proved that seemed simple going in, but
@@ -299,7 +298,7 @@ $$
 
 This proof is shown later in the book, so I will use it here directly without proof[^equiv-isProp]:
 
-[^equiv-isProp]: I haven't worked that far in the book yet, but this is shown in Theorem 4.2.13 in the [HoTT book][book].
+[^equiv-isProp]: This is shown in Theorem 4.2.13 in the [HoTT book][book].
 I might write a separate post about that when I get there, it seems like an interesting proof as well!
 
 ```
