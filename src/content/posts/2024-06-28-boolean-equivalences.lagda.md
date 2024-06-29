@@ -15,9 +15,10 @@ $$
   (2 \simeq 2) \simeq 2
 $$
 
-> [!NOTE]
-> This problem is exercise 2.13 of the [Homotopy Type Theory book][book]. If you
-> are planning to attempt this problem, spoilers ahead!
+> [!admonition: WARNING]
+> :warning: This post describes exercise 2.13 of the [Homotopy Type Theory
+> book][book]. If you are planning to attempt this problem yourself, spoilers
+> ahead!
 
 [book]: https://homotopytypetheory.org/book/
 
@@ -219,7 +220,7 @@ g∘f false = refl
 
 Now comes the complicated case: proving $f \circ g \sim \textrm{id}$.
 
-> [!NOTE]
+> [!admonition: NOTE]
 > Since Agda's comment syntax is `--`, the horizontal lines in the code below
 > are simply a visual way of separating out our proof premises from our proof
 > goals.
@@ -411,6 +412,6 @@ main-theorem = g , mkEquiv f g∘f f∘g
 
 Now that Agda's all happy, our work here is done!
 
-Going through all this taught me a lot about how the basics of equivalences and
-how to express a lot of different ideas into the type system. Thanks for
+Going through all this taught me a lot about how the basics of equivalences work
+and how to express a lot of different ideas into the type system. Thanks for
 reading!
