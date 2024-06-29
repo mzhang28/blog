@@ -4,22 +4,24 @@ module Prelude where
 
 open import Agda.Primitive
 
-module 𝟘 where
-  data ⊥ : Set where
-  ¬_ : Set → Set
-  ¬ A = A → ⊥
-open 𝟘 public
+private
+  variable
+    l : Level
 
-module 𝟙 where
-  data ⊤ : Set where
-    tt : ⊤
-open 𝟙 public
+data ⊥ : Set where
 
-module 𝟚 where
-  data Bool : Set where
-    true : Bool
-    false : Bool
-open 𝟚 public
+rec-⊥ : {A : Set} → ⊥ → A
+rec-⊥ ()
+
+¬_ : Set → Set
+¬ A = A → ⊥
+
+data ⊤ : Set where
+  tt : ⊤
+
+data Bool : Set where
+  true : Bool
+  false : Bool
 
 id : {l : Level} {A : Set l} → A → A
 id x = x
@@ -39,6 +41,19 @@ open Nat public
 infix 4 _≡_
 data _≡_ {l} {A : Set l} : (a b : A) → Set l where
   instance refl : {x : A} → x ≡ x
+{-# BUILTIN EQUALITY _≡_ #-}
+
+ap : {A B : Set l} → (f : A → B) → {x y : A} → x ≡ y → f x ≡ f y
+ap f refl = refl
+
+sym : {A : Set l} {x y : A} → x ≡ y → y ≡ x
+sym refl = refl
+
+trans : {A : Set l} {x y z : A} → x ≡ y → y ≡ z → x ≡ z
+trans refl refl = refl
+
+infixl 10 _∙_
+_∙_ = trans
 
 transport : {l₁ l₂ : Level} {A : Set l₁} {x y : A}
   → (P : A → Set l₂)
@@ -72,3 +87,9 @@ _∘_ : {A B C : Set} (g : B → C) → (f : A → B) → A → C
 
 _∼_ : {A B : Set} (f g : A → B) → Set
 _∼_ {A} f g = (x : A) → f x ≡ g x
+
+postulate
+  funExt : {l : Level} {A B : Set l}
+    → {f g : A → B}
+    → ((x : A) → f x ≡ g x)
+    → f ≡ g

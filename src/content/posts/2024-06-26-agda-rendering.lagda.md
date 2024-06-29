@@ -12,7 +12,7 @@ First off, a demonstration. Here's the code for function application over a path
 
 ```
 open import Agda.Primitive
-open import Prelude
+open import Prelude hiding (ap)
 
 ap : {l1 l2 : Level} {A : Set l1} {B : Set l2} {x y : A}
   → (f : A → B)

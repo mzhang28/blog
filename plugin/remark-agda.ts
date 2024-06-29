@@ -8,6 +8,7 @@ import {
   mkdirSync,
   mkdtempSync,
   readFileSync,
+  existsSync,
   readdirSync,
   copyFileSync,
   writeFileSync,
@@ -35,6 +36,8 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
 
     const tempDir = mkdtempSync(join(tmpdir(), "agdaRender."));
     const agdaOutDir = join(tempDir, "output");
+    const agdaOutFilename = parse(path).base.replace(/\.lagda.md/, ".md");
+    const agdaOutFile = join(agdaOutDir, agdaOutFilename);
     mkdirSync(agdaOutDir, { recursive: true });
 
     const childOutput = spawnSync(
@@ -44,18 +47,32 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
         `--html-dir=${agdaOutDir}`,
         "--highlight-occurrences",
         "--html-highlight=code",
-        "--allow-unsolved-metas",
         path,
       ],
       {},
     );
 
-    // TODO: Handle child output
-    console.error("--AGDA OUTPUT--");
-    console.error(childOutput);
-    console.error(childOutput.stdout?.toString());
-    console.error(childOutput.stderr?.toString());
-    console.error("--AGDA OUTPUT--");
+    if (childOutput.error || !existsSync(agdaOutFile)) {
+      throw new Error(
+        `Agda error:
+
+        Stdout:
+        ${childOutput.stdout}
+
+        Stderr:
+        ${childOutput.stderr}`,
+        {
+          cause: childOutput.error,
+        },
+      );
+    }
+
+    // // TODO: Handle child output
+    // console.error("--AGDA OUTPUT--");
+    // console.error(childOutput);
+    // console.error(childOutput.stdout?.toString());
+    // console.error(childOutput.stderr?.toString());
+    // console.error("--AGDA OUTPUT--");
 
     const referencedFiles = new Set();
     for (const file of readdirSync(agdaOutDir)) {
@@ -87,11 +104,9 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
       }
     }
 
-    const filename = parse(path).base.replace(/\.lagda.md/, ".md");
     const htmlname = parse(path).base.replace(/\.lagda.md/, ".html");
-    const fullOutputPath = join(agdaOutDir, filename);
 
-    const doc = readFileSync(fullOutputPath);
+    const doc = readFileSync(agdaOutFile);
 
     // This is the post-processed markdown with HTML code blocks replacing the Agda code blocks
     const tree2 = fromMarkdown(doc);

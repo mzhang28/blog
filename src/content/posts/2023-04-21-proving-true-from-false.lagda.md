@@ -1,5 +1,5 @@
 ---
-title: "Formally proving true ≢ false in cubical Agda"
+title: "Formally proving true ≢ false in Homotopy Type Theory with Agda"
 slug: "proving-true-from-false"
 date: 2023-04-21
 tags: ["type-theory", "agda"]
@@ -12,12 +12,7 @@ math: true
 These are some imports that are required for code on this page to work properly.
 
 ```agda
-{-# OPTIONS --cubical #-}
-open import Cubical.Foundations.Prelude
-open import Prelude hiding (_≢_; _≡_; refl; transport)
-infix 4 _≢_
-_≢_ : ∀ {A : Set} → A → A → Set
-x ≢ y  =  ¬ (x ≡ y)
+open import Prelude
 ```
 
 </details>
@@ -53,9 +48,8 @@ left side so it becomes judgmentally equal to the right:
 - suc (suc (suc zero))
 - 3
 
-However, in cubical Agda, naively using `refl` with the inverse statement
-doesn't work. I've commented it out so the code on this page can continue to
-compile.
+However, in Agda, naively using `refl` with the inverse statement doesn't work.
+I've commented it out so the code on this page can continue to compile.
 
 ```
 -- true≢false = refl
@@ -88,7 +82,7 @@ The strategy here is we define some kind of "type-map". Every time we see
 `false`, we'll map it to empty.
 
 ```
-bool-map : Bool → Type
+bool-map : Bool → Set
 bool-map true = ⊤
 bool-map false = ⊥
 ```
@@ -98,26 +92,29 @@ over a path (the path supposedly given to us as the witness that true ≢ false)
 will produce a function from the inhabited type we chose to the empty type!
 
 ```
-true≢false p = transport (λ i → bool-map (p i)) tt
+true≢false p = transport bool-map p tt
 ```
 
 I used `true` here, but I could equally have just used anything else:
 
 ```
-bool-map2 : Bool → Type
+bool-map2 : Bool → Set
 bool-map2 true = 1 ≡ 1
 bool-map2 false = ⊥
 
 true≢false2 : true ≢ false
-true≢false2 p = transport (λ i → bool-map2 (p i)) refl
+true≢false2 p = transport bool-map2 p refl
 ```
 
 ## Note on proving divergence on equivalent values
 
-Let's make sure this isn't broken by trying to apply this to something that's
-actually true:
+> [!NOTE]
+> Update: some of these have been commented out since regular Agda doesn't support higher inductive types
 
-```
+Let's make sure this isn't broken by trying to apply this to something that's
+actually true, like this higher inductive type:
+
+```text
 data NotBool : Type where
   true1 : NotBool
   true2 : NotBool
@@ -128,8 +125,7 @@ In this data type, we have a path over `true1` and `true2` that is a part of the
 definition of the `NotBool` type. Since this is an intrinsic equality, we can't
 map `true1` and `true2` to divergent types. Let's see what happens:
 
-```
-{-# NON_COVERING #-}
+```text
 notbool-map : NotBool → Type
 notbool-map true1 = ⊤
 notbool-map true2 = ⊥
