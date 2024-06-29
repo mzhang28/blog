@@ -24,7 +24,6 @@ $$
 <small>The following line imports some of the definitions used in this post.</small>
 
 ```
-{-# OPTIONS --allow-unsolved-metas #-}
 open import Prelude
 open Σ
 ```
