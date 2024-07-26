@@ -1,10 +1,9 @@
 I'm a computer science master's student at the [University of Minnesota][1], advised by [Favonia].
-My current research focus for my thesis is cubical type theory and its applications to formalizing mathematical proofs.
+My current research is cubical type theory and its applications to formalizing some results in algebraic topology.
 
-I also work as a researcher for [SIFT]. Previously I worked as a software engineer at [Swoop Search] and [AWS].
-My computing-related interests lie in programming language design, type theory, formal verification, systems security, cryptography, and distributed systems.
+I also work as a researcher for [SIFT], specializing in compilers and binary analysis. Previously I worked as a software engineer at [Swoop Search] and [AWS].
 
-In my past life, I was a CTF hobbyist. I created [EasyCTF], a cybersecurity competition for high schoolers.
+Before that, I was a CTF hobbyist. I created [EasyCTF], a cybersecurity competition for high schoolers.
 I also briefly played with the CTF team [Project Sekai][pjsk].
 
 [1]: https://twin-cities.umn.edu/
