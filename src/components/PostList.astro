@@ -79,7 +79,7 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 <style lang="scss">
   .postListing {
     width: 100%;
-    border-spacing: 6px 16px;
+    border-spacing: 6px 24px;
 
     :global(.timestamp) {
       font-family: var(--monofont);
@@ -88,7 +88,7 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
     }
 
     :global(.tags) {
-      gap: 4px;
+      gap: 8px;
       display: inline-flex;
 
       :global(.tag) {
@@ -99,6 +99,9 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 
     td {
       line-height: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
 
       .title {
         font-size: 12pt;

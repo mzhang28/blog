@@ -4,7 +4,7 @@ date: 2023-03-29
 tags: ["docker", "linux"]
 ---
 
-First (published) blog post of the year! :raising_hands:
+First (published) blog post of the year! :raised_hands:
 
 Here is a rather dumb way of entering a Docker Compose container that didn't
 have a shell. In this specific case, I was trying to enter a Woodpecker CI

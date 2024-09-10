@@ -27,6 +27,7 @@
   display: flex;
   padding: 20px;
   box-sizing: border-box;
+  gap: 6px;
 
   flex-direction: column;
 
@@ -225,6 +226,8 @@
 
   >p {
     line-height: 1.25;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
   }
 
   >p>img {
