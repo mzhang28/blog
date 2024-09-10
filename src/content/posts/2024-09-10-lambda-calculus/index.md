@@ -124,7 +124,7 @@ This says that there are only 3 possible terms:
 3. $t(t)$ which is just function application, one term calling another
 
 All of the terms above, including $\mathsf{plus}$, can be represented as a
-combination of these constructors.
+combination of these constructors. Try it for yourself!
 
 Great, but we can't really do anything if all we know is how to write down some
 terms. We need some rules to tell us how to evaluate it. Something like this:

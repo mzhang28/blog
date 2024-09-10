@@ -2,7 +2,7 @@
 title: Coping with refactoring
 date: 2024-06-21T05:56:50.594Z
 tags:
-  - software-engineering
+  - engineering
 
 heroImage: ./ruinsHero.png
 heroAlt: ruins
