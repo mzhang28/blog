@@ -50,7 +50,7 @@ code {
   // color: $code-color;
 }
 
-pre > code,
+pre>code,
 pre.Agda {
   color: var(--text-color);
   display: block;
@@ -77,6 +77,10 @@ small {
   color: var(--small-text-color);
 }
 
+ul li {
+  margin-bottom: 6px;
+}
+
 // Letter spacing
 
 body {
@@ -84,7 +88,7 @@ body {
 }
 
 code,
-pre > code {
+pre>code {
   font-size: 0.95rem;
   letter-spacing: -0.035rem;
 }
@@ -98,7 +102,7 @@ pre > code {
   justify-content: center;
 }
 
-.flex-wrapper > main {
+.flex-wrapper>main {
   min-width: 0;
   max-width: variables.$breakpoint;
   flex-grow: 1;
@@ -116,6 +120,7 @@ pre > code {
 @media screen and (max-width: variables.$breakpoint) {
   .flex-wrapper {
     flex-direction: column;
+
     .container {
       padding: 5px 20px;
     }
@@ -125,12 +130,13 @@ pre > code {
 @media screen and (min-width: variables.$breakpoint) {
   .flex-wrapper {
     flex-direction: row;
+
     .container {
       padding: 32px 40px 5px 40px;
     }
   }
 
-  .flex-wrapper > main.pad {
+  .flex-wrapper>main.pad {
     padding-left: 30px;
     padding-right: 30px;
   }
