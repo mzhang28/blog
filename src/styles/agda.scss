@@ -4,6 +4,8 @@
   --blue: #5175be;
   --module: purple;
   --inductive-constructor: #008b00;
+  --comment: #b22222;
+  --string: var(--comment);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,12 +15,13 @@
     --blue: #9999FF;
     --module: hsl(276, 66%, 69%);
     --inductive-constructor: #32bb32;
+    --comment: hsl(0, 78%, 66%);
   }
 }
 
 /* Aspects. */
 .Agda .Comment {
-  color: #B22222
+  color: var(--comment);
 }
 
 .Agda .Background {}
@@ -32,7 +35,7 @@
 }
 
 .Agda .String {
-  color: #B22222
+  color: var(--string);
 }
 
 .Agda .Number {
