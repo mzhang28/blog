@@ -7,6 +7,7 @@ import Timestamp from "../../components/Timestamp.astro";
 import { getImage } from "astro:assets";
 import TocWrapper from "../../components/TocWrapper.astro";
 import TagList from "../../components/TagList.astro";
+import portrait from "../../assets/self.png";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -22,7 +23,7 @@ const post = Astro.props;
 const { Content, remarkPluginFrontmatter, headings } = await post.render();
 const { title, toc, heroImage: heroImagePath, heroAlt, draft } = post.data;
 
-let heroImage;
+let heroImage = undefined;
 if (heroImagePath) {
   heroImage = await getImage({ src: heroImagePath });
 }
@@ -40,8 +41,16 @@ const excerpt = remarkPluginFrontmatter.excerpt?.replaceAll("\n", "");
   <meta slot="head" property="og:description" content={excerpt} />
   <meta slot="head" property="og:type" content="article" />
   <meta slot="head" property="og:locale" content="en_US" />
-  {heroImage && <meta slot="head" property="og:image" content={heroImage.src} />}
-  {heroAlt && <meta slot="head" property="og:image:alt" content={heroAlt} />}
+  {heroImage ?
+    <>
+      <meta slot="head" property="og:image" content={heroImage.src} />
+      {heroAlt && <meta slot="head" property="og:image:alt" content={heroAlt} />}
+    </>
+    :
+    <>
+      <meta slot="head" property="og:image" content={portrait.src} />
+    </>
+  }
 
   <meta slot="head" property="keywords" content={post.data.tags.join(", ")} />
   <meta slot="head" property="description" content={excerpt} />

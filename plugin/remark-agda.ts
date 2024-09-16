@@ -52,20 +52,27 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
       {},
     );
 
-    if (childOutput.error || !existsSync(agdaOutFile)) {
+    // Locate output file
+    const directory = readdirSync(agdaOutDir);
+    const outputFilename = directory.find((name) => name.endsWith(".md"));
+
+    if (childOutput.status !== 0 || outputFilename === undefined) {
       throw new Error(
-        `Agda error:
+        `Agda output:
 
         Stdout:
         ${childOutput.stdout}
 
         Stderr:
-        ${childOutput.stderr}`,
+        ${childOutput.stderr}
+        `,
         {
           cause: childOutput.error,
         },
       );
     }
+
+    const outputFile = join(agdaOutDir, outputFilename);
 
     // // TODO: Handle child output
     // console.error("--AGDA OUTPUT--");
@@ -106,7 +113,7 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
 
     const htmlname = parse(path).base.replace(/\.lagda.md/, ".html");
 
-    const doc = readFileSync(agdaOutFile);
+    const doc = readFileSync(outputFile);
 
     // This is the post-processed markdown with HTML code blocks replacing the Agda code blocks
     const tree2 = fromMarkdown(doc);
