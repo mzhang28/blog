@@ -13,11 +13,11 @@ draft: true
 {-# OPTIONS --cubical --allow-unsolved-metas #-}
 module 2024-09-15-circle-is-a-suspension-over-booleans.index where
 open import Cubical.Core.Primitives
-open import Cubical.Foundations.Function
+open import Cubical.Foundations.Prelude
+open import Cubical.Foundations.GroupoidLaws
 open import Cubical.Foundations.Isomorphism
-open import Cubical.Foundations.Equiv.Base
 open import Cubical.HITs.S1.Base
-open import Data.Bool.Base
+open import Data.Bool.Base hiding (_∧_; _∨_)
 open import Data.Nat.Base
 ```
 
@@ -118,19 +118,52 @@ We can write functions going back and forth:
 Σ2→S¹ (merid false i) = loop i -- for the path going through false, let's map this to the loop
 Σ2→S¹ (merid true i) = base -- for the path going through true, let's map this to refl
 
--- S¹→Σ2 : S¹ → Susp Bool
--- S¹→Σ2 base = north
--- S¹→Σ2 (loop i) = {!   !}
+S¹→Σ2 : S¹ → Susp Bool
+S¹→Σ2 base = north
+S¹→Σ2 (loop i) = (merid false ∙ sym (merid true)) i
 ```
 
 Now, to finish showing the equivalence, we need to prove that these functions concatenate into the identity in both directions:
 
 ```
--- rightInv : section Σ2→S¹ S¹→Σ2
--- rightInv = {!   !}
+rightInv : section Σ2→S¹ S¹→Σ2
+rightInv base = refl
+rightInv (loop i) =
+  -- Trying to prove that Σ2→S¹ (S¹→Σ2 loop) ≡ loop
+  -- Σ2→S¹ (merid false ∙ sym (merid true)) ≡ loop
 
--- leftInv : retract Σ2→S¹ S¹→Σ2
--- leftInv = {!   !}
+  -- Σ2→S¹ (merid false) = loop
+  -- Σ2→S¹ (sym (merid true)) = refl_base
+  cong (λ p → p i) (
+    cong Σ2→S¹ (merid false ∙ sym (merid true)) ≡⟨ congFunct {x = merid false _} Σ2→S¹ refl refl ⟩
+    loop ∙ refl ≡⟨ sym (rUnit loop) ⟩
+    loop ∎
+  )
+
+
+leftInv : retract Σ2→S¹ S¹→Σ2
+leftInv north = refl
+leftInv south = merid true
+leftInv (merid true i) j =
+  -- i0 = north, i1 = merid true j (j = i0 => north, j = i1 => south)
+  merid true (i ∧ j)
+leftInv (merid false i) j =
+  -- j = i0 ⊢ (merid false ∙ (λ i₁ → merid true (~ i₁))) i
+  -- j = i1 ⊢ merid false i
+  -- i = i0 ⊢ north
+  -- i = i1 ⊢ merid true j
+
+  -- (i, j) = (i0, i0) = north
+  -- (i, j) = (i0, i1) = north
+  -- (i, j) = (i1, i0) = merid true i0 = north
+  -- (i, j) = (i1, i1) = merid true i1 = south
+  let f = λ k → λ where
+    (i = i0) → north
+    (i = i1) → merid true (j ∨ ~ k)
+    -- j = i0 ⊢ (merid false ∙ (λ i₁ → merid true (~ i₁))) i
+    (j = i0) → compPath-filler (merid false) (sym (merid true)) k i
+    (j = i1) → merid false i
+  in hcomp f (merid false i)
 ```
 
 And this gives us our equivalence!
