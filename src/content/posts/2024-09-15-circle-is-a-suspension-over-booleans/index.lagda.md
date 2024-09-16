@@ -118,26 +118,26 @@ We can write functions going back and forth:
 Σ2→S¹ (merid false i) = loop i -- for the path going through false, let's map this to the loop
 Σ2→S¹ (merid true i) = base -- for the path going through true, let's map this to refl
 
-S¹→Σ2 : S¹ → Susp Bool
-S¹→Σ2 base = north
-S¹→Σ2 (loop i) = {!   !}
+-- S¹→Σ2 : S¹ → Susp Bool
+-- S¹→Σ2 base = north
+-- S¹→Σ2 (loop i) = {!   !}
 ```
 
 Now, to finish showing the equivalence, we need to prove that these functions concatenate into the identity in both directions:
 
 ```
-rightInv : section Σ2→S¹ S¹→Σ2
-rightInv = {!   !}
+-- rightInv : section Σ2→S¹ S¹→Σ2
+-- rightInv = {!   !}
 
-leftInv : retract Σ2→S¹ S¹→Σ2
-leftInv = {!   !}
+-- leftInv : retract Σ2→S¹ S¹→Σ2
+-- leftInv = {!   !}
 ```
 
 And this gives us our equivalence!
 
 ```
-Σ2≃S¹ : Susp Bool ≃ S¹
-Σ2≃S¹ = isoToEquiv (iso Σ2→S¹ S¹→Σ2 rightInv leftInv)
+-- Σ2≃S¹ : Susp Bool ≃ S¹
+-- Σ2≃S¹ = isoToEquiv (iso Σ2→S¹ S¹→Σ2 rightInv leftInv)
 ```
 
 In fact, we can also show that the $2$-sphere is the suspension of the $1$-sphere.
