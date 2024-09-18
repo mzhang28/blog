@@ -22,7 +22,7 @@ open import Cubical.Foundations.Isomorphism
 open import Cubical.Core.Primitives
 open import Cubical.HITs.Susp.Base
 open import Cubical.HITs.S1.Base
-open import Data.Bool.Base
+open import Data.Bool.Base hiding (_∧_; _∨_)
 ```
 
 </details>
@@ -196,17 +196,39 @@ Between the second and third steps, I used functoriality of the $\mathsf{ap}$ op
 ```
   fg (loop i) k =
     let
-      leftFace = λ j → compPath-filler (λ i → f (merid false i)) (λ j → f (merid true (~ j))) j i
-
       u = λ j → λ where
         (i = i0) → base
         (i = i1) → f (merid true (~ j))
-        (k = i0) → leftFace j
+        (k = i0) → compPath-filler
+                      (λ i → f (merid false i))
+                      (λ j → f (merid true (~ j))) j i
         (k = i1) → loop i
     in hcomp u (f (merid false i))
 ```
 
 ```
   gf : (b : Susp Bool) → g (f b) ≡ b
-  gf b = {!   !}
+  gf north = refl
+  gf south = merid true
+    -- Both merid true and merid false work here... why pick true?
+  gf (merid true i) j = merid true (i ∧ j)
+```
+
+For the last part, we are trying to prove:
+
+`(merid false ∙ (λ i₁ → merid true (~ i₁))) i ≡ merid false i`
+
+```
+  gf (merid false i) j =
+    let
+      u = λ k → λ where
+        (i = i0) → north
+        (i = i1) → merid true (j ∨ ~ k)
+        (j = i0) →
+          let u = λ k' → λ where
+            (i = i0) → north
+            (i = i1) → merid true (~ k')
+          in hfill u (inS (merid false i)) k
+        (j = i1) → merid false i
+    in hcomp u (merid false i)
 ```
