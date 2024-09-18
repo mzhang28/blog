@@ -5,6 +5,7 @@
 
   :root {
     --background-color: #{$backgroundColor};
+    --sidebar-color: #f8f8f8;
     --faded-background-color: #{darken($backgroundColor, 10%)};
     --shadow-color: #{darken($backgroundColor, 10%)};
     --heading-color: #{darken(royalblue, 10%)};
@@ -48,6 +49,7 @@
 
   :root {
     --background-color: #{$backgroundColor};
+    --sidebar-color: hsl(230, 20%, 20%);
     --faded-background-color: #{lighten($backgroundColor, 10%)};
     --shadow-color: #{lighten($backgroundColor, 10%)};
     --heading-color: #{lighten(lightskyblue, 20%)};

@@ -64,6 +64,8 @@
 
 @media screen and (max-width: variables.$breakpoint) {
   .side-nav {
+    background: linear-gradient(to top, var(--sidebar-color) 50%, transparent);
+
     .side-nav-content {
       width: 100%;
       padding: 18px 0;
@@ -94,6 +96,8 @@
     // Capital Min to avoid invoking SCSS min
     width: 300px;
     min-width: 300px;
+
+    background: linear-gradient(to left, var(--sidebar-color) 50%, transparent);
 
     .side-nav-content {
       height: 100vh;
