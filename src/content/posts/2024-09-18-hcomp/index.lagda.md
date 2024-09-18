@@ -118,6 +118,11 @@ We can use $\mathsf{isProp}$ to generate us some faces, except using $x$ and $p(
 
 ![](./frontback.jpg)
 
+Writing this down as code, we get:
+
+* $(j = \mathsf{i0}) \rightarrow f(x, p(i), k)$
+* $(j = \mathsf{i1}) \rightarrow f(x, q(i), k)$
+
 This time, the $i$ dimension has the $\mathsf{refl}$ edges.
 Since all the edges on the bottom face as $\mathsf{refl}$, we can just use the constant $\mathsf{refl}_{\mathsf{refl}_x}$ as the bottom face.
 In cubical, this is the constant expression `x`.
