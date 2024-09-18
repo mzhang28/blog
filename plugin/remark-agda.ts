@@ -113,6 +113,7 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
 
     const htmlname = parse(path).base.replace(/\.lagda.md/, ".html");
 
+    console.log("Output file:", outputFile);
     const doc = readFileSync(outputFile);
 
     // This is the post-processed markdown with HTML code blocks replacing the Agda code blocks
@@ -150,13 +151,23 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
     });
 
     let idx = 0;
-    visit(tree, "code", (node) => {
-      if (!(node.lang === null || node.lang === "agda")) return;
+    try {
+      visit(tree, "code", (node) => {
+        if (!(node.lang === null || node.lang === "agda")) return;
 
-      node.type = "html";
-      node.value = collectedCodeBlocks[idx].contents;
-      idx += 1;
-    });
+        if (idx > collectedCodeBlocks.length) {
+          throw new Error("failed");
+        }
+
+        node.type = "html";
+        node.value = collectedCodeBlocks[idx].contents;
+        idx += 1;
+      });
+    } catch (e) {
+      console.log(
+        "Mismatch in number of args. Perhaps there was an empty block?",
+      );
+    }
   };
 };
 
