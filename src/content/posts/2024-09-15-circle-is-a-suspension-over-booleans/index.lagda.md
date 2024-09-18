@@ -135,7 +135,7 @@ rightInv (loop i) =
   -- Σ2→S¹ (merid false) = loop
   -- Σ2→S¹ (sym (merid true)) = refl_base
   cong (λ p → p i) (
-    cong Σ2→S¹ (merid false ∙ sym (merid true)) ≡⟨ congFunct {x = merid false _} Σ2→S¹ refl refl ⟩
+    cong Σ2→S¹ (merid false ∙ sym (merid true)) ≡⟨ congFunct {x = merid false {!   !}} Σ2→S¹ refl refl ⟩
     loop ∙ refl ≡⟨ sym (rUnit loop) ⟩
     loop ∎
   )
