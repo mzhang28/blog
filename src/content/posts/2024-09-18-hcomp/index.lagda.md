@@ -42,36 +42,43 @@ Now let's construct an hcomp. In a set, we'd want paths $p$ and $q$ between the 
 Suppose $p$ and $q$ operate over the same dimension, $i$.
 If we want to find a path between $p$ and $q$, we'll want another dimension.
 Let's call this $j$.
-So essentially, we want a square with these boundaries
+So essentially, the final goal is a square with these boundaries:
 
-* the left is $\mathsf{refl}_x$
-* the right is $\mathsf{refl}_y$
-* the bottom is $p(i)$
-* the top is $q(i)$
+![](./goal.jpg)
 
 Our goal is to find out what completes this square.
 Well, one way to complete a square is to treat it as the top face of a cube and use $\mathsf{hcomp}$.
-
-Remember:
 
 * $i$ is the left-right dimension, the one that $p$ and $q$ work over
 * $j$ is the dimension of our final path between $p \equiv q$.
   Note that this is the first argument, because our top-level ask was $p \equiv q$.
 * Let's introduce a dimension $k$ for doing our $\mathsf{hcomp}$
 
+![](./cubeextend.jpg)
+
 We can map both $p(i)$ and $q(i)$ down to a square that has $x$ on all corners and $\mathsf{refl}_x$ on all sides.
-The method is this:
 
-* the bottom face $(k = \mathsf{i0})$ is the constant $x$
-* the left face $(i = \mathsf{i0})$ is _also_ the constant $x$
-* the right face $(i = \mathsf{i1})$ is trickier.
-  We have $x$ on the bottom 2 corners, but $y$ on the top two corners.
-  Fortunately, $\mathsf{isProp}(A)$ tells us that $x$ and $y$ are the same, so $x \equiv y$.
-  This means we can define this face as $\mathsf{isProp}(A, x, y, j)$.
-* the same logic applies to the front face $(j = \mathsf{i0})$ and back face $(j = \mathsf{i1})$.
-  We can use $\mathsf{isProp}$ to generate us some faces, except using $x$ and $p(i)$, or $x$ and $q(i)$ as the two endpoints.
+Let's start with the left and right faces $(i = \{ \mathsf{i0} , \mathsf{i1} \})$.
+These can be produced using the $\mathsf{isProp}(A)$ that we are given.
+$\mathsf{isProp}(A)$ tells us that $x$ and $y$ are the same, so $x \equiv x$ and $x \equiv y$.
+This means we can define the left face as $\mathsf{isProp}(A, x, x, k)$ and the right face as $\mathsf{isProp}(A, x, y, k)$.
+(Remember, $k$ is the direction going from bottom to top)
 
-Now we can try to find the top face $(k = \mathsf{i1})$:
+![](./sides.jpg)
+
+Since $k$ is only the bottom-to-top dimension, the front-to-back dimension isn't changing.
+So we can use $\mathsf{refl}$ for those bottom edges.
+
+The same logic applies to the front face $(j = \mathsf{i0})$ and back face $(j = \mathsf{i1})$.
+We can use $\mathsf{isProp}$ to generate us some faces, except using $x$ and $p(i)$, or $x$ and $q(i)$ as the two endpoints.
+
+![](./frontback.jpg)
+
+This time, the $i$ dimension has the $\mathsf{refl}$ edges.
+Since all the edges on the bottom face as $\mathsf{refl}$, we can just use the constant $\mathsf{refl}_{\mathsf{refl}_x}$ as the bottom face.
+In cubical, this is the constant expression `x`.
+
+Putting this all together, we can using $\mathsf{hcomp}$ to complete the top face $(k = \mathsf{i1})$ for us:
 
 ```
     let u = λ k → λ where
@@ -82,6 +89,8 @@ Now we can try to find the top face $(k = \mathsf{i1})$:
     in hcomp u x
 ```
 
-This type-checks! Let's move on to a more complicated example.
+Hooray! Agda is happy with this.
+
+Let's move on to a more complicated example.
 
 ## Example: $\Sigma \mathbb{2} \rightarrow S^1$
