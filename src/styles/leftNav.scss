@@ -37,7 +37,7 @@
   }
 
   .portrait {
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
   }
 
   a.portrait {
@@ -47,8 +47,8 @@
 
   a.portrait img {
     border-radius: 100%;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
   }
 
   .bio {

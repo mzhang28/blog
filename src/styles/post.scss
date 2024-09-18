@@ -99,7 +99,7 @@
     p>img {
       margin: auto;
       max-width: 75%;
-      max-height: 240px;
+      max-height: 280px;
 
       width: auto;
       height: auto;
@@ -279,5 +279,20 @@ hr.endline {
   &.WARNING {
     --admonition-color: var(--warning-color);
     --admonition-bg-color: var(--warning-bg-color);
+  }
+}
+
+.halfSplit {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  overflow-y: auto;
+
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+
+    pre.Agda {
+      margin: 0;
+    }
   }
 }
