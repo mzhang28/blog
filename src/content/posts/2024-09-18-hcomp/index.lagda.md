@@ -6,12 +6,20 @@ tags: [hott, cubical]
 draft: true
 ---
 
-**hcomp** is a primitive operation in [cubical type theory][cchm] that completes the _lid_ of an incomplete cube, given the bottom face and some number of side faces.
+[**hcomp**][1] is a primitive operation in [cubical type theory][cubical] that completes the _lid_ of an incomplete cube, given the bottom face and some number of side faces.
 
-[CCHM]: https://arxiv.org/abs/1611.02108
+[1]: https://agda.readthedocs.io/en/latest/language/cubical.html#homogeneous-composition
+[cubical]: https://arxiv.org/abs/1611.02108
+
+> [!admonition: NOTE]
+> All the code samples in this document are written in _and_ checked for correctness by [Agda], a dependently typed programming language that implements cubical type theory.
+> Many of the names and symbols in the names are clickable links that take you to where that symbol is defined.
+> Below are all of the imports required for this page to work.
+
+[agda]: https://agda.readthedocs.io/en/latest/getting-started/what-is-agda.html
 
 <details>
-<summary>Imports</summary>
+<summary>Imports for Agda</summary>
 
 ```
 {-# OPTIONS --cubical #-}
@@ -29,7 +37,9 @@ open import Data.Bool.Base hiding (_∧_; _∨_)
 
 ## Two-dimensional case
 
-In two dimensions, hcomp can be understood as the double-composition operation.
+In two dimensions, $\mathsf{hcomp}$ can be understood as the double-composition operation.
+Given three paths $p : x \equiv y$, $q : y \equiv z$ and $r : x \equiv w$, it will return a path representing the composed path $((\sim r) \cdot p \cdot q) : (w ≡ z)$.
+
 "Single" composition (between two paths rather than three) is typically implemented as a double composition with the left leg as $\mathsf{refl}$.
 Without the double composition, this looks like:
 
@@ -48,8 +58,13 @@ The `(i = i0)` case in this case is $\mathsf{refl}_x(j)$ which is definitionally
 
 ## Example: $\mathsf{isProp}(A) \rightarrow \mathsf{isSet}(A)$
 
-Suppose we want to prove that all mere propositions (h-level 1) are sets (h-level 2).
-This result exists in the cubical standard library, but let's go over it here.
+Suppose we want to prove that all [mere proposition]s ([h-level] 1) are [sets] ([h-level] 2).
+This result exists in the [cubical library], but let's go over it here.
+
+[sets]: https://ncatlab.org/nlab/show/h-set
+[mere proposition]: https://ncatlab.org/nlab/show/mere+proposition
+[h-level]: https://ncatlab.org/nlab/show/homotopy+level
+[cubical library]: https://github.com/agda/cubical/
 
 ```
 isProp→isSet : {A : Type} → isProp A → isSet A
@@ -58,9 +73,9 @@ isProp→isSet {A} f = goal where
   goal x y p q j i = -- ...
 ```
 
-We're given a type $A$, some proof that it's a mere proposition, let's call it $f : \mathsf{isProp}(A)$.
+We're given a type $A$, some proof that it's a [mere proposition], let's call it $f : \mathsf{isProp}(A)$.
 
-Now let's construct an hcomp. In a set, we'd want paths $p$ and $q$ between the same points $x$ and $y$ to be equal.
+Now let's construct an hcomp. In a [set][sets], we'd want paths $p$ and $q$ between the same points $x$ and $y$ to be identified.
 Suppose $p$ and $q$ operate over the same dimension, $i$.
 If we want to find a path between $p$ and $q$, we'll want another dimension.
 Let's call this $j$.

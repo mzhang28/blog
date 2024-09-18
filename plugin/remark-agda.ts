@@ -14,7 +14,7 @@ import {
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
-import { join, parse } from "node:path";
+import { join, parse, resolve, basename } from "node:path";
 import { visit } from "unist-util-visit";
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
 
@@ -109,9 +109,11 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
       }
     }
 
-    const htmlname = parse(path).base.replace(/\.lagda.md/, ".html");
+    const htmlname = basename(resolve(outputFile)).replace(
+      /(\.lagda)?\.md/,
+      ".html",
+    );
 
-    console.log("Output file:", outputFile);
     const doc = readFileSync(outputFile);
 
     // This is the post-processed markdown with HTML code blocks replacing the Agda code blocks
@@ -131,7 +133,9 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
           const [href, hash, ...rest] = node.properties.href.split("#");
           if (rest.length > 0) throw new Error("come look at this");
 
-          if (href === htmlname) node.properties.href = `#${hash}`;
+          if (href === htmlname) {
+            node.properties.href = `#${hash}`;
+          }
 
           if (referencedFiles.has(href)) {
             node.properties.href = `${base}generated/agda/${href}${hash ? `#${hash}` : ""}`;

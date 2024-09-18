@@ -89,9 +89,7 @@ export const mkdocsConfig: Partial<Config> = {
   titleFilter: (title) => Boolean(title.match(TITLE_PATTERN)),
 
   titleTextMap: (title: string) => {
-    console.log("title", title);
     const match = title.match(TITLE_PATTERN);
-    console.log("matches", match);
     const displayTitle = match?.[1] ?? "";
     const checkedTitle = displayTitle;
     return { displayTitle, checkedTitle };
