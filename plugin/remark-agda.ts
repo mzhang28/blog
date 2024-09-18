@@ -36,8 +36,6 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
 
     const tempDir = mkdtempSync(join(tmpdir(), "agdaRender."));
     const agdaOutDir = join(tempDir, "output");
-    const agdaOutFilename = parse(path).base.replace(/\.lagda.md/, ".md");
-    const agdaOutFile = join(agdaOutDir, agdaOutFilename);
     mkdirSync(agdaOutDir, { recursive: true });
 
     const childOutput = spawnSync(
@@ -164,6 +162,8 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
         idx += 1;
       });
     } catch (e) {
+      // TODO: Figure out a way to handle this correctly
+      // Possibly by diffing?
       console.log(
         "Mismatch in number of args. Perhaps there was an empty block?",
       );
