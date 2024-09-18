@@ -258,13 +258,29 @@ Again, the point constructor cases are relatively simple.
 For the meridian case $(b : 2) \rightarrow \mathsf{north} \equiv \mathsf{south}$, we can do $2$-induction on $b$.
 First, for the $\mathsf{true}$ case, let's see the diagram of what we're trying to prove.
 
+![](./goal3.jpg)
+
+After simplifying all the expressions, we find that $g(f(\mathsf{merid} \; \mathsf{true} \; i)) = g(\mathsf{base}) = \mathsf{north}$.
+So really, we're trying to prove that $\mathsf{north} \equiv \mathsf{merid} \; \mathsf{true} \; i$.
+
+![](./goal4.jpg)
+
+But wait, that's odd... there's a $\mathsf{south}$ in the top right corner. What can we do?
+
+Well, we could actually use the _same_ path on the right as on the top.
+We won't even need an $\mathsf{hcomp}$ for this, just a clever interval expression:
+
 ```
   gf (merid true i) j = merid true (i ∧ j)
 ```
 
-For the last part, we are trying to prove:
+One last cube for the $g(f(\mathsf{merid} \; \mathsf{false} \; i)) \; j$ case.
+This cube actually looks very similar to the $f(g(s))$ cube, although the points are in the suspension type rather than in $S^1$.
+Once again we have a composition, so we will need an extra $\mathsf{hfill}$ to get us the front face of this cube.
 
-`(merid false ∙ (λ i₁ → merid true (~ i₁))) i ≡ merid false i`
+![](./gf.jpg)
+
+This cube cleanly extracts into the following Agda code.
 
 ```
   gf (merid false i) j =
@@ -280,3 +296,8 @@ For the last part, we are trying to prove:
         (j = i1) → merid false i
     in hcomp u (merid false i)
 ```
+
+These are some of my takeaways from studying cubical type theory and $\mathsf{hcomp}$ these past few weeks.
+One thing I'd have to note is that drawing all these cubes really does make me wish there was some kind of 3D visualizer for these cubes...
+
+Anyway, that's all! See you next post :)
