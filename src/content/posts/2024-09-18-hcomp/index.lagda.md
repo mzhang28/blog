@@ -182,9 +182,13 @@ In Agda, we can write it like this:
 
 </div>
 
-Now, the fun part is to show the extra requirements that is needed to show that these two functions indeed form an isomorphism.
-Starting with the first, let's show $f(g(s)) \equiv s$.
-The base case is easily handled by $\mathsf{refl}$, since $f(g(\mathsf{base})) = f(\mathsf{north}) = \mathsf{base}$ definitionally by the reduction rules we gave above.
+Now, the fun part is to show the extra requirements that is needed to show that these two functions indeed form an isomorphisms:
+
+* $f(g(s)) \equiv s$
+* $g(f(b)) \equiv b$
+
+Let's show $f(g(s)) \equiv s$ by induction on $s$, which is of type $S^1$.
+The $\mathsf{base}$ case is easily handled by $\mathsf{refl}$, since $f(g(\mathsf{base})) = f(\mathsf{north}) = \mathsf{base}$ definitionally by the reduction rules we gave above.
 
 ```
   fg : (s : S¹) → f (g s) ≡ s
@@ -242,11 +246,19 @@ The Agda translation looks like this:
 
 Nothing should be too surprising here, other than the use of a nested $\mathsf{hfill}$ which is needed to describe the face that contains the composition.
 
+Now, to prove $g(f(b)) \equiv b$, where $b : \Sigma 2$. We can do induction on $b$.
+Again, the point constructor cases are relatively simple.
+
 ```
   gf : (b : Susp Bool) → g (f b) ≡ b
   gf north = refl
   gf south = merid true
-    -- Both merid true and merid false work here... why pick true?
+```
+
+For the meridian case $(b : 2) \rightarrow \mathsf{north} \equiv \mathsf{south}$, we can do $2$-induction on $b$.
+First, for the $\mathsf{true}$ case, let's see the diagram of what we're trying to prove.
+
+```
   gf (merid true i) j = merid true (i ∧ j)
 ```
 
