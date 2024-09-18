@@ -4,6 +4,7 @@ import LeftNav from "../components/LeftNav.astro";
 import classNames from "classnames";
 import "../styles/global.scss";
 import "katex/dist/katex.min.css";
+import portrait from "../assets/self.png";
 
 interface Props {
   title?: string;
@@ -21,6 +22,7 @@ const hasToc = toc ?? false;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content={portrait.src} />
     <title>{title && `${title} - `} Michael Zhang</title>
     <script
       data-goatcounter="https://goatcounter.mzhang.io/count"
