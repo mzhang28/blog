@@ -1,5 +1,5 @@
 I'm a computer science master's student at the [University of Minnesota][1], advised by [Favonia].
-My current research is cubical type theory and its applications to formalizing some results in algebraic topology.
+My current research topic is in cubical type theory and formalization of the Serre spectral sequence.
 
 I also work as a researcher for [SIFT], specializing in compilers and binary analysis. Previously I worked as a software engineer at [Swoop Search] and [AWS].
 
