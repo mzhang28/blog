@@ -202,7 +202,7 @@ In Agda, we can write it like this:
 
 </div>
 
-Now, the fun part is to show the extra requirements that is needed to show that these two functions indeed form an isomorphisms:
+Now, the fun part is to show the extra requirements that are needed to show that these two functions indeed form an isomorphism:
 
 * $f(g(s)) \equiv s$
 * $g(f(b)) \equiv b$
