@@ -8,7 +8,7 @@ const currentUrl = Astro.url;
 ---
 
 <BaseLayout>
-  <h2>Blog</h2>
+  <h1>Blog</h1>
 
   <PostList class="home" timeFormat="yyyy-MM-dd" basePath={join(currentUrl.pathname, "posts")} />
 </BaseLayout>

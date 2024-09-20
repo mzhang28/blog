@@ -99,8 +99,8 @@ We can map both $p(i)$ and $q(i)$ down to a square that has $x$ on all corners a
 
 Let's start with the left and right faces $(i = \{ \mathsf{i0} , \mathsf{i1} \})$.
 These can be produced using the proof $f : \mathsf{isProp}(A)$ that we are given.
-$f$ tells us that $x$ and $y$ are the same, so $f(x, x) = x \equiv x$ and $f(x, y) = x \equiv y$.
-This means we can define the left face as $f(x, x, k)$ and the right face as $f(x, y, k)$.
+$f$ tells us that $x$ and $y$ are the same, so $f(x, x) : x \equiv x$ and $f(x, y) : x \equiv y$.
+This means we can define the left face as $f(x, x)(k)$ and the right face as $f(x, y)(k)$.
 (Remember, $k$ is the direction going from bottom to top)
 
 ![](./sides.jpg)

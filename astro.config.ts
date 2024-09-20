@@ -22,6 +22,7 @@ const publicDir = "public";
 // https://astro.build/config
 export default defineConfig({
   site: "https://mzhang.io",
+  prefetch: true,
   integrations: [mdx(), sitemap(), markdoc()],
 
   outDir,
