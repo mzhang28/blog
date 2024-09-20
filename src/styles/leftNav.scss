@@ -10,6 +10,16 @@
     justify-content: space-evenly;
     flex-direction: column;
 
+    .title {
+      a {
+        color: inherit;
+
+        &:hover {
+          background-color: inherit;
+        }
+      }
+    }
+
     .links {
       text-align: center;
       font-size: 0.9rem;
@@ -76,12 +86,19 @@
         justify-content: space-evenly;
       }
 
+      .titleContainer {
+        container-type: inline-size;
+      }
+
       h1.title {
+        margin-top: 0;
         margin-bottom: 5px;
+
+        font-size: 14cqw;
       }
 
       a.portrait img {
-        max-height: 80px;
+        max-height: 120px;
       }
 
       .bio {

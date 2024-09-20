@@ -4,15 +4,21 @@ import { Content as ShortBio } from "../content/partials/shortBio.md";
 import links from "../data/links";
 import { Image } from "astro:assets";
 import portrait from "../assets/self.png";
+
+const target = Astro.url.pathname === "/" ? "/about/" : "/";
 ---
 
 <nav class="side-nav">
   <div class="side-nav-content">
-    <a href="/" class="portrait">
+    <a href={target} class="portrait">
       <Image src={portrait} alt="portrait" class="portrait" />
     </a>
     <div class="me">
-      <h1 class="title">Michael Zhang</h1>
+      <div class="titleContainer">
+        <h1 class="title">
+          <a href={target}>Michael Zhang</a>
+        </h1>
+      </div>
       <div class="links">
         {
           links.map((link) => {
