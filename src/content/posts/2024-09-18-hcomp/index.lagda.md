@@ -2,8 +2,7 @@
 title: Visual examples of hcomp
 slug: 2024-09-18-hcomp
 date: 2024-09-18T04:07:13-05:00
-tags: [hott, cubical]
-draft: true
+tags: [hott, cubical, agda, type-theory]
 ---
 
 [**hcomp**][1] is a primitive operation in [cubical type theory][cubical] that completes the _lid_ of an incomplete cube, given the bottom face and some number of side faces.
@@ -97,8 +96,15 @@ Before getting started, let's familiarize ourselves with the dimensions we're wo
 
 We can map both $p(i)$ and $q(i)$ down to a square that has $x$ on all corners and $\mathsf{refl}_x$ on all sides.
 
-Let's start with the left and right faces $(i = \{ \mathsf{i0} , \mathsf{i1} \})$.
-These can be produced using the proof $f : \mathsf{isProp}(A)$ that we are given.
+Let's start with the left and right faces.
+The left is represented by the _face lattice_ $(i = \mathsf{i0})$.
+This is a _sub-polyhedra_ of the main cube since it only represents one face.
+The only description of this face is that it contains all the points such that the $i$ dimension is equal to $\mathsf{i0}$.
+Similarly, the right face can be represented by $(i = \mathsf{i1})$.
+
+To fill this face, we must find some value in $A$ that satisfies all the boundary conditions.
+Fortunately, we're given something that can produce values in $A$: the proof $f : \mathsf{isProp}(A)$ that we are given!
+
 $f$ tells us that $x$ and $y$ are the same, so $f(x, x) : x \equiv x$ and $f(x, y) : x \equiv y$.
 This means we can define the left face as $f(x, x)(k)$ and the right face as $f(x, y)(k)$.
 (Remember, $k$ is the direction going from bottom to top)
@@ -107,11 +113,8 @@ This means we can define the left face as $f(x, x)(k)$ and the right face as $f(
 
 We can write this down as a mapping:
 
-* $(i = \mathsf{i0}) \rightarrow f(x, x, k)$
-* $(i = \mathsf{i1}) \rightarrow f(x, y, k)$
-
-Since $k$ is only the bottom-to-top dimension, the front-to-back dimension isn't changing.
-So we can use $\mathsf{refl}$ for those bottom edges.
+* $(i = \mathsf{i0}) \mapsto f(x, x)(k)$
+* $(i = \mathsf{i1}) \mapsto f(x, y)(k)$
 
 The same logic applies to the front face $(j = \mathsf{i0})$ and back face $(j = \mathsf{i1})$.
 We can use $\mathsf{isProp}$ to generate us some faces, except using $x$ and $p(i)$, or $x$ and $q(i)$ as the two endpoints.
@@ -120,8 +123,8 @@ We can use $\mathsf{isProp}$ to generate us some faces, except using $x$ and $p(
 
 Writing this down as code, we get:
 
-* $(j = \mathsf{i0}) \rightarrow f(x, p(i), k)$
-* $(j = \mathsf{i1}) \rightarrow f(x, q(i), k)$
+* $(j = \mathsf{i0}) \mapsto f(x, p(i))(k)$
+* $(j = \mathsf{i1}) \mapsto f(x, q(i))(k)$
 
 This time, the $i$ dimension has the $\mathsf{refl}$ edges.
 Since all the edges on the bottom face as $\mathsf{refl}$, we can just use the constant $\mathsf{refl}_{\mathsf{refl}_x}$ as the bottom face.
@@ -321,3 +324,10 @@ These are some of my takeaways from studying cubical type theory and $\mathsf{hc
 One thing I'd have to note is that drawing all these cubes really does make me wish there was some kind of 3D visualizer for these cubes...
 
 Anyway, that's all! See you next post :)
+
+### References
+
+* https://arxiv.org/abs/1611.02108
+* https://agda.readthedocs.io/en/v2.7.0/language/cubical.html
+* https://1lab.dev/1Lab.Path.html#box-filling
+* https://github.com/martinescardo/HoTTEST-Summer-School/blob/main/Agda/Cubical/Lecture8-notes.lagda.md#homogeneous-composition-hcomp
