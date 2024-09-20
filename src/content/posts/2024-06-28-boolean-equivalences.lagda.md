@@ -32,7 +32,7 @@ open Σ
 
 With just that notation, the problem may not be clear.
 $2$ represents the set with only two elements in it, which is the booleans. The
-elements of $2$ are $\textrm{true}$ and $\textrm{false}$.
+elements of $2$ are $\mathsf{true}$ and $\mathsf{false}$.
 
 ```
 data 𝟚 : Set where
@@ -53,8 +53,8 @@ shown by Theorem 4.1.3 in the [HoTT book][book].
 [1]: https://en.wikipedia.org/wiki/Homotopy#Homotopy_equivalence
 
 - there exists a $g : B \rightarrow A$
-- $f \circ g$ is homotopic to the identity map $\textrm{id}_B : B \rightarrow B$
-- $g \circ f$ is homotopic to the identity map $\textrm{id}_A : A \rightarrow A$
+- $f \circ g$ is homotopic to the identity map $\mathsf{id}_B : B \rightarrow B$
+- $g \circ f$ is homotopic to the identity map $\mathsf{id}_A : A \rightarrow A$
 
 We can write this in Agda like this:
 
@@ -92,7 +92,7 @@ function along with proof of its equivalence properties using a dependent
 pair[^dependent-pair]:
 
 [^dependent-pair]: A dependent pair (or $\Sigma$-type) is like a regular pair $\langle x, y\rangle$, but where $y$ can depend on $x$.
-  For example, $\langle x , \textrm{isPrime}(x) \rangle$.
+  For example, $\langle x , \mathsf{isPrime}(x) \rangle$.
   In this case it's useful since we can carry the equivalence information along with the function itself.
   This type is rather core to Martin-Löf Type Theory, you can read more about it [here][dependent-pair].
 
@@ -184,8 +184,8 @@ Now we need another function in the other direction. We can't case-split on
 functions, but we can certainly case-split on their output. Specifically, we can
 differentiate `id` from `neg` by their behavior when being called on `true`:
 
-- $\textrm{id}(\textrm{true}) :\equiv \textrm{true}$
-- $\textrm{neg}(\textrm{true}) :\equiv \textrm{false}$
+- $\mathsf{id}(\mathsf{true}) :\equiv \mathsf{true}$
+- $\mathsf{neg}(\mathsf{true}) :\equiv \mathsf{false}$
 
 ```
 g : (𝟚 ≃ 𝟚) → 𝟚
@@ -207,7 +207,7 @@ everything to true, since it can't possibly have an inverse.
 
 We'll come back to this later.
 
-First, let's show that $g \circ f \sim \textrm{id}$. This one is easy, we can
+First, let's show that $g \circ f \sim \mathsf{id}$. This one is easy, we can
 just case-split. Each of the cases reduces to something that is definitionally
 equal, so we can use `refl`.
 
@@ -217,7 +217,7 @@ g∘f true = refl
 g∘f false = refl
 ```
 
-Now comes the complicated case: proving $f \circ g \sim \textrm{id}$.
+Now comes the complicated case: proving $f \circ g \sim \mathsf{id}$.
 
 > [!admonition: NOTE]
 > Since Agda's comment syntax is `--`, the horizontal lines in the code below
@@ -235,9 +235,9 @@ module f∘g-case where
   f∘g eqv = goal eqv
 ```
 
-Now our goal is to show that for any equivalence $\textrm{eqv} : 2 \simeq 2$,
+Now our goal is to show that for any equivalence $\mathsf{eqv} : 2 \simeq 2$,
 applying $f ∘ g$ to it is the same as not doing anything. We can evaluate the
-$g(\textrm{eqv})$ a little bit to give us a more detailed goal:
+$g(\mathsf{eqv})$ a little bit to give us a more detailed goal:
 
 ```
   goal2 :
@@ -273,27 +273,27 @@ a syntax known as [with-abstraction]:
 
 We can now case-split on $b$, which is the output of calling $f$ on the
 equivalence returned by $g$. This means that for the `true` case, we need to
-show that $f(b) = \textrm{bool-eqv}$ (which is based on `id`) is equivalent to
+show that $f(b) = \mathsf{booleqv}$ (which is based on `id`) is equivalent to
 the equivalence that generated the `true`.
 
 Let's start with the `id` case; we just need to show that for every equivalence
 $e$ where running the equivalence function on `true` also returned `true`, $e
-\equiv f(\textrm{true})$.
+\equiv f(\mathsf{true})$.
 
 Unfortunately, we don't know if this is true unless our equivalences are _mere
 propositions_, meaning if two functions are identical, then so are their
 equivalences.
 
 $$
-  \textrm{isProp}(P) :\equiv \prod_{x, y: P}(x \equiv y)
+  \mathsf{isProp}(P) :\equiv \prod_{x, y \, : \, P}(x \equiv y)
 $$
 
 <small>Definition 3.3.1 from the [HoTT book][book]</small>
 
-Applying this to $\textrm{isEquiv}(f)$, we get the property:
+Applying this to $\mathsf{isEquiv}(f)$, we get the property:
 
 $$
-  \sum_{f : A → B} \left( \prod_{e_1, e_2 : \textrm{isEquiv}(f)} e_1 \equiv e_2 \right)
+  \sum_{f : A → B} \left( \prod_{e_1, e_2 \, : \, \mathsf{isEquiv}(f)} e_1 \equiv e_2 \right)
 $$
 
 This proof is shown later in the book, so I will use it here directly without proof[^equiv-isProp]:
@@ -314,7 +314,7 @@ equivalences must not map both values to a single one.
 This way, we can pin the behavior of the function on all inputs by just using
 its behavior on `true`, since its output on `false` must be _different_.
 
-We can use a proof that [$\textrm{true} \not\equiv \textrm{false}$][true-not-false] that I've shown previously.
+We can use a proof that [$\mathsf{true} \not\equiv \mathsf{false}$][true-not-false] that I've shown previously.
 
 [true-not-false]: https://mzhang.io/posts/proving-true-from-false/
 
