@@ -7,22 +7,16 @@ export interface Link {
 
 const links: Link[] = [
   {
-    name: "Matrix",
-    url: "https://matrix.to/#/@michael:chat.mzhang.io",
-    icon: "matrix-org",
-    description: "Come chat with me on Matrix",
-  },
-  {
     name: "Git",
-    url: "https://git.mzhang.io",
+    url: "https://git.mzhang.io/michael",
     icon: "gitea",
     description: "Check out my public open source projects on Forgejo",
   },
   {
-    name: "GitHub",
-    url: "https://github.com/iptq",
-    icon: "github",
-    description: "See a history of my old projects on GitHub",
+    name: "Matrix",
+    url: "https://matrix.to/#/@michael:chat.mzhang.io",
+    icon: "matrix-org",
+    description: "Come chat with me on Matrix",
   },
   {
     name: "Mastodon",
@@ -41,6 +35,12 @@ const links: Link[] = [
     url: "https://linkedin.com/in/mzhang0",
     icon: "linkedin",
     description: "Connect with me on LinkedIn",
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/iptq",
+    icon: "github",
+    description: "See a history of my old projects on GitHub",
   },
 ];
 
