@@ -2,4 +2,4 @@
 
 https://mzhang.io
 
-License: GPL-3.0 / CC-BY-SA-4.0
+License: GPL-3.0 code / CC-BY-SA-4.0 contents
