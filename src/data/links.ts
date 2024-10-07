@@ -7,7 +7,7 @@ export interface Link {
 
 const links: Link[] = [
   {
-    name: "Git",
+    name: "projects",
     url: "https://git.mzhang.io/michael",
     icon: "gitea",
     description: "Check out my public open source projects on Forgejo",
