@@ -8,8 +8,9 @@ Just re-discovered an [old blog][1] I had written over at Medium from back aroun
 
 [1]: https://medium.com/michaels-blog
 
-For completeness' sake I migrated them over to this blog, while still keeping links to the originals.
+Some of the oldest post dates back to 2014.
 This means I've been blogging for almost 10 years in total!
+For completeness' sake I migrated them over to this blog, while still keeping links to the originals.
 
 I'm grateful that Medium was able to keep this around for all this time.
 Even though some of it is quite embarassing to look back at, it's kind of like peering into a time capsule and seeing what I was up to in the past.
