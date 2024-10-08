@@ -15,7 +15,7 @@ For completeness' sake I migrated them over to this blog, while still keeping li
 I'm grateful that Medium was able to keep this around for all this time.
 Even though some of it is quite embarassing to look back at, it's kind of like peering into a time capsule and seeing what I was up to in the past.
 
-I'm also really glad I did a post-mortem of at least one iteration of EasyCTF, since I had stupidly lost all of the actual competition data :frown:
+I'm also really glad I did a post-mortem of at least one iteration of EasyCTF, since I had stupidly lost all of the actual competition data :frowning_face:
 
 Here are the links to the old posts:
 
