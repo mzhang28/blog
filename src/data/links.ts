@@ -38,7 +38,7 @@ const links: Link[] = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/iptq",
+    url: "https://github.com/mzhang28",
     icon: "github",
     description: "See a history of my old projects on GitHub",
   },

@@ -85,6 +85,6 @@ then calling something like `instance.verify()` should run all those validators 
 
 ## Conclusion
 
-This project is a work in progress! You can see how far I am [on Github](https://github.com/iptq/wtforms).
+This project is a work in progress! You can see how far I am [on Github](https://github.com/mzhang28/wtforms).
 
 [1]: https://docs.rs/serde
