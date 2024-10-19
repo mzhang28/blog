@@ -1,0 +1,22 @@
+---
+title: Reflections on my first type theory talk
+date: 2024-10-19T21:47:34.026Z
+tags: [agda, cubical, type-theory, talk]
+---
+
+Yesterday I gave my first talk about type theory at my school's grad student seminar series, about some of the work I had been doing with homotopy type theory and cubical Agda.
+Here is a link to the [slides].
+
+[slides]: ../../talks/2024-10-19-formalizing-mathematics-with-cubical-type-theory.pdf
+
+It was not a very great talk so I had a couple of important takeaways.
+
+First, unexpected things will happen. I had originally practiced my talk for an hour long session, but projector and Zoom issues reduced it by 15 minutes.
+I panicked and started rushing my talk, which was already losing people.
+
+Second, I didn't really stop to check that people were following and just continued with my material. I'm not sure if the people watching my talk really understood anything.
+
+Third, I should've recorded the talk.
+I just kinda blanked out so much during the talk, it's hard to go back and remember what I said and what I didn't.
+
+At least I hope people liked the pizza :/

@@ -11,7 +11,7 @@ const target = Astro.url.pathname === "/" ? "/about/" : "/";
 <nav class="side-nav">
   <div class="side-nav-content">
     <a href={target} class="portrait" data-astro-prefetch>
-      <Image src={portrait} alt="portrait" class="portrait" />
+      <Image src={portrait} alt="portrait" class="portrait" width={350} height={350} loading="eager" />
     </a>
     <div class="me">
       <div class="titleContainer">
