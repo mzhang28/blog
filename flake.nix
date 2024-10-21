@@ -1,12 +1,13 @@
 {
   inputs.agda.url = "github:agda/agda";
+  inputs.agda.inputs.nixpkgs.follows = "nixpkgs";
   outputs = { self, nixpkgs, flake-utils, agda, }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs { inherit system; overlays = [ agda.overlays.default ]; };
         agda-pkg = agda.packages.x86_64-linux.default;
         flakePkgs = rec {
-          agda-bin = pkgs.callPackage ./nix/agda-bin.nix { inherit agda-pkg; };
+          agda-bin = pkgs.callPackage ./nix/agda-bin.nix { agda-pkg = pkgs.haskellPackages.Agda.bin; };
           docker-builder =
             pkgs.callPackage ./nix/docker-builder.nix { inherit agda-bin; };
         };

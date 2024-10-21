@@ -6,8 +6,8 @@ let
     writeTextFile {
       name = "agda-libraries";
       text = ''
-        ${agdaPackages.cubical}/cubical.agda-lib
-        ${agdaPackages.standard-library}/standard-library.agda-lib
+        ${agdaPackages.cubical.src}/cubical.agda-lib
+        ${agdaPackages.standard-library.src}/standard-library.agda-lib
       '';
     };
 
