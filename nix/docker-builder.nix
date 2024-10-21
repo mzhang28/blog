@@ -1,4 +1,5 @@
 { dockerTools
+, awscli2
 , agda-bin
 , corepack
 , rsync
