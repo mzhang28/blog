@@ -1,7 +1,10 @@
 ---
 import "../styles/footer.scss";
+import { execSync } from "node:child_process";
 
 const dateUpdated = new Date();
+const gitRevShort = execSync("git rev-parse --short HEAD").toString().trim();
+const gitRev = execSync("git rev-parse HEAD").toString().trim();
 ---
 
 <footer>
@@ -12,8 +15,13 @@ const dateUpdated = new Date();
       rel="noreferrer noopener">Astro</a
     > framework.
     <br />
-    Last updated {dateUpdated.toLocaleString(undefined, { dateStyle: "full" })}.
+    Last updated {dateUpdated.toLocaleString(undefined, { dateStyle: "full" })} at commit
+    <a
+      href={`https://git.mzhang.io/michael/blog/commit/${gitRev}`}
+      class="colorlink"
+      target="_blank">{gitRevShort}</a
+    >.
     <br />
-    <a href="https://git.mzhang.io/michael/blog" class="colorlink" target="_blank">Source code</a>
+    <a href="https://git.mzhang.io/michael/blog" class="colorlink" target="_blank">Source code</a>.
   </p>
 </footer>
