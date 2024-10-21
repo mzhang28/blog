@@ -18,13 +18,9 @@
           packages = with pkgs;
             with flakePkgs; [
               bun
-              woodpecker-cli
               nixfmt-rfc-style
-              dive
               nix-tree
-              vips
               shellcheck
-              agda-bin
 
               nodejs_20
               corepack

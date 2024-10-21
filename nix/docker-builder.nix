@@ -15,16 +15,17 @@ dockerTools.buildLayeredImage {
 
   contents = with dockerTools; [
     agda-bin
-    corepack
-    rsync
-    openssh
+    awscli2
     bash
-    coreutils
-    nodejs_20
-    gnused
-    usrBinEnv
     caCertificates
+    corepack
+    coreutils
     fakeNss
+    gnused
+    nodejs_20
+    openssh
+    rsync
+    usrBinEnv
   ];
 
   # fakeRootCommands = ''
