@@ -1,6 +1,6 @@
 steps:
   build:
-    image: git.mzhang.io/michael/blog-docker-builder:x0m1c7r2qzc3qbyw8sfv5flfv75xiqdz
+    image: git.mzhang.io/michael/blog-docker-builder:l3kh5sx46zqszsbr1ghvvdyp0zl8gl9m
     environment:
       - ASTRO_TELEMETRY_DISABLED=1
     commands:
@@ -13,14 +13,14 @@ steps:
       - event: push
 
   deploy:
-    image: git.mzhang.io/michael/blog-docker-builder:x0m1c7r2qzc3qbyw8sfv5flfv75xiqdz
+    image: git.mzhang.io/michael/blog-docker-builder:l3kh5sx46zqszsbr1ghvvdyp0zl8gl9m
     commands:
-      - echo "$${SSH_SECRET_KEY}" > SSH_SECRET_KEY
-      - chmod 600 SSH_SECRET_KEY
-      - mkdir -p ~/.ssh
-      - echo "mzhang.io ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO+RKFYjD8UjqhfOHFHNyijkbGzC4fJEIIhrBwHj+FsQ" >> known_hosts
-      - rsync -azrP -e "ssh -i SSH_SECRET_KEY -o UserKnownHostsFile=known_hosts" dist/ blogDeploy@mzhang.io:/home/blogDeploy/public
-    secrets: [SSH_SECRET_KEY]
+      - aws s3 sync ./dist/ s3://mzhang-io-website/
+    secrets:
+      - AWS_ACCESS_KEY_ID
+      - AWS_DEFAULT_REGION
+      - AWS_ENDPOINT_URL
+      - AWS_SECRET_ACCESS_KEY
     when:
       - branch: master
         event: push
