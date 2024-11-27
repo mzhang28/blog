@@ -32,7 +32,7 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
     const path: string = history[history.length - 1]!;
     if (!(path.endsWith(".lagda.md") || path.endsWith(".agda"))) return;
 
-    console.log("AGDA:processing path", path);
+    // console.log("AGDA:processing path", path);
 
     const tempDir = mkdtempSync(join(tmpdir(), "agdaRender."));
     const agdaOutDir = join(tempDir, "output");
@@ -109,10 +109,7 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
       }
     }
 
-    const htmlname = basename(resolve(outputFile)).replace(
-      /(\.lagda)?\.md/,
-      ".html",
-    );
+    const htmlname = basename(resolve(outputFile)).replace(/(\.lagda)?\.md/, ".html");
 
     const doc = readFileSync(outputFile);
 
@@ -168,9 +165,7 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
     } catch (e) {
       // TODO: Figure out a way to handle this correctly
       // Possibly by diffing?
-      console.log(
-        "Mismatch in number of args. Perhaps there was an empty block?",
-      );
+      console.log("Mismatch in number of args. Perhaps there was an empty block?");
     }
   };
 };

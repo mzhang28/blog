@@ -5,7 +5,8 @@ import links from "../data/links";
 import { Image } from "astro:assets";
 import portrait from "../assets/self.png";
 
-const target = Astro.url.pathname === "/" ? "/about/" : "/";
+// const target = Astro.url.pathname === "/" ? "/about/" : "/";
+const target = "/";
 ---
 
 <nav class="side-nav">
@@ -19,16 +20,9 @@ const target = Astro.url.pathname === "/" ? "/about/" : "/";
           <a href={target} data-astro-prefetch>Michael Zhang</a>
         </h1>
       </div>
+
       <div class="links">
-        {
-          links.map((link) => {
-            return (
-              <a href={link.url} title={link.description}>
-                {link.name}
-              </a>
-            );
-          })
-        }
+        <a href="/about/">About</a>
       </div>
     </div>
 
