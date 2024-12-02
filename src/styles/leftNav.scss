@@ -72,14 +72,20 @@
   }
 }
 
+// Small screen
 @media screen and (max-width: variables.$breakpoint) {
   .side-nav {
     background: linear-gradient(to top, var(--sidebar-color) 50%, transparent);
 
     .side-nav-content {
       width: 100%;
-      padding: 18px 0;
+      padding: 18px;
+      box-sizing: border-box;
       border-bottom: 1px solid var(--shadow-color);
+
+      .me {
+        flex-grow: 1;
+      }
 
       .home-link {
         display: flex;
@@ -108,6 +114,7 @@
   }
 }
 
+// Big screen
 @media screen and (min-width: variables.$breakpoint) {
   .side-nav {
     // Capital Min to avoid invoking SCSS min
