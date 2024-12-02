@@ -20,7 +20,6 @@ export async function GET(context) {
     })
     .slice(0, 30)
     .map(([file, post]) => {
-      console.log("post", { file, post });
       return {
         title: post.frontmatter.title ?? "",
         pubDate: new Date(post.frontmatter.date),
@@ -29,8 +28,6 @@ export async function GET(context) {
         // link: `/posts/${post.slug}/`,
       };
     });
-
-  console.log("posts", posts);
 
   return rss({
     title: SITE_TITLE,
