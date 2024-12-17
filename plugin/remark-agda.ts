@@ -94,6 +94,7 @@ const remarkAgda: RemarkPlugin = ({ base, publicDir }: Options) => {
           <!DOCTYPE html>
           <html>
           <head>
+          <meta charset="utf-8" />
           <link rel="stylesheet" href="${base}generated/agda/Agda.css" />
           </head>
           <body>
