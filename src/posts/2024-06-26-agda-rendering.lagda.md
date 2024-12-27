@@ -1,6 +1,6 @@
 ---
 title: "Agda syntax highlighting in my blog!"
-slug: 2024-06-26-agda-rendering
+id: 2024-06-26-agda-rendering
 date: 2024-06-27T04:25:15.332Z
 tags: ["meta", "agda"]
 ---

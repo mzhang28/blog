@@ -1,6 +1,6 @@
 ---
 title: Visual examples of hcomp
-slug: 2024-09-18-hcomp
+id: 2024-09-18-hcomp
 date: 2024-09-18T04:07:13-05:00
 tags: [hott, cubical, agda, type-theory]
 ---

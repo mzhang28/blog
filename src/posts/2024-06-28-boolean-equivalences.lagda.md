@@ -1,6 +1,6 @@
 ---
 title: Boolean equivalences
-slug: 2024-06-28-boolean-equivalences
+id: 2024-06-28-boolean-equivalences
 date: 2024-06-28T21:37:04.299Z
 tags: ["agda", "type-theory", "hott"]
 ---

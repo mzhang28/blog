@@ -1,6 +1,6 @@
 ---
 title: "Equivalences"
-slug: "equivalences"
+id: "equivalences"
 date: 2023-05-06
 tags:
   - type-theory

@@ -73,7 +73,7 @@ all of the objects except the two flag halves.
 
 [blender]: https://www.blender.org
 
-![Hiding blender objects](../../../assets/ctf/blender-objects.png)
+![Hiding blender objects](./blender-objects.png)
 
 This reveals two QR codes that can be combined into the flag.
 

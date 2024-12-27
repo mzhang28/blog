@@ -35,7 +35,7 @@ export default defineConfig({
     shikiConfig: { theme: "css-variables" },
     remarkPlugins: [
       () => remarkAgda({ outDir, base, publicDir }),
-      remarkMath,
+      [remarkMath, {}],
       [remarkAdmonitions, mkdocsConfig],
       remarkReadingTime,
       remarkTypst,

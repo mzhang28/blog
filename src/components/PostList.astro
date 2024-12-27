@@ -59,7 +59,7 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
           <tr class="row">
             <td>
               <div class="title">
-                <a href={`${basePath}/${post.slug}/`} class="brand-colorlink">
+                <a href={`${basePath}/${post.id}/`} class="brand-colorlink">
                   {post.data.title}
                 </a>
               </div>

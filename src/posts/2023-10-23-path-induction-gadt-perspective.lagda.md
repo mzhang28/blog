@@ -1,6 +1,6 @@
 ---
 title: "Path induction: a GADT perspective"
-slug: 2023-10-23-path-induction-gadt-perspective
+id: 2023-10-23-path-induction-gadt-perspective
 date: 2023-10-23
 tags: ["type-theory", "pl-theory"]
 ---

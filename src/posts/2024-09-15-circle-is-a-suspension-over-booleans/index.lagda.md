@@ -1,6 +1,6 @@
 ---
 title: The circle is a suspension over booleans
-slug: 2024-09-15-circle-is-a-suspension-over-booleans
+id: 2024-09-15-circle-is-a-suspension-over-booleans
 date: 2024-09-15T23:02:32.058Z
 tags: [algebraic-topology, hott]
 draft: true
