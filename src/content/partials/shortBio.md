@@ -8,3 +8,4 @@ Previously I worked as a software engineer at [Swoop Search] and [AWS].
 [favonia]: https://favonia.org/
 [aws]: https://aws.amazon.com
 [Swoop Search]: https://swoopsrch.com/
+[sift]: https://www.sift.net/
