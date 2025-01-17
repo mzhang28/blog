@@ -30,7 +30,7 @@ body {
 body::selection,
 div::selection,
 code::selection {
-  background: var(--heading-color) !important;
+  background: var(--selection-color) !important;
   color: var(--background-color) !important;
 }
 
@@ -55,7 +55,7 @@ code {
   // color: $code-color;
 }
 
-pre>code,
+pre > code,
 pre.Agda {
   color: var(--text-color);
   display: block;
@@ -93,7 +93,7 @@ body {
 }
 
 code,
-pre>code {
+pre > code {
   font-size: 0.95rem;
   letter-spacing: -0.025rem;
 }
@@ -107,7 +107,7 @@ pre>code {
   justify-content: center;
 }
 
-.flex-wrapper>main {
+.flex-wrapper > main {
   min-width: 0;
   max-width: variables.$breakpoint;
   flex-grow: 1;
@@ -141,7 +141,7 @@ pre>code {
     }
   }
 
-  .flex-wrapper>main.pad {
+  .flex-wrapper > main.pad {
     padding-left: 30px;
     padding-right: 30px;
   }

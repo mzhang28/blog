@@ -7,6 +7,7 @@
 
   :root {
     --background-color: #{$backgroundColor};
+    --selection-color: royalblue;
     --sidebar-color: #f8f8f8;
     --background-dots-color: color.adjust($backgroundColor, lightness: -5%);
     --faded-background-color: color.adjust($backgroundColor, lightness: -10%);
@@ -52,6 +53,7 @@
 
   :root {
     --background-color: #{$backgroundColor};
+    --selection-color: $linkColor;
     --sidebar-color: hsl(230, 20%, 20%);
     --background-dots-color: #{lighten($backgroundColor, 3%)};
     --faded-background-color: #{lighten($backgroundColor, 10%)};
