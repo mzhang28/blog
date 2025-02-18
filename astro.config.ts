@@ -54,4 +54,10 @@ export default defineConfig({
       [rehypeLinkHeadings, { behavior: "wrap" }],
     ],
   },
+
+  vite: {
+    build: {
+      assetsInlineLimit: 0,
+    },
+  },
 });
