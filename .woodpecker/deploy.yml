@@ -1,19 +1,18 @@
 steps:
   build:
-    image: git.mzhang.io/michael/blog-docker-builder:6gzd1rhcl41y02yw4z9kpjgrhxifqyfs
+    image: git.mzhang.io/michael/blog-docker-builder:va2x9znzg8vss7h3qwsa7avw6jzqxmym
     environment:
       - ASTRO_TELEMETRY_DISABLED=1
     commands:
       - mkdir /tmp
       - rm -rf node_modules
-      - npm i -g pnpm@9.4.0
-      - npx pnpm install --frozen-lockfile
-      - npx pnpm run build
+      - bun install
+      - bun run build
     when:
       - event: push
 
   deploy:
-    image: git.mzhang.io/michael/blog-docker-builder:6gzd1rhcl41y02yw4z9kpjgrhxifqyfs
+    image: git.mzhang.io/michael/blog-docker-builder:va2x9znzg8vss7h3qwsa7avw6jzqxmym
     commands:
       - mc alias set $AWS_DEFAULT_REGION $AWS_ENDPOINT_URL $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY --api S3v4
       - mc mirror --overwrite ./dist/ $AWS_DEFAULT_REGION/mzhang-io-website/
