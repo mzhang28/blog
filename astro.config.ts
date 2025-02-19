@@ -34,11 +34,11 @@ export default defineConfig({
     syntaxHighlight: "shiki",
     shikiConfig: { theme: "css-variables" },
     remarkPlugins: [
+      remarkTypst,
       () => remarkAgda({ outDir, base, publicDir }),
       [remarkMath, {}],
       [remarkAdmonitions, mkdocsConfig],
       remarkReadingTime,
-      remarkTypst,
       remarkEmoji,
       [
         remarkDescription,
