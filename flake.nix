@@ -1,6 +1,9 @@
 {
-  inputs.agda.url = "github:agda/agda";
+  inputs.agda.url = "github:agda/agda?tag=release-2.7.0";
   inputs.agda.inputs.nixpkgs.follows = "nixpkgs";
+
+  inputs.nixpkgs.url = "github:nixos/nixpkgs";
+
   outputs = { self, nixpkgs, flake-utils, agda, }:
     flake-utils.lib.eachDefaultSystem (system:
       let

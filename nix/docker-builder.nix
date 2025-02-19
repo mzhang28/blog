@@ -1,15 +1,15 @@
 { dockerTools
 , agda-bin
 , bash
-, corepack
+, bun
 , coreutils
 , gitMinimal
 , gnused
 , minio-client
-, nodejs_20
 , openssh
 , pkgsLinux
 , rsync
+, typst
 }:
 
 dockerTools.buildLayeredImage {
@@ -18,16 +18,16 @@ dockerTools.buildLayeredImage {
   contents = with dockerTools; [
     agda-bin
     bash
+    bun
     caCertificates
-    corepack
     coreutils
     fakeNss
     gitMinimal
     gnused
     minio-client
-    nodejs_20
     openssh
     rsync
+    typst
     usrBinEnv
   ];
 
