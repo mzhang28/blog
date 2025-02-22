@@ -8,7 +8,7 @@ steps:
       - rm -rf node_modules
       # TODO: This should have --frozen-lockfile but currently adding that causes sharp to fail to install its binaries
       # I think this is because it's not picking the right OS/architecture but haven't dug more into it
-      - bun install
+      - rm bun.lock* && bun install
       - bun pm trust --all
       - bun run build
     when:
