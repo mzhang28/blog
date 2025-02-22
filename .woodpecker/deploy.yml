@@ -6,7 +6,7 @@ steps:
     commands:
       - mkdir /tmp
       - rm -rf node_modules
-      - bun install
+      - bun install --frozen-lockfile
       - bun pm trust --all
       - bun run build
     when:
