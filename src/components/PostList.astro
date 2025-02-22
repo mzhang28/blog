@@ -60,14 +60,16 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
             <td>
               <div class="title">
                 <a href={`${basePath}/${post.id}/`} class="brand-colorlink">
+                <Timestamp timestamp={post.data.date} format={timeFormat} />
+                &middot;
                   {post.data.title}
                 </a>
               </div>
-              <div>
+              {/* <div>
                 <Timestamp timestamp={post.data.date} format={timeFormat} />
                 &middot;
                 <TagList tags={post.data.tags} />
-              </div>
+              </div> */}
             </td>
           </tr>
         </>
@@ -79,12 +81,12 @@ const sortedPosts = sortBy(allPosts, (post) => -post.data.date);
 <style lang="scss">
   .postListing {
     width: 100%;
-    border-spacing: 0px 24px;
+    border-spacing: 0px 16px;
 
     :global(.timestamp) {
-      font-family: var(--monofont);
-      color: var(--smaller-text-color);
-      font-size: 0.75em;
+      // font-family: var(--monofont);
+      // color: var(--smaller-text-color);
+      // font-size: 0.75em;
     }
 
     :global(.tags) {
