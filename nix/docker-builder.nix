@@ -10,6 +10,7 @@
 , pkgsLinux
 , rsync
 , typst
+, nodejs_22
 }:
 
 dockerTools.buildLayeredImage {
@@ -29,6 +30,7 @@ dockerTools.buildLayeredImage {
     rsync
     typst
     usrBinEnv
+    nodejs_22
   ];
 
   # fakeRootCommands = ''

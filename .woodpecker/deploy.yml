@@ -1,6 +1,6 @@
 steps:
   build:
-    image: git.mzhang.io/michael/blog-docker-builder:a77ri0sj9k628rhrx0iz3zx93wddc70z
+    image: git.mzhang.io/michael/blog-docker-builder:kxawk2x5isy1sfn4faqz0c3vv2j2106r
     environment:
       - ASTRO_TELEMETRY_DISABLED=1
     commands:
@@ -12,7 +12,7 @@ steps:
       - event: push
 
   deploy:
-    image: git.mzhang.io/michael/blog-docker-builder:a77ri0sj9k628rhrx0iz3zx93wddc70z
+    image: git.mzhang.io/michael/blog-docker-builder:kxawk2x5isy1sfn4faqz0c3vv2j2106r
     commands:
       - mc alias set $AWS_DEFAULT_REGION $AWS_ENDPOINT_URL $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY --api S3v4
       - mc mirror --overwrite ./dist/ $AWS_DEFAULT_REGION/mzhang-io-website/
