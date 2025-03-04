@@ -6,10 +6,7 @@ steps:
     commands:
       - mkdir /tmp
       - rm -rf node_modules
-      # TODO: This should have --frozen-lockfile but currently adding that causes sharp to fail to install its binaries
-      # I think this is because it's not picking the right OS/architecture but haven't dug more into it
-      - rm bun.lock* && bun install
-      - bun pm trust --all
+      - npm ci # Man @ sharp installation issues... (https://ci.mzhang.io/repos/1/pipeline/124/3)
       - bun run build
     when:
       - event: push
