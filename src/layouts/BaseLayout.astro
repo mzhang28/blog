@@ -2,7 +2,10 @@
 import Footer from "../components/Footer.astro";
 import LeftNav from "../components/LeftNav.astro";
 import classNames from "classnames";
-import "../styles/global.scss";
+import Nav from "../components/Nav.astro";
+// import "../styles/global.scss";
+import "../styles/global.css";
+import "@fontsource/pt-serif";
 import "katex/dist/katex.min.css";
 import portrait from "../assets/self.png";
 
@@ -25,24 +28,13 @@ const hasToc = toc ?? false;
     <meta property="og:image" content={portrait.src} />
     <title>{title && `${title} - `} Michael Zhang</title>
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
-    <script
-      data-goatcounter="https://goatcounter.mzhang.io/count"
-      async
-      src="//goatcounter.mzhang.io/count.js"></script>
     <slot name="head" />
   </head>
 
-  <body>
-    <div class="flex-wrapper">
-      <LeftNav />
-
-      <div class="sep"></div>
-
-      <main class={classNames(shouldPad && "pad", hasToc && "hasToc")}>
-        <slot />
-      </main>
-    </div>
-
-    <Footer />
+  <body class="container mx-auto px-4 py-8 max-w-4xl">
+    <Nav />
+    <main class="container">
+      <slot />
+    </main>
   </body>
 </html>

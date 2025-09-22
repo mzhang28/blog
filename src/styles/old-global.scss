@@ -1,11 +1,12 @@
-@use "variables";
+/* @use "variables";
 @import "colors";
 @import "fonts";
 
 :root {
   --sansfont: "Inter", "Helvetica", "Arial", "Liberation Sans", sans-serif;
-  --monofont: "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata",
-    "Consolas", monospace;
+  --monofont:
+    "PragmataPro Mono Liga", "Roboto Mono", "Roboto Mono for Powerline", "Inconsolata", "Consolas",
+    monospace;
 }
 
 body {
@@ -145,4 +146,4 @@ pre > code {
     padding-left: 30px;
     padding-right: 30px;
   }
-}
+} */

@@ -15,6 +15,8 @@ import rehypeSlug from "rehype-slug";
 import markdoc from "@astrojs/markdoc";
 import remarkAgda from "./plugin/remark-agda";
 
+import tailwindcss from "@tailwindcss/vite";
+
 const outDir = "dist";
 const base = process.env.BASE ?? "/";
 const publicDir = "public";
@@ -59,5 +61,7 @@ export default defineConfig({
     build: {
       assetsInlineLimit: 0,
     },
+
+    plugins: [tailwindcss()],
   },
 });

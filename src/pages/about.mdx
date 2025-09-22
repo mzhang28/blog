@@ -3,72 +3,50 @@ title: "About"
 layout: ../layouts/BaseLayout.astro
 ---
 
+<article class="prose max-w-none">
+
 # About Me
 
-import Intro from "../content/partials/shortBio.md";
+import Intro from "../content/partials/shortBio.mdx";
 
 Hi there! :wave:
 
 <Intro />
 
-Before that, I was a CTF hobbyist. I created [EasyCTF], a cybersecurity competition for high schoolers.
-I also briefly played with the CTF team [Project Sekai][pjsk].
+## Academic history
 
-[Swoop Search]: https://swoopsrch.com/
-[aws]: https://aws.amazon.com/
-[sift]: https://www.sift.net/
-[easyctf]: https://www.easyctf.com/
-[pjsk]: https://sekai.team/
+Prior to PhD I completed a master's degree at the [University of Minnesota][umn].
+My thesis was on constructing exact couples in cubical Agda.
+I have also made several contributions to the [cubical] library.
+During this time, I served as an officer at [GopherHack].
 
-## Academic life
+[umn]: https://umn.edu
+[cubical]: https://github.com/agda/cubical
+[gopherhack]: https://gopherhack.com
 
-I'm currently doing a thesis project for my master's program, involving the mechanization of [spectral sequences] using [cubical] [Agda].
-See some of my blog posts to follow along with my research!
+I also completed my bachelor's degree at the [University of Minnesota][umn].
+During this time, I served as an officer at [ACM UMN][acmumn] and [SASE UMN][saseumn].
 
-[spectral sequences]: https://en.wikipedia.org/wiki/Spectral_sequence
-[agda]: https://agda.readthedocs.io/en/latest/overview.html
-[hottbook]: https://homotopytypetheory.org/book/
+[acmumn]: https://acm.umn.edu
+[saseumn]: https://saseumn.org
 
-### Research projects
+## Work history
 
-- [**cubeviz**](https://mzhang.io/cubeviz/). A visualizer for cubical type theory that can assist with constructing `hcomp`s.
-- [**type theory repo**](https://git.mzhang.io/michael/type-theory). The main repository for my Agda code for my research project.
+I previously worked as a software engineer, primarily doing full-stack web development, at [Swoop Search][swoop], [AWS], and [Epic Systems][epic].
 
-### Conferences and summer schools
+[swoop]: https://swoopsrch.com
+[aws]: https://aws.amazon.com
+[epic]: https://epic.com
 
-History of conferences and academic events I've attended.
+I have also previously worked as an associate researcher at [SIFT].
 
-- [**ICFP 2024, PLMW workshop**](https://icfp24.sigplan.org/). Milan, Italy.
-- **MURI 2024**. Pittsburgh, PA.
-- [**Unimath 2024**](https://unimath.github.io/minneapolis2024/). Minneapolis, MN.
-- [**OPLSS 2024**](https://www.cs.uoregon.edu/research/summerschool/summer24/). Boston, MA.
-- [**Midwest PL Summit 2023**](https://mwpls2023.engin.umich.edu/). Ann Arbor, MI.
+[sift]: https://sift.net
 
-### Undergraduate teaching
+## Teaching history
 
 In undergrad, I worked briefly as a teaching assistant.
 
-- **CSCI 2041, Advanced Programming Principles** with Prof. Eric van Wyk.
-
-### University Involvement
-
-I also love to participate in computing related student groups at the University
-of Minnesota. Here's some of the groups that I'm involved with:
-
-- **[GopherHack]**.
-  I'm one of the founding officers at the GopherHack organization, hoping to grow a CTF community at the University.
-  I prepare material for club activities.
-- **[PL Seminar]**.
-  A group focused on reading and discussing programming languages related papers.
-- **[UMN Kernel Object]**.
-  A group dedicated to studying operating system development, created in the aftermath of the UMN Linux kernel controversy.
-- **[ACM]**.
-  I was webmaster in undergrad and wrote the current ACM website, as well as helping out with other events such as CTF.
-
-Previously, I was also involved with:
-
-- **[SASE]**.
-  I was webmaster and was involved in organizing student group events as well.
+- **[2017 Spring] CSCI 2041, Advanced Programming Principles** with Prof. Eric van Wyk.
 
 ## Open-source Projects
 
@@ -78,17 +56,24 @@ Some of the projects I've been working on in my free time include:
 - **[Garbage]**. A CLI interface to the trash can API.
 - **[Leanshot]**. A Linux screen capture tool.
 
-More can be found on my public [Forgejo][2] instance.
+More can be found on my [GitHub] and [SourceHut] accounts.
 
-I've also started making an increased effort at using and supporting [FOSS], and
-other software that're not predatory towards users. As a part of this effort,
-I'm also self-hosting and rewriting some of the services and software that I use
-regularly.
+[github]: https://github.com/mzhang28
+[sourcehut]: https://git.sr.ht/~mzhang
 
 ## Hobbies
 
-Outside of computer science, I love cooking, music, and games.
-In particular, I'm a huge fan of rhythm games.
+I have been an avid CTF hobbyist.
+I played with my university team [GopherHack], as well as the team [Project SEKAI][pjsk] briefly.
+I started [EasyCTF], a CTF for high school students, which ran for several iterations.
+
+[pjsk]: https://sekai.team
+[easyctf]: https://ctftime.org/team/35571
+
+I also enjoy cooking, running, and rhythm games.
+My main rhythm games are [osu!][userpage] and [DDR][ddr].
+
+[ddr]: https://3icecream.com/profile/mzhang
 
 Occasionally, I also like to take some time and immerse myself in some random hobby. Here are some things that I have taken interest in before:
 
@@ -96,8 +81,9 @@ Occasionally, I also like to take some time and immerse myself in some random ho
 - Lock picking
 - Bouldering
 - Craft beer
+- Keyboard building
 
-If you're in the Minneapolis or Twin Cities area, let's chat!
+If you're in Cambridge or the Boston metropolitan area, let's chat!
 
 [2]: https://git.mzhang.io/explore
 [9]: setup
@@ -116,3 +102,5 @@ If you're in the Minneapolis or Twin Cities area, let's chat!
 [sase]: https://saseumn.org
 [umn kernel object]: https://github.com/UMN-Kernel-Object
 [aws]: https://aws.amazon.com
+
+</article>
