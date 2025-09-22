@@ -12,6 +12,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4 # Action to checkout your repository
 
+      - name: Cache Agda build artifacts
+        uses: actions/cache@v3
+        with:
+          # Path to the Agda build directory to cache.
+          path: _build
+          # A unique key for the cache.
+          # It uses the runner's OS and a hash of all .agda files to ensure
+          # the cache is invalidated when the source code changes.
+          key: ${{ runner.os }}-agda-build-${{ hashFiles('**/*.agda') }}-2.7.0.1
+
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
@@ -28,6 +38,9 @@ jobs:
 
       - name: Build project
         run: bun run build
+
+      - name: Check
+        run: find
 
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
