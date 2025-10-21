@@ -1,11 +1,7 @@
 {
-  "extends": "astro/tsconfigs/strictest",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    // "moduleResolution": "bundler",
-    "strictNullChecks": true,
-    "jsx": "react-jsx"
-  },
-
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }

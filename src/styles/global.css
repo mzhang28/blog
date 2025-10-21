@@ -1,6 +1,0 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
-
-body {
-  font-family: "PT Serif", serif;
-}

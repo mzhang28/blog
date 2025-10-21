@@ -1,39 +1,29 @@
 ---
-import PostList from "../components/PostList.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { join } from "node:path";
-import portrait from "../assets/self.png";
-import { Content as ShortBio } from "../content/partials/shortBio.mdx";
-import "../styles/home.scss";
-import { Image } from "astro:assets";
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
 
-const currentUrl = Astro.url;
+const posts = await getCollection('posts');
 ---
 
-<BaseLayout>
-  <div class="flex flex-col md:flex-row items-center md:space-x-12 mb-16 gap-6">
-    <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shrink-0 mb-6 md:mb-0">
-      <Image
-        src={portrait}
-        alt="portrait"
-        class="w-full h-full object-cover"
-        width={350}
-        height={350}
-        loading="eager"
-      />
-    </div>
-
-    <div class="text-center md:text-left">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Michael Zhang</h1>
-      <p class="text-xl">
-        <ShortBio />
-      </p>
-    </div>
+<Layout title="Keystatic & Astro's Content Collections">
+  <div>
+    <h1>Keystatic ⚡️ + Astro 🚀</h1>
+    <p>
+      This homepage shows how to load data from Astro's content collections.
+    </p>
+    <p>
+      <a href="/keystatic">Click here to visit the Admin UI</a>, or the link
+      below to view a post in the collection.
+    </p>
+    <h2>Posts</h2>
+    <ul>
+      {
+        posts.map(post => (
+          <li>
+            <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
-
-  <p>I'm in the process of redoing my website. Check back later!</p>
-
-  <!-- <h1>Blog</h1>
-
-  <PostList class="home" timeFormat="yyyy-MM-dd" basePath={join(currentUrl.pathname, "posts")} /> -->
-</BaseLayout>
+</Layout>

@@ -1,5 +1,19 @@
-# Michael's Blog
+# Keystatic in Astro
 
-https://mzhang.io
+This template shows how you can use Keystatic in an Astro site.
 
-License: GPL-3.0 code / CC-BY-SA-4.0 contents
+To setup:
+
+```bash
+npm install
+```
+
+To run:
+
+```
+npm run dev
+```
+
+Admin UI: [http://127.0.0.1:4321/keystatic](http://127.0.0.1:4321/keystatic)
+
+Homepage: [http://localhost:4321](http://localhost:4321)
