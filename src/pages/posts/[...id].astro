@@ -25,7 +25,7 @@ const posts = (await getCollection("posts"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 function getNextPost() {
-  let postIndex;
+  let postIndex: number;
   for (const post of posts) {
     if (post.id === Astro.params.id) {
       postIndex = posts.indexOf(post);
@@ -35,7 +35,7 @@ function getNextPost() {
 }
 
 function getPrevPost() {
-  let postIndex;
+  let postIndex: number;
   for (const post of posts) {
     if (post.id === Astro.params.id) {
       postIndex = posts.indexOf(post);
@@ -51,7 +51,7 @@ const post = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={post.data.title} description={post.data.description ?? ""}>
   <Container>
     <div class="animate">
       <BackToPrevious href="/posts">Back to blog</BackToPrevious>

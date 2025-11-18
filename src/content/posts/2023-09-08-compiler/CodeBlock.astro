@@ -21,7 +21,7 @@ code = code
   .split("\n")
   .map((line) => {
     if (line.trim().length === 0) return "";
-    return line.substring(longestCommonWhitespace);
+    return line.substring(longestCommonWhitespace ?? 0);
   })
   .join("\n")
   .trim();
@@ -31,7 +31,8 @@ code = code.trim();
 
 let scriptCode = code;
 if (typeof resultName === "string") scriptCode += `\n${resultName};`;
-else if (Array.isArray(resultName)) scriptCode += `\n[${resultName.join(", ")}];`;
+else if (Array.isArray(resultName))
+  scriptCode += `\n[${resultName.join(", ")}];`;
 ---
 
 <!-- <Code code={code} lang="js" theme="github-dark" /> -->

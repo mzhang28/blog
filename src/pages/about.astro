@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import { SITE } from "@consts";
+
+import { Content as AboutContent } from "../content/about.mdx";
+---
+
+<Layout title="About" description={SITE.DESCRIPTION}>
+  <Container>
+    <article>
+      <AboutContent />
+    </article>
+  </Container>
+</Layout>
