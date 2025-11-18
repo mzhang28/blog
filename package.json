@@ -21,6 +21,9 @@
     "astro": "^5.13.9",
     "astro-pagefind": "^1.8.5",
     "clsx": "^2.1.1",
+    "katex": "^0.16.25",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2"

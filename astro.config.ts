@@ -4,7 +4,10 @@ import mdx from "@astrojs/mdx";
 import pagefind from "astro-pagefind";
 import tailwindcss from "@tailwindcss/vite";
 
-// https://astro.build/config
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+
+// https:/astro.build/config
 export default defineConfig({
   site: "https://astro-micro.vercel.app",
   integrations: [sitemap(), mdx(), pagefind()],
@@ -15,5 +18,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "css-variables",
     },
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
   },
 });
