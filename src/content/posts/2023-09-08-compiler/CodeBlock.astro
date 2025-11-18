@@ -1,0 +1,48 @@
+---
+import { Code } from "astro:components";
+
+interface Props {
+  code: string;
+  resultName?: string | string[];
+}
+
+let { code, resultName } = Astro.props;
+
+// Detect common whitespace
+let longestCommonWhitespace: number | null = null;
+for (const line of code.split("\n")) {
+  if (line.trim().length === 0) continue;
+  const startingWhitespace = line.match(/^(\s+)/)!;
+  const len = startingWhitespace[1].length;
+  if (longestCommonWhitespace === null || len < longestCommonWhitespace)
+    longestCommonWhitespace = len;
+}
+code = code
+  .split("\n")
+  .map((line) => {
+    if (line.trim().length === 0) return "";
+    return line.substring(longestCommonWhitespace);
+  })
+  .join("\n")
+  .trim();
+
+// Strip some characters from it
+code = code.trim();
+
+let scriptCode = code;
+if (typeof resultName === "string") scriptCode += `\n${resultName};`;
+else if (Array.isArray(resultName)) scriptCode += `\n[${resultName.join(", ")}];`;
+---
+
+<!-- <Code code={code} lang="js" theme="github-dark" /> -->
+<Code code={code} lang="js" theme="css-variables" />
+
+<script define:vars={{ resultName, scriptCode }}>
+  const result = eval?.(scriptCode);
+  if (typeof resultName === "string") window[resultName] = result;
+  else if (Array.isArray(resultName)) {
+    resultName.forEach((name, i) => {
+      window[name] = result[i];
+    });
+  }
+</script>

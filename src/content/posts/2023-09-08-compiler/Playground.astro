@@ -1,0 +1,33 @@
+---
+import { nanoid } from "nanoid";
+import "./style.scss";
+
+interface Props {
+  label?: string;
+  id?: string;
+  runAction: string;
+}
+
+const { label, id, runAction } = Astro.props;
+const codeId = id ?? nanoid();
+
+const scriptCode = `
+  javascript:((displayResult) => {
+    ${runAction}
+  })((result) => {
+    const el = document.getElementById("${codeId}");
+    el.innerText = result.toString();
+    const stamp = document.getElementById("${codeId}-stamp");
+    stamp.innerText = new Date().toISOString();
+  });
+`;
+---
+
+<button onclick={scriptCode}>{label ?? "Run"}</button>
+<div class="result">
+  <pre id={codeId}></pre>
+  <small>
+    Last run:
+    <span id={`${codeId}-stamp`}></span>
+  </small>
+</div>

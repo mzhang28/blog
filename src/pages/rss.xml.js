@@ -3,7 +3,7 @@ import { SITE } from "@consts";
 import { getCollection } from "astro:content";
 
 export async function GET(context) {
-  const blog = (await getCollection("blog")).filter((post) => !post.data.draft);
+  const blog = (await getCollection("posts")).filter((post) => !post.data.draft);
 
   const projects = (await getCollection("projects")).filter(
     (project) => !project.data.draft

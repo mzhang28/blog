@@ -9,7 +9,7 @@ import type { CollectionEntry } from "astro:content";
 
 import { Content as IndexContent } from "../content/index.mdx";
 
-const blog = (await getCollection("blog"))
+const blog = (await getCollection("posts"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
@@ -37,7 +37,7 @@ const projects: CollectionEntry<"projects">[] = (
             <h2 class="font-semibold text-black dark:text-white">
               Latest posts
             </h2>
-            <Link href="/blog"> See all posts </Link>
+            <Link href="/posts"> See all posts </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
@@ -50,7 +50,7 @@ const projects: CollectionEntry<"projects">[] = (
           </ul>
         </section>
 
-        <section class="animate space-y-6">
+        <!-- <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
               Recent projects
@@ -66,7 +66,7 @@ const projects: CollectionEntry<"projects">[] = (
               ))
             }
           </ul>
-        </section>
+        </section> -->
       </div>
     </aside>
   </Container>
