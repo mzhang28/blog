@@ -1,7 +1,10 @@
 ---
 title: Old blog posts
 date: 2024-10-07T22:40:16-05:00
-tags: [life, medium-blog]
+tags:
+  - life
+  - medium-blog
+  - blog-meta
 ---
 
 Just re-discovered an [old blog][1] I had written over at Medium from back around 2017.

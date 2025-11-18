@@ -1,8 +1,10 @@
 ---
-title: "Agda syntax highlighting in my blog!"
+title: Agda syntax highlighting in my blog!
 id: 2024-06-26-agda-rendering
 date: 2024-06-27T04:25:15.332Z
-tags: ["meta", "agda"]
+tags:
+  - agda
+  - blog-meta
 ---
 
 I finally spent some time today getting full Agda syntax highlighting working on my blog.

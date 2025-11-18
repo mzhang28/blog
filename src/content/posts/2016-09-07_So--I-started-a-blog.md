@@ -1,7 +1,9 @@
 ---
 title: So. I started a blog.
 date: 2016-09-07T20:18:04.000Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - blog-meta
 ---
 
 <article class="h-entry">
