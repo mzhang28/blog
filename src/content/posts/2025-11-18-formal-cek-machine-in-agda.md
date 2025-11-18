@@ -2,6 +2,10 @@
 title: Formalizing lambda calculus with call/cc by building a CEK machine in Agda
 date: 2025-11-18T07:40:34.024Z
 draft: true
+tags:
+  - formalization
+  - agda
+  - pl
 ---
 This is a blog post I started writing a while ago and never ended up finishing, so here it is.
 

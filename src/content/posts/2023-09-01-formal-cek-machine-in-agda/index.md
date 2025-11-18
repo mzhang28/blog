@@ -4,10 +4,9 @@ draft: true
 date: 2023-09-01T13:53:23.974Z
 tags:
   - computer-science
-  - programming-languages
-  - formal-verification
   - lambda-calculus
-
+  - formalization
+  - pl
 heroImage: ./header.jpg
 heroAlt: gears spinning wallpaper
 math: true

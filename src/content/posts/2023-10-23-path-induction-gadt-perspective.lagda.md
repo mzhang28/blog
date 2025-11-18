@@ -2,7 +2,9 @@
 title: "Path induction: a GADT perspective"
 id: 2023-10-23-path-induction-gadt-perspective
 date: 2023-10-23
-tags: ["type-theory", "pl-theory"]
+tags:
+  - type-theory
+  - pl
 ---
 
 <details>
