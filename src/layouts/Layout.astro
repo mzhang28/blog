@@ -5,6 +5,9 @@ import Footer from "@components/Footer.astro";
 import Pagefind from "@components/PageFind.astro";
 import { SITE } from "@consts";
 
+// @ts-expect-erroror
+import "@fontsource-variable/vend-sans";
+
 type Props = {
   title: string;
   description: string;
@@ -21,8 +24,8 @@ const { title, description } = Astro.props;
   <body>
     <noscript>
       <style>
-        .animate{
-          opacity:1;
+        .animate {
+          opacity: 1;
           translate: var(--tw-translate-x) calc(var(--spacing) * 0);
         }
       </style>

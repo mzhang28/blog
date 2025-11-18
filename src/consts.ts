@@ -1,7 +1,7 @@
 import type { Metadata, Site, Socials } from "@types";
 
 export const SITE: Site = {
-  TITLE: "Astro Micro",
+  TITLE: "Michael Zhang",
   DESCRIPTION: "Astro Micro is an accessible and lightweight blog.",
   EMAIL: "trevortylerlee@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 5,
@@ -25,16 +25,16 @@ export const PROJECTS: Metadata = {
 };
 
 export const SOCIALS: Socials = [
-  {
-    NAME: "X (formerly Twitter)",
-    HREF: "https://twitter.com/boogerbuttcheek",
-  },
+  // {
+  //   NAME: "X (formerly Twitter)",
+  //   HREF: "https://twitter.com/boogerbuttcheek",
+  // },
   {
     NAME: "GitHub",
-    HREF: "https://github.com/trevortylerlee",
+    HREF: "https://github.com/mzhang28",
   },
-  {
-    NAME: "Website",
-    HREF: "https://trevortylerlee.com",
-  },
+  // {
+  //   NAME: "Website",
+  //   HREF: "https://trevortylerlee.com",
+  // },
 ];
