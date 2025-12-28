@@ -89,11 +89,13 @@ We know this is a properly terminating function, because we have only called `le
 
 There are functions which can't be analyzed syntax-wise, the most famous of which is the Ackermann function. For reference, the definition is like this:
 
-$$ A(m,n) = \begin{cases}
+$$
+A(m,n) = \begin{cases}
 	n + 1 & \text{if } m = 0 \\
 	A(m-1, 1) & \text{if } m > 0 \text{ and } n = 0 \\
 	A(m-1, A(m, n-1)) & \text{if } m > 0 \text{ and } n > 0 \\
-\end{cases} $$
+\end{cases}
+$$
 
 The core problem here is that the termination checker can't determine that $A(m,n-1)$ is a structurally smaller term, because it involves a recursive call first. If the result of this call ended up with a number bigger than $n$, we could get unbounded recursion.
 
@@ -125,7 +127,9 @@ So we essentially have some abstract data to represent the tail of the list. Thi
 
 Then, we'll have some type $R$ which represents an _abstracted_ version of your list. The reason we need to make this abstract is that we abuse parametricity to disallow introspection. The _only_ thing you can do with this $R$, is to pass it to a function called $\textsf{eval} : R \rightarrow X$. So putting this all together, for some specific output type $\mathbb{N}$, our length step function's type signature would look something like:
 
-$$ \mathsf{lengthStep} : \forall R. (\mathsf{eval} : R \rightarrow \mathbb{N}) \rightarrow \mathsf{ListF}(A, R) \rightarrow \mathbb{N} $$
+$$
+\mathsf{lengthStep} : \forall R. (\mathsf{eval} : R \rightarrow \mathbb{N}) \rightarrow \mathsf{ListF}(A, R) \rightarrow \mathbb{N}
+$$
 
 We can write this like:
 
