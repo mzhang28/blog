@@ -39,7 +39,7 @@ const projects: CollectionEntry<"projects">[] = (
             </h2>
             <Link href="/posts"> See all posts </Link>
           </div>
-          <div class="not-prose gap-1 grid grid-cols-[auto_1fr_auto]">
+          <div class="not-prose gap-1 grid grid-cols-[auto_minmax(0,1fr)_auto]">
             {blog.map((post) => <ArrowCard entry={post} />)}
           </div>
         </section>

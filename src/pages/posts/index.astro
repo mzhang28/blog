@@ -37,7 +37,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
                   {year}
                 </div>
                 <div>
-                  <div class="not-prose gap-1 grid grid-cols-[auto_1fr_auto]">
+                  <div class="not-prose gap-1 grid grid-cols-[auto_minmax(0,1fr)_auto]">
                     {posts[year].map((post) => (
                       <ArrowCard entry={post} />
                     ))}
