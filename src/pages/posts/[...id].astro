@@ -52,7 +52,11 @@ const post = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description ?? ""}>
+<Layout
+  title={post.data.title}
+  description={post.data.description ?? ""}
+  {...post.data.draft === true ? { "data-pagefind-ignore": true } : {}}
+>
   <Container>
     <div class="animate">
       <BackToPrevious href="/posts">Back to blog</BackToPrevious>

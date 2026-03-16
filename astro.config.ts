@@ -10,7 +10,7 @@ import rehypeKatex from "rehype-katex";
 // https:/astro.build/config
 export default defineConfig({
   site: "https://astro-micro.vercel.app",
-  integrations: [sitemap(), mdx(), pagefind()],
+  integrations: [sitemap(), mdx(), pagefind({ indexConfig: {} })],
   vite: {
     plugins: [tailwindcss()],
   },
