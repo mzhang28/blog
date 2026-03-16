@@ -1,0 +1,31 @@
+---
+const { entry } = Astro.props;
+---
+
+<div
+  class="not-prose group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pr-10 transition-colors duration-300 ease-in-out focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
+>
+  <div class="flex flex-1 flex-col truncate">
+    <div class="font-semibold">
+      {entry.title}
+    </div>
+    <div class="text-sm">
+      {
+        new Date(entry.date).toLocaleDateString(undefined, {
+          dateStyle: "short",
+        })
+      }
+      &middot;
+      {entry.authors.join(",")}
+    </div>
+    <div class="text-sm">
+      {
+        (entry.links ?? []).map((link) => (
+          <a href={link.url} rel="noopener" target="_blank">
+            {link.text}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>

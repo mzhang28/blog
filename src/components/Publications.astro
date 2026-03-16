@@ -1,0 +1,6 @@
+---
+import data from "../data/publications.json";
+import PublicationCard from "./PublicationCard.astro";
+---
+
+{data.map((entry) => <PublicationCard entry={entry} />)}

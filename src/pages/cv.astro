@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import { SITE } from "@consts";
+
+import { Content as CvContent } from "../content/cv.mdx";
+---
+
+<Layout title="CV" description={SITE.DESCRIPTION}>
+  <Container>
+    <article>
+      <CvContent />
+    </article>
+  </Container>
+</Layout>

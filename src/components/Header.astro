@@ -2,6 +2,12 @@
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { SITE } from "@consts";
+
+const links = [
+  ["about", "/about"],
+  ["blog", "/posts"],
+  ["cv", "/cv"],
+];
 ---
 
 <header transition:persist>
@@ -13,18 +19,15 @@ import { SITE } from "@consts";
         </div>
       </Link>
       <nav class="flex items-center gap-1 text-sm">
-        <Link href="/about">about</Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/posts">blog</Link>
-        <span>
-          {`/`}
-        </span>
-        <!-- <Link href="/projects">projects</Link>
-        <span>
-          {`/`}
-        </span> -->
+        {
+          links.map(([text, url], idx) => (
+            <>
+              {idx > 0 && <span>&middot;</span>}
+              <Link href={url}>{text}</Link>
+            </>
+          ))
+        }
+        <span>&middot;</span>
         <button
           id="magnifying-glass"
           aria-label="Search"
