@@ -1,4 +1,8 @@
 ---
+import data from "../data/publications.json";
+interface Props {
+  entry: (typeof data)[0];
+}
 const { entry } = Astro.props;
 ---
 
