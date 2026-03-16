@@ -39,15 +39,9 @@ const projects: CollectionEntry<"projects">[] = (
             </h2>
             <Link href="/posts"> See all posts </Link>
           </div>
-          <ul class="not-prose flex flex-col gap-1">
-            {
-              blog.map((post) => (
-                <li>
-                  <ArrowCard entry={post} />
-                </li>
-              ))
-            }
-          </ul>
+          <div class="not-prose gap-1 grid grid-cols-[auto_1fr_auto]">
+            {blog.map((post) => <ArrowCard entry={post} />)}
+          </div>
         </section>
 
         <!-- <section class="animate space-y-6">
