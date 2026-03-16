@@ -1,5 +1,10 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 
+interface Props {
+  extraProps?: HTMLAttributes<"div">;
+}
+const { extraProps } = Astro.props;
 ---
 
-<div class="mx-auto max-w-(--breakpoint-sm) px-3"><slot /></div>
+<div class="mx-auto max-w-(--breakpoint-sm) px-3" {...extraProps}><slot /></div>

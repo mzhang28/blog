@@ -50,14 +50,13 @@ const prevPost = getPrevPost();
 
 const post = Astro.props;
 const { Content, headings } = await render(post);
+
+const pagefindIgnore =
+  post.data.draft === true ? { "data-pagefind-ignore": true } : {};
 ---
 
-<Layout
-  title={post.data.title}
-  description={post.data.description ?? ""}
-  {...post.data.draft === true ? { "data-pagefind-ignore": true } : {}}
->
-  <Container>
+<Layout title={post.data.title} description={post.data.description ?? ""}>
+  <Container extraProps={pagefindIgnore}>
     <div class="animate">
       <BackToPrevious href="/posts">Back to blog</BackToPrevious>
     </div>
