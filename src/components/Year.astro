@@ -1,0 +1,12 @@
+---
+import { ordinal, getAcademicYear } from "../lib/utils";
+
+const startYear = 2025;
+const year = getAcademicYear(startYear);
+const yearStr = ordinal(year);
+---
+
+<span
+  title={`starting in fall ${startYear}`}
+  class="underline decoration-dotted">{yearStr}</span
+>
