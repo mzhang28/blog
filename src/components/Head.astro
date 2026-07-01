@@ -66,7 +66,7 @@ const { title, description, image = "/astro-micro.jpg" } = Astro.props;
 
 <ClientRouter />
 
-<script>
+<script is:inline>
   window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}} ,has:function(t,r){return"q"===r}}) }();
   window.op('init', {
 	apiUrl: 'https://opapi-k2l1t474l62jj83qu2a8ck9e.apps.mzhang.io',
