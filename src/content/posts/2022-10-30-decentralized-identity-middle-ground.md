@@ -4,6 +4,7 @@ date: 2022-10-30T03:04:51-05:00
 logseq: true
 tags:
   - web
+  - old
 ---
 
 - With Twitter management changing, I'm starting to think about the small web again. The small web is a concept where you use the Internet to interact with people directly, rather than operating through the medium of megacorps. When we think about big monoliths like Twitter and Facebook, at the very heart of it is some kind of algorithm picking what it is we see. And with the power to control that gives us advertising and mass manipulation.

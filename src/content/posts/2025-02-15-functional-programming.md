@@ -3,7 +3,8 @@ title: Functional Programming
 id: 2025-02-15-functional-programming
 date: 2025-02-15T19:28:38.275Z
 draft: true
-tags: []
+tags:
+  - old
 ---
 
 The term functional programming is actually a conflation of several independent programming principles that can lead to better code quality.

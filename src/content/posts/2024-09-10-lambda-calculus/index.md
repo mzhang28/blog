@@ -3,7 +3,9 @@ title: The lambda calculus
 date: 2024-09-10T10:16:12.486Z
 type: default
 draft: true
-tags: [pl-theory]
+tags:
+  - pl-theory
+  - old
 ---
 
 If you want to analyze something, one useful approach is to try to start with

@@ -2,7 +2,12 @@
 title: Visual examples of hcomp
 id: 2024-09-18-hcomp
 date: 2024-09-18T04:07:13-05:00
-tags: [hott, cubical, agda, type-theory]
+tags:
+  - hott
+  - cubical
+  - agda
+  - type-theory
+  - old
 ---
 
 [**hcomp**][1] is a primitive operation in [cubical type theory][cubical] that completes the _lid_ of an incomplete cube, given the bottom face and some number of side faces.

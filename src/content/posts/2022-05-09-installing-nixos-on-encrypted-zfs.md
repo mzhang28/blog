@@ -1,7 +1,11 @@
 ---
 title: "Installing NixOS on ZFS with encryption"
 date: 2022-05-09
-tags: ["nixos", "linux", "setup"]
+tags:
+  - nixos
+  - linux
+  - setup
+  - old
 toc: true
 ---
 

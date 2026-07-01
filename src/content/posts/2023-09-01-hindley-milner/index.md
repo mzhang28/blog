@@ -3,6 +3,7 @@ title: Hindley-Milner type inference
 date: 2023-09-01T13:06:55.614Z
 tags:
   - type-theory
+  - old
 draft: true
 ---
 

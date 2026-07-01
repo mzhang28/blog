@@ -1,7 +1,11 @@
 ---
 title: "The Cyber Grabs CTF: Unbr34k4bl3 (942)"
 date: 2022-02-02
-tags: ["ctf", "crypto", "rsa"]
+tags:
+  - ctf
+  - crypto
+  - rsa
+  - old
 languages: ["python"]
 math: true
 toc: true

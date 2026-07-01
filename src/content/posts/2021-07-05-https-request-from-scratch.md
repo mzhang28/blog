@@ -3,7 +3,11 @@ title: "Sending https requests from scratch"
 date: 2021-07-05
 draft: true
 toc: true
-tags: ["computers", "web", "crypto"]
+tags:
+  - computers
+  - web
+  - crypto
+  - old
 languages: ["python"]
 ---
 

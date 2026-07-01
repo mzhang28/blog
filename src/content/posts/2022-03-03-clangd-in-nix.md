@@ -1,7 +1,9 @@
 ---
 title: "Clangd in Nix"
 date: 2022-03-03
-tags: ["nixos"]
+tags:
+  - nixos
+  - old
 ---
 
 I've been using [Nix][NixOS] a lot recently since it handles dependency

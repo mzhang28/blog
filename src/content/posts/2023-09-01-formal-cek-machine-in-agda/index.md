@@ -7,6 +7,7 @@ tags:
   - lambda-calculus
   - formalization
   - pl
+  - old
 heroImage: ./header.jpg
 heroAlt: gears spinning wallpaper
 math: true

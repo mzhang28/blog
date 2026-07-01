@@ -1,7 +1,9 @@
 ---
 title: So, you can detect whether I use an ad-blocker or not, eh?
 date: 2017-02-16T03:07:43.893Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

@@ -1,7 +1,9 @@
 ---
 title: "Higher Inductive Types"
 date: 2022-09-20
-tags: ["type-theory"]
+tags:
+  - type-theory
+  - old
 toc: true
 math: true
 draft: true

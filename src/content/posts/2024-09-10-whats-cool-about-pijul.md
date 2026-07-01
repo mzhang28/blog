@@ -1,7 +1,9 @@
 ---
 title: What's cool about Pijul?
 date: 2024-09-10T22:37:03.684Z
-tags: [engineering]
+tags:
+  - engineering
+  - old
 draft: true
 ---
 

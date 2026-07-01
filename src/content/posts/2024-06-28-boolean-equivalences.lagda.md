@@ -2,7 +2,11 @@
 title: Boolean equivalences
 id: 2024-06-28-boolean-equivalences
 date: 2024-06-28T21:37:04.299Z
-tags: ["agda", "type-theory", "hott"]
+tags:
+  - agda
+  - type-theory
+  - hott
+  - old
 ---
 
 This post is about a problem I recently proved that seemed simple going in, but

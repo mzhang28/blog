@@ -1,7 +1,10 @@
 ---
 title: "Getting a shell in a Docker Compose container without any shells"
 date: 2023-03-29
-tags: ["docker", "linux"]
+tags:
+  - docker
+  - linux
+  - old
 ---
 
 First (published) blog post of the year! :raised_hands:

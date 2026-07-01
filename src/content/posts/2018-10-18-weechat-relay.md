@@ -1,7 +1,9 @@
 ---
 title: "Setting up IRC with Weechat"
 date: 2018-10-18
-tags: ["irc"]
+tags:
+  - irc
+  - old
 ---
 
 I've just recently discovered that weechat has a "relay" mode, which means it can act as a relay server to other clients (for example, my phone). If I leave an instance of weechat running on, say, my server that's always running, it can act as a bouncer and my phone can receive notifications for highlights as well.

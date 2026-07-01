@@ -1,7 +1,9 @@
 ---
 title: How to accomplish something.
 date: 2014-12-28T06:18:06.940Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

@@ -3,6 +3,7 @@ title: Coping with refactoring
 date: 2024-06-21T05:56:50.594Z
 tags:
   - engineering
+  - old
 
 heroImage: ./ruinsHero.png
 heroAlt: ruins

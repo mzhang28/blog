@@ -1,7 +1,9 @@
 ---
 title: "Accept server analogy"
 date: 2019-03-04
-tags: ["computers"]
+tags:
+  - computers
+  - old
 ---
 
 This is just a stupid analogy I thought of recently, but decided to write about it anyway.

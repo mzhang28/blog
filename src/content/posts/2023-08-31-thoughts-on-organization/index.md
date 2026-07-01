@@ -4,6 +4,7 @@ date: 2023-08-31T13:57:29.022Z
 tags:
   - organization
   - logseq
+  - old
 heroImage: ./calendarHero.png
 heroAlt: pastel colored stationery background with a bunch of calendars and personal organization tools in a crayon drawing style
 ---

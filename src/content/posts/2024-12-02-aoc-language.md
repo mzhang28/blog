@@ -1,7 +1,10 @@
 ---
 title: The advent of code language
 date: 2024-12-02T11:08:41.157Z
-tags: [pl, advent-of-code]
+tags:
+  - pl
+  - advent-of-code
+  - old
 ---
 
 It's December, which means ~~grad school apps are due soon~~ [Advent of Code (AOC)][aoc] has started.

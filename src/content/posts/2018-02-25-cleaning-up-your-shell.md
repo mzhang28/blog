@@ -1,7 +1,11 @@
 ---
 title: "Cleaning up your shell"
 date: 2018-02-25
-tags: ["computers", "linux", "terminal"]
+tags:
+  - computers
+  - linux
+  - terminal
+  - old
 languages: ["bash"]
 ---
 

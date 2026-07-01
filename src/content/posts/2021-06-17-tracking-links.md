@@ -1,7 +1,12 @@
 ---
 title: "Tracking links in email"
 date: 2021-06-17
-tags: ["email", "computers", "things-that-are-bad", "privacy"]
+tags:
+  - email
+  - computers
+  - things-that-are-bad
+  - privacy
+  - old
 ---
 
 You probably get emails every day, and spend a lot of time reading them. And

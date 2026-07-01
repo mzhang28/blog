@@ -3,6 +3,7 @@ title: How IP routing works
 date: 2023-09-01T03:50:38.386Z
 tags:
   - networking
+  - old
 draft: true
 
 heroImage: ./cableHero.png

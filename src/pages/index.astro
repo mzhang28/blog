@@ -11,6 +11,7 @@ import { Content as IndexContent } from "../content/index.mdx";
 
 const blog = (await getCollection("posts"))
   .filter((post) => !post.data.draft)
+  .filter((post) => !post.data.tags?.includes("old"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 

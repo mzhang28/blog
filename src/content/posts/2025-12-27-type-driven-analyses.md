@@ -5,6 +5,7 @@ draft: true
 tags:
   - pl
   - type-theory
+  - old
 ---
 Today, I ran into a familiar issue with the Rust borrow checker. In the middle of an async function, I had a variable that wasn't `Send` escaping across an `.await` boundary. It looked something like this:
 ```rust

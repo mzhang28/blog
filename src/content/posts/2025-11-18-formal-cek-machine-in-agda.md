@@ -6,6 +6,7 @@ tags:
   - formalization
   - agda
   - pl
+  - old
 ---
 This is a blog post I started writing a while ago and never ended up finishing, so here it is.
 

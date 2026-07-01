@@ -2,7 +2,9 @@
 title: "Dependent Types from First Principles"
 id: "dependent-types"
 date: 2022-10-27
-tags: ["type-theory"]
+tags:
+  - type-theory
+  - old
 toc: true
 math: true
 draft: true

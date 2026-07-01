@@ -2,7 +2,10 @@
 title: "Formally proving true ≢ false in Homotopy Type Theory with Agda"
 id: "proving-true-from-false"
 date: 2023-04-21
-tags: ["type-theory", "agda"]
+tags:
+  - type-theory
+  - agda
+  - old
 math: true
 ---
 

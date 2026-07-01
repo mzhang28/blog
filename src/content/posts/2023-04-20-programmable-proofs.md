@@ -1,7 +1,9 @@
 ---
 title: "Programmable Proofs"
 date: 2023-04-20
-tags: ["type-theory"]
+tags:
+  - type-theory
+  - old
 math: true
 draft: true
 ---

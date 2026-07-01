@@ -1,7 +1,10 @@
 ---
 title: "End-to-end encryption is useless without client freedom"
 date: 2021-10-31
-tags: ["computers", "privacy"]
+tags:
+  - computers
+  - privacy
+  - old
 ---
 
 Today, many companies claim to provide "end-to-end encryption" of user data,

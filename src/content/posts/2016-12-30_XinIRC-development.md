@@ -1,7 +1,9 @@
 ---
 title: XinIRC development
 date: 2016-12-30T05:19:21.000Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

@@ -1,7 +1,9 @@
 ---
 title: "Fixing tmux colors"
 date: 2018-04-23
-tags: ["computers"]
+tags:
+  - computers
+  - old
 ---
 
 Put this in your `~/.tmux.conf`.

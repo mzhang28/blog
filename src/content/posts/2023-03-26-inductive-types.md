@@ -1,7 +1,9 @@
 ---
 title: "Inductive Types"
 date: 2023-03-26
-tags: ["type-theory"]
+tags:
+  - type-theory
+  - old
 math: true
 draft: true
 toc: true

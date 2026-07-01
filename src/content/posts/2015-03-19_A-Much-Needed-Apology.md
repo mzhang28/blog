@@ -1,7 +1,9 @@
 ---
 title: A Much-Needed Apology
 date: 2015-03-19T23:34:26.674Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

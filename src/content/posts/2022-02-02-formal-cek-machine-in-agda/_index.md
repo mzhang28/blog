@@ -2,7 +2,12 @@
 title: "building a formal cek machine in agda"
 draft: true
 date: 2022-02-02
-tags: ["computer-science", "programming-languages", "formal-verification", "lambda-calculus"]
+tags:
+  - computer-science
+  - programming-languages
+  - formal-verification
+  - lambda-calculus
+  - old
 languages: ["agda"]
 toc: true
 ---

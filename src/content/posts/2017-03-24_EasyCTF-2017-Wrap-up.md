@@ -1,7 +1,9 @@
 ---
 title: EasyCTF 2017 Wrap-up
 date: 2017-03-24T11:36:40.681Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 EasyCTF just concluded this Monday!

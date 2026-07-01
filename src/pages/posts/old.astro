@@ -3,11 +3,10 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
-import { BLOG } from "@consts";
 
 const data = (await getCollection("posts"))
   .filter((post) => !post.data.draft)
-  .filter((post) => !post.data.tags?.includes("old"))
+  .filter((post) => post.data.tags?.includes("old"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 type Acc = {
@@ -26,10 +25,21 @@ const posts = data.reduce((acc: Acc, post) => {
 const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
 ---
 
-<Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+<Layout title="Older Posts" description="Archive of older blog posts.">
   <Container>
     <aside data-pagefind-ignore>
       <div class="space-y-10">
+        <div class="space-y-2">
+          <a
+            href="/posts"
+            class="text-sm text-gray-400 underline decoration-gray-300 underline-offset-2 transition-colors duration-300 ease-in-out hover:text-gray-600 dark:text-gray-500 dark:decoration-gray-600 dark:hover:text-gray-400"
+          >
+            &larr; Back to posts
+          </a>
+          <p class="text-sm text-gray-400 dark:text-gray-500">
+            These are older posts from the archive.
+          </p>
+        </div>
         <div class="space-y-4">
           {
             years.map((year) => (
@@ -48,15 +58,13 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
             ))
           }
         </div>
-      </div>
-        <div class="mt-16 text-center">
-          <a
-            href="/posts/old"
-            class="text-sm text-gray-400 underline decoration-gray-300 underline-offset-2 transition-colors duration-300 ease-in-out hover:text-gray-600 dark:text-gray-500 dark:decoration-gray-600 dark:hover:text-gray-400"
-          >
-            View older posts &rarr;
-          </a>
-        </div>
+        {
+          years.length === 0 && (
+            <p class="text-sm text-gray-400 dark:text-gray-500">
+              No older posts found.
+            </p>
+          )
+        }
       </div>
     </aside>
   </Container>

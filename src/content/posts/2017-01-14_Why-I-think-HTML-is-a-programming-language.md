@@ -1,7 +1,9 @@
 ---
 title: Why I think HTML is a programming language.
 date: 2017-01-14T09:07:31.000Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

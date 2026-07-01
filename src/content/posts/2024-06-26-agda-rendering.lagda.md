@@ -5,6 +5,7 @@ date: 2024-06-27T04:25:15.332Z
 tags:
   - agda
   - blog-meta
+  - old
 ---
 
 I finally spent some time today getting full Agda syntax highlighting working on my blog.

@@ -1,7 +1,10 @@
 ---
 title: "Learn by implementing Nginx's reverse proxy"
 date: 2023-07-04
-tags: ["web", "learn-by-implementing"]
+tags:
+  - web
+  - learn-by-implementing
+  - old
 draft: true
 ---
 

@@ -5,6 +5,7 @@ tags:
   - life
   - medium-blog
   - blog-meta
+  - old
 ---
 
 Just re-discovered an [old blog][1] I had written over at Medium from back around 2017.

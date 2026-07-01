@@ -1,7 +1,12 @@
 ---
 title: My new life stack
 date: 2018-02-01
-tags: ["arch", "linux", "setup", "computers"]
+tags:
+  - arch
+  - linux
+  - setup
+  - computers
+  - old
 ---
 
 This is my first post on my new blog! <!--more--> I used to put a CTF challenge writeup here but decided to change it up a bit. Recently, I've been changing a lot of the technology that I use day to day. Here's some of the changes that I've made!

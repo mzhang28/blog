@@ -1,7 +1,10 @@
 ---
 title: "Learn by Implementing Elliptic Curve Crypto"
 date: 2022-03-04
-tags: ["crypto", "learn-by-implementing"]
+tags:
+  - crypto
+  - learn-by-implementing
+  - old
 draft: true
 math: true
 toc: true

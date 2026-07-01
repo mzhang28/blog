@@ -3,7 +3,9 @@ import { SITE } from "@consts";
 import { getCollection } from "astro:content";
 
 export async function GET(context) {
-  const blog = (await getCollection("posts")).filter((post) => !post.data.draft);
+  const blog = (await getCollection("posts"))
+    .filter((post) => !post.data.draft)
+    .filter((post) => !post.data.tags?.includes("old"));
 
   const projects = (await getCollection("projects")).filter(
     (project) => !project.data.draft

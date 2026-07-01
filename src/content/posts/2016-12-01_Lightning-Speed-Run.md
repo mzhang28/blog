@@ -1,7 +1,9 @@
 ---
 title: Lightning Speed Run
 date: 2016-12-01T22:26:36.000Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

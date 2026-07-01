@@ -1,7 +1,9 @@
 ---
 title: UIUCTF 2017 Writeups
 date: 2017-05-01T00:09:47.978Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

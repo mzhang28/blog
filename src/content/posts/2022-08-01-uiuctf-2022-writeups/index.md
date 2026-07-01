@@ -1,7 +1,9 @@
 ---
 title: "UIUCTF 2022 Writeups"
 date: 2022-08-01
-tags: ["ctf"]
+tags:
+  - ctf
+  - old
 math: true
 ---
 

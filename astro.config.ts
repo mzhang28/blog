@@ -13,6 +13,7 @@ export default defineConfig({
   integrations: [sitemap(), mdx(), pagefind({ indexConfig: {} })],
   vite: {
     plugins: [tailwindcss()],
+    preview: { allowedHosts: ["ephemeral"] },
   },
   markdown: {
     shikiConfig: {

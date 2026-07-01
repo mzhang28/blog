@@ -6,6 +6,7 @@ tags:
   - type-theory
   - agda
   - hott
+  - old
 math: true
 draft: true
 ---

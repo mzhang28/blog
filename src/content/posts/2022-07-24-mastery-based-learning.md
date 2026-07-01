@@ -1,7 +1,9 @@
 ---
 title: "Mastery-Based Learning"
 date: 2022-07-24
-tags: ["education"]
+tags:
+  - education
+  - old
 ---
 
 A thought I've been brewing probably since undergrad is the idea of

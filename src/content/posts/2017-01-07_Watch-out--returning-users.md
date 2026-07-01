@@ -1,7 +1,9 @@
 ---
 title: Watch out, returning users!
 date: 2017-01-07T02:58:17.000Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

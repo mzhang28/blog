@@ -1,7 +1,10 @@
 ---
 title: "Developing on projects without flake.nix on NixOS"
 date: 2023-04-20
-tags: ["linux", "nixos"]
+tags:
+  - linux
+  - nixos
+  - old
 ---
 
 Ever since I became a NixOS hobbyist a few years ago, it's easy to plug NixOS

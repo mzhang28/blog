@@ -1,7 +1,9 @@
 ---
 title: VolgaCTF 2017 Writeups
 date: 2017-03-26T21:52:31.553Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

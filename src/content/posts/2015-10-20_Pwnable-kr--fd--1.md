@@ -1,7 +1,9 @@
 ---
 title: "Pwnable.kr: fd (1)"
 date: 2015-10-20T18:20:38.431Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

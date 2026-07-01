@@ -1,7 +1,9 @@
 ---
 title: Wi-Fi Problems when Installing Linux on ASUS machines
 date: 2017-01-03T22:58:06.000Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">

@@ -1,7 +1,10 @@
 ---
 title: "Magic forms with proc macros: Ideas"
 date: 2019-02-01
-tags: ["computers", "web"]
+tags:
+  - computers
+  - web
+  - old
 languages: ["rust"]
 ---
 

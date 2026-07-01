@@ -1,7 +1,9 @@
 ---
 title: "OverTheWire: Narnia"
 date: 2017-05-24T03:10:36.500Z
-tags: [medium-blog]
+tags:
+  - medium-blog
+  - old
 ---
 
 <article class="h-entry">
