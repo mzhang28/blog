@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import { OpenPanelComponent } from '@openpanel/astro';
 
 import "@fontsource/geist-sans/100.css";
 import "@fontsource/geist-sans/200.css";
@@ -66,21 +67,13 @@ const { title, description, image = "/astro-micro.jpg" } = Astro.props;
 
 <ClientRouter />
 
-<script is:inline>
-  window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}} ,has:function(t,r){return"q"===r}}) }();
-  window.op('init', {
-	// apiUrl: 'https://opapi-k2l1t474l62jj83qu2a8ck9e.apps.mzhang.io',
-	apiUrl: 'https://panorama.apps.mzhang.io/plugin/io.mzhang.panorama.analytics',
-    clientId: 'df9e64c1-1ce9-4a6e-ab3f-04964780c7b3',
-    trackScreenViews: true,
-    trackOutgoingLinks: true,
-    trackAttributes: true,
-    // sessionReplay: {
-    //   enabled: true,
-    // },
-  });
-</script>
-<script src="https://openpanel.dev/op1.js" defer async></script>
+<OpenPanelComponent
+	apiUrl='https://panorama.apps.mzhang.io/plugin/io.mzhang.panorama.analytics'
+    clientId='df9e64c1-1ce9-4a6e-ab3f-04964780c7b3'
+      trackScreenViews={true}
+      trackOutgoingLinks={true}
+      trackAttributes={true}
+    />
 
 <script is:inline>
   function init() {
